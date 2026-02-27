@@ -19,7 +19,7 @@ How to get started with Toolbox.
 
 Some core concepts in Toolbox
 - [Telemetry](https://googleapis.github.io/genai-toolbox/previews/PR-2577/concepts/telemetry/): An overview of telemetry and observability in Toolbox.
-- [Style Guide](https://googleapis.github.io/genai-toolbox/previews/PR-2577/concepts/style-guide/): Style guidelines and best practices for developers building MCP (Model Context Protocol) tools using MCP Toolbox.
+- [Style Guide](https://googleapis.github.io/genai-toolbox/previews/PR-2577/concepts/style-guide/): Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
 
 ### Featured Articles
 
