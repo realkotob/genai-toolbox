@@ -466,6 +466,20 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `search_aspect_types`: Finds aspect types relevant to the
         query.
 
+## Dataproc
+
+*   `--prebuilt` value: `dataproc`
+*   **Environment Variables:**
+    *   `DATAPROC_PROJECT`: The GCP project ID.
+    *   `DATAPROC_REGION`: The Dataproc region.
+*   **Permissions:**
+    *   **Dataproc Viewer** (`roles/dataproc.viewer`) to examine clusters and jobs.
+*   **Tools:**
+    *   `list_clusters`: Lists Dataproc clusters.
+    *   `get_cluster`: Gets a Dataproc cluster.
+    *   `list_jobs`: Lists Dataproc jobs.
+    *   `get_job`: Gets a Dataproc job.
+
 ## Elasticsearch
 
 *   `--prebuilt` value: `elasticsearch`
@@ -543,12 +557,18 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `create_project_file`: Create a new LookML file.
     *   `update_project_file`: Update an existing LookML file.
     *   `delete_project_file`: Delete a LookML file.
+    *   `get_project_directories`: Retrieves a list of project directories for a given LookML project.
+    *   `create_project_directory`: Creates a new directory within a specified LookML project.
+    *   `delete_project_directory`: Deletes a directory from a specified LookML project.
     *   `validate_project`: Check the syntax of a LookML project.
     *   `get_connections`: Get the available connections in a Looker instance.
     *   `get_connection_schemas`: Get the available schemas in a connection.
     *   `get_connection_databases`: Get the available databases in a connection.
     *   `get_connection_tables`: Get the available tables in a connection.
     *   `get_connection_table_columns`: Get the available columns for a table.
+    *   `get_lookml_tests`: Retrieves a list of available LookML tests for a project.
+    *   `run_lookml_tests`: Executes specific LookML tests within a project.
+    *   `create_view_from_table`: Generates boilerplate LookML views directly from the database schema.
 
 ## Looker Conversational Analytics
 
