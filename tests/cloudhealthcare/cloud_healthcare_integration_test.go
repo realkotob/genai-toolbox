@@ -147,11 +147,11 @@ func TestHealthcareToolEndpoints(t *testing.T) {
 	runFHIRFetchPageToolInvokeTest(t, nextURL, `"total":1`)
 
 	runGetDICOMStoreToolInvokeTest(t, dicomStoreID, dicomStoreWant)
-	runGetDICOMStoreMetricsToolInvokeTest(t, healthcarePrepopulatedDICOMStore, `"structuredStorageSizeBytes"`)
-	runSearchDICOMStudiesToolInvokeTest(t, healthcarePrepopulatedDICOMStore)
-	runSearchDICOMSeriesToolInvokeTest(t, healthcarePrepopulatedDICOMStore)
-	runSearchDICOMInstancesToolInvokeTest(t, healthcarePrepopulatedDICOMStore)
-	runRetrieveRenderedDICOMInstanceToolInvokeTest(t, healthcarePrepopulatedDICOMStore)
+	runGetDICOMStoreMetricsToolInvokeTest(t, dicomStoreID, `"structuredStorageSizeBytes"`)
+	runSearchDICOMStudiesToolInvokeTest(t, dicomStoreID)
+	runSearchDICOMSeriesToolInvokeTest(t, dicomStoreID)
+	runSearchDICOMInstancesToolInvokeTest(t, dicomStoreID)
+	runRetrieveRenderedDICOMInstanceToolInvokeTest(t, dicomStoreID)
 }
 
 func TestHealthcareToolWithStoreRestriction(t *testing.T) {
@@ -913,6 +913,7 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, dicomStoreID string) {
 				return
 			}
 			// Removed response check because the response is limited to 100 items per page and does not necessary contain the resource name.
+			// TODO: Implement page number customization for list tools and make sure resources are cleaned up properly.
 			if status != http.StatusOK {
 				t.Errorf("expected status OK but got %d", status)
 			}
