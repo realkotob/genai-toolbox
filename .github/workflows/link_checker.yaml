@@ -75,10 +75,9 @@ jobs:
             --cache
             --max-cache-age 1d
             --exclude '^neo4j\+.*' --exclude '^bolt://.*'
-            ${{ steps.changed-files.outputs.CHECK_FILES }}
           output: lychee-report.md
           format: markdown
-          fail: true            
+          fail: true           
           jobSummary: false    
           debug: false
         env:
@@ -104,7 +103,7 @@ jobs:
           STEPS_FIND_COMMENT_OUTPUTS_COMMENT_ID: ${{ steps.find-comment.outputs.comment-id }}
 
       - name: Prepare Report 
-        if: steps.changed-files.outputs.HAS_CHANGES == 'true' && steps.lychee-check.outcome == 'failure'
+        # if: steps.changed-files.outputs.HAS_CHANGES == 'true' && steps.lychee-check.outcome == 'failure'
         run: |
           echo "## Link Resolution Note" > full-report.md
           echo "Local links and directory changes work differently on GitHub than on the docsite. You must ensure fixes pass the **GitHub check** and also work with **\`hugo server\`**." >> full-report.md
