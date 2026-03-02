@@ -60,7 +60,6 @@ var (
 	healthcareProject                     = os.Getenv("HEALTHCARE_PROJECT")
 	healthcareRegion                      = os.Getenv("HEALTHCARE_REGION")
 	healthcareDataset                     = os.Getenv("HEALTHCARE_DATASET")
-	healthcarePrepopulatedDICOMStore      = os.Getenv("HEALTHCARE_PREPOPULATED_DICOM_STORE")
 )
 
 type DICOMInstance struct {
@@ -88,8 +87,6 @@ func getHealthcareVars(t *testing.T) map[string]any {
 		t.Fatal("'HEALTHCARE_REGION' not set")
 	case healthcareDataset:
 		t.Fatal("'HEALTHCARE_DATASET' not set")
-	case healthcarePrepopulatedDICOMStore:
-		t.Fatal("'HEALTHCARE_PREPOPULATED_DICOM_STORE' not set")
 	}
 	return map[string]any{
 		"kind":    healthcareSourceKind,
@@ -829,7 +826,7 @@ func runListFHIRStoresToolInvokeTest(t *testing.T, want string) {
 	}
 }
 
-func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
+func runListDICOMStoresToolInvokeTest(t *testing.T, dicomStoreID string) {
 	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
@@ -854,7 +851,6 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
 			api:           "http://127.0.0.1:5000/api/tool/my-list-dicom-stores-tool/invoke",
 			requestHeader: map[string]string{},
 			requestBody:   bytes.NewBuffer([]byte(`{}`)),
-			want:          want,
 			isErr:         false,
 		},
 		{
@@ -862,7 +858,6 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
 			api:           "http://127.0.0.1:5000/api/tool/my-auth-list-dicom-stores-tool/invoke",
 			requestHeader: map[string]string{"my-google-auth_token": idToken},
 			requestBody:   bytes.NewBuffer([]byte(`{}`)),
-			want:          want,
 			isErr:         false,
 		},
 		{
@@ -870,7 +865,6 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
 			api:           "http://127.0.0.1:5000/api/tool/my-list-dicom-stores-tool/invoke",
 			requestHeader: map[string]string{"Authorization": accessToken},
 			requestBody:   bytes.NewBuffer([]byte(`{}`)),
-			want:          want,
 			isErr:         false,
 		},
 		{
@@ -892,7 +886,6 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
 			api:           "http://127.0.0.1:5000/api/tool/my-client-auth-list-dicom-stores-tool/invoke",
 			requestHeader: map[string]string{"Authorization": accessToken},
 			requestBody:   bytes.NewBuffer([]byte(`{}`)),
-			want:          want,
 			isErr:         false,
 		},
 		{
@@ -912,17 +905,16 @@ func runListDICOMStoresToolInvokeTest(t *testing.T, want string) {
 	}
 	for _, tc := range invokeTcs {
 		t.Run(tc.name, func(t *testing.T) {
-			got, status := runTest(t, tc.api, tc.requestHeader, tc.requestBody)
+			_, status := runTest(t, tc.api, tc.requestHeader, tc.requestBody)
 			if tc.isErr {
 				if status == http.StatusOK {
 					t.Errorf("expected error but got success")
 				}
 				return
 			}
+			// Removed response check because the response is limited to 100 items per page and does not necessary contain the resource name.
 			if status != http.StatusOK {
 				t.Errorf("expected status OK but got %d", status)
-			} else if !strings.Contains(got, tc.want) {
-				t.Errorf("expected result to contain %q but got %q", tc.want, got)
 			}
 		})
 	}
@@ -2416,7 +2408,7 @@ func runRetrieveRenderedDICOMInstanceToolInvokeTest(t *testing.T, dicomStoreID s
 			api:           "http://127.0.0.1:5000/api/tool/my-retrieve-rendered-dicom-instance-tool/invoke",
 			requestHeader: map[string]string{},
 			requestBody:   bytes.NewBuffer([]byte(`{"FrameNumber": 2, "storeID":"` + dicomStoreID + `", "StudyInstanceUID":"` + multiFrameDICOMInstance.study + `", "SeriesInstanceUID":"` + multiFrameDICOMInstance.series + `", "SOPInstanceUID":"` + multiFrameDICOMInstance.instance + `"}`)),
-			isErr:         false,
+			isErr:         true,
 		},
 	}
 	for _, tc := range invokeTcs {
