@@ -1701,9 +1701,21 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "cloudsqlpg prebuilt tools",
 			in:   cloudsqlpg_config,
 			wantToolset: server.ToolsetConfigs{
-				"cloud_sql_postgres_database_tools": tools.ToolsetConfig{
-					Name:      "cloud_sql_postgres_database_tools",
-					ToolNames: []string{"execute_sql", "list_tables", "list_active_queries", "list_available_extensions", "list_installed_extensions", "list_autovacuum_configurations", "list_memory_configurations", "list_top_bloated_tables", "list_replication_slots", "list_invalid_indexes", "get_query_plan", "list_views", "list_schemas", "database_overview", "list_triggers", "list_indexes", "list_sequences", "long_running_transactions", "list_locks", "replication_stats", "list_query_stats", "get_column_cardinality", "list_publication_tables", "list_tablespaces", "list_pg_settings", "list_database_stats", "list_roles", "list_table_stats", "list_stored_procedure"},
+				"admin": tools.ToolsetConfig{
+					Name:      "admin",
+					ToolNames: []string{"create_instance", "get_instance", "list_instances", "create_database", "list_databases", "create_user", "wait_for_operation"},
+				},
+				"data": tools.ToolsetConfig{
+					Name:      "data",
+					ToolNames: []string{"execute_sql", "list_tables", "list_views", "list_schemas", "get_query_plan", "list_stored_procedure", "list_sequences", "list_indexes"},
+				},
+				"monitor": tools.ToolsetConfig{
+					Name:      "monitor",
+					ToolNames: []string{"database_overview", "list_active_queries", "long_running_transactions", "list_locks", "get_system_metrics", "get_query_metrics", "list_database_stats"},
+				},
+				"lifecycle": tools.ToolsetConfig{
+					Name:      "lifecycle",
+					ToolNames: []string{"create_backup", "restore_backup", "postgres_upgrade_precheck", "clone_instance", "wait_for_operation"},
 				},
 			},
 		},
@@ -1711,9 +1723,21 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "cloudsqlmysql prebuilt tools",
 			in:   cloudsqlmysql_config,
 			wantToolset: server.ToolsetConfigs{
-				"cloud_sql_mysql_database_tools": tools.ToolsetConfig{
-					Name:      "cloud_sql_mysql_database_tools",
+				"admin": tools.ToolsetConfig{
+					Name:      "admin",
+					ToolNames: []string{"create_instance", "get_instance", "list_instances", "create_database", "list_databases", "create_user", "wait_for_operation"},
+				},
+				"data": tools.ToolsetConfig{
+					Name:      "data",
 					ToolNames: []string{"execute_sql", "list_tables", "get_query_plan", "list_active_queries", "list_tables_missing_unique_indexes", "list_table_fragmentation"},
+				},
+				"ops": tools.ToolsetConfig{
+					Name:      "ops",
+					ToolNames: []string{"get_system_metrics", "get_query_metrics"},
+				},
+				"lifecycle": tools.ToolsetConfig{
+					Name:      "lifecycle",
+					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "wait_for_operation"},
 				},
 			},
 		},
@@ -1721,9 +1745,21 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "cloudsqlmssql prebuilt tools",
 			in:   cloudsqlmssql_config,
 			wantToolset: server.ToolsetConfigs{
-				"cloud_sql_mssql_database_tools": tools.ToolsetConfig{
-					Name:      "cloud_sql_mssql_database_tools",
+				"lifecycle": tools.ToolsetConfig{
+					Name:      "lifecycle",
+					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "wait_for_operation"},
+				},
+				"admin": tools.ToolsetConfig{
+					Name:      "admin",
+					ToolNames: []string{"create_instance", "get_instance", "list_instances", "create_database", "list_databases", "create_user", "wait_for_operation"},
+				},
+				"data": tools.ToolsetConfig{
+					Name:      "data",
 					ToolNames: []string{"execute_sql", "list_tables"},
+				},
+				"ops": tools.ToolsetConfig{
+					Name:      "ops",
+					ToolNames: []string{"get_system_metrics"},
 				},
 			},
 		},
@@ -1960,6 +1996,16 @@ func TestPrebuiltTools(t *testing.T) {
 			if len(toolsFile.Prompts) != 0 {
 				t.Fatalf("expected empty prompts map for prebuilt config, got: %v", toolsFile.Prompts)
 			}
+
+
+			t.Run("check toolset sizes", func(t *testing.T) {
+				for tsName, ts := range toolsFile.Toolsets {
+					if len(ts.ToolNames) > 10 {
+						t.Logf("WARNING: Toolset %q in config %q has %d tools, which is larger than the recommended maximum of 10.", tsName, tc.name, len(ts.ToolNames))
+						fmt.Printf("WARNING: Toolset %q in config %q has %d tools, which is larger than the recommended maximum of 10.\n", tsName, tc.name, len(ts.ToolNames))
+					}
+				}
+			})
 		})
 	}
 }
