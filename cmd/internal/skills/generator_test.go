@@ -15,61 +15,31 @@
 package skills
 
 import (
-	"context"
 	"strings"
 	"testing"
 
 	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/sources"
 	"github.com/googleapis/genai-toolbox/internal/tools"
 	"github.com/googleapis/genai-toolbox/internal/util/parameters"
-	"go.opentelemetry.io/otel/trace"
 )
 
-type MockToolConfig struct {
-	Name       string                `yaml:"name"`
-	Type       string                `yaml:"type"`
-	Source     string                `yaml:"source"`
-	Other      string                `yaml:"other"`
-	Parameters parameters.Parameters `yaml:"parameters"`
-}
-
-func (m MockToolConfig) ToolConfigType() string {
-	return m.Type
-}
-
-func (m MockToolConfig) Initialize(map[string]sources.Source) (tools.Tool, error) {
-	return nil, nil
-}
-
-type MockSourceConfig struct {
-	Name             string `yaml:"name"`
-	Type             string `yaml:"type"`
-	ConnectionString string `yaml:"connection_string"`
-}
-
-func (m MockSourceConfig) SourceConfigType() string {
-	return m.Type
-}
-
-func (m MockSourceConfig) Initialize(context.Context, trace.Tracer) (sources.Source, error) {
-	return nil, nil
-}
-
-func TestFormatParameters(t *testing.T) {
+func TestGenerateReferenceMarkdown(t *testing.T) {
 	tests := []struct {
 		name         string
+		toolName     string
 		params       []parameters.ParameterManifest
 		wantContains []string
 		wantErr      bool
 	}{
 		{
 			name:         "empty parameters",
+			toolName:     "tool1",
 			params:       []parameters.ParameterManifest{},
-			wantContains: []string{""},
+			wantContains: []string{"# tool1", "This tool has no parameters."},
 		},
 		{
-			name: "single required string parameter",
+			name:     "single required string parameter",
+			toolName: "tool1",
 			params: []parameters.ParameterManifest{
 				{
 					Name:        "param1",
@@ -79,6 +49,7 @@ func TestFormatParameters(t *testing.T) {
 				},
 			},
 			wantContains: []string{
+				"# tool1",
 				"## Parameters",
 				"```json",
 				`"type": "object"`,
@@ -91,7 +62,8 @@ func TestFormatParameters(t *testing.T) {
 			},
 		},
 		{
-			name: "mixed parameters with defaults",
+			name:     "mixed parameters with defaults",
+			toolName: "tool1",
 			params: []parameters.ParameterManifest{
 				{
 					Name:        "param1",
@@ -119,25 +91,18 @@ func TestFormatParameters(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := formatParameters(tt.params)
+			got, err := generateReferenceMarkdown(tt.toolName, tt.params)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("formatParameters() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("generateReferenceMarkdown() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if tt.wantErr {
 				return
 			}
 
-			if len(tt.params) == 0 {
-				if got != "" {
-					t.Errorf("formatParameters() = %v, want empty string", got)
-				}
-				return
-			}
-
 			for _, want := range tt.wantContains {
 				if !strings.Contains(got, want) {
-					t.Errorf("formatParameters() result missing expected string: %s\nGot:\n%s", want, got)
+					t.Errorf("generateReferenceMarkdown() result missing expected string: %s\nGot:\n%s", want, got)
 				}
 			}
 		})
@@ -152,6 +117,10 @@ func TestGenerateSkillMarkdown(t *testing.T) {
 				parameters.NewStringParameter("p1", "d1"),
 			},
 		},
+		"tool2": server.MockTool{
+			Description: "Second tool",
+			Params:      []parameters.Parameter{},
+		},
 	}
 
 	got, err := generateSkillMarkdown("MySkill", "My Description", toolsMap)
@@ -165,54 +134,50 @@ func TestGenerateSkillMarkdown(t *testing.T) {
 		"## Usage",
 		"All scripts can be executed using Node.js",
 		"**Bash:**",
-		"`node scripts/<script_name>.js '{\"<param_name>\": \"<param_value>\"}'`",
+		"`node <skill_dir>/scripts/<script_name>.js '{\"<param_name>\": \"<param_value>\"}'`",
 		"**PowerShell:**",
-		"`node scripts/<script_name>.js '{\"<param_name>\": \"<param_value>\"}'`",
+		"`node <skill_dir>/scripts/<script_name>.js '{\"<param_name>\": \"<param_value>\"}'`",
 		"## Scripts",
 		"### tool1",
 		"First tool",
-		"## Parameters",
+		"[Parameter Reference](<skill_dir>/references/tool1.md)",
+		"### tool2",
+		"Second tool",
+		"This tool has no parameters.",
 	}
 
 	for _, s := range expectedSubstrings {
 		if !strings.Contains(got, s) {
-			t.Errorf("generateSkillMarkdown() missing substring %q", s)
+			t.Errorf("generateSkillMarkdown() missing substring %q\nGot:\n%s", s, got)
 		}
 	}
 }
 
 func TestGenerateScriptContent(t *testing.T) {
 	tests := []struct {
-		name          string
-		toolName      string
-		toolsFileName string
-		wantContains  []string
+		name         string
+		toolName     string
+		configArgs   string
+		wantContains []string
 	}{
 		{
-			name:          "basic script",
-			toolName:      "test-tool",
-			toolsFileName: "",
+			name:       "basic script",
+			toolName:   "test-tool",
+			configArgs: `"--prebuilt", "test"`,
 			wantContains: []string{
+				"#!/usr/bin/env node",
+				"// Copyright 2026 Google LLC",
+				"// Licensed under the Apache License, Version 2.0 (the \"License\");",
 				`const toolName = "test-tool";`,
-				`const toolsFileName = "";`,
+				`const configArgs = ["--prebuilt", "test"];`,
 				`const toolboxArgs = [...configArgs, "invoke", toolName, ...args];`,
-			},
-		},
-		{
-			name:          "script with tools file",
-			toolName:      "complex-tool",
-			toolsFileName: "tools.yaml",
-			wantContains: []string{
-				`const toolName = "complex-tool";`,
-				`const toolsFileName = "tools.yaml";`,
-				`configArgs.push("--tools-file", path.join(__dirname, "..", "assets", toolsFileName));`,
 			},
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := generateScriptContent(tt.toolName, tt.toolsFileName)
+			got, err := generateScriptContent(tt.toolName, tt.configArgs)
 			if err != nil {
 				t.Fatalf("generateScriptContent() error = %v", err)
 			}
@@ -220,126 +185,6 @@ func TestGenerateScriptContent(t *testing.T) {
 			for _, s := range tt.wantContains {
 				if !strings.Contains(got, s) {
 					t.Errorf("generateScriptContent() missing substring %q\nGot:\n%s", s, got)
-				}
-			}
-		})
-	}
-}
-
-func TestGenerateToolConfigYAML(t *testing.T) {
-	cfg := server.ServerConfig{
-		ToolConfigs: server.ToolConfigs{
-			"tool1": MockToolConfig{
-				Name:   "tool1",
-				Type:   "custom-tool",
-				Source: "src1",
-				Other:  "foo",
-			},
-			"toolNoSource": MockToolConfig{
-				Name: "toolNoSource",
-				Type: "http",
-			},
-			"toolWithParams": MockToolConfig{
-				Name: "toolWithParams",
-				Type: "custom-tool",
-				Parameters: []parameters.Parameter{
-					parameters.NewStringParameter("param1", "desc1"),
-				},
-			},
-			"toolWithMissingSource": MockToolConfig{
-				Name:   "toolWithMissingSource",
-				Type:   "custom-tool",
-				Source: "missing-src",
-			},
-		},
-		SourceConfigs: server.SourceConfigs{
-			"src1": MockSourceConfig{
-				Name:             "src1",
-				Type:             "postgres",
-				ConnectionString: "conn1",
-			},
-		},
-	}
-
-	tests := []struct {
-		name         string
-		toolName     string
-		wantContains []string
-		wantErr      bool
-		wantNil      bool
-	}{
-		{
-			name:     "tool with source",
-			toolName: "tool1",
-			wantContains: []string{
-				"kind: tools",
-				"name: tool1",
-				"type: custom-tool",
-				"source: src1",
-				"other: foo",
-				"---",
-				"kind: sources",
-				"name: src1",
-				"type: postgres",
-				"connection_string: conn1",
-			},
-		},
-		{
-			name:     "tool without source",
-			toolName: "toolNoSource",
-			wantContains: []string{
-				"kind: tools",
-				"name: toolNoSource",
-				"type: http",
-			},
-		},
-		{
-			name:     "tool with parameters",
-			toolName: "toolWithParams",
-			wantContains: []string{
-				"kind: tools",
-				"name: toolWithParams",
-				"type: custom-tool",
-				"parameters:",
-				"- name: param1",
-				"type: string",
-				"description: desc1",
-			},
-		},
-		{
-			name:     "non-existent tool",
-			toolName: "missing-tool",
-			wantErr:  true,
-		},
-		{
-			name:     "tool with missing source config",
-			toolName: "toolWithMissingSource",
-			wantErr:  true,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotBytes, err := generateToolConfigYAML(cfg, tt.toolName)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("generateToolConfigYAML() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if tt.wantErr {
-				return
-			}
-
-			if tt.wantNil {
-				if gotBytes != nil {
-					t.Errorf("generateToolConfigYAML() expected nil, got %s", string(gotBytes))
-				}
-				return
-			}
-
-			got := string(gotBytes)
-			for _, want := range tt.wantContains {
-				if !strings.Contains(got, want) {
-					t.Errorf("generateToolConfigYAML() result missing expected string: %q\nGot:\n%s", want, got)
 				}
 			}
 		})

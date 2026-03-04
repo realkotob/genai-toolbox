@@ -21,6 +21,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 
 	"github.com/googleapis/genai-toolbox/cmd/internal"
 	"github.com/googleapis/genai-toolbox/internal/server"
@@ -72,7 +73,7 @@ func run(cmd *skillsCmd, opts *internal.ToolboxOptions) error {
 		_ = shutdown(ctx)
 	}()
 
-	_, err = opts.LoadConfig(ctx)
+	_, err = opts.LoadConfig(ctx, internal.ToolsFileParser{SkipEnvParsing: true})
 	if err != nil {
 		return err
 	}
@@ -122,6 +123,48 @@ func run(cmd *skillsCmd, opts *internal.ToolboxOptions) error {
 		return errMsg
 	}
 
+	// Generate references directory
+	referencesPath := filepath.Join(skillPath, "references")
+	if err := os.MkdirAll(referencesPath, 0755); err != nil {
+		errMsg := fmt.Errorf("error creating references dir: %w", err)
+		opts.Logger.ErrorContext(ctx, errMsg.Error())
+		return errMsg
+	}
+
+	var jsConfigArgs []string
+	if len(opts.PrebuiltConfigs) > 0 {
+		for _, pc := range opts.PrebuiltConfigs {
+			jsConfigArgs = append(jsConfigArgs, `"--prebuilt"`, fmt.Sprintf(`"%s"`, pc))
+		}
+	}
+
+	if opts.ToolsFolder != "" {
+		folderName := filepath.Base(opts.ToolsFolder)
+		destFolder := filepath.Join(assetsPath, folderName)
+		if err := copyDir(opts.ToolsFolder, destFolder); err != nil {
+			return err
+		}
+		jsConfigArgs = append(jsConfigArgs, `"--tools-folder"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", "%s")`, folderName))
+	} else if len(opts.ToolsFiles) > 0 {
+		for _, f := range opts.ToolsFiles {
+			baseName := filepath.Base(f)
+			destPath := filepath.Join(assetsPath, baseName)
+			if err := copyFile(f, destPath); err != nil {
+				return err
+			}
+			jsConfigArgs = append(jsConfigArgs, `"--tools-files"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", "%s")`, baseName))
+		}
+	} else if opts.ToolsFile != "" {
+		baseName := filepath.Base(opts.ToolsFile)
+		destPath := filepath.Join(assetsPath, baseName)
+		if err := copyFile(opts.ToolsFile, destPath); err != nil {
+			return err
+		}
+		jsConfigArgs = append(jsConfigArgs, `"--tools-file"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", "%s")`, baseName))
+	}
+
+	configArgsStr := strings.Join(jsConfigArgs, ", ")
+
 	// Iterate over keys to ensure deterministic order
 	var toolNames []string
 	for name := range allTools {
@@ -130,26 +173,8 @@ func run(cmd *skillsCmd, opts *internal.ToolboxOptions) error {
 	sort.Strings(toolNames)
 
 	for _, toolName := range toolNames {
-		// Generate YAML config in asset directory
-		minimizedContent, err := generateToolConfigYAML(opts.Cfg, toolName)
-		if err != nil {
-			errMsg := fmt.Errorf("error generating filtered config for %s: %w", toolName, err)
-			opts.Logger.ErrorContext(ctx, errMsg.Error())
-			return errMsg
-		}
-
-		specificToolsFileName := fmt.Sprintf("%s.yaml", toolName)
-		if minimizedContent != nil {
-			destPath := filepath.Join(assetsPath, specificToolsFileName)
-			if err := os.WriteFile(destPath, minimizedContent, 0644); err != nil {
-				errMsg := fmt.Errorf("error writing filtered config for %s: %w", toolName, err)
-				opts.Logger.ErrorContext(ctx, errMsg.Error())
-				return errMsg
-			}
-		}
-
 		// Generate wrapper script in scripts directory
-		scriptContent, err := generateScriptContent(toolName, specificToolsFileName)
+		scriptContent, err := generateScriptContent(toolName, configArgsStr)
 		if err != nil {
 			errMsg := fmt.Errorf("error generating script content for %s: %w", toolName, err)
 			opts.Logger.ErrorContext(ctx, errMsg.Error())
@@ -161,6 +186,24 @@ func run(cmd *skillsCmd, opts *internal.ToolboxOptions) error {
 			errMsg := fmt.Errorf("error writing script %s: %w", scriptFilename, err)
 			opts.Logger.ErrorContext(ctx, errMsg.Error())
 			return errMsg
+		}
+
+		// Generate reference documentation
+		tool := allTools[toolName]
+		if len(tool.Manifest().Parameters) > 0 {
+			refContent, err := generateReferenceMarkdown(toolName, tool.Manifest().Parameters)
+			if err != nil {
+				errMsg := fmt.Errorf("error generating reference for %s: %w", toolName, err)
+				opts.Logger.ErrorContext(ctx, errMsg.Error())
+				return errMsg
+			}
+
+			refFilename := filepath.Join(referencesPath, fmt.Sprintf("%s.md", toolName))
+			if err := os.WriteFile(refFilename, []byte(refContent), 0644); err != nil {
+				errMsg := fmt.Errorf("error writing reference %s: %w", refFilename, err)
+				opts.Logger.ErrorContext(ctx, errMsg.Error())
+				return errMsg
+			}
 		}
 	}
 
@@ -211,4 +254,29 @@ func (c *skillsCmd) collectTools(ctx context.Context, opts *internal.ToolboxOpti
 	}
 
 	return result, nil
+}
+
+func copyFile(src, dst string) error {
+	data, err := os.ReadFile(src)
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(dst, data, 0644)
+}
+
+func copyDir(src, dst string) error {
+	return filepath.Walk(src, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		relPath, err := filepath.Rel(src, path)
+		if err != nil {
+			return err
+		}
+		destPath := filepath.Join(dst, relPath)
+		if info.IsDir() {
+			return os.MkdirAll(destPath, 0755)
+		}
+		return copyFile(path, destPath)
+	})
 }

@@ -754,7 +754,8 @@ func TestParseToolFile(t *testing.T) {
 	}
 	for _, tc := range tcs {
 		t.Run(tc.description, func(t *testing.T) {
-			toolsFile, err := parseToolsFile(ctx, testutils.FormatYaml(tc.in))
+			parser := ToolsFileParser{}
+			toolsFile, err := parser.ParseToolsFile(ctx, testutils.FormatYaml(tc.in))
 			if err != nil {
 				t.Fatalf("failed to parse input: %v", err)
 			}
@@ -1100,7 +1101,8 @@ func TestParseToolFileWithAuth(t *testing.T) {
 	}
 	for _, tc := range tcs {
 		t.Run(tc.description, func(t *testing.T) {
-			toolsFile, err := parseToolsFile(ctx, testutils.FormatYaml(tc.in))
+			parser := ToolsFileParser{}
+			toolsFile, err := parser.ParseToolsFile(ctx, testutils.FormatYaml(tc.in))
 			if err != nil {
 				t.Fatalf("failed to parse input: %v", err)
 			}
@@ -1437,7 +1439,8 @@ func TestEnvVarReplacement(t *testing.T) {
 	}
 	for _, tc := range tcs {
 		t.Run(tc.description, func(t *testing.T) {
-			toolsFile, err := parseToolsFile(ctx, testutils.FormatYaml(tc.in))
+			parser := ToolsFileParser{}
+			toolsFile, err := parser.ParseToolsFile(ctx, testutils.FormatYaml(tc.in))
 			if err != nil {
 				t.Fatalf("failed to parse input: %v", err)
 			}
@@ -1949,7 +1952,8 @@ func TestPrebuiltTools(t *testing.T) {
 
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
-			toolsFile, err := parseToolsFile(ctx, tc.in)
+			parser := ToolsFileParser{}
+			toolsFile, err := parser.ParseToolsFile(ctx, tc.in)
 			if err != nil {
 				t.Fatalf("failed to parse input: %v", err)
 			}
@@ -2146,8 +2150,8 @@ tools:
 		t.Run(tc.desc, func(t *testing.T) {
 			// Indent parameters to match YAML structure
 			yamlContent := fmt.Sprintf(baseYaml, tc.params)
-
-			_, err := parseToolsFile(ctx, []byte(yamlContent))
+			parser := ToolsFileParser{}
+			_, err := parser.ParseToolsFile(ctx, []byte(yamlContent))
 
 			if tc.wantErr {
 				if err == nil {
