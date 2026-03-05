@@ -1715,7 +1715,7 @@ func TestPrebuiltTools(t *testing.T) {
 				},
 				"lifecycle": tools.ToolsetConfig{
 					Name:      "lifecycle",
-					ToolNames: []string{"create_backup", "restore_backup", "postgres_upgrade_precheck", "clone_instance", "wait_for_operation"},
+					ToolNames: []string{"create_backup", "restore_backup", "postgres_upgrade_precheck", "list_instance", "clone_instance", "wait_for_operation"},
 				},
 			},
 		},
@@ -1996,7 +1996,6 @@ func TestPrebuiltTools(t *testing.T) {
 			if len(toolsFile.Prompts) != 0 {
 				t.Fatalf("expected empty prompts map for prebuilt config, got: %v", toolsFile.Prompts)
 			}
-
 
 			t.Run("check toolset sizes", func(t *testing.T) {
 				for tsName, ts := range toolsFile.Toolsets {

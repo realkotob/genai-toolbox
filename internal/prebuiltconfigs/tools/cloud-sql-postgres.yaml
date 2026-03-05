@@ -314,5 +314,6 @@ toolsets:
         - create_backup
         - restore_backup
         - postgres_upgrade_precheck
+        - list_instances
         - clone_instance
         - wait_for_operation
