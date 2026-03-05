@@ -551,7 +551,10 @@ See [Usage Examples](../../../reference/cli.md#usage-examples).
 ## Looker Dev
 
 *   `--prebuilt` value: `looker-dev`
+<<<<<<< HEAD
 *   May be used in combination with Looker, `--prebuilt looker,looker-dev`
+=======
+>>>>>>> a9c315c6c94 (rebase)
 *   **Environment Variables:**
     *   `LOOKER_BASE_URL`: The URL of your Looker instance.
     *   `LOOKER_CLIENT_ID`: The client ID for the Looker API.
@@ -584,6 +587,9 @@ See [Usage Examples](../../../reference/cli.md#usage-examples).
     *   `get_connection_databases`: Get the available databases in a connection.
     *   `get_connection_tables`: Get the available tables in a connection.
     *   `get_connection_table_columns`: Get the available columns for a table.
+    *   `get_lookml_tests`: Retrieves a list of available LookML tests for a project.
+    *   `run_lookml_tests`: Executes specific LookML tests within a project.
+    *   `create_view_from_table`: Generates boilerplate LookML views directly from the database schema.
 
 ## Looker Conversational Analytics
 
