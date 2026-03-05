@@ -77,7 +77,7 @@ redeploying your application.
 
 ## Getting Started
 
-### Quickstart: Running Toolbox using npx
+### Quickstart: Running Toolbox using NPX
 
 You can run Toolbox directly with a [configuration file](../configuration/_index.md):
 
