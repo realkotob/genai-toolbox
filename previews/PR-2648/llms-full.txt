@@ -9044,49 +9044,6 @@ useClientOAuth: true
 | useClientOAuth |  boolean |     false    | If true, the source will use client-side OAuth for authorization. Otherwise, it will use Application Default Credentials. Defaults to `false`. |
 
 
-# Cloud SQL List Instances
-List Cloud SQL instances in a project.
-
-
-The `cloud-sql-list-instances` tool lists all Cloud SQL instances in a specified
-Google Cloud project.
-
-{{< compatible-sources >}}
-
-## Configuration
-
-Here is an example of how to configure the `cloud-sql-list-instances` tool in
-your `tools.yaml` file:
-
-```yaml
-kind: sources
-name: my-cloud-sql-admin-source
-type: cloud-sql-admin
----
-kind: tools
-name: list_my_instances
-type: cloud-sql-list-instances
-source: my-cloud-sql-admin-source
-description: Use this tool to list all Cloud SQL instances in a project.
-```
-
-## Parameters
-
-The `cloud-sql-list-instances` tool has one required parameter:
-
-| **field** | **type** | **required** | **description**              |
-| --------- | :------: | :----------: | ---------------------------- |
-| project   |  string  |     true     | The Google Cloud project ID. |
-
-## Reference
-
-| **field**   | **type** | **required** | **description**                                                |
-|-------------|:--------:|:------------:|----------------------------------------------------------------|
-| type        |  string  |     true     | Must be "cloud-sql-list-instances".                            |
-| description |  string  |    false     | Description of the tool that is passed to the agent.           |
-| source      |  string  |     true     | The name of the `cloud-sql-admin` source to use for this tool. |
-
-
 # cloud-sql-list-databases
 List Cloud SQL databases in an instance.
 
@@ -9128,6 +9085,49 @@ The `cloud-sql-list-databases` tool has two required parameters:
 | type        |  string  |     true     | Must be "cloud-sql-list-databases".                            |
 | source      |  string  |     true     | The name of the `cloud-sql-admin` source to use for this tool. |
 | description |  string  |     false    | Description of the tool that is passed to the agent.           |
+
+
+# cloud-sql-list-instances
+List Cloud SQL instances in a project.
+
+
+The `cloud-sql-list-instances` tool lists all Cloud SQL instances in a specified
+Google Cloud project.
+
+{{< compatible-sources >}}
+
+## Configuration
+
+Here is an example of how to configure the `cloud-sql-list-instances` tool in
+your `tools.yaml` file:
+
+```yaml
+kind: sources
+name: my-cloud-sql-admin-source
+type: cloud-sql-admin
+---
+kind: tools
+name: list_my_instances
+type: cloud-sql-list-instances
+source: my-cloud-sql-admin-source
+description: Use this tool to list all Cloud SQL instances in a project.
+```
+
+## Parameters
+
+The `cloud-sql-list-instances` tool has one required parameter:
+
+| **field** | **type** | **required** | **description**              |
+| --------- | :------: | :----------: | ---------------------------- |
+| project   |  string  |     true     | The Google Cloud project ID. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                                |
+|-------------|:--------:|:------------:|----------------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-sql-list-instances".                            |
+| description |  string  |    false     | Description of the tool that is passed to the agent.           |
+| source      |  string  |     true     | The name of the `cloud-sql-admin` source to use for this tool. |
 
 
 # cloud-sql-mysql-create-instance
@@ -13990,7 +13990,7 @@ useClientOAuth: true
 | useClientOAuth | boolean  |    false     | If true, the source uses the token provided by the caller (forwarded to the API). Otherwise, it uses server-side Application Default Credentials (ADC). Defaults to `false`. |
 
 
-# Gemini Data Analytics QueryData
+# cloud-gemini-data-analytics-query
 A tool to convert natural language queries into SQL statements using the Gemini Data Analytics QueryData API.
 
 

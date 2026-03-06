@@ -1,49 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud SQL Admin on MCP Toolbox for Databases</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/</link><description>Recent content in Cloud SQL Admin on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud SQL List Instances</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistinstances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistinstances/</guid><description>&lt;p>The &lt;code>cloud-sql-list-instances&lt;/code> tool lists all Cloud SQL instances in a specified
-Google Cloud project.&lt;/p>
-
-
-
-
-&lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
- &lt;p>This tool can be used with the following database sources:&lt;/p>
-
- &lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- 
- 
- &lt;tr>
- &lt;td>&lt;strong>Cloud SQL Admin&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/">View Source Configuration&lt;/a>&lt;/td>
- &lt;/tr>
- 
-
- 
- 
- 
- &lt;/tbody>
- &lt;/table>
-&lt;/div>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>Here is an example of how to configure the &lt;code>cloud-sql-list-instances&lt;/code> tool in
-your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sources&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin-source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tools&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_my_instances&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-list-instances&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin-source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Use this tool to list all Cloud SQL instances in a project.&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parameters">Parameters&lt;/h2>
-&lt;p>The &lt;code>cloud-sql-list-instances&lt;/code> tool has one required parameter:&lt;/p></description></item><item><title>cloud-sql-list-databases</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistdatabases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistdatabases/</guid><description>&lt;p>The &lt;code>cloud-sql-list-databases&lt;/code> tool lists all Cloud SQL databases in a specified
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud SQL Admin on MCP Toolbox for Databases</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/</link><description>Recent content in Cloud SQL Admin on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/index.xml" rel="self" type="application/rss+xml"/><item><title>cloud-sql-list-databases</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistdatabases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistdatabases/</guid><description>&lt;p>The &lt;code>cloud-sql-list-databases&lt;/code> tool lists all Cloud SQL databases in a specified
 Google Cloud project and instance.&lt;/p>
 
 
@@ -88,7 +43,52 @@ Google Cloud project and instance.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin-source&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Use this tool to list all Cloud SQL databases in an instance.&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parameters">Parameters&lt;/h2>
-&lt;p>The &lt;code>cloud-sql-list-databases&lt;/code> tool has two required parameters:&lt;/p></description></item><item><title>cloud-sql-mysql-create-instance</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqlmysqlcreateinstance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqlmysqlcreateinstance/</guid><description>&lt;p>The &lt;code>cloud-sql-mysql-create-instance&lt;/code> tool creates a new Cloud SQL for MySQL
+&lt;p>The &lt;code>cloud-sql-list-databases&lt;/code> tool has two required parameters:&lt;/p></description></item><item><title>cloud-sql-list-instances</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistinstances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqllistinstances/</guid><description>&lt;p>The &lt;code>cloud-sql-list-instances&lt;/code> tool lists all Cloud SQL instances in a specified
+Google Cloud project.&lt;/p>
+
+
+
+
+&lt;div class="compatibility-section">
+ &lt;h2>Compatible Sources&lt;/h2>
+ &lt;p>This tool can be used with the following database sources:&lt;/p>
+
+ &lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Source Name&lt;/th>
+ &lt;th>Link&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ 
+ 
+ &lt;tr>
+ &lt;td>&lt;strong>Cloud SQL Admin&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;/tr>
+ 
+
+ 
+ 
+ 
+ &lt;/tbody>
+ &lt;/table>
+&lt;/div>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>Here is an example of how to configure the &lt;code>cloud-sql-list-instances&lt;/code> tool in
+your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tools&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_my_instances&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-list-instances&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Use this tool to list all Cloud SQL instances in a project.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;p>The &lt;code>cloud-sql-list-instances&lt;/code> tool has one required parameter:&lt;/p></description></item><item><title>cloud-sql-mysql-create-instance</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqlmysqlcreateinstance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2648/integrations/cloud-sql-admin/cloudsqlmysqlcreateinstance/</guid><description>&lt;p>The &lt;code>cloud-sql-mysql-create-instance&lt;/code> tool creates a new Cloud SQL for MySQL
 instance in a specified Google Cloud project.&lt;/p>
 
 
