@@ -11,27 +11,24 @@
 &lt;li>Multi-tenant application analysis&lt;/li>
 &lt;li>Schema-level access control planning&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>CockroachDB&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -113,27 +110,24 @@
 &lt;li>Generating context for AI-powered database queries&lt;/li>
 &lt;li>Documentation and analysis&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>CockroachDB&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -208,27 +202,24 @@
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The tool accepts optional runtime parameters:&lt;/p></description></item><item><title>cockroachdb-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/cockroachdb-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/cockroachdb-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cockroachdb-sql&lt;/code> tool allows you to execute parameterized SQL queries against a CockroachDB database. This tool supports prepared statements with parameter binding, template parameters for dynamic query construction, and automatic transaction retry for resilience against serialization conflicts.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>CockroachDB&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
  &lt;/tr>
  
 

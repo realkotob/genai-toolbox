@@ -5,27 +5,24 @@ cluster. You can use this to perform complex searches and aggregations.&lt;/p>
 &lt;p>See the &lt;a href="https://www.elastic.co/docs/reference/query-languages/esql/esql-getting-started">official
 documentation&lt;/a>
 for more information.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Elasticsearch&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/elasticsearch/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/elasticsearch/">Elasticsearch&lt;/a>&lt;/td>
  &lt;/tr>
  
 

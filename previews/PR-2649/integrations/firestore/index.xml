@@ -3,27 +3,24 @@
 Firestore collection. It supports all Firestore data types using Firestore&amp;rsquo;s
 native JSON format. The tool automatically generates a unique document ID for
 each new document.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -71,27 +68,24 @@ their paths.&lt;/p>
 &lt;p>&lt;code>firestore-delete-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is
 an array of document paths to delete. The tool uses Firestore&amp;rsquo;s BulkWriter for
 efficient batch deletion and returns the success status for each document.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -143,27 +137,24 @@ their paths.&lt;/p>
 &lt;p>&lt;code>firestore-get-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is an
 array of document paths, and returns the documents&amp;rsquo; data along with metadata
 such as existence status, creation time, update time, and read time.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -215,27 +206,24 @@ rules&lt;/a> for the
 current project.&lt;/p>
 &lt;p>&lt;code>firestore-get-rules&lt;/code> takes no input parameters and returns the security rules
 content along with metadata such as the ruleset name, and timestamps.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -290,27 +278,24 @@ of a specific document.&lt;/p>
 &lt;p>&lt;code>firestore-list-collections&lt;/code> takes an optional &lt;code>parentPath&lt;/code> parameter to specify
 a document path. If provided, it lists all subcollections of that document. If
 not provided, it lists all root-level collections in the database.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -366,27 +351,24 @@ you need to create reusable query templates with parameters that can be
 substituted at runtime.&lt;/p></description></item><item><title>firestore-query-collection</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/firestore-query-collection/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>firestore-query-collection&lt;/code> tool allows you to query Firestore collections
 with filters, ordering, and limit capabilities.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -467,37 +449,33 @@ format. The tool can perform both full document updates (replacing all fields)
 or selective field updates using an update mask. When using an update mask,
 fields referenced in the mask but not present in the document data will be
 deleted from the document, following Firestore&amp;rsquo;s native behavior.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>firestore-validate-rules</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax
 and semantic correctness without deploying them. It provides detailed error
 reporting with source positions and code snippets.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Firestore&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/firestore/">Firestore&lt;/a>&lt;/td>
  &lt;/tr>
  
 

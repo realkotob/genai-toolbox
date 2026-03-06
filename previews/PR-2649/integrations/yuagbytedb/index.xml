@@ -6,10 +6,9 @@ and specified parameters will inserted according to their position: e.g. &lt;cod
 will be the first parameter specified, &lt;code>$@&lt;/code> will be the second parameter, and so
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item></channel></rss>

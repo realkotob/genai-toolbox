@@ -6,27 +6,24 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool is intended for developer assistant workflows with
 human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&lt;/blockquote>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Spanner&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/">Spanner&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -81,27 +78,24 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 &lt;/table></description></item><item><title>spanner-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/spanner-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/spanner-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>spanner-sql&lt;/code> tool executes a pre-defined SQL statement (either &lt;code>googlesql&lt;/code> or
 &lt;code>postgresql&lt;/code>) against a Cloud Spanner database.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>Spanner&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2649/integrations/spanner/">Spanner&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -255,10 +249,9 @@ columns, constraints, and indexes.&lt;/p>
 &lt;code>INFORMATION_SCHEMA&lt;/code> tables to gather metadata. The tool automatically detects
 the database dialect from the source configuration and uses the appropriate SQL
 syntax.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item></channel></rss>
