@@ -19,7 +19,7 @@ A complete user guide for MCP Toolbox
 - [Introduction](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/introduction/): An introduction to MCP Toolbox for Databases.
 - [Getting Started](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/getting-started/): Understand the core concepts of MCP Toolbox, explore integration strategies, and learn how to architect your AI agent connections.
 - [Configuration](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/): How to configure Toolbox's tools.yaml file.
-  - [AuthServices](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/authentication/): AuthServices represent services that handle authentication and authorization.
+  - [Authentication](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/authentication/): AuthServices represent services that handle authentication and authorization.
   - [Prebuilt Configs](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/prebuilt-configs/): This page lists all the prebuilt configs available.
   - [Sources](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/sources/): Sources represent your different data sources that a tool can interact with.
   - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2648/user-guide/configuration/tools/): Tools define actions an agent can take -- such as reading and writing to a source.

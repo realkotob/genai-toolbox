@@ -1883,7 +1883,7 @@ For more details on configuring different types of prompts, see the
 [Prompts](./prompts/_index.md).
 
 
-# AuthServices
+# Authentication
 AuthServices represent services that handle authentication and authorization.
 
 
