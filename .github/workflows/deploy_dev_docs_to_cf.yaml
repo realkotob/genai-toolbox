@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ on:
       - main
     paths:
       - 'docs/**'
-      - 'github/workflows/docs**'
+      - '.github/workflows/docs*_cf.yaml'
+      - '.github/workflows/deploy*_cf.yaml'
       - '.hugo/**'
 
   # Allow triggering manually.
@@ -45,19 +46,6 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
-      - name: Patch Config and Templates for Cloudflare
-        run: |
-          # Strip GitHub domain from config
-          sed -i 's|https://googleapis.github.io/genai-toolbox/|/|g' hugo.toml
-          # Strip prefix from navbar partial
-          if [ -f "layouts/partials/navbar-version-selector.html" ]; then
-            sed -i 's|/genai-toolbox/|/|g' layouts/partials/navbar-version-selector.html
-          fi
-          # Disable the migration banner for the new live site
-          if [ -f "static/js/migration-banner.js" ]; then
-            echo "" > static/js/migration-banner.js
-          fi
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3
         with:
@@ -78,7 +66,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: hugo --minify
+      - run: hugo --minify --config hugo.cloudflare.toml
         env:
           HUGO_BASEURL: https://mcp-toolbox.dev/dev/
           HUGO_RELATIVEURLS: false
