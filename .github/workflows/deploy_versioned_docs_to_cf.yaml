@@ -61,6 +61,7 @@ jobs:
         env:
           HUGO_BASEURL: https://mcp-toolbox.dev/${{ steps.get_version.outputs.VERSION }}/
           HUGO_RELATIVEURLS: false
+          HUGO_PARAMS_VERSION: ${{ steps.get_version.outputs.VERSION }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
@@ -81,6 +82,7 @@ jobs:
         env:
           HUGO_BASEURL: https://mcp-toolbox.dev/
           HUGO_RELATIVEURLS: false
+          HUGO_PARAMS_VERSION: ${{ steps.get_version.outputs.VERSION }}
 
       - name: Deploy to root
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
