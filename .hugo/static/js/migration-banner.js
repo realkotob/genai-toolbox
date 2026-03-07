@@ -91,9 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.warn("Could not find the main content column to inject the banner.");
   }
 
-  setTimeout(function() {
-    var navbar = document.querySelector('.td-navbar');
-    var navbarHeight = navbar ? navbar.offsetHeight : 64;
-    wrapper.style.top = navbarHeight + 'px';
-  }, 50);
+  // Calculate navbar height synchronously to correctly offset the sticky wrapper
+  var navbar = document.querySelector('.td-navbar');
+  var navbarHeight = navbar ? navbar.offsetHeight : 64;
+  wrapper.style.top = navbarHeight + 'px';
 });
