@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Trigger your releases dropdown
-  if (typeof w3 !== 'undefined') { w3.includeHTML(); }
 
   // Setup CSS for the wrapper and the banner
   var styleTag = document.createElement('style');
