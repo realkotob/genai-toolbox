@@ -6,27 +6,24 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool is intended for developer assistant workflows with
 human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&lt;/blockquote>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -39,8 +36,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -89,27 +85,24 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 database.&lt;/p>
 &lt;p>&lt;code>mysql-get-query-plan&lt;/code> takes one input parameter &lt;code>sql_statement&lt;/code> and gets the execution plan for the SQL
 statement against the &lt;code>source&lt;/code>.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -122,8 +115,7 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -178,12 +170,11 @@ This tool takes 2 optional input parameters:&lt;/p>
 long in seconds, default &lt;code>0&lt;/code>.&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): max number of queries to return, default &lt;code>10&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mysql-list-table-fragmentation</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/mysql-list-table-fragmentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/mysql-list-table-fragmentation/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mysql-list-table-fragmentation&lt;/code> tool checks table fragmentation of MySQL
 tables by calculating the size of the data and index files in bytes and
@@ -211,38 +202,34 @@ parameters:&lt;/p>
 Search all visible tables in all visible databases if not specified.&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): max number of queries to return, default &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mysql-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/mysql-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/mysql-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mysql-sql&lt;/code> tool executes a pre-defined SQL statement against a MySQL
 database.&lt;/p>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html">prepared statement&lt;/a>,
 and expects parameters in the SQL query to be in the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/mysql/">MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -255,8 +242,7 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for MySQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2652/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
