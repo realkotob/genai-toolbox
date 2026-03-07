@@ -3,27 +3,24 @@
 server.&lt;/p>
 &lt;p>&lt;code>postgres-database-overview&lt;/code> fetches the current state of the PostgreSQL server
 This tool does not take any input parameters.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -36,7 +33,7 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td colspan="3" style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
+ &lt;td style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
  &lt;/tr>
  
  
@@ -45,8 +42,7 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -69,27 +65,24 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool is intended for developer assistant workflows with
 human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&lt;/blockquote>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -102,7 +95,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td colspan="3" style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
+ &lt;td style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
  &lt;/tr>
  
  
@@ -111,8 +104,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -169,12 +161,11 @@ the following input parameters:&lt;/p>
 &lt;li>&lt;code>column_name&lt;/code> (optional): The column name for which the cardinality is to be found.
 If not provided, cardinality for all columns will be returned. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-active-queries</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-active-queries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-active-queries/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-active-queries&lt;/code> tool retrieves information about currently
 active queries in a Postgres database.&lt;/p>
@@ -190,39 +181,35 @@ match is case-sensitive. Whitespace around commas and names is automatically
 handled. If this parameter is omitted, no applications are excluded.&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-available-extensions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-available-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-available-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-available-extensions&lt;/code> tool retrieves all PostgreSQL
 extensions available for installation on a Postgres database.&lt;/p>
 &lt;p>&lt;code>postgres-list-available-extensions&lt;/code> lists all PostgreSQL extensions available
 for installation (extension name, default version description) as JSON. The does
 not support any input parameter.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -235,7 +222,7 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td colspan="3" style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
+ &lt;td style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
  &lt;/tr>
  
  
@@ -244,8 +231,7 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -302,12 +288,11 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>order_by&lt;/code> (optional): Specifies the sorting order. Valid values are &lt;code>'size'&lt;/code> (descending) or &lt;code>'commit'&lt;/code> (descending). Default: &lt;code>database_name&lt;/code> ascending.&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of databases to return. Default: &lt;code>10&lt;/code>&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-indexes</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-indexes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-indexes/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-indexes&lt;/code> tool lists available user indexes in the database
 excluding those in &lt;code>pg_catalog&lt;/code> and &lt;code>information_schema&lt;/code>.&lt;/p>
@@ -320,39 +305,35 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>only_unused&lt;/code> (optional): If true, returns indexes that have never been used.&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-installed-extensions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-installed-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-installed-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-installed-extensions&lt;/code> tool retrieves all PostgreSQL
 extensions installed on a Postgres database.&lt;/p>
 &lt;p>&lt;code>postgres-list-installed-extensions&lt;/code> lists all installed PostgreSQL extensions
 (extension name, version, schema, owner, description) as JSON. The does not
 support any input parameter.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -365,7 +346,7 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td colspan="3" style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
+ &lt;td style="color: red;">⚠️ Source not found at path: integrations/alloydb-pg&lt;/td>
  &lt;/tr>
  
  
@@ -374,8 +355,7 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -422,12 +402,11 @@ support any input parameter.&lt;/p>
 &lt;/table></description></item><item><title>postgres-list-locks</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-locks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-locks/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-locks&lt;/code> tool displays information about active locks by joining pg_stat_activity with pg_locks. This is useful to find transactions holding or waiting for locks and to troubleshoot contention.&lt;/p>
 &lt;p>This tool identifies all locks held by active processes showing the process ID, user, query text, and an aggregated list of all transactions and specific locks (relation, mode, grant status) associated with each process.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-pg-settings</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-pg-settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-pg-settings/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-pg-settings&lt;/code> tool lists the configuration parameters for the postgres server, their current values, and related information.&lt;/p>
 &lt;p>&lt;code>postgres-list-pg-settings&lt;/code> lists detailed information as JSON for each setting. The tool
@@ -436,27 +415,24 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>setting_name&lt;/code> (optional): A text to filter results by setting name. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -469,8 +445,7 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>AlloyDB for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/alloydb/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/alloydb/">AlloyDB for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -479,8 +454,7 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -510,12 +484,11 @@ of tables) as part of the logical replication feature. The tool takes the follow
 &lt;li>&lt;code>schema_names&lt;/code> (optional): Filters by a comma-separated list of schema names. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-query-stats</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-query-stats/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-query-stats/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-query-stats&lt;/code> tool retrieves query statistics from the
 &lt;code>pg_stat_statements&lt;/code> extension in a PostgreSQL database. It provides detailed
@@ -527,12 +500,11 @@ total execution time in descending order. The tool takes the following input par
 used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code> (all databases).&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of results to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-roles</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-roles/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-roles&lt;/code> tool lists all the user-created roles in the instance, excluding system roles (like &lt;code>cloudsql%&lt;/code> or &lt;code>pg_%&lt;/code>). It provides details about each role&amp;rsquo;s attributes and memberships.&lt;/p>
 &lt;p>&lt;code>postgres-list-roles&lt;/code> lists detailed information as JSON for each role. The tool
@@ -541,12 +513,11 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>role_name&lt;/code> (optional): A text to filter results by role name. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of roles to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-schemas</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-schemas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-schemas/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-schemas&lt;/code> tool retrieves information about schemas in a
 database excluding system and temporary schemas.&lt;/p>
@@ -557,12 +528,11 @@ tool takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>owner&lt;/code> (optional): A text to filter results by owner name. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-sequences</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-sequences/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-sequences&lt;/code> tool retrieves information about sequences in a
 Postgres database.&lt;/p>
@@ -575,12 +545,11 @@ input is used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/c
 used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-stored-procedure</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-stored-procedure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-stored-procedure/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-stored-procedure&lt;/code> tool queries PostgreSQL system catalogs (&lt;code>pg_proc&lt;/code>, &lt;code>pg_namespace&lt;/code>, &lt;code>pg_roles&lt;/code>, and &lt;code>pg_language&lt;/code>) to retrieve comprehensive metadata about stored procedures in the database. It filters for procedures (kind = &amp;lsquo;p&amp;rsquo;) and provides the full procedure definition along with ownership and language information.&lt;/p>
 &lt;p>The tool returns a JSON array where each element represents a stored procedure with its schema, name, owner, language, complete definition, and optional description. Results are sorted by schema name and procedure name, with a default limit of 20 procedures.&lt;/p></description></item><item><title>postgres-list-table-stats</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-table-stats/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-table-stats/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -602,27 +571,24 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 &lt;li>&lt;code>tablespace_name&lt;/code> (optional): A text to filter results by tablespace name. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of tablespaces to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
  &lt;table>
  &lt;thead>
  &lt;tr>
  &lt;th>Source Name&lt;/th>
- &lt;th>Link&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  
  
  &lt;tr>
- &lt;td>&lt;strong>PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -635,8 +601,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;strong>AlloyDB for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/alloydb/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/alloydb/">AlloyDB for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -645,8 +610,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;strong>Cloud SQL for PostgreSQL&lt;/strong>&lt;/td>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">View Source Configuration&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -678,12 +642,11 @@ is used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&l
 used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of triggers to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-views</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-views/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-list-views/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-views&lt;/code> tool retrieves a list of top N (default 50) views from
 a Postgres database, excluding those in system schemas (&lt;code>pg_catalog&lt;/code>,
@@ -696,23 +659,21 @@ parameters:&lt;/p>
 &lt;li>&lt;code>schema_name&lt;/code> (optional): A string pattern to filter schema names. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-long-running-transactions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-long-running-transactions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-long-running-transactions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-long-running-transactions&lt;/code> tool reports transactions that exceed a configured duration threshold by scanning &lt;code>pg_stat_activity&lt;/code> for sessions where &lt;code>xact_start&lt;/code> is set and older than the configured interval.&lt;/p>
 &lt;p>The tool returns a JSON array with one object per matching session (non-idle). Each object contains the process id, database and user, application name, client address, session state, several age intervals (connection, transaction, query, and last activity), wait event info, and the SQL text currently associated with the session.&lt;/p></description></item><item><title>postgres-replication-stats</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-replication-stats/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-replication-stats/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-replication-stats&lt;/code> tool queries pg_stat_replication to surface the status of connected replicas. It reports application_name, client address, connection and sync state, and human-readable lag sizes (sent, write, flush, replay, and total) computed using WAL LSN differences.&lt;/p>
 &lt;p>This tool takes no parameters. It returns a JSON array; each element represents a replication connection on the primary and includes lag metrics formatted by pg_size_pretty.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2664/integrations/postgres/postgres-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>postgres-sql&lt;/code> tool executes a pre-defined SQL statement against a Postgres
 database.
@@ -721,10 +682,9 @@ and specified parameters will be inserted according to their position: e.g. &lt;
 will be the first parameter specified, &lt;code>$2&lt;/code> will be the second parameter, and so
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.&lt;/p>
-
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 
 
 
 &lt;div class="compatibility-section">
- &lt;h2>Compatible Sources&lt;/h2>
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item></channel></rss>

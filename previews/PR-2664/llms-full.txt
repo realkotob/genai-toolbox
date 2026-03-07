@@ -83,7 +83,7 @@ redeploying your application.
 
 ## Getting Started
 
-### Quickstart: Running Toolbox using npx
+### Quickstart: Running Toolbox using NPX
 
 You can run Toolbox directly with a [configuration file](../configuration/_index.md):
 
@@ -783,7 +783,7 @@ For application use cases, you need to be wary of security risks such as prompt
 injection or data poisoning. Allowing an LLM to execute arbitrary queries in
 production is highly dangerous.
 
-To secure your application, you should **use custom tools** to suit your
+To secure your application, you should [**use custom tools**](../configuration/tools/_index.md) to suit your
 specific schema and application needs. Creating a custom tool restricts the
 agent's capabilities to only what is necessary. For example, you can use the
 [`postgres-sql`](../../integrations/postgres/postgres-sql.md) tool to define a specific action. This
@@ -934,7 +934,7 @@ For more details on configuring different types of prompts, see the
 [Prompts](./prompts/_index.md).
 
 
-# AuthServices
+# Authentication
 AuthServices represent services that handle authentication and authorization.
 
 
@@ -4270,6 +4270,8 @@ cluster][alloydb-free-trial].
 [alloydb-docs]: https://cloud.google.com/alloydb/docs
 [alloydb-free-trial]: https://cloud.google.com/alloydb/docs/create-free-trial-cluster
 
+## Available Tools
+
 {{< list-tools dirs="/integrations/postgres" >}}
 
 ### Pre-built Configurations
@@ -4410,6 +4412,8 @@ the development of generative AI applications by transferring the complexity
 of converting natural language to SQL from the application layer to the
 database layer.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Requirements
@@ -4532,6 +4536,8 @@ Authentication can be handled in two ways:
     expect an OAuth 2.0 access token to be provided by the client (e.g., a web
     browser) for each request.
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -4591,6 +4597,8 @@ The tool takes the following input parameters:
 | `network`  | string | The name of the VPC network to connect the cluster to. Default: `default`.                                                | No       |
 | `user`     | string | The name for the initial superuser. Default: `postgres`.                                                                  | No       |
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -4652,6 +4660,8 @@ The tool takes the following input parameters:
 > The tool sets the `password.enforce_complexity` database flag to `on`,
 > requiring new database passwords to meet complexity rules.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -4687,6 +4697,8 @@ specified AlloyDB cluster.
 | `location` | string | The location of the cluster (e.g., 'us-central1'). | Yes      |
 | `cluster`  | string | The ID of the cluster to retrieve.                 | Yes      |
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -4725,6 +4737,8 @@ specified AlloyDB instance.
 | `instance` | string | The ID of the instance to retrieve.                 | Yes      |
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -4761,6 +4775,8 @@ specified AlloyDB user.
 | `cluster`  | string | The ID of the cluster to retrieve the user from.   | Yes      |
 | `user`     | string | The ID of the user to retrieve.                    | Yes      |
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -4800,6 +4816,8 @@ location. The tool takes the following input parameters:
 | `project`  | string | The GCP project ID to list clusters for.                                                         | Yes      |
 | `location` | string | The location to list clusters in (e.g., 'us-central1'). Use `-` for all locations. Default: `-`. | No       |
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -4842,6 +4860,8 @@ parameters:
 | `location` | string | The location of the cluster (e.g., 'us-central1'). Use '-' to get results for all locations. Default: `-`. | No       |
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -4880,6 +4900,8 @@ The tool takes the following input parameters:
 | `cluster`  | string | The ID of the cluster to list users from.          | Yes      |
 | `location` | string | The location of the cluster (e.g., 'us-central1'). | Yes      |
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -4936,6 +4958,8 @@ The tool takes the following input parameters:
 | `databaseRoles` | array(string) | Optional. A list of database roles to grant to the new user (e.g., `pg_read_all_data`).                       | No       |
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -4976,6 +5000,8 @@ This tool is intended for developer assistant workflows with human-in-the-loop
 and shouldn't be used for production agents.
 {{< /notice >}}
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5034,6 +5060,8 @@ avoiding full table scans or complex filters.
     https://cloud.google.com/bigquery/docs/quickstarts/quickstart-command-line
 [bigquery-googlesql]:
     https://cloud.google.com/bigquery/docs/reference/standard-sql/
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -5194,6 +5222,8 @@ the `bigquery` source:
     and rejects it if it accesses any table outside the allowed list.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5271,6 +5301,8 @@ dataset specified in the `table_references` parameter.
   request is denied.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5338,6 +5370,8 @@ layer of security by controlling which datasets can be accessed:
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5409,6 +5443,8 @@ the `bigquery` source:
     query and rejects it if it accesses any table outside the allowed list.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5464,6 +5500,8 @@ The tool's behavior regarding these parameters is influenced by the
   list, it will be used as the default value for the `dataset` parameter.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5510,6 +5548,8 @@ The tool's behavior regarding these parameters is influenced by the
   request is denied. If only one dataset is specified in the `allowedDatasets`
   list, it will be used as the default value for the `dataset` parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5552,6 +5592,8 @@ The tool's behavior regarding this parameter is influenced by the
 - **With `allowedDatasets` restriction:** The tool directly returns the
   pre-configured list of dataset IDs from the source, and the `project`
   parameter is ignored.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5598,6 +5640,8 @@ that the requested dataset is in the allowed list. If it is not, the request is
 denied. If only one dataset is specified in the `allowedDatasets` list, it
 will be used as the default value for the `dataset` parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -5637,6 +5681,8 @@ following parameters:
 - `types` - The type of the data. Accepted values are: CONNECTION, POLICY,
   DATASET, MODEL, ROUTINE, TABLE, VIEW.
 - `pageSize` - Number of results in the search page. Defaults to `5`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5698,6 +5744,8 @@ The behavior of this tool is influenced by the `writeMode` setting on its
   operate within the same BigQuery session as other tools using the same source,
   allowing it to interact with temporary resources like `TEMP` tables created
   within that session.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5820,6 +5868,8 @@ such as avoiding full table scans or complex filters.
 [bigtable-googlesql]:
     https://cloud.google.com/bigtable/docs/googlesql-overview
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -5884,6 +5934,8 @@ inserted according to their name: e.g. `@name`.
 {{</notice>}}
 
 [bigtable-googlesql]: https://cloud.google.com/bigtable/docs/googlesql-overview
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -5994,6 +6046,8 @@ distributed architectures, and a flexible approach to schema definition.
 
 [cassandra-docs]: https://cassandra.apache.org/
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -6051,6 +6105,8 @@ the form of placeholders `?`.
 [cassandra-prepare]:
     https://docs.datastax.com/en/datastax-drivers/developing/prepared-statements.html
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6138,6 +6194,8 @@ ClickHouse is an open-source, OLTP database.
 [ClickHouse][clickhouse-docs] is a fast, open-source, column-oriented database
 
 [clickhouse-docs]: https://clickhouse.com/docs
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -6229,6 +6287,8 @@ capabilities for monitoring and debugging purposes.
 > human-in-the-loop and shouldn't be used for production agents.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6268,6 +6328,8 @@ ClickHouse database.
 This tool supports both template parameters (for SQL statement customization)
 and regular parameters (for prepared statement values), providing flexible
 query execution capabilities.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6349,6 +6411,8 @@ databases accessible to the configured user, making it useful for database
 discovery and exploration tasks.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6402,6 +6466,8 @@ This tool executes the `SHOW TABLES FROM <database>` command and returns a list
 of all tables in the specified database that are accessible to the configured
 user, making it useful for schema exploration and table discovery tasks.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6479,6 +6545,8 @@ If you are new to the Cloud Healthcare API, you can try to
 [healthcare-docs]: https://cloud.google.com/healthcare/docs
 [healthcare-quickstart-curl]:
     https://cloud.google.com/healthcare-api/docs/store-healthcare-data-rest
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -6581,6 +6649,8 @@ tool call (like `cloud-healthcare-fhir-patient-search` or
 response bundle.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6621,6 +6691,8 @@ a given patient from a FHIR store.
 for a given patient ID. It can be configured to only return certain resource
 types, or only resources that have been updated after a given time.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6667,6 +6739,8 @@ store based on a set of criteria.
 `cloud-healthcare-fhir-patient-search` returns a list of patients that match the
 given criteria.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6729,6 +6803,8 @@ A `cloud-healthcare-get-dataset` tool retrieves metadata for a Healthcare datase
 configured in the source. It takes no extra parameters.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6760,6 +6836,8 @@ A `cloud-healthcare-get-dicom-store` tool retrieves information about a DICOM st
 
 `cloud-healthcare-get-dicom-store` returns the details of a DICOM store.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6801,6 +6879,8 @@ store.
 
 `cloud-healthcare-get-dicom-store-metrics` returns the metrics of a DICOM store.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6845,6 +6925,8 @@ from a FHIR store.
 by its type and ID.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6887,6 +6969,8 @@ A `cloud-healthcare-get-fhir-store` tool retrieves information about a FHIR stor
 
 `cloud-healthcare-get-fhir-store` returns the details of a FHIR store.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -6926,6 +7010,8 @@ A `cloud-healthcare-get-fhir-store-metrics` tool retrieves metrics for a FHIR st
 
 `cloud-healthcare-get-fhir-store-metrics` returns the metrics of a FHIR store.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -6969,6 +7055,8 @@ healthcare dataset.
 stores in the dataset of the healthcare source. It takes no extra parameters.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -7003,6 +7091,8 @@ healthcare dataset.
 stores in the dataset of the healthcare source. It takes no extra parameters.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -7036,6 +7126,8 @@ DICOM instance from a DICOM store.
 `cloud-healthcare-retrieve-rendered-dicom-instance` returns a base64 encoded
 string of the image in JPEG format.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -7083,6 +7175,8 @@ a DICOM store based on a set of criteria.
 `search-dicom-instances` returns a list of DICOM instances that match the given
 criteria.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -7137,6 +7231,8 @@ set of criteria.
 `cloud-healthcare-search-dicom-series` returns a list of DICOM series that match the given criteria.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -7187,6 +7283,8 @@ set of criteria.
 
 `cloud-healthcare-search-dicom-studies` returns a list of DICOM studies that match the given criteria.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -7242,6 +7340,8 @@ Authentication can be handled in two ways:
     expect an OAuth 2.0 access token to be provided by the client (e.g., a web
     browser) for each request.
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -7293,6 +7393,8 @@ A "cloud-logging-admin-list-log-names" tool lists the log names in the project.
 
 The `cloud-logging-admin-list-log-names` tool lists the log names available in the Google Cloud project.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -7328,6 +7430,8 @@ A "cloud-logging-admin-list-resource-types" tool lists the monitored resource ty
 
 The `cloud-logging-admin-list-resource-types` tool lists the monitored resource types available in Google Cloud Logging.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -7358,6 +7462,8 @@ A "cloud-logging-admin-query-logs" tool queries log entries.
 
 The `cloud-logging-admin-query-logs` tool allows you to query log entries from Google Cloud Logging using the advanced logs filter syntax.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -7409,6 +7515,8 @@ Authentication can be handled in two ways:
     expect an OAuth 2.0 access token to be provided by the client (e.g., a web
     browser) for each request.
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -7443,6 +7551,8 @@ from Google Cloud Monitoring for a project using a given prometheus query.
 The `cloud-monitoring-query-prometheus` tool allows you to query all metrics
 available in Google Cloud Monitoring using the Prometheus Query Language
 (PromQL).
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -7519,6 +7629,8 @@ to a database by following these instructions][csql-mysql-quickstart].
 
 [csql-mysql-docs]: https://cloud.google.com/sql/docs/mysql
 [csql-mysql-quickstart]: https://cloud.google.com/sql/docs/mysql/connect-instance-local-computer
+
+## Available Tools
 
 {{< list-tools dirs="/integrations/mysql" >}}
 
@@ -7655,6 +7767,8 @@ to a database by following these instructions][csql-pg-quickstart].
 [csql-pg-docs]: https://cloud.google.com/sql/docs/postgres
 [csql-pg-quickstart]:
     https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer
+
+## Available Tools
 
 {{< list-tools dirs="/integrations/postgres" >}}
 
@@ -7796,6 +7910,8 @@ to a database by following these instructions][csql-mssql-connect].
 [csql-mssql-docs]: https://cloud.google.com/sql/docs/sqlserver
 [csql-mssql-connect]: https://cloud.google.com/sql/docs/sqlserver/connect-overview
 
+## Available Tools
+
 {{< list-tools dirs="/integrations/mssql" >}}
 
 
@@ -7906,6 +8022,8 @@ Authentication can be handled in two ways:
     expect an OAuth 2.0 access token to be provided by the client (e.g., a web
     browser) for each request.
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -7930,54 +8048,13 @@ useClientOAuth: true
 | useClientOAuth |  boolean |     false    | If true, the source will use client-side OAuth for authorization. Otherwise, it will use Application Default Credentials. Defaults to `false`. |
 
 
-# Cloud SQL List Instances
-List Cloud SQL instances in a project.
-
-
-The `cloud-sql-list-instances` tool lists all Cloud SQL instances in a specified
-Google Cloud project.
-
-{{< compatible-sources >}}
-
-## Configuration
-
-Here is an example of how to configure the `cloud-sql-list-instances` tool in
-your `tools.yaml` file:
-
-```yaml
-kind: sources
-name: my-cloud-sql-admin-source
-type: cloud-sql-admin
----
-kind: tools
-name: list_my_instances
-type: cloud-sql-list-instances
-source: my-cloud-sql-admin-source
-description: Use this tool to list all Cloud SQL instances in a project.
-```
-
-## Parameters
-
-The `cloud-sql-list-instances` tool has one required parameter:
-
-| **field** | **type** | **required** | **description**              |
-| --------- | :------: | :----------: | ---------------------------- |
-| project   |  string  |     true     | The Google Cloud project ID. |
-
-## Reference
-
-| **field**   | **type** | **required** | **description**                                                |
-|-------------|:--------:|:------------:|----------------------------------------------------------------|
-| type        |  string  |     true     | Must be "cloud-sql-list-instances".                            |
-| description |  string  |    false     | Description of the tool that is passed to the agent.           |
-| source      |  string  |     true     | The name of the `cloud-sql-admin` source to use for this tool. |
-
-
 # cloud-sql-list-databases
 List Cloud SQL databases in an instance.
 
 The `cloud-sql-list-databases` tool lists all Cloud SQL databases in a specified
 Google Cloud project and instance.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8016,11 +8093,58 @@ The `cloud-sql-list-databases` tool has two required parameters:
 | description |  string  |     false    | Description of the tool that is passed to the agent.           |
 
 
+# cloud-sql-list-instances
+List Cloud SQL instances in a project.
+
+
+The `cloud-sql-list-instances` tool lists all Cloud SQL instances in a specified
+Google Cloud project.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Configuration
+
+Here is an example of how to configure the `cloud-sql-list-instances` tool in
+your `tools.yaml` file:
+
+```yaml
+kind: sources
+name: my-cloud-sql-admin-source
+type: cloud-sql-admin
+---
+kind: tools
+name: list_my_instances
+type: cloud-sql-list-instances
+source: my-cloud-sql-admin-source
+description: Use this tool to list all Cloud SQL instances in a project.
+```
+
+## Parameters
+
+The `cloud-sql-list-instances` tool has one required parameter:
+
+| **field** | **type** | **required** | **description**              |
+| --------- | :------: | :----------: | ---------------------------- |
+| project   |  string  |     true     | The Google Cloud project ID. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                                |
+|-------------|:--------:|:------------:|----------------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-sql-list-instances".                            |
+| description |  string  |    false     | Description of the tool that is passed to the agent.           |
+| source      |  string  |     true     | The name of the `cloud-sql-admin` source to use for this tool. |
+
+
 # cloud-sql-mysql-create-instance
 Create a Cloud SQL for MySQL instance.
 
 The `cloud-sql-mysql-create-instance` tool creates a new Cloud SQL for MySQL
 instance in a specified Google Cloud project.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8066,6 +8190,8 @@ The `cloud-sql-mysql-create-instance` tool has the following parameters:
 Clone a Cloud SQL instance.
 
 The `cloud-sql-clone-instance` tool clones a Cloud SQL instance using the Cloud SQL Admin API.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8130,6 +8256,8 @@ Creates a backup on a Cloud SQL instance.
 
 The `cloud-sql-create-backup` tool creates an on-demand backup on a Cloud SQL instance using the Cloud SQL Admin API.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Examples
@@ -8172,6 +8300,8 @@ Create a new database in a Cloud SQL instance.
 The `cloud-sql-create-database` tool creates a new database in a specified Cloud
 SQL instance.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -8208,6 +8338,8 @@ Create a new user in a Cloud SQL instance.
 The `cloud-sql-create-users` tool creates a new user in a specified Cloud SQL
 instance. It can create both built-in and IAM users.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -8236,6 +8368,8 @@ Get a Cloud SQL instance resource.
 The `cloud-sql-get-instance` tool retrieves a Cloud SQL instance resource using
 the Cloud SQL Admin API.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -8262,6 +8396,8 @@ Create a Cloud SQL for SQL Server instance.
 
 The `cloud-sql-mssql-create-instance` tool creates a Cloud SQL for SQL Server
 instance using the Cloud SQL Admin API.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8302,6 +8438,8 @@ Create a Cloud SQL for PostgreSQL instance.
 The `cloud-sql-postgres-create-instance` tool creates a Cloud SQL for PostgreSQL
 instance using the Cloud SQL Admin API.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -8339,6 +8477,8 @@ description: "Creates a Postgres instance using `Production` and `Development` p
 Restores a backup of a Cloud SQL instance.
 
 The `cloud-sql-restore-backup` tool restores a backup on a Cloud SQL instance using the Cloud SQL Admin API.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8393,6 +8533,8 @@ long-running Cloud SQL operation to complete. It does this by polling the Cloud
 SQL Admin API operation status endpoint until the operation is finished, using
 exponential backoff.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -8428,6 +8570,8 @@ Perform a pre-check for a Cloud SQL for PostgreSQL major version upgrade.
 The `postgres-upgrade-precheck` tool initiates a pre-check on a Cloud SQL for PostgreSQL
 instance to assess its readiness for a major version upgrade using the Cloud SQL Admin API.
 It helps identify potential incompatibilities or issues before starting the actual upgrade process.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8471,6 +8615,8 @@ CockroachDB is a distributed SQL database built for cloud applications.
 [crdb-docs]: https://www.cockroachlabs.com/docs/
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -8699,6 +8845,8 @@ The tool takes a single `sql` parameter containing the SQL statement to execute 
 
 > **Note:** This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents. For production use cases with predefined queries, use [cockroachdb-sql](cockroachdb-sql.md) instead.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -8973,6 +9121,8 @@ This tool is useful for:
 - Discovering available schemas
 - Multi-tenant application analysis
 - Schema-level access control planning
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -9278,6 +9428,8 @@ This tool is useful for:
 - Generating context for AI-powered database queries
 - Documentation and analysis
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -9616,6 +9768,8 @@ Execute parameterized SQL queries in CockroachDB.
 
 The `cockroachdb-sql` tool allows you to execute parameterized SQL queries against a CockroachDB database. This tool supports prepared statements with parameter binding, template parameters for dynamic query construction, and automatic transaction retry for resilience against serialization conflicts.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -9909,6 +10063,8 @@ allowing tools to execute SQL queries against it.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -9961,6 +10117,8 @@ database.
 The specified SQL statement is executed as a parameterized statement, and specified
 parameters will be used according to their name: e.g. `$id`.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -10123,6 +10281,8 @@ applying artificial intelligence and machine learning.
 [dataplex-docs]: https://cloud.google.com/dataplex/docs
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -10492,6 +10652,8 @@ It also optionally accepts following parameters:
     paths within the Entry. It only works for CUSTOM view.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Requirements
@@ -10551,6 +10713,8 @@ aspect types based on search query.
 - `orderBy` - Specifies the ordering of results. Supported values are: relevance
   (default), last_modified_timestamp, last_modified_timestamp asc.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -10612,6 +10776,8 @@ following parameters:
 - `orderBy` - Specifies the ordering of results. Supported values are: relevance
   (default), last_modified_timestamp, last_modified_timestamp asc.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -10687,6 +10853,8 @@ Dgraph Cloud. If you're new to Dgraph, the fastest way to get started is to
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -10758,6 +10926,8 @@ query.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -10890,6 +11060,8 @@ for more information.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -10946,6 +11118,8 @@ See the [official
 documentation](https://www.elastic.co/docs/reference/query-languages/esql/esql-getting-started)
 for more information.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -10991,6 +11165,8 @@ maintenance.
 [fb-docs]: https://firebirdsql.org/
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -11049,6 +11225,8 @@ statement against the `source`.
 > human-in-the-loop and shouldn't be used for production agents.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -11086,6 +11264,8 @@ parameters are included, they will be resolved before the execution of the
 prepared statement.
 
 [fb-prepare]: https://firebirdsql.org/refdocs/langrefupd25-psql-execstat.html
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -11220,6 +11400,8 @@ basics][firestore-quickstart].
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -11287,6 +11469,8 @@ The `firestore-add-documents` tool allows you to add new documents to a
 Firestore collection. It supports all Firestore data types using Firestore's
 native JSON format. The tool automatically generates a unique document ID for
 each new document.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -11580,6 +11764,8 @@ their paths.
 an array of document paths to delete. The tool uses Firestore's BulkWriter for
 efficient batch deletion and returns the success status for each document.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -11614,6 +11800,8 @@ their paths.
 array of document paths, and returns the documents' data along with metadata
 such as existence status, creation time, update time, and read time.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -11647,6 +11835,8 @@ current project.
 
 `firestore-get-rules` takes no input parameters and returns the security rules
 content along with metadata such as the ruleset name, and timestamps.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -11685,6 +11875,8 @@ of a specific document.
 a document path. If provided, it lists all subcollections of that document. If
 not provided, it lists all root-level collections in the database.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -11722,6 +11914,8 @@ substituted at runtime.
 
 **Developer Note**: This tool serves as the general querying foundation that
 developers can use to create custom tools with specific query patterns.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -12150,6 +12344,8 @@ A "firestore-query-collection" tool allow to query collections in Firestore.
 The `firestore-query-collection` tool allows you to query Firestore collections
 with filters, ordering, and limit capabilities.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Configuration
@@ -12365,6 +12561,8 @@ format. The tool can perform both full document updates (replacing all fields)
 or selective field updates using an update mask. When using an update mask,
 fields referenced in the mask but not present in the document data will be
 deleted from the document, following Firestore's native behavior.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -12725,6 +12923,8 @@ The `firestore-validate-rules` tool validates Firestore security rules syntax
 and semantic correctness without deploying them. It provides detailed error
 reporting with source positions and code snippets.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Configuration
@@ -12850,6 +13050,8 @@ Authentication can be handled in two ways:
 1.  **Application Default Credentials (ADC) (Recommended):** By default, the source uses ADC to authenticate with the API. The Toolbox server will fetch the credentials from its running environment (server-side authentication). This is the recommended method.
 2.  **Client-side OAuth:** If `useClientOAuth` is set to `true`, the source expects the authentication token to be provided by the caller when making a request to the Toolbox server (typically via an HTTP Bearer token). The Toolbox server will then forward this token to the underlying Gemini Data Analytics API calls.
 
+## Available Tools
+
 {{< list-tools>}}
 
 ## Example
@@ -12876,7 +13078,7 @@ useClientOAuth: true
 | useClientOAuth | boolean  |    false     | If true, the source uses the token provided by the caller (forwarded to the API). Otherwise, it uses server-side Application Default Credentials (ADC). Defaults to `false`. |
 
 
-# Gemini Data Analytics QueryData
+# cloud-gemini-data-analytics-query
 A tool to convert natural language queries into SQL statements using the Gemini Data Analytics QueryData API.
 
 
@@ -12887,6 +13089,8 @@ The `cloud-gemini-data-analytics-query` tool allows you to send natural language
 > [!NOTE]
 > Only `alloydb`, `spannerReference`, and `cloudSqlReference` are supported as [datasource references](https://clouddocs.devsite.corp.google.com/gemini/docs/conversational-analytics-api/reference/rest/v1beta/projects.locations.dataAgents#DatasourceReferences).
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -12982,6 +13186,8 @@ and other HTTP-accessible resources.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -13032,6 +13238,8 @@ An HTTP request is the method by which a client communicates with a server to
 retrieve or manipulate resources.
 Toolbox allows you to configure the request URL, method, headers, query
 parameters, and the request body for an HTTP Tool.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13303,6 +13511,8 @@ in the cloud, on GCP, or on premises.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -13412,6 +13622,8 @@ CRITICAL ORDER OF OPERATIONS:
 2. Add any dashboard-level filters using `add_dashboard_filter`.
 3. Then, add elements (tiles) using this tool.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13469,6 +13681,8 @@ CRITICAL ORDER OF OPERATIONS:
 1. Create a dashboard using `make_dashboard`.
 2. Add all desired filters using this tool (`add_dashboard_filter`).
 3. Finally, add dashboard elements (tiles) using `add_dashboard_element`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13543,6 +13757,8 @@ Looker data.
    answer the question. The form of the entry is `[{"model": "model name",
    "explore": "explore name"}, ...]`
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13575,6 +13791,8 @@ A "looker-create-project-directory" tool creates a new directory in a LookML pro
 ## About
 
 A `looker-create-project-directory` tool creates a new directory within a specified LookML project.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13617,6 +13835,8 @@ A `looker-create-project-file` tool creates a new LookML file in a project
 `looker-create-project-file` accepts a project_id parameter and a file_path parameter
 as well as the file content.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13658,6 +13878,8 @@ A "looker-delete-project-directory" tool deletes a directory from a LookML proje
 
 A `looker-delete-project-directory` tool deletes a directory from a specified LookML project.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13697,6 +13919,8 @@ A "looker-delete-project-file" tool deletes a LookML file in a project.
 A `looker-delete-project-file` tool deletes a LookML file in a project
 
 `looker-delete-project-file` accepts a project_id parameter and a file_path parameter.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13740,6 +13964,8 @@ A `looker-dev-mode` tool changes the session into and out of dev mode.
 
 `looker-dev-mode` accepts a boolean parameter, true to enter dev mode and false
 to exit dev mode.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13789,6 +14015,8 @@ It's recommended to use other tools from the Looker MCP toolbox with this tool
 to do things like fetch dashboard id's, generate a query, etc that can be
 supplied to this tool.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13831,6 +14059,8 @@ A `looker-get-connection-databases` tool returns all the databases in a connecti
 
 `looker-get-connection-databases` accepts a `conn` parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13872,6 +14102,8 @@ A `looker-get-connection-schemas` tool returns all the schemas in a connection.
 
 `looker-get-connection-schemas` accepts a `conn` parameter and an optional `db` parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -13912,6 +14144,8 @@ A "looker-get-connection-table-columns" tool returns all the columns for each ta
 A `looker-get-connection-table-columns` tool returns all the columnes for each table specified.
 
 `looker-get-connection-table-columns` accepts a `conn` parameter, a `schema` parameter, a `tables` parameter with a comma separated list of tables, and an optional `db` parameter.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -13959,6 +14193,8 @@ A `looker-get-connection-tables` tool returns all the tables in a connection.
 `looker-get-connection-tables` accepts a `conn` parameter, a `schema` parameter,
 and an optional `db` parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14000,6 +14236,8 @@ A "looker-get-connections" tool returns all the connections in the source.
 A `looker-get-connections` tool returns all the connections in the source.
 
 `looker-get-connections` accepts no parameters.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14051,6 +14289,8 @@ Title and description use SQL style wildcards and are case insensitive.
 Limit and offset are used to page through a larger set of matches and
 default to 100 and 0.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14101,6 +14341,8 @@ A `looker-get-dimensions` tool returns all the dimensions from a given explore
 in a given model in the source.
 
 `looker-get-dimensions` accepts two parameters, the `model` and the `explore`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14178,6 +14420,8 @@ The return type is an array of maps, each map is formatted like:
 }
 ```
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14216,6 +14460,8 @@ A `looker-get-filters` tool returns all the filters from a given explore
 in a given model in the source.
 
 `looker-get-filters` accepts two parameters, the `model` and the `explore`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14284,6 +14530,8 @@ Title and description use SQL style wildcards and are case insensitive.
 Limit and offset are used to page through a larger set of matches and
 default to 100 and 0.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14335,6 +14583,8 @@ A `looker-get-measures` tool returns all the measures from a given explore
 in a given model in the source.
 
 `looker-get-measures` accepts two parameters, the `model` and the `explore`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14398,6 +14648,8 @@ A `looker-get-models` tool returns all the models in the source.
 
 `looker-get-models` accepts no parameters.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14435,6 +14687,8 @@ A `looker-get-parameters` tool returns all the parameters from a given explore
 in a given model in the source.
 
 `looker-get-parameters` accepts two parameters, the `model` and the `explore`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14491,6 +14745,8 @@ A "looker-get-project-directories" tool returns the directories within a specifi
 
 A `looker-get-project-directories` tool retrieves the directories within a specified LookML project.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14529,6 +14785,8 @@ A "looker-get-project-file" tool returns the contents of a LookML fle.
 A `looker-get-project-file` tool returns the contents of a LookML file.
 
 `looker-get-project-file` accepts a project_id parameter and a file_path parameter.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14570,6 +14828,8 @@ A `looker-get-project-files` tool returns all the lookml files in a project in t
 
 `looker-get-project-files` accepts a project_id parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14609,6 +14869,8 @@ A "looker-get-projects" tool returns all the LookML projects in the source.
 A `looker-get-projects` tool returns all the projects in the source.
 
 `looker-get-projects` accepts no parameters.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14659,6 +14921,8 @@ instance. The `action` parameter selects the type of analysis to perform:
   number of joins, unused joins, fields, unused fields, and query counts. Being
   classified as **Unused** is determined by whether a field has been used as a
   field or filter within the past 90 days in production.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14726,6 +14990,8 @@ The `looker-health-pulse` tool performs health checks on a Looker instance. The
 - `check_legacy_features`: Lists enabled legacy features. (*To note, this
   function is not available in Looker Core.*)
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Parameters
@@ -14791,6 +15057,8 @@ vacuum to perform:
 - `models`: Identifies unused explores within a model.
 - `explores`: Identifies unused joins and fields within an explore.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Parameters
@@ -14852,6 +15120,8 @@ Looker personal folder.
 2. the `description`
 3. an optional `folder` id. If not provided, the user's default folder will be used.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -14909,6 +15179,8 @@ Looker personal folder.
 10. the `title`
 11. an optional `description`
 12. an optional `folder` id. If not provided, the user's default folder will be used.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -14972,6 +15244,8 @@ semantic model.
 Starting in Looker v25.18, these queries can be identified in Looker's
 System Activity. In the History explore, use the field API Client Name
 to find MCP Toolbox queries.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -15038,6 +15312,8 @@ Starting in Looker v25.18, these queries can be identified in Looker's
 System Activity. In the History explore, use the field API Client Name
 to find MCP Toolbox queries.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -15090,6 +15366,8 @@ Looker so the query can be investigated further.
 7. an optional `limit`
 8. an optional `tz`
 9. an optional `vis_config`
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -15571,6 +15849,8 @@ dashboard.
 
 `looker-run-dashboard` takes one parameter, the `dashboard_id`.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -15612,6 +15892,8 @@ saved Look.
 
 `looker-run-look` takes one parameter, the `look_id`.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -15652,6 +15934,8 @@ A `looker-update-project-file` tool updates the content of a LookML file.
 
 `looker-update-project-file` accepts a project_id parameter and a file_path parameter
 as well as the new file content.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -15695,6 +15979,8 @@ A "looker-validate-project" tool checks the syntax of a LookML project and repor
 
 `looker-validate-project` accepts a project_id parameter.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -15737,7 +16023,7 @@ features with a focus on performance and reliability.
 
 **Note**: MariaDB is supported using the MySQL source.
 
-
+## Available Tools
 
 {{< list-tools dirs="/integrations/mysql" >}}
 
@@ -15825,6 +16111,8 @@ on ML and unstructured data.
 [mindsdb-github]: https://github.com/mindsdb/mindsdb
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -16003,6 +16291,8 @@ statement against the `source`. This tool enables you to:
 - **API Translation**: Automatically translate SQL queries into REST APIs,
   GraphQL, and native protocols
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example Queries
@@ -16131,6 +16421,8 @@ This tool enables you to:
 - **API Translation**: Automatically translate SQL queries into REST APIs, GraphQL, and native protocols
 
 [mysql-prepare]: https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -16290,6 +16582,8 @@ flexible, JSON-like documents, making it easy to develop and scale applications.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -16327,6 +16621,8 @@ array of documents produced by the final stage of the pipeline.
 
 A `readOnly` flag can be set to `true` as a safety measure to ensure the
 pipeline does not contain any write stages (like `$out` or `$merge`).
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -16398,6 +16694,8 @@ The tool returns the total count of documents that were deleted. If the filter
 does not match any documents (i.e., the deleted count is 0), the tool will
 return an error.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ---
@@ -16453,6 +16751,8 @@ such as a user account or a single item from an inventory based on a unique ID.
 The tool returns the number of documents deleted, which will be either `1` if a
 document was found and deleted, or `0` if no matching document was found.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ---
@@ -16504,6 +16804,8 @@ results (**sorting**), and restricting the number of documents returned
 (**limiting**).
 
 The tool returns a JSON array of the documents found.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -16575,6 +16877,8 @@ returned. Otherwise, the selection is not guaranteed.
 The tool returns a single JSON object representing the document, wrapped in a
 JSON array.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 ---
 
@@ -16635,6 +16939,8 @@ be a string containing a **JSON array of document objects**. Upon successful
 insertion, the tool returns a JSON array containing the unique `_id` of **each**
 new document that was created.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ---
@@ -16685,6 +16991,8 @@ This tool takes one required parameter named `data`, which must be a string
 containing the JSON object you want to insert. Upon successful insertion, the
 tool returns the unique `_id` of the newly created document.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -16731,6 +17039,8 @@ MongoDB collection that match a given filter. It locates the documents using a
 
 The tool returns an array of three integers: `[ModifiedCount, UpsertedCount,
 MatchedCount]`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -16795,6 +17105,8 @@ A `mongodb-update-one` tool updates a single document within a specified MongoDB
 collection. It locates the document to be updated using a `filterPayload` and
 applies modifications defined in an `updatePayload`. If the filter matches
 multiple documents, only the first one found will be updated.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -16865,6 +17177,8 @@ reliability, performance, and ease of use.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -16927,6 +17241,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
 ## Example
@@ -16960,6 +17276,7 @@ database.
 `mysql-get-query-plan` takes one input parameter `sql_statement` and gets the execution plan for the SQL
 statement against the `source`.
 
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -16999,6 +17316,7 @@ This tool takes 2 optional input parameters:
   long in seconds, default `0`.
 - `limit` (optional):  max number of queries to return, default `10`.
 
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -17064,6 +17382,7 @@ This tool takes 4 optional input parameters:
   much free space in bytes. Default 1.
 - `limit` (optional): Max rows to return, default 10.
 
+## Compatible Sourcess
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -17122,6 +17441,7 @@ The tool takes the following input parameters:
 | `table_names`   | string | Filters by a comma-separated list of names. By default, it lists all tables in user schemas. Default: `""`                                                     | No       |
 | `output_format` | string | Indicate the output format of table schema. `simple` will return only the table names, `detailed` will return the full table information. Default: `detailed`. | No       |
 
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -17160,6 +17480,8 @@ parameters:
 - `table_schema` (optional): Only check tables in this specific schema/database.
   Search all visible tables in all visible databases if not specified.
 - `limit` (optional):  max number of queries to return, default `50`.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -17205,6 +17527,7 @@ and expects parameters in the SQL query to be in the form of placeholders `?`.
 
 [mysql-prepare]: https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html
 
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mysql">}}
 
@@ -17306,6 +17629,8 @@ reliability, feature robustness, and performance.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -17367,6 +17692,8 @@ their name: e.g. `$id`.
 [neo4j-parameters]:
     https://neo4j.com/docs/cypher-manual/current/syntax/parameters/
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -17445,6 +17772,8 @@ parameter to validate a query without executing it.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -17496,6 +17825,8 @@ details, which can be invaluable for providing database context to an LLM. This
 tool is compatible with a `neo4j` source and takes no parameters.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -17539,6 +17870,8 @@ OceanBase.
 [oceanbase-docs]: https://www.oceanbase.com/
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -17626,6 +17959,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -17661,6 +17996,8 @@ statement][mysql-prepare], and expects parameters in the SQL query to be in the
 form of placeholders `?`.
 
 [mysql-prepare]: https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -17786,6 +18123,8 @@ DW) database workloads.
 [oracle-docs]: https://www.oracle.com/database/
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -17951,6 +18290,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -17982,6 +18323,8 @@ statements (INSERT, UPDATE, DELETE), you must explicitly set the `readOnly`
 field to `false`.
 
 [oracle-stmt]: https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -18052,6 +18395,8 @@ reputation for reliability, feature robustness, and performance.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ### Pre-built Configurations
@@ -18112,7 +18457,10 @@ server.
 `postgres-database-overview` fetches the current state of the PostgreSQL server
 This tool does not take any input parameters.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
+
 ## Example
 
 ```yaml
@@ -18162,6 +18510,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18201,6 +18551,8 @@ the following input parameters:
 - `table_name` (required): The table name in which the column is present.
 - `column_name` (optional): The column name for which the cardinality is to be found.
   If not provided, cardinality for all columns will be returned. Default: `""`.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
@@ -18261,6 +18613,8 @@ active queries. The tool takes the following input parameters:
   handled. If this parameter is omitted, no applications are excluded.
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18315,6 +18669,8 @@ extensions available for installation on a Postgres database.
 for installation (extension name, default version description) as JSON. The does
 not support any input parameter.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
 
@@ -18355,6 +18711,8 @@ takes the following input parameters:
 - `default_tablespace` (optional): A text to filter results by the default tablespace name. Default: `""`
 - `order_by` (optional): Specifies the sorting order. Valid values are `'size'` (descending) or `'commit'` (descending). Default: `database_name` ascending.
 - `limit` (optional): The maximum number of databases to return. Default: `10`
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
@@ -18444,6 +18802,8 @@ takes the following input parameters:
 - `only_unused` (optional): If true, returns indexes that have never been used.
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18504,6 +18864,8 @@ extensions installed on a Postgres database.
 (extension name, version, schema, owner, description) as JSON. The does not
 support any input parameter.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18534,6 +18896,8 @@ The "postgres-list-locks" tool lists active locks in the database, including the
 The `postgres-list-locks` tool displays information about active locks by joining pg_stat_activity with pg_locks. This is useful to find transactions holding or waiting for locks and to troubleshoot contention.
 
 This tool identifies all locks held by active processes showing the process ID, user, query text, and an aggregated list of all transactions and specific locks (relation, mode, grant status) associated with each process.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb-pg, integrations/cloud-sql-pg">}}
 
@@ -18609,6 +18973,8 @@ takes the following input parameters:
 - `setting_name` (optional): A text to filter results by setting name. Default: `""`
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18664,6 +19030,8 @@ of tables) as part of the logical replication feature. The tool takes the follow
 - `publication_names` (optional): Filters by a comma-separated list of publication names. Default: `""`
 - `schema_names` (optional): Filters by a comma-separated list of schema names. Default: `""`
 - `limit` (optional): The maximum number of rows to return. Default: `50`
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -18725,6 +19093,8 @@ total execution time in descending order. The tool takes the following input par
   used within a LIKE clause. Default: `""` (all databases).
 - `limit` (optional): The maximum number of results to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18785,6 +19155,8 @@ takes the following input parameters:
 
 - `role_name` (optional): A text to filter results by role name. Default: `""`
 - `limit` (optional): The maximum number of roles to return. Default: `50`
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -18851,6 +19223,8 @@ tool takes the following input parameters:
 - `owner` (optional): A text to filter results by owner name. Default: `""`
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -18902,6 +19276,8 @@ The tool takes the following input parameters:
 - `schema_name` (optional): A text to filter results by schema name. The input is
   used within a LIKE clause. Default: `""`
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -18955,6 +19331,8 @@ The `postgres-list-stored-procedure` tool queries PostgreSQL system catalogs (`p
 
 
 The tool returns a JSON array where each element represents a stored procedure with its schema, name, owner, language, complete definition, and optional description. Results are sorted by schema name and procedure name, with a default limit of 20 procedures.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -19088,6 +19466,8 @@ The "postgres-list-table-stats" tool reports table statistics including size, sc
 The `postgres-list-table-stats` tool queries `pg_stat_all_tables` to provide comprehensive statistics about tables in the database. It calculates useful metrics like index scan ratio and dead row ratio to help identify performance issues and table bloat.
 
 The tool returns a JSON array where each element represents statistics for a table, including scan metrics, row counts, and vacuum history. Results are sorted by sequential scans by default and limited to 50 rows.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -19259,6 +19639,8 @@ constraints, indexes, triggers, owner, comment) as JSON for user-created tables
  table names, `detailed` will return the full table information. Default:
  `detailed`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -19293,6 +19675,8 @@ The `postgres-list-tablespaces` tool lists available tablespaces in the database
 
 - `tablespace_name` (optional): A text to filter results by tablespace name. Default: `""`
 - `limit` (optional): The maximum number of tablespaces to return. Default: `50`
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -19351,6 +19735,8 @@ tool takes the following input parameters:
   used within a LIKE clause. Default: `""`
 - `limit` (optional): The maximum number of triggers to return. Default: `50`
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -19407,6 +19793,8 @@ parameters:
 - `schema_name` (optional): A string pattern to filter schema names. Default: `""`
 - `limit` (optional): The maximum number of rows to return. Default: `50`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -19442,6 +19830,8 @@ Parameters:
 
 - `min_duration` (optional): Only show transactions running at least this long (Postgres interval format, e.g., '5 minutes'). Default: `5 minutes`.
 - `limit` (optional): Maximum number of results to return. Default: `20`.
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -19536,6 +19926,8 @@ The `postgres-replication-stats` tool queries pg_stat_replication to surface the
 
 This tool takes no parameters. It returns a JSON array; each element represents a replication connection on the primary and includes lag metrics formatted by pg_size_pretty.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
 ## Example
@@ -19600,6 +19992,8 @@ on. If template parameters are included, they will be resolved before execution
 of the prepared statement.
 
 [pg-prepare]: https://www.postgresql.org/docs/current/sql-prepare.html
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/alloydb, integrations/cloud-sql-pg">}}
 
@@ -19702,6 +20096,8 @@ If you are new to Redis, you can find installation and getting started guides on
 the [official Redis website](https://redis.io/docs/).
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -19824,6 +20220,8 @@ following config for example:
 If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
 to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -19861,6 +20259,8 @@ Toolbox to interact with Spark batches hosted on Google Cloud Serverless for
 Apache Spark.
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -19919,6 +20319,8 @@ Serverless Spark batch job.
 
 The tool gets the `project` and `location` from the source configuration.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -20014,6 +20416,8 @@ create_time < "2023-01-01T00:00:00Z"`.
 
 The tool gets the `project` and `location` from the source configuration.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -20083,6 +20487,8 @@ A "serverless-spark-cancel-batch" tool cancels a running Spark batch operation.
 
 The tool inherits the `project` and `location` from the source configuration.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -20130,6 +20536,8 @@ and takes around a minute to begin executing; status can be polled using the
   version](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/dataproc-serverless-versions)
   to execute with.
 
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -20228,6 +20636,8 @@ polled using the [get batch](serverless-spark-get-batch.md) tool.
   to execute with.
 
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Custom Configuration
@@ -20318,6 +20728,8 @@ optimized to handle both transactional and analytical workloads.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -20377,6 +20789,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -20409,6 +20823,8 @@ database.
 
 The specified SQL statement expects parameters in the SQL query to be in the
 form of placeholders `?`.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -20508,6 +20924,8 @@ Snowflake is a cloud-based data platform.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -20566,6 +20984,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -20596,6 +21016,8 @@ A "snowflake-sql" tool executes a pre-defined SQL statement against a  Snowflake
 
 A `snowflake-sql` tool executes a pre-defined SQL statement against a Snowflake
 database.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -20709,6 +21131,8 @@ the Google Cloud console][spanner-quickstart].
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ### Pre-built Configurations
@@ -20773,6 +21197,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -20803,6 +21229,8 @@ A "spanner-sql" tool executes a pre-defined SQL statement against a Google Cloud
 
 A `spanner-sql` tool executes a pre-defined SQL statement (either `googlesql` or
 `postgresql`) against a Cloud Spanner database.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -20973,6 +21401,8 @@ This tool is read-only and executes pre-defined SQL queries against the
 The tool only works for the GoogleSQL 
 source dialect, as Spanner Graph isn't available in the PostgreSQL dialect.
 {{< /notice >}}
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -21246,6 +21676,8 @@ This tool is read-only and executes pre-defined SQL queries against the
 the database dialect from the source configuration and uses the appropriate SQL
 syntax.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Features
@@ -21459,6 +21891,8 @@ amount of data through a structured format.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -21518,6 +21952,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/cloud-sql-mssql">}}
 
 ## Example
@@ -21560,6 +21996,8 @@ The tool takes the following input parameters:
   schema. `simple` will return only the table names, `detailed` will return the
   full table information. Default: `detailed`.
 
+## Compatible Sources
+
 {{< compatible-sources others="integrations/cloud-sql-mssql">}}
 
 ## Example
@@ -21601,6 +22039,8 @@ db.QueryContext(ctx, `select * from t where ID = @ID and Name = @p2;`, sql.Named
 [prepare-statement]:
     https://learn.microsoft.com/sql/relational-databases/system-stored-procedures/sp-prepare-transact-sql?view=sql-server-ver16
 
+
+## Compatible Sources
 
 {{< compatible-sources others="integrations/cloud-sql-mssql">}}
 
@@ -21708,6 +22148,8 @@ SQLite has the following notable characteristics:
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ### Pre-built Configurations
@@ -21776,6 +22218,8 @@ This tool is designed for direct execution of SQL statements. It takes a single
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -21811,6 +22255,8 @@ bound in the order they are provided.
 The statement field supports any valid SQLite SQL statement, including `SELECT`,
 `INSERT`, `UPDATE`, `DELETE`, `CREATE/ALTER/DROP` table statements, and other
 DDL statements.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -21890,6 +22336,8 @@ high availability.
 [tidb-docs]: https://docs.pingcap.com/tidb/stable
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -21981,6 +22429,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -22015,6 +22465,8 @@ The specified SQL statement is executed as a [prepared statement][tidb-prepare],
 and expects parameters in the SQL query to be in the form of placeholders `?`.
 
 [tidb-prepare]: https://docs.pingcap.com/tidb/stable/sql-prepared-plan-cache
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -22116,6 +22568,8 @@ including Hive, Cassandra, relational databases or even proprietary data stores.
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Requirements
@@ -22179,6 +22633,8 @@ statement against the `source`.
 > **Note:** This tool is intended for developer assistant workflows with
 > human-in-the-loop and shouldn't be used for production agents.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -22211,6 +22667,8 @@ database.
 The specified SQL statement is executed as a [prepared statement][trino-prepare], and expects parameters in the SQL query to be in the form of placeholders `?`.
 
 [trino-prepare]: https://trino.io/docs/current/sql/prepare.html
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
@@ -22356,6 +22814,8 @@ the [official Valkey website](https://valkey.io/topics/quickstart/).
 
 
 
+## Available Tools
+
 {{< list-tools >}}
 
 ## Example
@@ -22439,6 +22899,8 @@ following config for example:
 If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
 to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
 
+## Compatible Sources
+
 {{< compatible-sources >}}
 
 ## Example
@@ -22477,6 +22939,8 @@ compatibility.
 [yugabytedb]: https://www.yugabyte.com/
 
 
+
+## Available Tools
 
 {{< list-tools >}}
 
@@ -22526,6 +22990,8 @@ and specified parameters will inserted according to their position: e.g. `1`
 will be the first parameter specified, `$@` will be the second parameter, and so
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.
+
+## Compatible Sources
 
 {{< compatible-sources >}}
 
