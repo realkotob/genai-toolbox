@@ -61,9 +61,13 @@ This file (symlinked as `CLAUDE.md` and `AGENTS.md`) provides context and guidel
 
 ### Versioning Workflows
 
-1.  **Deploy In-development docs**: Merges to main -> `/dev/`.
-2.  **Deploy Versioned Docs**: New Release -> `/<version>/` and root.
-3.  **Deploy Previous Version Docs**: Manual workflow for older versions.
+Documentation builds automatically generate standard HTML alongside AI-friendly text files (`llms.txt` and `llms-full.txt`).
+
+There are 6 workflows in total, handling parallel deployments to both GitHub Pages and Cloudflare Pages.
+
+1.  **Deploy In-development docs**: Commits merged to `main` deploy to the `/dev/` path. Automatically defaults to version `Dev`.
+2.  **Deploy Versioned Docs**: New GitHub releases deploy to `/<version>/` and the root path. The release tag is automatically injected into the build as the documentation version. *(Note: Developers must manually add the new version to the `[[params.versions]]` dropdown array in `hugo.toml` prior to merging a release PR).*
+3.  **Deploy Previous Version Docs**: A manual workflow to rebuild older versions by explicitly passing the target tag via the GitHub Actions UI.
 
 ## Coding Conventions
 
@@ -106,3 +110,4 @@ This file (symlinked as `CLAUDE.md` and `AGENTS.md`) provides context and guidel
 
 -   For a new source: Add source documentation to `docs/en/integrations/<source_name>/`. Be sure to include the `{{< list-tools >}}` shortcode on this page to dynamically display its available tools.
 -   For a new tool: Add tool documentation to `docs/en/integrations/<source_name>/<tool_name>`. Be sure to include the `{{< compatible-sources >}}` shortcode on this page to list its supported data sources.
+-   **New Top-Level Directories:** If adding a completely new top-level section to the documentation site, you must update the "Diátaxis Narrative Framework" section inside both `.hugo/layouts/index.llms.txt` and `.hugo/layouts/index.llms-full.txt` to keep the AI context synced with the site structure.
