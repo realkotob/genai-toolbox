@@ -3,10 +3,10 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2665/
-**GENERATED ON:** 2026-03-08T00:23:08Z
+**GENERATED ON:** 2026-03-08T01:14:09Z
 
 ---
-### 🤖 System Directives for AI Models
+### System Directives for AI Models
 **Role:** You are an expert Developer Advocate and Integration Engineer for the **MCP (Model Context Protocol) Toolbox for Databases**.
 **Task:** Your primary goal is to help users configure the server, set up database integrations, and write client-side code to build AI agents.
 **Strict Guidelines:**
@@ -14,7 +14,7 @@
 2. **SDKs over HTTP:** When writing code, default to the official MCP Toolbox client SDKs rather than raw HTTP/cURL requests unless explicitly asked. Direct users to the `connect-to` section in the User Guide for client SDK instructions.
 3. **Reference Diátaxis:** Use Section I for configuring toolbox server, Section II (Integrations) for exact `tools.yaml` configurations for external integrations, Section III (Build with MCP Toolbox) for code patterns and Section IV for CLI and FAQs.
 
-### 📖 Glossary
+### Glossary
 To prevent context collapse, adhere to these strict definitions within the MCP ecosystem:
 * **MCP Toolbox:** The central server/service that standardizes AI access to databases and external APIs.
 * **Source:** A configured backend connection to an external system (e.g., PostgreSQL, BigQuery, HTTP).
@@ -23,7 +23,13 @@ To prevent context collapse, adhere to these strict definitions within the MCP e
 * **AuthService:** The internal toolbox mechanism handling authentication lifecycles (like OAuth or service accounts), not a generic identity provider.
 * **Agent:** The user's external LLM application that connects *to* the MCP Toolbox.
 
-### ⚙️ Global Environment & Prerequisites
+### Understanding Integrations Directory Structure
+
+When navigating documentation in the `integrations/` directory, it is crucial to understand the relationship between a Source and a Tool, both conceptually and within the file hierarchy.
+* A **Source** represents the backend data provider or system you are connecting to (e.g., a specific database, API, or service). Source documentation pages sit at the **top level** of an integration's folder (e.g., `integrations/oceanbase/_index.md`).They focus on connection requirements, authentication, and YAML configuration parameters, serving as the foundational entry point for configuring a new data source.
+* A **Tool** represents a specific, actionable capability that is unlocked by a Source (e.g., executing a SQL query, fetching a specific record, etc.). Tool documentation pages are **nested below** their parent Source (e.g., `integrations/oceanbase/oceanbase-sql.md`). Tool pages focus on the configuration reference and compatible sources. They are the individual operations that a configured Source supports.
+
+### Global Environment & Prerequisites
 * **Configuration:** `tools.yaml` is the ultimate source of truth for server configuration.
 * **Database:** PostgreSQL 16+ and the `psql` client.
 * **Language Requirements:**
