@@ -225,7 +225,9 @@ tools.
   * If you are adding a new tool, add the details in the `<tool_name>.md` file in this new folder.
     * Make sure to include the `{{< compatible-sources >}}` shortcode to dynamically display data sources this tool supports.
 
-* **(Optional) Add samples** to the `docs/en/samples/<newdb>` directory.
+* **(Optional) Add samples** to the `docs/en/build-with-mcp-toolbox/<newdb>` directory.
+
+* **Adding Top-Level Sections:** If you add a completely new top-level documentation directory (e.g., a new section alongside `integrations`, `user-guide`, etc.), you **must** update the AI documentation layout files located at `.hugo/layouts/index.llms.txt` and `.hugo/layouts/index.llms-full.txt`. Specifically, you need to update the "Diátaxis Narrative Framework" preamble in both files so that the AI models understand the purpose of your new section.
 
 #### Adding Prebuilt Tools
 
@@ -429,7 +431,9 @@ Follow these steps to preview documentation changes locally using a Hugo server:
 
 ### Document Versioning Setup
 
-There are 3 GHA workflows we use to achieve document versioning:
+The documentation uses a dynamic versioning system that outputs standard HTML sites alongside AI-optimized plain text files (`llms.txt` and `llms-full.txt`).
+
+There are 6 GHA workflows we use to achieve document versioning (each deployment scenario has one workflow for GitHub Pages and one for Cloudflare Pages):
 
 1. **Deploy In-development docs:**
     This workflow is run on every commit merged into the main branch. It deploys

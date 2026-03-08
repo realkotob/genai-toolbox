@@ -39,7 +39,7 @@ jobs:
     # This shared concurrency group ensures only one docs deployment runs at a time.
     concurrency:
       group: cf-docs-update
-      cancel-in-progress: false
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
