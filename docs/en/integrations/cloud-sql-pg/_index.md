@@ -1,5 +1,5 @@
 ---
-title: "Cloud SQL for PostgreSQL"
+title: "Cloud SQL for PostgreSQL Source"
 linkTitle: "Cloud SQL (Postgres)"
 type: docs
 weight: 1

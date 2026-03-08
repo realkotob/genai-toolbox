@@ -111,3 +111,27 @@ There are 6 workflows in total, handling parallel deployments to both GitHub Pag
 -   For a new source: Add source documentation to `docs/en/integrations/<source_name>/`. Be sure to include the `{{< list-tools >}}` shortcode on this page to dynamically display its available tools.
 -   For a new tool: Add tool documentation to `docs/en/integrations/<source_name>/<tool_name>`. Be sure to include the `{{< compatible-sources >}}` shortcode on this page to list its supported data sources.
 -   **New Top-Level Directories:** If adding a completely new top-level section to the documentation site, you must update the "Diátaxis Narrative Framework" section inside both `.hugo/layouts/index.llms.txt` and `.hugo/layouts/index.llms-full.txt` to keep the AI context synced with the site structure.
+
+
+#### Integration Documentation Rules
+
+When generating or editing documentation for this repository, you must strictly adhere to the following CI-enforced rules. Failure to do so will break the build.
+
+##### Source Page Constraints (`integrations/**/_index.md`)
+
+1.  **Title Convention:** The YAML frontmatter `title` must always end with "Source" (e.g., `title: "Postgres Source"`).
+2.  **No H1 Tags:** Never generate H1 (`#`) headings in the markdown body.
+3.  **Strict H2 Ordering:** You must use the following H2 (`##`) headings in this exact sequence.
+    *   `## About` (Required)
+    *   `## Available Tools` (Optional)
+    *   `## Requirements` (Optional)
+    *   `## Example` (Required)
+    *   `## Reference` (Required)
+    *   `## Advanced Usage` (Optional)
+    *   `## Troubleshooting` (Optional)
+    *   `## Additional Resources` (Optional)
+4.  **Shortcode Placement:** If you generate the `## Available Tools` section, you must include the `{{< list-tools >}}` shortcode beneath it.
+
+##### Asset Constraints (`docs/`)
+
+1.  **File Size Limits:** Never add files larger than 24MB to the `docs/` directory.
