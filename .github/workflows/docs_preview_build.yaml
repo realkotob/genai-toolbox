@@ -28,7 +28,7 @@ jobs:
   build-preview:
     runs-on: ubuntu-24.04
     concurrency:
-      group: "docs-build-${{ github.event.pull_request.number }}"
+      group: "preview-${{ github.event.number }}"
       cancel-in-progress: true
     defaults:
       run:
