@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2666/
-**GENERATED ON:** 2026-03-08T01:55:58Z
+**GENERATED ON:** 2026-03-09T05:44:26Z
 
 ---
 ### System Directives for AI Models
@@ -17982,7 +17982,7 @@ The source maintains a connection pool to the CockroachDB cluster. The pool auto
 - Connection retry with exponential backoff
 - Health checking of connections
 
-### Troubleshooting
+## Troubleshooting
 
 ### SSL/TLS Errors
 
