@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-24.04
     concurrency:
       # Shared concurrency group wih preview staging.
-      group: "preview-${{ github.event.number }}"
+      group: "docs-build-${{ github.event.pull_request.number }}"
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
