@@ -47,8 +47,14 @@ jobs:
         id: vars
         run: |
           PR_NUMBER=$(cat downloaded-artifact/pr_number.txt)
+          
+          # Strictly validate that PR_NUMBER consists ONLY of digits (0-9)
+          if ! [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "Error: PR number must contain only digits. Possible injection attempt."
+            exit 1
+          fi
+          
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
         with:
