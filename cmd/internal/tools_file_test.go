@@ -1754,7 +1754,7 @@ func TestPrebuiltTools(t *testing.T) {
 				},
 				"lifecycle": tools.ToolsetConfig{
 					Name:      "lifecycle",
-					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "wait_for_operation"},
+					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "get_instance", "wait_for_operation"},
 				},
 			},
 		},
@@ -1776,7 +1776,7 @@ func TestPrebuiltTools(t *testing.T) {
 				},
 				"lifecycle": tools.ToolsetConfig{
 					Name:      "lifecycle",
-					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "wait_for_operation"},
+					ToolNames: []string{"create_backup", "restore_backup", "clone_instance", "list_instances", "get_instance", "wait_for_operation"},
 				},
 			},
 		},
