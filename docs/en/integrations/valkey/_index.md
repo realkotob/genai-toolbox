@@ -1,5 +1,5 @@
 ---
-title: "Valkey"
+title: "Valkey Source"
 linkTitle: "Valkey"
 type: docs
 weight: 1

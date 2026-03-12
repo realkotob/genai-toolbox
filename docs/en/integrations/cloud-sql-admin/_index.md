@@ -1,5 +1,5 @@
 ---
-title: Cloud SQL Admin
+title: "Cloud SQL Admin Source"
 type: docs
 weight: 1
 description: "A \"cloud-sql-admin\" source provides a client for the Cloud SQL Admin API.\n"

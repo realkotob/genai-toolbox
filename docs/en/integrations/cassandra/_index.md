@@ -1,5 +1,5 @@
 ---
-title: "Cassandra"
+title: "Cassandra Source"
 type: docs
 weight: 1
 description: >

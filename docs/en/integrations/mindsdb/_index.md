@@ -1,5 +1,5 @@
 ---
-title: "MindsDB"
+title: "MindsDB Source"
 type: docs
 weight: 1
 description: >
@@ -41,17 +41,11 @@ on ML and unstructured data.
 [mindsdb-docs]: https://docs.mindsdb.com/
 [mindsdb-github]: https://github.com/mindsdb/mindsdb
 
-
-
-## Available Tools
-
-{{< list-tools >}}
-
-## Supported Datasources
+### Supported Datasources
 
 MindsDB supports hundreds of datasources, including:
 
-### **Business Applications**
+#### **Business Applications**
 
 - **Salesforce**: Query leads, opportunities, accounts, and custom objects
 - **Jira**: Access issues, projects, workflows, and team data
@@ -59,23 +53,23 @@ MindsDB supports hundreds of datasources, including:
 - **Slack**: Access channels, messages, and team communications
 - **HubSpot**: Query contacts, companies, deals, and marketing data
 
-### **Databases & Storage**
+#### **Databases & Storage**
 
 - **MongoDB**: Query NoSQL collections as structured tables
 - **Redis**: Key-value stores and caching layers
 - **Elasticsearch**: Search and analytics data
 - **S3/Google Cloud Storage**: File storage and data lakes
 
-### **Communication & Email**
+#### **Communication & Email**
 
 - **Gmail/Outlook**: Query emails, attachments, and metadata
 - **Slack**: Access workspace data and conversations
 - **Microsoft Teams**: Team communications and files
 - **Discord**: Server data and message history
 
-## Example Queries
+### Example Queries
 
-### Cross-Datasource Analytics
+#### Cross-Datasource Analytics
 
 ```sql
 -- Join Salesforce opportunities with GitHub activity
@@ -90,7 +84,7 @@ WHERE s.stage = 'Closed Won'
 GROUP BY s.opportunity_name, s.amount, g.repository_name;
 ```
 
-### Email & Communication Analysis
+#### Email & Communication Analysis
 
 ```sql
 -- Analyze email patterns with Slack activity
@@ -105,7 +99,7 @@ WHERE e.date >= '2024-01-01'
 GROUP BY e.sender, e.subject, s.channel_name;
 ```
 
-### ML Model Predictions
+#### ML Model Predictions
 
 ```sql
 -- Use ML model to predict customer churn
@@ -117,6 +111,27 @@ SELECT
 FROM customer_churn_model
 WHERE predicted_churn_probability > 0.8;
 ```
+
+### Use Cases
+
+With MindsDB integration, you can:
+
+- **Query Multiple Datasources**: Connect to databases, APIs, file systems, and
+  more through a single SQL interface
+- **Cross-Datasource Analytics**: Perform joins and analytics across different
+  data sources
+- **ML Model Integration**: Use trained ML models as virtual tables for
+  predictions and insights
+- **Unstructured Data Processing**: Query documents, images, and other
+  unstructured data as structured tables
+- **Real-time Predictions**: Get real-time predictions from ML models through
+  SQL queries
+- **API Abstraction**: Write SQL queries that automatically translate to REST
+  APIs, GraphQL, and native protocols
+
+## Available Tools
+
+{{< list-tools >}}
 
 ## Requirements
 
@@ -162,23 +177,6 @@ Use environment variable replacement with the format ${ENV_NAME}
 instead of hardcoding your secrets into the configuration file.
 {{< /notice >}}
 
-## Use Cases
-
-With MindsDB integration, you can:
-
-- **Query Multiple Datasources**: Connect to databases, APIs, file systems, and
-  more through a single SQL interface
-- **Cross-Datasource Analytics**: Perform joins and analytics across different
-  data sources
-- **ML Model Integration**: Use trained ML models as virtual tables for
-  predictions and insights
-- **Unstructured Data Processing**: Query documents, images, and other
-  unstructured data as structured tables
-- **Real-time Predictions**: Get real-time predictions from ML models through
-  SQL queries
-- **API Abstraction**: Write SQL queries that automatically translate to REST
-  APIs, GraphQL, and native protocols
-
 ## Reference
 
 | **field**    | **type** | **required** | **description**                                                                                              |
@@ -191,7 +189,7 @@ With MindsDB integration, you can:
 | password     |  string  |    false     | Password of the MindsDB user (e.g. "my-password"). Optional if MindsDB is configured without authentication. |
 | queryTimeout |  string  |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, no timeout is applied.              |
 
-## Resources
+## Additional Resources
 
 - [MindsDB Documentation][mindsdb-docs] - Official documentation and guides
 - [MindsDB GitHub][mindsdb-github] - Source code and community

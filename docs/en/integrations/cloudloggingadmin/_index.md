@@ -1,5 +1,5 @@
 ---
-title: "Cloud Logging Admin"
+title: "Cloud Logging Admin Source"
 type: docs
 weight: 1
 description: >

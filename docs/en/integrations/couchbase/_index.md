@@ -1,5 +1,5 @@
 ---
-title: "Couchbase"
+title: "Couchbase Source"
 type: docs
 weight: 1
 description: >

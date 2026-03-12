@@ -1,5 +1,5 @@
 ---
-title: "MySQL"
+title: "MySQL Source"
 type: docs
 weight: 1
 description: >

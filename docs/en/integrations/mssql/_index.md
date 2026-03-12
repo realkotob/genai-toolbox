@@ -1,5 +1,5 @@
 ---
-title: "SQL Server"
+title: "SQL Server Source"
 type: docs
 weight: 1
 description: >

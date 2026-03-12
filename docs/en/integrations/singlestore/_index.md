@@ -1,5 +1,5 @@
 ---
-title: "SingleStore"
+title: "SingleStore Source"
 type: docs
 weight: 1
 description: >

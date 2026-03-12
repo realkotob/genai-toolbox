@@ -1,5 +1,5 @@
 ---
-title: "TiDB"
+title: "TiDB Source"
 type: docs
 weight: 1
 description: >
@@ -17,7 +17,6 @@ high availability.
 [tidb-docs]: https://docs.pingcap.com/tidb/stable
 
 
-
 ## Available Tools
 
 {{< list-tools >}}
@@ -33,19 +32,6 @@ For TiDB Cloud users, you can create database users through the TiDB Cloud
 console.
 
 [tidb-users]: https://docs.pingcap.com/tidb/stable/user-account-management
-
-## SSL Configuration
-
-- TiDB Cloud
-
-    For TiDB Cloud instances, SSL is automatically enabled when the hostname
-    matches the TiDB Cloud pattern (`gateway*.*.*.tidbcloud.com`). You don't
-    need to explicitly set `ssl: true` for TiDB Cloud connections.
-
-- Self-Hosted TiDB
-
-    For self-hosted TiDB instances, you can optionally enable SSL by setting
-    `ssl: true` in your configuration.
 
 ## Example
 
@@ -93,3 +79,18 @@ instead of hardcoding your secrets into the configuration file.
 | user      |  string  |     true     | Name of the TiDB user to connect as (e.g. "my-tidb-user").                                 |
 | password  |  string  |     true     | Password of the TiDB user (e.g. "my-password").                                            |
 | ssl       |  boolean |    false     | Whether to use SSL/TLS encryption. Automatically enabled for TiDB Cloud instances.         |
+
+## Advanced Usage
+
+### SSL Configuration
+
+- TiDB Cloud
+
+    For TiDB Cloud instances, SSL is automatically enabled when the hostname
+    matches the TiDB Cloud pattern (`gateway*.*.*.tidbcloud.com`). You don't
+    need to explicitly set `ssl: true` for TiDB Cloud connections.
+
+- Self-Hosted TiDB
+
+    For self-hosted TiDB instances, you can optionally enable SSL by setting
+    `ssl: true` in your configuration.

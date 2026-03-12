@@ -1,5 +1,5 @@
 ---
-title: "Dgraph"
+title: "Dgraph Source"
 type: docs
 weight: 1
 description: >

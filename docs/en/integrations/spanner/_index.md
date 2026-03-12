@@ -1,5 +1,5 @@
 ---
-title: "Spanner"
+title: "Spanner Source"
 type: docs
 weight: 1
 description: >
@@ -8,7 +8,7 @@ description: >
 no_list: true
 ---
 
-# Spanner Source
+## About
 
 [Spanner][spanner-docs] is a fully managed, mission-critical database service
 that brings together relational, graph, key-value, and search. It offers

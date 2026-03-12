@@ -1,5 +1,5 @@
 ---
-title: "Trino"
+title: "Trino Source"
 type: docs
 weight: 1
 description: >

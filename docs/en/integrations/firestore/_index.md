@@ -1,5 +1,5 @@
 ---
-title: "Firestore"
+title: "Firestore Source"
 type: docs
 weight: 1
 description: >
@@ -7,7 +7,7 @@ description: >
 no_list: true
 ---
 
-# Firestore Source
+## About
 
 [Firestore][firestore-docs] is a NoSQL document database built for automatic
 scaling, high performance, and ease of application development. While the

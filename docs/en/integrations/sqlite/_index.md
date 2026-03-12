@@ -1,5 +1,5 @@
 ---
-title: "SQLite"
+title: "SQLite Source"
 linkTitle: "SQLite"
 type: docs
 weight: 1

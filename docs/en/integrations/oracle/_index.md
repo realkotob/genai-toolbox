@@ -1,5 +1,5 @@
 ---
-title: "Oracle"
+title: "Oracle Source"
 type: docs
 weight: 1
 description: >
@@ -51,13 +51,13 @@ You can download the Instant Client from the official Oracle website: [Oracle
 Instant Client
 Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html)
 
-## Connection Methods
+### Connection Methods
 
 You can configure the connection to your Oracle database using one of the
 following three methods. **You should only use one method** in your source
 configuration.
 
-### Basic Connection (Host/Port/Service Name)
+#### Basic Connection (Host/Port/Service Name)
 
 This is the most straightforward method, where you provide the connection
 details as separate fields:
@@ -67,13 +67,13 @@ details as separate fields:
 - `serviceName`: The service name for the database instance you wish to connect
   to.
 
-### Connection String
+#### Connection String
 
 As an alternative, you can provide all the connection details in a single
 `connectionString`. This is a convenient way to consolidate the connection
 information. The typical format is `hostname:port/servicename`.
 
-### TNS Alias
+#### TNS Alias
 
 For environments that use a `tnsnames.ora` configuration file, you can connect
 using a TNS (Transparent Network Substrate) alias.
@@ -84,7 +84,7 @@ using a TNS (Transparent Network Substrate) alias.
   containing it. This setting will override the `TNS_ADMIN` environment
   variable.
 
-## Examples
+## Example
 
 This example demonstrates the four connection methods you could choose from:
 

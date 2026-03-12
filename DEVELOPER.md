@@ -227,7 +227,30 @@ tools.
 
 * **(Optional) Add samples** to the `docs/en/build-with-mcp-toolbox/<newdb>` directory.
 
-* **Adding Top-Level Sections:** If you add a completely new top-level documentation directory to the [docsite](https://googleapis.github.io/genai-toolbox/getting-started/introduction/) (e.g., a new section alongside `integrations`, `user-guide`, etc.), you **must** update the AI documentation layout files located at `.hugo/layouts/index.llms.txt` and `.hugo/layouts/index.llms-full.txt`. Specifically, you need to update the "Diátaxis Narrative Framework" preamble in both files so that the AI models understand the purpose of your new section.
+* **Adding Top-Level Sections:** If you add a completely new top-level documentation directory (e.g., a new section alongside `integrations`, `user-guide`, etc.), you **must** update the AI documentation layout files located at `.hugo/layouts/index.llms.txt` and `.hugo/layouts/index.llms-full.txt`. Specifically, you need to update the "Diátaxis Narrative Framework" preamble in both files so that the AI models understand the purpose of your new section.
+
+#### Integration Documentation Rules
+
+When generating or editing documentation for this repository, you must strictly adhere to the following CI-enforced rules. Failure to do so will break the build.
+
+##### Source Page Constraints (`integrations/**/_index.md`)
+
+1.  **Title Convention:** The YAML frontmatter `title` must always end with "Source" (e.g., `title: "Postgres Source"`).
+2.  **No H1 Tags:** Never generate H1 (`#`) headings in the markdown body.
+3.  **Strict H2 Ordering:** You must use the following H2 (`##`) headings in this exact sequence.
+    *   `## About` (Required)
+    *   `## Available Tools` (Optional)
+    *   `## Requirements` (Optional)
+    *   `## Example` (Required)
+    *   `## Reference` (Required)
+    *   `## Advanced Usage` (Optional)
+    *   `## Troubleshooting` (Optional)
+    *   `## Additional Resources` (Optional)
+4.  **Shortcode Placement:** If you generate the `## Available Tools` section, you must include the `{{< list-tools >}}` shortcode beneath it.
+
+##### Asset Constraints (`docs/`)
+
+1.  **File Size Limits:** Never add files larger than 24MB to the `docs/` directory.
 
 #### Adding Prebuilt Tools
 
@@ -253,10 +276,23 @@ project "toolbox-testing-438616".
 
 ### Linting
 
+### Code Linting
+
 Run the lint check to ensure code quality:
 
 ```bash
 golangci-lint run --fix
+```
+
+### Documentation Structure Linting
+
+To ensure consistency, we enforce a standardized structure for integration Source pages (_index.md) using a custom linter (.ci/lint_source_pages.sh).
+
+Before pushing changes to integration pages, run the source page linter to verify heading order and required sections:
+
+```bash
+# From the repository root
+./.ci/lint-docs-source-page.sh
 ```
 
 ### Unit Tests

@@ -1,5 +1,5 @@
 ---
-title: "Dataplex"
+title: "Dataplex Source"
 type: docs
 weight: 1
 description: >
@@ -7,7 +7,7 @@ description: >
 no_list: true
 ---
 
-# Dataplex Source
+## About
 
 [Dataplex][dataplex-docs] Universal Catalog is a unified, intelligent governance
 solution for data and AI assets in Google Cloud. Dataplex Universal Catalog
@@ -20,8 +20,6 @@ your data. It helps you discover relationships and semantics in the metadata by
 applying artificial intelligence and machine learning.
 
 [dataplex-docs]: https://cloud.google.com/dataplex/docs
-
-
 
 ## Available Tools
 
@@ -36,7 +34,17 @@ type: "dataplex"
 project: "my-project-id"
 ```
 
-## Sample System Prompt
+## Reference
+
+| **field** | **type** | **required** | **description**                                                                  |
+|-----------|:--------:|:------------:|----------------------------------------------------------------------------------|
+| type      |  string  |     true     | Must be "dataplex".                                                              |
+| project   |  string  |     true     | ID of the GCP project used for quota and billing purposes (e.g. "my-project-id").|
+
+
+## Advanced Usage
+
+### Sample System Prompt
 
 You can use the following system prompt as "Custom Instructions" in your client
 application.
@@ -357,10 +365,3 @@ This abbreviated syntax works for the qualified predicates except for `label` in
 ### Response
 1. Unless asked for a specific aspect, respond with all aspects attached to the entry.
 ```
-
-## Reference
-
-| **field** | **type** | **required** | **description**                                                                  |
-|-----------|:--------:|:------------:|----------------------------------------------------------------------------------|
-| type      |  string  |     true     | Must be "dataplex".                                                              |
-| project   |  string  |     true     | ID of the GCP project used for quota and billing purposes (e.g. "my-project-id").|

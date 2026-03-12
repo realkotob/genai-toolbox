@@ -1,5 +1,5 @@
 ---
-title: "CockroachDB"
+title: "CockroachDB Source"
 type: docs
 weight: 1
 description: >
@@ -14,7 +14,6 @@ no_list: true
 **Minimum Version:** CockroachDB v25.1 or later is recommended for full tool compatibility.
 
 [crdb-docs]: https://www.cockroachlabs.com/docs/
-
 
 
 ## Available Tools
@@ -85,7 +84,7 @@ tools:
     description: List indexes on the expenses table
 ```
 
-## Configuration Parameters
+## Reference
 
 ### Required Parameters
 
@@ -132,7 +131,7 @@ Common query parameters for CockroachDB connections:
 | `sslkey` | file path | Path to client key |
 | `application_name` | string | Application name for connection tracking |
 
-## Best Practices
+## Advanced Usage
 
 ### Security and MCP Compliance
 

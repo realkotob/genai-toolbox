@@ -1,5 +1,5 @@
 ---
-title: "Cloud SQL for SQL Server"
+title: "Cloud SQL for SQL Server Source"
 linkTitle: "Cloud SQL (SQL Server)"
 type: docs
 weight: 1

@@ -1,5 +1,5 @@
 ---
-title: "Bigtable"
+title: "Bigtable Source"
 type: docs
 weight: 1
 description: >
@@ -7,7 +7,7 @@ description: >
 no_list: true
 ---
 
-# Bigtable Source
+## About
 
 [Bigtable][bigtable-docs] is a low-latency NoSQL database service for machine
 learning, operational analytics, and user-facing operations. It's a wide-column,

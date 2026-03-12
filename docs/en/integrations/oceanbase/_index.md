@@ -1,5 +1,5 @@
 ---
-title: "OceanBase"
+title: "OceanBase Source"
 type: docs
 weight: 1
 description: >
@@ -17,6 +17,29 @@ OceanBase.
 
 [oceanbase-docs]: https://www.oceanbase.com/
 
+
+### Features
+
+#### MySQL Compatibility
+
+OceanBase is highly compatible with MySQL, supporting most MySQL SQL syntax,
+data types, and functions. This makes it easy to migrate existing MySQL
+applications to OceanBase.
+
+#### High Availability
+
+OceanBase provides automatic failover and data replication across multiple
+nodes, ensuring high availability and data durability.
+
+#### Scalability
+
+OceanBase can scale horizontally by adding more nodes to the cluster, making it
+suitable for large-scale applications.
+
+#### Strong Consistency
+
+OceanBase provides strong consistency guarantees, ensuring that all transactions
+are ACID compliant.
 
 
 ## Available Tools
@@ -67,26 +90,3 @@ instead of hardcoding your secrets into the configuration file.
 | user         |  string  |     true     | Name of the OceanBase user to connect as (e.g. "my-oceanbase-user").                            |
 | password     |  string  |     true     | Password of the OceanBase user (e.g. "my-password").                                            |
 | queryTimeout |  string  |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, no timeout is applied. |
-
-## Features
-
-### MySQL Compatibility
-
-OceanBase is highly compatible with MySQL, supporting most MySQL SQL syntax,
-data types, and functions. This makes it easy to migrate existing MySQL
-applications to OceanBase.
-
-### High Availability
-
-OceanBase provides automatic failover and data replication across multiple
-nodes, ensuring high availability and data durability.
-
-### Scalability
-
-OceanBase can scale horizontally by adding more nodes to the cluster, making it
-suitable for large-scale applications.
-
-### Strong Consistency
-
-OceanBase provides strong consistency guarantees, ensuring that all transactions
-are ACID compliant.

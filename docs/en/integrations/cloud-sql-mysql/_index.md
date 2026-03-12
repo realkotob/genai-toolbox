@@ -1,5 +1,5 @@
 ---
-title: "Cloud SQL for MySQL"
+title: "Cloud SQL for MySQL Source"
 linkTitle: "Cloud SQL (MySQL)"
 type: docs
 weight: 1

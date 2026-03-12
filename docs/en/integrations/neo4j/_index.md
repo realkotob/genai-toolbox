@@ -1,5 +1,5 @@
 ---
-title: "Neo4j"
+title: "Neo4j Source"
 type: docs
 weight: 1
 description: >
@@ -14,7 +14,6 @@ no_list: true
 reliability, feature robustness, and performance.
 
 [neo4j-docs]: https://neo4j.com/docs
-
 
 
 ## Available Tools

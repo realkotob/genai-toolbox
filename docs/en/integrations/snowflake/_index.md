@@ -1,5 +1,5 @@
 ---
-title: "Snowflake"
+title: "Snowflake Source"
 type: docs
 weight: 1
 description: >

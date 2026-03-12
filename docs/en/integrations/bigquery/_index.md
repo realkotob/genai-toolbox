@@ -1,5 +1,5 @@
 ---
-title: "BigQuery"
+title: "BigQuery Source"
 type: docs
 weight: 1
 description: >
@@ -12,7 +12,7 @@ description: >
 no_list: true
 ---
 
-# BigQuery Source
+## About
 
 [BigQuery][bigquery-docs] is Google Cloud's fully managed, petabyte-scale,
 and cost-effective analytics data warehouse that lets you run analytics

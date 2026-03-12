@@ -1,5 +1,5 @@
 ---
-title: "Gemini Data Analytics"
+title: "Gemini Data Analytics Source"
 type: docs
 weight: 1
 description: >
@@ -18,7 +18,7 @@ Authentication can be handled in two ways:
 
 ## Available Tools
 
-{{< list-tools>}}
+{{< list-tools >}}
 
 ## Example
 

@@ -1,5 +1,5 @@
 ---
-title: "Elasticsearch"
+title: "Elasticsearch Source"
 type: docs
 weight: 1
 description: >
@@ -9,7 +9,7 @@ description: >
 no_list: true
 ---
 
-# Elasticsearch Source
+## About
 
 [Elasticsearch][elasticsearch-docs] is a distributed, free and open search and
 analytics engine for all types of data, including textual, numerical,
