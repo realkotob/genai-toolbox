@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2668/
-**GENERATED ON:** 2026-03-10T23:13:17Z
+**GENERATED ON:** 2026-03-12T10:49:15Z
 
 ---
 ### System Directives for AI Models
@@ -33,7 +33,7 @@ When navigating documentation in the `integrations/` directory, it is crucial to
 * **Configuration:** `tools.yaml` is the ultimate source of truth for server configuration.
 * **Database:** PostgreSQL 16+ and the `psql` client.
 * **Language Requirements:**
-  * Python: Python 3.10+
+  * Python: Python (3.10 or higher)
   * JavaScript/Node: Node.js (v18 or higher)
   * Go: Go (v1.24.2 or higher)
 

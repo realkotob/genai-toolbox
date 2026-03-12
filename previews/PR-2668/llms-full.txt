@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2668/
-**GENERATED ON:** 2026-03-10T23:13:17Z
+**GENERATED ON:** 2026-03-12T10:49:15Z
 
 ---
 ### System Directives for AI Models
@@ -29,12 +29,11 @@ When navigating documentation in the `integrations/` directory, it is crucial to
 * A **Source** represents the backend data provider or system you are connecting to (e.g., a specific database, API, or service). Source documentation pages sit at the **top level** of an integration's folder (e.g., `integrations/oceanbase/_index.md`).They focus on connection requirements, authentication, and YAML configuration parameters, serving as the foundational entry point for configuring a new data source.
 * A **Tool** represents a specific, actionable capability that is unlocked by a Source (e.g., executing a SQL query, fetching a specific record, etc.). Tool documentation pages are **nested below** their parent Source (e.g., `integrations/oceanbase/oceanbase-sql.md`). Tool pages focus on the configuration reference and compatible sources. They are the individual operations that a configured Source supports.
 
-
 ### Global Environment & Prerequisites
 * **Configuration:** `tools.yaml` is the ultimate source of truth for server configuration.
 * **Database:** PostgreSQL 16+ and the `psql` client.
 * **Language Requirements:**
-  * Python: Python 3.10+
+  * Python: Python (3.10 or higher)
   * JavaScript/Node: Node.js (v18 or higher)
   * Go: Go (v1.24.2 or higher)
 
@@ -33542,7 +33541,7 @@ Explore the step-by-step guides below to learn how to integrate your databases w
 
 This guide assumes you have already done the following:
 
-1. Installed [Python 3.10+][install-python] (including [pip][install-pip] and
+1. Installed [Python (3.10 or higher)][install-python] (including [pip][install-pip] and
    your preferred virtual environment tool for managing dependencies e.g.
    [venv][install-venv]).
 1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
