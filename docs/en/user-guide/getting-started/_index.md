@@ -66,9 +66,9 @@ Being built on the Model Context Protocol (MCP), MCP Toolbox is framework-agnost
 
 Ready to dive in? Here are some of the most popular paths to getting your first agent up and running:
 
-* **Python SDK Quickstart:** Build a custom agent from scratch using our native Python client. This is the go-to choice for developers wanting full control over their application logic and orchestration.
+* [**Python SDK Quickstart:**](../../build-with-mcp-toolbox/local_quickstart.md) Build a custom agent from scratch using our native Python client. This is the go-to choice for developers wanting full control over their application logic and orchestration.
 
-* **MCP Client Quickstart:** Plug your databases directly into the MCP ecosystem. Perfect for a setup that works instantly with existing MCP-compatible clients and various IDEs.
+* [**MCP Client Quickstart:**](../../build-with-mcp-toolbox/mcp_quickstart/_index.md) Plug your databases directly into the MCP ecosystem. Perfect for a setup that works instantly with existing MCP-compatible clients and various IDEs.
 
 {{< notice tip >}}
 These are just a few starting points. For a complete list of tutorials, language-specific samples (Go, JS/TS, etc.), and advanced usage, explore the full [Build with MCP Toolbox section](../../build-with-mcp-toolbox/_index.md).
