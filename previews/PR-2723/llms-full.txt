@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2723/
-**GENERATED ON:** 2026-03-12T13:22:54Z
+**GENERATED ON:** 2026-03-12T13:31:59Z
 
 ---
 ### System Directives for AI Models
@@ -80,12 +80,12 @@ This documentation is structured following the Diátaxis framework to assist in 
 <html>
   <head>
     <title>Redirecting to Discord</title>
-    <link rel="canonical" href="https://discord.com/channels/1361796936281362633/1361811534547783842"/>
-    <meta http-equiv="refresh" content="0;url=https://discord.com/channels/1361796936281362633/1361811534547783842"/>
+    <link rel="canonical" href="https://discord.gg/Dmm69peqjh"/>
+    <meta http-equiv="refresh" content="0;url=https://discord.gg/Dmm69peqjh"/>
   </head>
   <body>
     <p>Connecting to the community... If you are not automatically redirected, please 
-       <a href="https://discord.com/channels/1361796936281362633/1361811534547783842">click here to join our Discord</a>.
+       <a href="https://discord.gg/Dmm69peqjh">click here to join our Discord</a>.
     </p>
   </body>
 </html>
@@ -931,9 +931,9 @@ Being built on the Model Context Protocol (MCP), MCP Toolbox is framework-agnost
 
 Ready to dive in? Here are some of the most popular paths to getting your first agent up and running:
 
-* **Python SDK Quickstart:** Build a custom agent from scratch using our native Python client. This is the go-to choice for developers wanting full control over their application logic and orchestration.
+* [**Python SDK Quickstart:**](../../build-with-mcp-toolbox/local_quickstart.md) Build a custom agent from scratch using our native Python client. This is the go-to choice for developers wanting full control over their application logic and orchestration.
 
-* **MCP Client Quickstart:** Plug your databases directly into the MCP ecosystem. Perfect for a setup that works instantly with existing MCP-compatible clients and various IDEs.
+* [**MCP Client Quickstart:**](../../build-with-mcp-toolbox/mcp_quickstart/_index.md) Plug your databases directly into the MCP ecosystem. Perfect for a setup that works instantly with existing MCP-compatible clients and various IDEs.
 
 {{< notice tip >}}
 These are just a few starting points. For a complete list of tutorials, language-specific samples (Go, JS/TS, etc.), and advanced usage, explore the full [Build with MCP Toolbox section](../../build-with-mcp-toolbox/_index.md).
@@ -34298,7 +34298,7 @@ It is helpful to understand how tool-level processing differs from other scopes:
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../build-with-mcp-toolbox/local_quickstart.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../build-with-mcp-toolbox/local_quickstart.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
@@ -34352,7 +34352,7 @@ AI: Error: Maximum stay duration is 14 days.
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../build-with-mcp-toolbox/local_quickstart_js.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../build-with-mcp-toolbox/local_quickstart_js.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
@@ -34408,7 +34408,7 @@ AI: Error: Maximum stay duration is 14 days.
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../build-with-mcp-toolbox/local_quickstart_go.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../build-with-mcp-toolbox/local_quickstart_go.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
