@@ -193,3 +193,92 @@ func TestGenerateSkill_MissingArguments(t *testing.T) {
 		})
 	}
 }
+
+func TestGenerateSkill_MultipleToolsets(t *testing.T) {
+	// Create a temporary directory for tests
+	tmpDir := t.TempDir()
+	outputDir := filepath.Join(tmpDir, "skills")
+
+	// Create a tools.yaml file with multiple toolsets
+	toolsFileContent := `
+sources:
+  my-sqlite:
+    kind: sqlite
+    database: test.db
+tools:
+  tool-a:
+    kind: sqlite-sql
+    source: my-sqlite
+    description: "tool a"
+    statement: "SELECT 'a'"
+  tool-b:
+    kind: sqlite-sql
+    source: my-sqlite
+    description: "tool b"
+    statement: "SELECT 'b'"
+  tool-c:
+    kind: sqlite-sql
+    source: my-sqlite
+    description: "tool c"
+    statement: "SELECT 'c'"
+toolsets:
+  set-1:
+    - tool-a
+    - tool-b
+  set-2:
+    - tool-b
+    - tool-c
+`
+
+	toolsFilePath := filepath.Join(tmpDir, "tools.yaml")
+	if err := os.WriteFile(toolsFilePath, []byte(toolsFileContent), 0644); err != nil {
+		t.Fatalf("failed to write tools file: %v", err)
+	}
+
+	args := []string{
+		"skills-generate",
+		"--tools-file", toolsFilePath,
+		"--output-dir", outputDir,
+		"--name", "my-skill",
+		"--description", "test skills",
+	}
+
+	got, err := invokeCommand(args)
+	if err != nil {
+		t.Fatalf("command failed: %v\nOutput: %s", err, got)
+	}
+
+	// Verify generated directory structure for set-1
+	skillPath1 := filepath.Join(outputDir, "my-skill-set-1")
+	if _, err := os.Stat(skillPath1); os.IsNotExist(err) {
+		t.Fatalf("skill directory for set-1 not created: %s", skillPath1)
+	}
+
+	// Verify set-1 contains tool-a and tool-b
+	if _, err := os.Stat(filepath.Join(skillPath1, "scripts", "tool-a.js")); os.IsNotExist(err) {
+		t.Errorf("tool-a.js missing in set-1")
+	}
+	if _, err := os.Stat(filepath.Join(skillPath1, "scripts", "tool-b.js")); os.IsNotExist(err) {
+		t.Errorf("tool-b.js missing in set-1")
+	}
+	if _, err := os.Stat(filepath.Join(skillPath1, "scripts", "tool-c.js")); !os.IsNotExist(err) {
+		t.Errorf("tool-c.js should not be in set-1")
+	}
+
+	// Verify generated directory structure for set-2
+	skillPath2 := filepath.Join(outputDir, "my-skill-set-2")
+	if _, err := os.Stat(skillPath2); os.IsNotExist(err) {
+		t.Fatalf("skill directory for set-2 not created: %s", skillPath2)
+	}
+
+	// Verify set-2 contains tool-b and tool-c
+	if _, err := os.Stat(filepath.Join(skillPath2, "scripts", "tool-b.js")); os.IsNotExist(err) {
+		t.Errorf("tool-b.js missing in set-2")
+	}
+	if _, err := os.Stat(filepath.Join(skillPath2, "scripts", "tool-c.js")); os.IsNotExist(err) {
+		t.Errorf("tool-c.js missing in set-2")
+	}
+	if _, err := os.Stat(filepath.Join(skillPath2, "scripts", "tool-a.js")); !os.IsNotExist(err) {
+		t.Errorf("tool-a.js should not be in set-2")
+	}
+}

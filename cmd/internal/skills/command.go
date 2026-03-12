@@ -92,120 +92,138 @@ func run(cmd *skillsCmd, opts *internal.ToolboxOptions) error {
 	opts.Logger.InfoContext(ctx, fmt.Sprintf("Generating skill '%s'...", cmd.name))
 
 	// Initialize toolbox and collect tools
-	allTools, err := cmd.collectTools(ctx, opts)
+	allToolsets, err := cmd.collectTools(ctx, opts)
 	if err != nil {
 		errMsg := fmt.Errorf("error collecting tools: %w", err)
 		opts.Logger.ErrorContext(ctx, errMsg.Error())
 		return errMsg
 	}
 
-	if len(allTools) == 0 {
+	if len(allToolsets) == 0 {
 		opts.Logger.InfoContext(ctx, "No tools found to generate.")
 		return nil
 	}
 
-	// Generate the combined skill directory
-	skillPath := filepath.Join(cmd.outputDir, cmd.name)
-	if err := os.MkdirAll(skillPath, 0755); err != nil {
-		errMsg := fmt.Errorf("error creating skill directory: %w", err)
-		opts.Logger.ErrorContext(ctx, errMsg.Error())
-		return errMsg
+	var tsNames []string
+	for name := range allToolsets {
+		tsNames = append(tsNames, name)
 	}
+	sort.Strings(tsNames)
 
-	// Generate assets directory
-	assetsPath := filepath.Join(skillPath, "assets")
-	if err := os.MkdirAll(assetsPath, 0755); err != nil {
-		errMsg := fmt.Errorf("error creating assets dir: %w", err)
-		opts.Logger.ErrorContext(ctx, errMsg.Error())
-		return errMsg
-	}
-
-	// Generate scripts directory
-	scriptsPath := filepath.Join(skillPath, "scripts")
-	if err := os.MkdirAll(scriptsPath, 0755); err != nil {
-		errMsg := fmt.Errorf("error creating scripts dir: %w", err)
-		opts.Logger.ErrorContext(ctx, errMsg.Error())
-		return errMsg
-	}
-
-	var jsConfigArgs []string
-	if len(opts.PrebuiltConfigs) > 0 {
-		for _, pc := range opts.PrebuiltConfigs {
-			jsConfigArgs = append(jsConfigArgs, `"--prebuilt"`, fmt.Sprintf(`"%s"`, pc))
+	for _, tsName := range tsNames {
+		allTools := allToolsets[tsName]
+		if len(allTools) == 0 {
+			continue
 		}
-	}
 
-	if opts.ToolsFolder != "" {
-		folderName := filepath.Base(opts.ToolsFolder)
-		destFolder := filepath.Join(assetsPath, folderName)
-		if err := copyDir(opts.ToolsFolder, destFolder); err != nil {
-			return err
+		skillName := cmd.name
+		if cmd.toolset == "" && tsName != "" {
+			skillName = fmt.Sprintf("%s-%s", cmd.name, tsName)
 		}
-		jsConfigArgs = append(jsConfigArgs, `"--tools-folder"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, folderName))
-	} else if len(opts.ToolsFiles) > 0 {
-		for _, f := range opts.ToolsFiles {
-			baseName := filepath.Base(f)
-			destPath := filepath.Join(assetsPath, baseName)
-			if err := copyFile(f, destPath); err != nil {
+
+		// Generate the combined skill directory
+		skillPath := filepath.Join(cmd.outputDir, skillName)
+		if err := os.MkdirAll(skillPath, 0755); err != nil {
+			errMsg := fmt.Errorf("error creating skill directory: %w", err)
+			opts.Logger.ErrorContext(ctx, errMsg.Error())
+			return errMsg
+		}
+
+		// Generate assets directory
+		assetsPath := filepath.Join(skillPath, "assets")
+		if err := os.MkdirAll(assetsPath, 0755); err != nil {
+			errMsg := fmt.Errorf("error creating assets dir: %w", err)
+			opts.Logger.ErrorContext(ctx, errMsg.Error())
+			return errMsg
+		}
+
+		// Generate scripts directory
+		scriptsPath := filepath.Join(skillPath, "scripts")
+		if err := os.MkdirAll(scriptsPath, 0755); err != nil {
+			errMsg := fmt.Errorf("error creating scripts dir: %w", err)
+			opts.Logger.ErrorContext(ctx, errMsg.Error())
+			return errMsg
+		}
+
+		var jsConfigArgs []string
+		if len(opts.PrebuiltConfigs) > 0 {
+			for _, pc := range opts.PrebuiltConfigs {
+				jsConfigArgs = append(jsConfigArgs, `"--prebuilt"`, fmt.Sprintf(`"%s"`, pc))
+			}
+		}
+
+		if opts.ToolsFolder != "" {
+			folderName := filepath.Base(opts.ToolsFolder)
+			destFolder := filepath.Join(assetsPath, folderName)
+			if err := copyDir(opts.ToolsFolder, destFolder); err != nil {
 				return err
 			}
-			jsConfigArgs = append(jsConfigArgs, `"--tools-files"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, baseName))
+			jsConfigArgs = append(jsConfigArgs, `"--tools-folder"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, folderName))
+		} else if len(opts.ToolsFiles) > 0 {
+			for _, f := range opts.ToolsFiles {
+				baseName := filepath.Base(f)
+				destPath := filepath.Join(assetsPath, baseName)
+				if err := copyFile(f, destPath); err != nil {
+					return err
+				}
+				jsConfigArgs = append(jsConfigArgs, `"--tools-files"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, baseName))
+			}
+		} else if opts.ToolsFile != "" {
+			baseName := filepath.Base(opts.ToolsFile)
+			destPath := filepath.Join(assetsPath, baseName)
+			if err := copyFile(opts.ToolsFile, destPath); err != nil {
+				return err
+			}
+			jsConfigArgs = append(jsConfigArgs, `"--tools-file"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, baseName))
 		}
-	} else if opts.ToolsFile != "" {
-		baseName := filepath.Base(opts.ToolsFile)
-		destPath := filepath.Join(assetsPath, baseName)
-		if err := copyFile(opts.ToolsFile, destPath); err != nil {
-			return err
+
+		configArgsStr := strings.Join(jsConfigArgs, ", ")
+
+		// Iterate over keys to ensure deterministic order
+		var toolNames []string
+		for name := range allTools {
+			toolNames = append(toolNames, name)
 		}
-		jsConfigArgs = append(jsConfigArgs, `"--tools-file"`, fmt.Sprintf(`path.join(__dirname, "..", "assets", %q)`, baseName))
-	}
+		sort.Strings(toolNames)
 
-	configArgsStr := strings.Join(jsConfigArgs, ", ")
+		for _, toolName := range toolNames {
+			// Generate wrapper script in scripts directory
+			scriptContent, err := generateScriptContent(toolName, configArgsStr, cmd.licenseHeader)
+			if err != nil {
+				errMsg := fmt.Errorf("error generating script content for %s: %w", toolName, err)
+				opts.Logger.ErrorContext(ctx, errMsg.Error())
+				return errMsg
+			}
 
-	// Iterate over keys to ensure deterministic order
-	var toolNames []string
-	for name := range allTools {
-		toolNames = append(toolNames, name)
-	}
-	sort.Strings(toolNames)
+			scriptFilename := filepath.Join(scriptsPath, fmt.Sprintf("%s.js", toolName))
+			if err := os.WriteFile(scriptFilename, []byte(scriptContent), 0755); err != nil {
+				errMsg := fmt.Errorf("error writing script %s: %w", scriptFilename, err)
+				opts.Logger.ErrorContext(ctx, errMsg.Error())
+				return errMsg
+			}
+		}
 
-	for _, toolName := range toolNames {
-		// Generate wrapper script in scripts directory
-		scriptContent, err := generateScriptContent(toolName, configArgsStr, cmd.licenseHeader)
+		// Generate SKILL.md
+		skillContent, err := generateSkillMarkdown(skillName, cmd.description, cmd.additionalNotes, allTools, parser.EnvVars)
 		if err != nil {
-			errMsg := fmt.Errorf("error generating script content for %s: %w", toolName, err)
+			errMsg := fmt.Errorf("error generating SKILL.md content: %w", err)
+			opts.Logger.ErrorContext(ctx, errMsg.Error())
+			return errMsg
+		}
+		skillMdPath := filepath.Join(skillPath, "SKILL.md")
+		if err := os.WriteFile(skillMdPath, []byte(skillContent), 0644); err != nil {
+			errMsg := fmt.Errorf("error writing SKILL.md: %w", err)
 			opts.Logger.ErrorContext(ctx, errMsg.Error())
 			return errMsg
 		}
 
-		scriptFilename := filepath.Join(scriptsPath, fmt.Sprintf("%s.js", toolName))
-		if err := os.WriteFile(scriptFilename, []byte(scriptContent), 0755); err != nil {
-			errMsg := fmt.Errorf("error writing script %s: %w", scriptFilename, err)
-			opts.Logger.ErrorContext(ctx, errMsg.Error())
-			return errMsg
-		}
+		opts.Logger.InfoContext(ctx, fmt.Sprintf("Successfully generated skill '%s' with %d tools.", skillName, len(allTools)))
 	}
-
-	// Generate SKILL.md
-	skillContent, err := generateSkillMarkdown(cmd.name, cmd.description, cmd.additionalNotes, allTools, parser.EnvVars)
-	if err != nil {
-		errMsg := fmt.Errorf("error generating SKILL.md content: %w", err)
-		opts.Logger.ErrorContext(ctx, errMsg.Error())
-		return errMsg
-	}
-	skillMdPath := filepath.Join(skillPath, "SKILL.md")
-	if err := os.WriteFile(skillMdPath, []byte(skillContent), 0644); err != nil {
-		errMsg := fmt.Errorf("error writing SKILL.md: %w", err)
-		opts.Logger.ErrorContext(ctx, errMsg.Error())
-		return errMsg
-	}
-
-	opts.Logger.InfoContext(ctx, fmt.Sprintf("Successfully generated skill '%s' with %d tools.", cmd.name, len(allTools)))
 
 	return nil
 }
 
-func (c *skillsCmd) collectTools(ctx context.Context, opts *internal.ToolboxOptions) (map[string]tools.Tool, error) {
+func (c *skillsCmd) collectTools(ctx context.Context, opts *internal.ToolboxOptions) (map[string]map[string]tools.Tool, error) {
 	// Initialize Resources
 	sourcesMap, authServicesMap, embeddingModelsMap, toolsMap, toolsetsMap, promptsMap, promptsetsMap, err := server.InitializeConfigs(ctx, opts.Cfg)
 	if err != nil {
@@ -214,22 +232,39 @@ func (c *skillsCmd) collectTools(ctx context.Context, opts *internal.ToolboxOpti
 
 	resourceMgr := resources.NewResourceManager(sourcesMap, authServicesMap, embeddingModelsMap, toolsMap, toolsetsMap, promptsMap, promptsetsMap)
 
-	result := make(map[string]tools.Tool)
+	result := make(map[string]map[string]tools.Tool)
 
-	if c.toolset == "" {
-		return toolsMap, nil
-	}
-
-	ts, ok := resourceMgr.GetToolset(c.toolset)
-	if !ok {
-		return nil, fmt.Errorf("toolset %q not found", c.toolset)
-	}
-
-	for _, t := range ts.Tools {
-		if t != nil {
-			tool := *t
-			result[tool.McpManifest().Name] = tool
+	if c.toolset != "" {
+		ts, ok := resourceMgr.GetToolset(c.toolset)
+		if !ok {
+			return nil, fmt.Errorf("toolset %q not found", c.toolset)
 		}
+		toolsForSet := make(map[string]tools.Tool)
+		for _, t := range ts.Tools {
+			if t != nil {
+				tool := *t
+				toolsForSet[tool.McpManifest().Name] = tool
+			}
+		}
+		result[c.toolset] = toolsForSet
+		return result, nil
+	}
+
+	if len(toolsetsMap) > 0 {
+		for tsName, ts := range toolsetsMap {
+			toolsForSet := make(map[string]tools.Tool)
+			for _, t := range ts.Tools {
+				if t != nil {
+					tool := *t
+					toolsForSet[tool.McpManifest().Name] = tool
+				}
+			}
+			if len(toolsForSet) > 0 {
+				result[tsName] = toolsForSet
+			}
+		}
+	} else {
+		result[""] = toolsMap
 	}
 
 	return result, nil
