@@ -1,8 +1,200 @@
+{{- $navLinks := slice -}}
+{{- $targetSections := slice -}}
+
+{{- /* 1. Default to /docs if it exists, otherwise site.Home */ -}}
+{{- $docsRoot := site.GetPage "/docs" -}}
+{{- if $docsRoot -}}
+  {{- $targetSections = $docsRoot.Sections.ByWeight -}}
+{{- else -}}
+  {{- $targetSections = site.Home.Sections.ByWeight -}}
+{{- end -}}
+
+{{- /* 2. OVERRIDE: Check the actual folder name we are currently inside */ -}}
+{{- if .FirstSection -}}
+  {{- $topLevelFolder := .FirstSection.Section -}}
+  
+  {{- /* If the folder is named "v0.something" or "dev", pull the tabs from inside it instead! */ -}}
+  {{- if or (findRE `^v[0-9]+` $topLevelFolder) (eq $topLevelFolder "dev") -}}
+    {{- $targetSections = .FirstSection.Sections.ByWeight -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 3. Generate the links. Hugo natively outputs the perfect relative URL for us */ -}}
+{{- range $targetSections -}}
+  {{- if .Title -}}
+    {{- $manualLink := .Params.manualLink | default "" -}}
+    {{- $icon := .Params.icon | default "" -}}
+    {{- $isRightSide := ne $manualLink "" -}}
+    {{- $navLinks = $navLinks | append (dict "name" .Title "url" .RelPermalink "path" .RelPermalink "redirect" $manualLink "icon" $icon "isRight" $isRightSide) -}}
+  {{- end -}}
+{{- end -}}
+
+<div id="nav-data-container" data-nav="{{ $navLinks | jsonify }}" style="display: none;"></div>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const logoLink = document.querySelector('.navbar-brand');
-    if (logoLink) {
-      logoLink.href = "{{ .Site.Params.global_logo_url | default "/" }}";
+document.addEventListener("DOMContentLoaded", function() {
+  const container = document.getElementById('nav-data-container');
+  const currentPath = window.location.pathname;
+  const header = document.querySelector('header');
+  
+  if (!container || !header || document.getElementById('secondary-nav')) return;
+
+  // 1. Data Parsing
+  let links = [];
+  try { 
+    links = JSON.parse(container.dataset.nav); 
+  } catch (e) { 
+    return;
+  }
+
+  // 2. Logo Fix
+  const logoLink = document.querySelector('.navbar-brand');
+  if (logoLink) { 
+    logoLink.href = "{{ site.Params.global_logo_url | default `/` }}"; 
+  }
+
+  // 3. Build Navigation HTML (With 404 Safety Net & Double-Prefix Protection)
+  let leftNavItems = '';
+  let rightNavItems = '';
+
+  // Check the browser URL for a version prefix just in case we hit a 404 page
+  const versionMatch = currentPath.match(/^\/(v\d+\.\d+\.\d+|dev)\//);
+  const activePrefix = versionMatch ? versionMatch[0] : '/';
+
+  links.forEach(link => {
+    const name = link.name || link.Name || "";
+    const url  = link.url  || link.Url || "";
+    const redirect = link.redirect || link.Redirect || "";
+    const icon = link.icon || link.Icon || "";
+    const isRight = link.isRight || link.IsRight || false;
+
+    if (!name || !url) return;
+
+    let finalUrl = (isRight ? redirect : url).replace(/\/+/g, '/');
+
+    // THE FOOLPROOF FIX: Only inject the prefix if the link doesn't already have it!
+    if (!isRight && activePrefix !== '/') {
+        if (!finalUrl.startsWith(activePrefix)) {
+            // It's a 404 fallback link. Fix it dynamically.
+            finalUrl = activePrefix + finalUrl.replace(/^\//, '');
+        }
+    }
+
+    if (isRight) {
+      const iconHtml = icon !== "" ? `<i class="${icon} pop-icon"></i> ` : '';
+      rightNavItems += `
+        <li>
+          <a href="${finalUrl}" target="_blank" rel="noopener noreferrer" class="sec-nav-item-right">
+            ${iconHtml}<span class="sec-nav-text">${name}</span>
+          </a>
+        </li>`;
+    } else {
+      const isActive = currentPath.startsWith(finalUrl) ? ' active' : '';
+      const iconHtml = icon !== "" ? `<i class="${icon}" style="font-size: 1.05rem;"></i> ` : '';
+      leftNavItems += `
+        <li>
+          <a class="sec-nav-item-left ${isActive}" href="${finalUrl}">
+            ${iconHtml}<span>${name}</span>
+          </a>
+        </li>`;
     }
   });
+
+  const navHtml = `
+    <div id="secondary-nav">
+      <div class="container-fluid sec-nav-container">
+        <ul class="sec-nav-list">
+          ${leftNavItems}
+        </ul>
+        <ul class="sec-nav-icons">
+          ${rightNavItems}
+        </ul>
+      </div>
+    </div>`;
+
+  header.insertAdjacentHTML('beforeend', navHtml);
+
+  // 4. Releases Button Labeling
+  try {
+    const relBtn = Array.from(document.querySelectorAll('.td-navbar a.dropdown-toggle'))
+                       .find(el => el.textContent.includes('Releases') || el.textContent.includes('v0.'));
+    if (relBtn) {
+      let label = "Releases";
+      if (currentPath.includes('/dev/')) { label = "Dev"; } 
+      else if (versionMatch) { label = versionMatch[1].replace(/\//g, ''); }
+      
+      for (let n of relBtn.childNodes) {
+        if (n.nodeType === 3 && n.textContent.trim().length > 1) {
+          n.textContent = ' ' + label; 
+          break;
+        }
+      }
+      document.querySelectorAll('.dropdown-item').forEach(item => {
+        const href = item.getAttribute('href');
+        if (href && href.includes(label) && label !== "Releases") { 
+          item.classList.add('active-version'); 
+        }
+      });
+    }
+  } catch (e) { console.warn("Releases Labeler skipped."); }
+
+  // 5. CSS Injection
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = `
+    /* Base Layout */
+    .sec-nav-container { display: flex; align-items: center; height: 100%; width: 100%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .sec-nav-container::-webkit-scrollbar { display: none; }
+    .sec-nav-list { display: flex; align-items: center; list-style: none; padding: 0; margin: 0; gap: 1.25rem; flex-shrink: 0; }
+    .sec-nav-icons { display: flex; gap: 1.5rem; list-style: none; margin: 0 0 0 auto; padding: 0 1rem 0 2rem; align-items: center; flex-shrink: 0; }
+
+    /* Typography & Links */
+    .sec-nav-item-left { display: flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; font-weight: 500; color: rgba(255, 255, 255, 0.75) !important; text-decoration: none; transition: all 0.2s; white-space: nowrap; height: 100%; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+    .sec-nav-item-right { display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 700; color: rgba(255, 255, 255, 0.85) !important; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+
+    /* Light/Desktop Active States */
+    .sec-nav-list a:hover, .sec-nav-list a.active { color: #ffffff !important; opacity: 1; }
+    .sec-nav-list a.active { font-weight: 600; border-bottom: 2px solid #ffffff !important; }
+    .sec-nav-icons a:hover { color: #ffffff !important; opacity: 1; }
+
+    /* Icons - Always Highlighted */
+    .pop-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; font-size: 1rem; transition: opacity 0.2s ease; }
+    /* Discord: Always Purple & White */
+    .pop-icon.fa-discord { background: #5865F2 !important; color: #ffffff !important; box-shadow: 0 4px 10px rgba(88, 101, 242, 0.35) !important; }
+    /* Medium: Always Black & White */
+    .pop-icon.fa-medium { background: #000000 !important; color: #ffffff !important; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important; }
+    /* Gentle hover fade instead of jumping */
+    .sec-nav-icons a:hover .pop-icon { opacity: 0.85 !important; }
+
+    /* Dark Mode Desktop */
+    html[data-bs-theme="dark"] .sec-nav-item-left { color: rgba(255, 255, 255, 0.75) !important; }
+    html[data-bs-theme="dark"] .sec-nav-item-right { color: rgba(255, 255, 255, 0.85) !important; }
+    
+    html[data-bs-theme="dark"] .sec-nav-list a.active { 
+      color: #ffffff !important; 
+      background-color: transparent !important; 
+      border-bottom: 2px solid #ffffff !important; 
+      font-weight: 600 !important;
+    }
+
+html[data-bs-theme="dark"] .pop-icon.fa-discord { background: #5865F2 !important; color: #ffffff !important; box-shadow: 0 4px 10px rgba(88, 101, 242, 0.35) !important; }
+    
+    /* Make Medium stand out in dark mode (White background, black icon) */
+    html[data-bs-theme="dark"] .pop-icon.fa-medium { background: #f8f9fa !important; color: #202124 !important; box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15) !important; }
+    html[data-bs-theme="dark"] .dropdown-item.active-version { color: #8ab4f8 !important; background-color: rgba(138, 180, 248, 0.15) !important; border-left-color: #8ab4f8 !important; }
+    
+    /* Responsive Scaling & Dark Mode Specificity Fix */
+    @media (max-width: 991.98px) {
+      .sec-nav-icons { margin-left: 0; padding-left: 1rem; }
+      .sec-nav-list { gap: 1rem; }
+      .sec-nav-item-left, .sec-nav-item-right { font-size: 0.9rem; }
+      
+      html[data-bs-theme="dark"] #secondary-nav .sec-nav-list a.active,
+      body.dark #secondary-nav .sec-nav-list a.active {
+         color: #4484f4 !important; 
+         background-color: #ffffff !important; 
+         border-bottom: none !important; 
+      }
+    }
+  `;
+  document.head.appendChild(styleTag);
+});
 </script>
