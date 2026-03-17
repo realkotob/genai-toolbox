@@ -11,12 +11,6 @@ you to develop tools easier, faster, and more securely by handling the complexit
 such as connection pooling, authentication, and more.
 
 {{< notice note >}}
-This solution was originally named “Gen AI Toolbox for
-Databases” as its initial development predated MCP, but was renamed to align
-with recently added MCP compatibility.
-{{< /notice >}}
-
-{{< notice note >}}
 This document has been updated to support the configuration file v2 format. To
 view documentation with configuration file v1 format, please navigate to the
 top-right menu and select versions v0.26.0 or older.

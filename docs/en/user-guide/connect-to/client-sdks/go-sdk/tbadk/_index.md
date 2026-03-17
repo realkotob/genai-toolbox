@@ -178,8 +178,7 @@ result, err := tool.Run(ctx, inputs)
 ```
 
 {{< notice tip >}}For a more comprehensive guide on setting up the Toolbox service itself, which
-you'll need running to use this SDK, please refer to the [Toolbox Quickstart
-Guide](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart).
+you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](../../../../../build-with-mcp-toolbox/local_quickstart_go.md).
 {{< /notice >}}
 
 ## Client to Server Authentication
