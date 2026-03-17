@@ -1,6 +1,12 @@
+/**
+ * Custom Layout Interactivity
+ * Handles dynamic offsets, DOM repositioning, and UI enhancements.
+ */
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Setup CSS for the wrapper and the banner
+  // ==========================================================================
+  // DYNAMIC STYLES INJECTION
+  // ==========================================================================
   var styleTag = document.createElement('style');
   styleTag.innerHTML = `
     .td-navbar .dropdown-menu {
@@ -70,20 +76,21 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   document.head.appendChild(styleTag);
 
-  // --- DYNAMIC OFFSET CALCULATOR ---
+  // ==========================================================================
+  // MIGRATION BANNER & HEADER OFFSET CALCULATOR
+  // ==========================================================================
+
   function updateHeaderOffset() {
     var mainNav = document.querySelector('.td-navbar');
     var secondaryNav = document.getElementById('secondary-nav');
     var migrationWrapper = document.getElementById('migration-banner-wrapper');
-    
+
     var h1 = mainNav ? mainNav.offsetHeight : 0;
     var h2 = secondaryNav ? secondaryNav.offsetHeight : 0;
     var totalHeight = h1 + h2;
 
-    // 1. Update CSS variable for anchor jumps (scroll-margin-top)
     document.documentElement.style.setProperty('--header-offset', totalHeight + 'px');
 
-    // 2. Update the sticky banner position
     if (migrationWrapper) {
       migrationWrapper.style.top = totalHeight + 'px';
     }
@@ -114,16 +121,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Re-calculate on window resize
   window.addEventListener('resize', updateHeaderOffset);
 
-  // Use ResizeObserver to detect header height changes (e.g., mobile menu toggle or wrapping)
+  // Use ResizeObserver to detect header height changes
   if (window.ResizeObserver) {
     const ro = new ResizeObserver(updateHeaderOffset);
     const navToWatch = document.querySelector('.td-navbar');
-    const secNavToWatch = document.getElementById('secondary-nav'); // <-- ADDED: Watches secondary nav for wraps
+    const secNavToWatch = document.getElementById('secondary-nav');
+
     if (navToWatch) ro.observe(navToWatch);
-    if (secNavToWatch) ro.observe(secNavToWatch); // <-- ADDED: Binds the observer
+    if (secNavToWatch) ro.observe(secNavToWatch);
   }
 
-  // --- BREADCRUMBS REPOSITIONING ---
+  // ==========================================================================
+  // BREADCRUMBS REPOSITIONING
+  // ==========================================================================
   var breadcrumbs = document.querySelector('.td-breadcrumbs') || document.querySelector('nav[aria-label="breadcrumb"]');
   var pageTitle = document.querySelector('.td-content h1');
 
@@ -133,7 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
     breadcrumbs.style.marginBottom = "2rem";
   }
 
-  // --- DYNAMIC TAB SCROLLING ---
+  // ==========================================================================
+  // DYNAMIC TAB SCROLLING
+  // ==========================================================================
   var tabContainers = document.querySelectorAll('.nav-tabs');
 
   tabContainers.forEach(function(container) {
@@ -158,14 +170,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // --- HIGHLIGHT ACTIVE VERSION IN DROPDOWN ---
-  // <-- ADDED: Finds the active version text and highlights it in the list
+  // ==========================================================================
+  // DROPDOWN ACTIVE VERSION HIGHLIGHTING
+  // ==========================================================================
   var dropdownToggles = document.querySelectorAll('.td-navbar .dropdown-toggle:not(.td-light-dark-menu)');
-  
+
   dropdownToggles.forEach(function(toggle) {
     var currentText = toggle.textContent.trim();
     var menuItems = toggle.nextElementSibling ? toggle.nextElementSibling.querySelectorAll('.dropdown-item') : [];
-    
+
     menuItems.forEach(function(item) {
       if (item.textContent.trim() === currentText) {
         item.classList.add('active-version');

@@ -1,454 +1,453 @@
 {{ .Scratch.Set "docsy-search" 0 }}
 
 {{ if .Site.Params.pagefind }}
-    {{ .Scratch.Add "docsy-search" 1 }}
+  {{ .Scratch.Add "docsy-search" 1 }}
 
-    <div class="td-search custom-pagefind-wrapper ms-auto">
-        <div class="pagefind-search-container"></div>
-    </div>
+  <div class="td-search custom-pagefind-wrapper ms-auto">
+    <div class="pagefind-search-container"></div>
+  </div>
 
-    <link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet">
-    <script src="{{ relURL "pagefind/pagefind-ui.js" }}"></script>
+  <link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet">
+  <script src="{{ relURL "pagefind/pagefind-ui.js" }}"></script>
 
-    <script>
-        if (!window.pagefindScriptLoaded) {
-            window.pagefindScriptLoaded = true;
+  <script>
+    /**
+     * Pagefind UI Initialization & Modal Behavior
+     * Handles search indexing, breadcrumb formatting, and global modal states.
+     */
+    if (!window.pagefindScriptLoaded) {
+      window.pagefindScriptLoaded = true;
 
-            window.addEventListener('DOMContentLoaded', (event) => {
-                
-                document.querySelectorAll('.pagefind-search-container').forEach(el => {
-                    new PagefindUI({
-                        element: el,
-                        showSubResults: true,
-                        showImages: false,
-                        resetStyles: false,
-                        bundlePath: "{{ relURL "pagefind/" }}",
-                        processResult: function (result) {
-                            const ignoredSegments = ["en", "docs", "dev", "genai-toolbox"];
-                            let path = result.url.replace(/^https?:\/\/[^\/]+/, "").split('#')[0].replace(/\/$/, "");
-                            let parts = path.split("/").filter(p => p && !ignoredSegments.includes(p));
-                            parts.pop();
-
-                            if (parts.length > 0) {
-                                let breadcrumb = parts.map(part => part.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase())).join(' › ');
-                                if (!result.rawTitle) result.rawTitle = result.meta.title;
-                                result.meta.title = breadcrumb + ' › ' + result.rawTitle;
-                            }
-                            return result;
-                        }
-                    });
-                });
-
-                setTimeout(() => {
-                    let backdrop = document.getElementById('global-search-backdrop');
-                    
-                    if (!backdrop) {
-                        backdrop = document.createElement('div');
-                        backdrop.id = 'global-search-backdrop';
-                        document.body.appendChild(backdrop);
-                    }
-
-                    let isClosing = false;
-                    let activeWrapper = null;
-                    let placeholder = document.createElement('div');
-                    placeholder.style.display = 'none';
-
-                    function openModal(input) {
-                        if (activeWrapper || isClosing) return;
-                        const wrapper = input.closest('.custom-pagefind-wrapper');
-                        if (!wrapper) return;
-                        
-                        activeWrapper = wrapper;
-                        
-                        // Insert a hidden placeholder so we know exactly where to put it back
-                        wrapper.parentNode.insertBefore(placeholder, wrapper);
-                        
-                        // Move the search bar directly to the body to escape all z-index traps
-                        document.body.appendChild(wrapper);
-                        
-                        backdrop.classList.add('active');
-                        document.body.classList.add('global-search-active');
-                        wrapper.classList.add('active-modal');
-                        
-                        // Ensure it stays focused and cursor stays at the end of the text
-                        setTimeout(() => {
-                            input.focus();
-                            const len = input.value.length;
-                            input.setSelectionRange(len, len);
-                        }, 10);
-                    }
-
-                    function closeModal(keepFocus = false) {
-                        if (!activeWrapper) return;
-                        isClosing = true;
-                        
-                        backdrop.classList.remove('active');
-                        document.body.classList.remove('global-search-active');
-                        activeWrapper.classList.remove('active-modal');
-                        
-                        // Return to original location
-                        if (placeholder.parentNode) {
-                            placeholder.parentNode.insertBefore(activeWrapper, placeholder);
-                        }
-                        
-                        const input = activeWrapper.querySelector('.pagefind-ui__search-input');
-                        
-                        // If we are just dropping back down because they backspaced the text, keep focus
-                        if (!keepFocus) {
-                            const clearBtn = activeWrapper.querySelector('.pagefind-ui__search-clear');
-                            if (clearBtn) clearBtn.click();
-                            if (input) input.blur();
-                        } else {
-                            if (input) {
-                                setTimeout(() => input.focus(), 10);
-                            }
-                        }
-                        
-                        activeWrapper = null;
-                        setTimeout(() => { isClosing = false; }, 50); // Reset lock much faster
-                    }
-
-                    document.addEventListener('input', (e) => {
-                        if (e.target.classList.contains('pagefind-ui__search-input')) {
-                            if (e.target.value.trim() !== '') {
-                                openModal(e.target);
-                            } else {
-                                closeModal(true); // Put it back but keep focus if they clear text manually
-                            }
-                        }
-                    });
-
-                    // Remove focusin listener -> Blur now strictly triggers on typing only
-
-                    backdrop.addEventListener('click', () => closeModal(false));
-
-                    document.addEventListener('mousedown', (e) => {
-                        if (!activeWrapper) return;
-                        
-                        const clickedX = e.target.closest('.pagefind-ui__search-clear');
-                        const clickedResult = e.target.closest('.pagefind-ui__result-link');
-                        const isClickInside = activeWrapper.contains(e.target);
-
-                        if (clickedX || clickedResult || (!isClickInside && e.target !== backdrop)) {
-                            closeModal(false);
-                        }
-                    });
-
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') {
-                            closeModal(false);
-                        }
-                    });
-
-                }, 500); 
-            });
-        }
-    </script>
-
-    <style>
-        :root {
-            --pagefind-ui-scale: 0.9; 
-            --pagefind-ui-primary: #0d6efd;
-        }
-
-        #global-search-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.7); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 9998; 
-            opacity: 0;
-            pointer-events: none;
-            /* INSTANT TRANSITION */
-            transition: none; 
-        }
-
-        #global-search-backdrop.active {
-            opacity: 1;
-            pointer-events: auto; 
-        }
-
-        html[data-bs-theme="dark"] #global-search-backdrop,
-        body.td-dark #global-search-backdrop {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+      window.addEventListener('DOMContentLoaded', (event) => {
         
-        .custom-pagefind-wrapper.active-modal {
-            position: fixed !important;
-            top: 12vh !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            width: 90vw !important;
-            max-width: 650px !important;
-            z-index: 10000 !important; 
-            margin: 0 !important;
-            padding: 0 !important;
-        }
+        // 1. Initialize Pagefind Search instances
+        document.querySelectorAll('.pagefind-search-container').forEach(el => {
+          new PagefindUI({
+            element: el,
+            showSubResults: true,
+            showImages: false,
+            resetStyles: false,
+            debounceTimeoutMs: 300,
+            bundlePath: "{{ relURL "pagefind/" }}",
+            processResult: function (result) {
+              const ignoredSegments = ["en", "docs", "dev", "genai-toolbox"];
+              let path = result.url.replace(/^https?:\/\/[^\/]+/, "").split('#')[0].replace(/\/$/, "");
+              let parts = path.split("/").filter(p => p && !ignoredSegments.includes(p));
+              parts.pop();
 
-        .custom-pagefind-wrapper.active-modal .pagefind-ui__drawer {
-            position: absolute !important;
-            top: 100% !important;
-            left: 0 !important;
-            right: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            max-height: 70vh !important;
-        }
-
-        /* Blur top-level elements that ARE NOT the active search path */
-        body.global-search-active > *:not(.active-modal):not(#global-search-backdrop):not(script):not(style):not(link) {
-            filter: blur(6px);
-            opacity: 0.4;
-            pointer-events: none;
-            /* INSTANT TRANSITION */
-            transition: none;
-        }
-
-        .custom-pagefind-wrapper {
-            position: relative;
-            z-index: 9999 !important; 
-        }
-
-        .pagefind-ui__search-input { 
-            background-color: rgba(0, 0, 0, 0.1) !important; 
-            border: 1.5px solid transparent !important; 
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15) !important; 
-            color: #ffffff !important; 
-            border-radius: 50px !important; 
-            font-weight: 400 !important;
-            transition: all 0.2s ease-in-out !important;
-            height: 38px !important; 
-            font-size: 0.95rem !important; 
-            padding-left: 40px !important; 
-            padding-right: 36px !important; 
-            box-sizing: border-box !important; 
-        }
-
-        .pagefind-ui__search-input::placeholder { 
-            color: #ffffff !important; 
-            opacity: 0.9 !important; 
-        }
-
-        .pagefind-ui__form { 
-            --pagefind-ui-text: #ffffff !important; 
-            position: relative !important; 
-            box-sizing: border-box !important; 
-        }
-
-        .pagefind-ui__form::before {
-            top: 50% !important; transform: translateY(-50%) !important; margin-top: 0 !important;
-            width: 18px !important; height: 18px !important; left: 14px !important; 
-        }
-
-        .pagefind-ui__search-clear {
-            position: absolute !important; top: 50% !important; transform: translateY(-50%) !important;
-            right: 12px !important; width: 24px !important; height: 24px !important; min-height: 24px !important;
-            padding: 0 !important; margin: 0 !important; background: transparent !important; border: none !important;
-            outline: none !important; box-shadow: none !important; font-size: 0 !important; color: transparent !important;
-            display: flex !important; align-items: center !important; justify-content: center !important;
-            overflow: hidden !important; cursor: pointer !important; z-index: 99; 
-        }
-
-        .pagefind-ui__search-clear::after {
-            content: "\00d7" !important; font-size: 22px !important; font-weight: 300 !important;
-            line-height: 1 !important; color: var(--pagefind-ui-text) !important; display: block !important;
-        }
-
-        .pagefind-ui__search-input:focus {
-            background-color: #ffffff !important; 
-            border: 1.5px solid #4484f4 !important; 
-            color: #212529 !important; 
-            outline: 0 !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(68, 132, 244, 0.15) !important; 
-        }
-        
-        .pagefind-ui__search-input:focus::placeholder {
-            color: #6c757d !important; 
-            opacity: 1 !important; 
-        }
-        
-        .pagefind-ui__form:focus-within { 
-            --pagefind-ui-text: #4484f4 !important; 
-        }
-        
-        .pagefind-ui__drawer {
-            position: absolute !important; top: 100% !important; width: 500px !important; 
-            max-width: calc(100vw - 2rem) !important; margin-top: 12px !important; z-index: 99999 !important; 
-            background-color: #ffffff !important; border: 1px solid #dee2e6 !important; border-radius: 12px !important; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important; padding: 1.5rem !important;
-            max-height: 80vh !important; overflow-y: auto !important; overscroll-behavior: contain !important; 
-        }
-
-        .pagefind-ui__result-title, .pagefind-ui__result-excerpt, .pagefind-ui__message { color: #212529 !important; }
-
-        .pagefind-ui__drawer mark {
-            background-color: rgba(68, 132, 244, 0.15) !important; color: #1a73e8 !important; padding: 0 3px !important;
-            border-radius: 3px !important; font-weight: 600 !important; box-shadow: none !important;
-        }
-
-        .pagefind-ui__button { margin-top: 1rem !important; }
-        .pagefind-ui__hidden { display: none !important; }
-
-        /* =======================================================
-           1. DESKTOP SEARCH BAR (Top Navbar)
-           ======================================================= */
-        @media (min-width: 992px) {
-            .td-navbar .custom-pagefind-wrapper:not(.active-modal) {
-                display: block !important;
-                flex: 1 1 auto !important; 
-                width: 100% !important;
-                max-width: 500px !important; 
-                margin: 0 1.5rem !important; 
+              if (parts.length > 0) {
+                let breadcrumb = parts.map(part => part.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase())).join(' › ');
+                if (!result.rawTitle) result.rawTitle = result.meta.title;
+                result.meta.title = breadcrumb + ' › ' + result.rawTitle;
+              }
+              return result;
             }
-            .td-navbar .pagefind-ui__drawer { 
-                right: 0 !important; 
-                left: auto !important; 
-                width: 500px !important;
-            }
-            .td-sidebar .td-search,
-            .td-sidebar .custom-pagefind-wrapper {
-                display: none !important; 
-            }
-        }
+          });
+        });
 
-        /* =======================================================
-           2. MOBILE (< 992px): Native Docsy Stacked Layout
-           ======================================================= */
-        @media (max-width: 991.98px) {
-            /* Hide the main navbar search completely */
-            .td-navbar .custom-pagefind-wrapper,
-            .td-navbar .container-fluid > div.d-none.d-lg-block {
-                display: none !important;
+        // 2. Setup Global Search Modal Behavior
+        setTimeout(() => {
+          let backdrop = document.getElementById('global-search-backdrop');
+          
+          if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.id = 'global-search-backdrop';
+            document.body.appendChild(backdrop);
+          }
+
+          let isClosing = false;
+          let activeWrapper = null;
+          let placeholder = document.createElement('div');
+          placeholder.style.display = 'none';
+
+          function openModal(input) {
+            if (activeWrapper || isClosing) return;
+            const wrapper = input.closest('.custom-pagefind-wrapper');
+            if (!wrapper) return;
+
+            activeWrapper = wrapper;
+
+            wrapper.parentNode.insertBefore(placeholder, wrapper);
+            document.body.appendChild(wrapper);
+
+            backdrop.classList.add('active');
+            document.body.classList.add('global-search-active');
+            wrapper.classList.add('active-modal');
+
+            setTimeout(() => {
+              input.focus();
+              const len = input.value.length;
+              input.setSelectionRange(len, len);
+            }, 10);
+          }
+
+          function closeModal(keepFocus = false) {
+            if (!activeWrapper) return;
+            isClosing = true;
+
+            backdrop.classList.remove('active');
+            document.body.classList.remove('global-search-active');
+            activeWrapper.classList.remove('active-modal');
+
+            // Return to original location
+            if (placeholder.parentNode) {
+              placeholder.parentNode.insertBefore(activeWrapper, placeholder);
             }
 
-            /* Unhide and show the sidebar search natively */
-            .td-sidebar .td-search,
-            .td-sidebar .custom-pagefind-wrapper:not(.active-modal) {
-                display: block !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                margin-top: 1rem !important;
-                margin-bottom: 1rem !important;
-            }
-        }
+            const input = activeWrapper.querySelector('.pagefind-ui__search-input');
 
-        /* =======================================================
-           3. RESCUE & BEAUTIFY THE LEFT SIDEBAR TOGGLE
-           ======================================================= */
-        @media (max-width: 767.98px) {
-            /* 1. Put them side-by-side in a row */
-            .td-sidebar__search {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                width: 100% !important;
-                margin-top: 60px !important; 
-                margin-bottom: 1rem !important;
-                padding: 0 15px !important;
-                z-index: 10 !important;
+            // Handle focus state upon closure
+            if (!keepFocus) {
+              const clearBtn = activeWrapper.querySelector('.pagefind-ui__search-clear');
+              if (clearBtn) clearBtn.click();
+              if (input) input.blur();
+            } else {
+              if (input) {
+                setTimeout(() => input.focus(), 10);
+              }
             }
 
-            /* 2. Give the Search Bar exactly 3/4ths (75%) of the space */
-            .td-sidebar__search .custom-pagefind-wrapper:not(.active-modal) {
-                width: 75% !important;
-                flex: 0 0 75% !important;
-                margin: 0 !important; 
+            activeWrapper = null;
+            setTimeout(() => { isClosing = false; }, 50); // Reset lock
+          }
+
+          //  Bind Event Listeners
+          document.addEventListener('input', (e) => {
+            if (e.target.classList.contains('pagefind-ui__search-input')) {
+              if (e.target.value.trim() !== '') {
+                openModal(e.target);
+              } else {
+                closeModal(true);
+              }
             }
+          });
 
-            /* 3. Un-uglify the Hamburger: Pure icon, no boxes, taking the remaining space */
-            .td-sidebar__toggle {
-                display: flex !important;
-                align-items: center !important;
-                justify-content: flex-end !important; /* Push icon to the right */
-                width: 20% !important; /* Leaves a 5% clean gap between search and icon */
-                height: auto !important;
-                background-color: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-                color: inherit !important;
-                font-size: 1rem !important; /* Nice native icon size */
-                padding: 0 !important;
+          backdrop.addEventListener('click', () => closeModal(false));
+
+          document.addEventListener('mousedown', (e) => {
+            if (!activeWrapper) return;
+
+            const clickedX = e.target.closest('.pagefind-ui__search-clear');
+            const clickedResult = e.target.closest('.pagefind-ui__result-link');
+            const isClickInside = activeWrapper.contains(e.target);
+
+            if (clickedX || clickedResult || (!isClickInside && e.target !== backdrop)) {
+              closeModal(false);
             }
-            
-            /* Remove the "Section Menu" text */
-            .td-sidebar__toggle::after {
-                content: none !important;
+          });
+
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              closeModal(false);
             }
+          });
 
-            /* Ensure Dark Mode doesn't bring the boxes back */
-            html[data-bs-theme="dark"] .td-sidebar__toggle, 
-            body.td-dark .td-sidebar__toggle {
-                color: #e8eaed !important;
-                background-color: transparent !important;
-                border: none !important;
-            }
-            
-            html[data-bs-theme="dark"] .td-sidebar__toggle:hover, 
-            body.td-dark .td-sidebar__toggle:hover {
-                background-color: transparent !important;
-                opacity: 0.8 !important;
-            }
-        }
+        }, 500); 
+      });
+    }
+  </script>
 
-        /* =======================================================
-           4. DARK MODE STYLING
-           ======================================================= */
-        html[data-bs-theme="dark"] .pagefind-ui__search-input, body.td-dark .pagefind-ui__search-input {
-            background-color: rgba(0, 0, 0, 0.2) !important; 
-            border: 1.5px solid transparent !important; 
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3) !important; 
-            color: #ffffff !important; 
-        }
+  <style>
+    /* ==========================================================================
+       PAGEFIND SEARCH STYLES & MODAL
+       ========================================================================== */
+    :root {
+      --pagefind-ui-scale: 0.9; 
+      --pagefind-ui-primary: #0d6efd;
+    }
 
-        html[data-bs-theme="dark"] .pagefind-ui__search-input::placeholder, body.td-dark .pagefind-ui__search-input::placeholder { 
-            color: #ffffff !important; 
-            opacity: 0.9 !important; 
-        }
+    #global-search-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7); 
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998; 
+      opacity: 0;
+      pointer-events: none;
+      transition: none; 
+    }
 
-        html[data-bs-theme="dark"] .pagefind-ui__form, body.td-dark .pagefind-ui__form { 
-            --pagefind-ui-text: #ffffff !important; 
-        }
-        
-        html[data-bs-theme="dark"] .pagefind-ui__search-input:focus, body.td-dark .pagefind-ui__search-input:focus {
-            background-color: #303134 !important; 
-            border: 1.5px solid #8ab4f8 !important; 
-            color: #f8f9fa !important; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(138, 180, 248, 0.15) !important;
-        }
-        
-        html[data-bs-theme="dark"] .pagefind-ui__search-input:focus::placeholder, body.td-dark .pagefind-ui__search-input:focus::placeholder {
-            color: #e8eaed !important; 
-            opacity: 1 !important;
-        }
+    #global-search-backdrop.active {
+      opacity: 1;
+      pointer-events: auto; 
+    }
 
-        html[data-bs-theme="dark"] .pagefind-ui__form:focus-within, body.td-dark .pagefind-ui__form:focus-within { 
-            --pagefind-ui-text: #8ab4f8 !important; 
-        }
+    html[data-bs-theme="dark"] #global-search-backdrop,
+    body.td-dark #global-search-backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
-        html[data-bs-theme="dark"] .pagefind-ui__drawer, body.td-dark .pagefind-ui__drawer {
-            background-color: #202124 !important; border-color: #3c4043 !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-        }
-        html[data-bs-theme="dark"] .pagefind-ui__result-title, html[data-bs-theme="dark"] .pagefind-ui__result-excerpt,
-        html[data-bs-theme="dark"] .pagefind-ui__message, body.td-dark .pagefind-ui__result-title,
-        body.td-dark .pagefind-ui__result-excerpt, body.td-dark .pagefind-ui__message { color: #e8eaed !important; }
-        
-        html[data-bs-theme="dark"] .pagefind-ui__drawer mark, body.td-dark .pagefind-ui__drawer mark {
-            background-color: rgba(138, 180, 248, 0.2) !important; color: #8ab4f8 !important; 
-        }
-        html[data-bs-theme="dark"] .pagefind-ui__button, body.td-dark .pagefind-ui__button {
-            color: #e8eaed !important; border-color: #5f6368 !important; background-color: #303134 !important;
-        }
-    </style>
+    .custom-pagefind-wrapper.active-modal {
+      position: fixed !important;
+      top: 12vh !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 90vw !important;
+      max-width: 650px !important;
+      z-index: 10000 !important; 
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .custom-pagefind-wrapper.active-modal .pagefind-ui__drawer {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      max-height: 70vh !important;
+    }
+
+    body.global-search-active > *:not(.active-modal):not(#global-search-backdrop):not(script):not(style):not(link) {
+      filter: blur(6px);
+      opacity: 0.4;
+      pointer-events: none;
+      transition: none;
+    }
+
+    .custom-pagefind-wrapper {
+      position: relative;
+      z-index: 9999 !important; 
+    }
+
+    .pagefind-ui__search-input { 
+      background-color: rgba(0, 0, 0, 0.1) !important; 
+      border: 1.5px solid transparent !important; 
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15) !important; 
+      color: #ffffff !important; 
+      border-radius: 50px !important; 
+      font-weight: 400 !important;
+      transition: all 0.2s ease-in-out !important;
+      height: 38px !important; 
+      font-size: 0.95rem !important; 
+      padding-left: 40px !important; 
+      padding-right: 36px !important; 
+      box-sizing: border-box !important; 
+    }
+
+    .pagefind-ui__search-input::placeholder { 
+      color: #ffffff !important; 
+      opacity: 0.9 !important; 
+    }
+
+    .pagefind-ui__form { 
+      --pagefind-ui-text: #ffffff !important; 
+      position: relative !important; 
+      box-sizing: border-box !important; 
+    }
+
+    .pagefind-ui__form::before {
+      top: 50% !important; transform: translateY(-50%) !important; margin-top: 0 !important;
+      width: 18px !important; height: 18px !important; left: 14px !important; 
+    }
+
+    .pagefind-ui__search-clear {
+      position: absolute !important; top: 50% !important; transform: translateY(-50%) !important;
+      right: 12px !important; width: 24px !important; height: 24px !important; min-height: 24px !important;
+      padding: 0 !important; margin: 0 !important; background: transparent !important; border: none !important;
+      outline: none !important; box-shadow: none !important; font-size: 0 !important; color: transparent !important;
+      display: flex !important; align-items: center !important; justify-content: center !important;
+      overflow: hidden !important; cursor: pointer !important; z-index: 99; 
+    }
+
+    .pagefind-ui__search-clear::after {
+      content: "\00d7" !important; font-size: 22px !important; font-weight: 300 !important;
+      line-height: 1 !important; color: var(--pagefind-ui-text) !important; display: block !important;
+    }
+
+    .pagefind-ui__search-input:focus {
+      background-color: #ffffff !important; 
+      border: 1.5px solid #4484f4 !important; 
+      color: #212529 !important; 
+      outline: 0 !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(68, 132, 244, 0.15) !important; 
+    }
+    
+    .pagefind-ui__search-input:focus::placeholder {
+      color: #6c757d !important; 
+      opacity: 1 !important; 
+    }
+    
+    .pagefind-ui__form:focus-within { 
+      --pagefind-ui-text: #4484f4 !important; 
+    }
+    
+    .pagefind-ui__drawer {
+      position: absolute !important; top: 100% !important; width: 500px !important; 
+      max-width: calc(100vw - 2rem) !important; margin-top: 12px !important; z-index: 99999 !important; 
+      background-color: #ffffff !important; border: 1px solid #dee2e6 !important; border-radius: 12px !important; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important; padding: 1.5rem !important;
+      max-height: 80vh !important; overflow-y: auto !important; overscroll-behavior: contain !important; 
+    }
+
+    .pagefind-ui__result-title, .pagefind-ui__result-excerpt, .pagefind-ui__message { color: #212529 !important; }
+
+    .pagefind-ui__drawer mark {
+      background-color: rgba(68, 132, 244, 0.15) !important; color: #1a73e8 !important; padding: 0 3px !important;
+      border-radius: 3px !important; font-weight: 600 !important; box-shadow: none !important;
+    }
+
+    .pagefind-ui__button { margin-top: 1rem !important; }
+    .pagefind-ui__hidden { display: none !important; }
+
+    /* =======================================================
+       DESKTOP SEARCH BAR (Top Navbar)
+       ======================================================= */
+    @media (min-width: 992px) {
+      .td-navbar .custom-pagefind-wrapper:not(.active-modal) {
+        display: block !important;
+        flex: 1 1 auto !important; 
+        width: 100% !important;
+        max-width: 500px !important; 
+        margin: 0 1.5rem !important; 
+      }
+      .td-navbar .pagefind-ui__drawer { 
+        right: 0 !important; 
+        left: auto !important; 
+        width: 500px !important;
+      }
+      .td-sidebar .td-search,
+      .td-sidebar .custom-pagefind-wrapper {
+        display: none !important; 
+      }
+    }
+
+    /* =======================================================
+       MOBILE (< 992px): Native Docsy Stacked Layout
+       ======================================================= */
+    @media (max-width: 991.98px) {
+      /* Hide the main navbar search completely */
+      .td-navbar .custom-pagefind-wrapper,
+      .td-navbar .container-fluid > div.d-none.d-lg-block {
+        display: none !important;
+      }
+
+      /* Unhide and show the sidebar search natively */
+      .td-sidebar .td-search,
+      .td-sidebar .custom-pagefind-wrapper:not(.active-modal) {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    /* =======================================================
+       LEFT SIDEBAR TOGGLE ALIGNMENT
+       ======================================================= */
+    @media (max-width: 767.98px) {
+      .td-sidebar__search {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-top: 60px !important; 
+        margin-bottom: 1rem !important;
+        padding: 0 15px !important;
+        z-index: 10 !important;
+      }
+
+      .td-sidebar__search .custom-pagefind-wrapper:not(.active-modal) {
+        width: 75% !important;
+        flex: 0 0 75% !important;
+        margin: 0 !important; 
+      }
+
+      .td-sidebar__toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        width: 20% !important; 
+        height: auto !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: inherit !important;
+        font-size: 1rem !important;
+        padding: 0 !important;
+      }
+      
+      .td-sidebar__toggle::after {
+        content: none !important;
+      }
+
+      html[data-bs-theme="dark"] .td-sidebar__toggle, 
+      body.td-dark .td-sidebar__toggle {
+        color: #e8eaed !important;
+        background-color: transparent !important;
+        border: none !important;
+      }
+      
+      html[data-bs-theme="dark"] .td-sidebar__toggle:hover, 
+      body.td-dark .td-sidebar__toggle:hover {
+        background-color: transparent !important;
+        opacity: 0.8 !important;
+      }
+    }
+
+    /* =======================================================
+       DARK MODE STYLING
+       ======================================================= */
+    html[data-bs-theme="dark"] .pagefind-ui__search-input, body.td-dark .pagefind-ui__search-input {
+      background-color: rgba(0, 0, 0, 0.2) !important; 
+      border: 1.5px solid transparent !important; 
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3) !important; 
+      color: #ffffff !important; 
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__search-input::placeholder, body.td-dark .pagefind-ui__search-input::placeholder { 
+      color: #ffffff !important; 
+      opacity: 0.9 !important; 
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__form, body.td-dark .pagefind-ui__form { 
+      --pagefind-ui-text: #ffffff !important; 
+    }
+    
+    html[data-bs-theme="dark"] .pagefind-ui__search-input:focus, body.td-dark .pagefind-ui__search-input:focus {
+      background-color: #303134 !important; 
+      border: 1.5px solid #8ab4f8 !important; 
+      color: #f8f9fa !important; 
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(138, 180, 248, 0.15) !important;
+    }
+    
+    html[data-bs-theme="dark"] .pagefind-ui__search-input:focus::placeholder, body.td-dark .pagefind-ui__search-input:focus::placeholder {
+      color: #e8eaed !important; 
+      opacity: 1 !important;
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__form:focus-within, body.td-dark .pagefind-ui__form:focus-within { 
+      --pagefind-ui-text: #8ab4f8 !important; 
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__drawer, body.td-dark .pagefind-ui__drawer {
+      background-color: #202124 !important; border-color: #3c4043 !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__result-title, html[data-bs-theme="dark"] .pagefind-ui__result-excerpt,
+    html[data-bs-theme="dark"] .pagefind-ui__message, body.td-dark .pagefind-ui__result-title,
+    body.td-dark .pagefind-ui__result-excerpt, body.td-dark .pagefind-ui__message { color: #e8eaed !important; }
+    
+    html[data-bs-theme="dark"] .pagefind-ui__drawer mark, body.td-dark .pagefind-ui__drawer mark {
+      background-color: rgba(138, 180, 248, 0.2) !important; color: #8ab4f8 !important; 
+    }
+
+    html[data-bs-theme="dark"] .pagefind-ui__button, body.td-dark .pagefind-ui__button {
+      color: #e8eaed !important; border-color: #5f6368 !important; background-color: #303134 !important;
+    }
+  </style>
 {{ end }}
 
 {{ if .Site.Params.offlineSearch }}
-    {{ .Scratch.Add "docsy-search" 1 }}
-    <div class="td-search custom-pagefind-wrapper flex-grow-1 order-last order-lg-1 w-100 mt-3 mt-lg-0">
-        <div class="pagefind-search-container w-100"></div>
-    </div>
+  {{ .Scratch.Add "docsy-search" 1 }}
+  <div class="td-search custom-pagefind-wrapper flex-grow-1 order-last order-lg-1 w-100 mt-3 mt-lg-0">
+    <div class="pagefind-search-container w-100"></div>
+  </div>
 {{ end }}

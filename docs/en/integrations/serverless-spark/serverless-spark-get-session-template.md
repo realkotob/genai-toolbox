@@ -11,16 +11,17 @@ aliases:
 ## About
 
 A `serverless-spark-get-session-template` tool retrieves a specific Spark session template from a
-Google Cloud Serverless for Apache Spark source. It's compatible with the
-following sources:
-
-- [serverless-spark](../../sources/serverless-spark.md)
+Google Cloud Serverless for Apache Spark source.
 
 `serverless-spark-get-session-template` accepts the following parameters:
 
 - **`name`** (required): The short name of the session template, e.g. for `projects/my-project/locations/us-central1/sessionTemplates/my-session-template`, pass `my-session-template`.
 
 The tool gets the `project` and `location` from the source configuration.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
 
 ## Example
 

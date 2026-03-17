@@ -1,7 +1,7 @@
 {{- $navLinks := slice -}}
 {{- $targetSections := slice -}}
 
-{{- /* 1. Default to /docs if it exists, otherwise site.Home */ -}}
+{{- /* Default to /docs if it exists, otherwise site.Home */ -}}
 {{- $docsRoot := site.GetPage "/docs" -}}
 {{- if $docsRoot -}}
   {{- $targetSections = $docsRoot.Sections.ByWeight -}}
@@ -9,17 +9,17 @@
   {{- $targetSections = site.Home.Sections.ByWeight -}}
 {{- end -}}
 
-{{- /* 2. OVERRIDE: Check the actual folder name we are currently inside */ -}}
+{{- /* Check the actual folder name we are currently inside */ -}}
 {{- if .FirstSection -}}
   {{- $topLevelFolder := .FirstSection.Section -}}
-  
+
   {{- /* If the folder is named "v0.something" or "dev", pull the tabs from inside it instead! */ -}}
   {{- if or (findRE `^v[0-9]+` $topLevelFolder) (eq $topLevelFolder "dev") -}}
     {{- $targetSections = .FirstSection.Sections.ByWeight -}}
   {{- end -}}
 {{- end -}}
 
-{{- /* 3. Generate the links. Hugo natively outputs the perfect relative URL for us */ -}}
+{{- /* Generate the links*/ -}}
 {{- range $targetSections -}}
   {{- if .Title -}}
     {{- $manualLink := .Params.manualLink | default "" -}}
@@ -35,24 +35,24 @@ document.addEventListener("DOMContentLoaded", function() {
   const container = document.getElementById('nav-data-container');
   const currentPath = window.location.pathname;
   const header = document.querySelector('header');
-  
+
   if (!container || !header || document.getElementById('secondary-nav')) return;
 
-  // 1. Data Parsing
+  // Data Parsing
   let links = [];
-  try { 
-    links = JSON.parse(container.dataset.nav); 
-  } catch (e) { 
+  try {
+    links = JSON.parse(container.dataset.nav);
+  } catch (e) {
     return;
   }
 
-  // 2. Logo Fix
+  // Logo Link Routing
   const logoLink = document.querySelector('.navbar-brand');
-  if (logoLink) { 
-    logoLink.href = "{{ site.Params.global_logo_url | default `/` }}"; 
+  if (logoLink) {
+    logoLink.href = "{{ site.Params.global_logo_url | default `/` }}";
   }
 
-  // 3. Build Navigation HTML (With 404 Safety Net & Double-Prefix Protection)
+  // Build Navigation HTML
   let leftNavItems = '';
   let rightNavItems = '';
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let finalUrl = (isRight ? redirect : url).replace(/\/+/g, '/');
 
-    // THE FOOLPROOF FIX: Only inject the prefix if the link doesn't already have it!
+    // Only inject the prefix if the link doesn't already have it
     if (!isRight && activePrefix !== '/') {
         if (!finalUrl.startsWith(activePrefix)) {
             // It's a 404 fallback link. Fix it dynamically.
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   header.insertAdjacentHTML('beforeend', navHtml);
 
-  // 4. Releases Button Labeling
+  // Releases Button Labeling
   try {
     const relBtn = Array.from(document.querySelectorAll('.td-navbar a.dropdown-toggle'))
                        .find(el => el.textContent.includes('Releases') || el.textContent.includes('v0.'));
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   } catch (e) { console.warn("Releases Labeler skipped."); }
 
-  // 5. CSS Injection
+  // CSS Injection
   const styleTag = document.createElement('style');
   styleTag.innerHTML = `
     /* Base Layout */
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
     /* Dark Mode Desktop */
     html[data-bs-theme="dark"] .sec-nav-item-left { color: rgba(255, 255, 255, 0.75) !important; }
     html[data-bs-theme="dark"] .sec-nav-item-right { color: rgba(255, 255, 255, 0.85) !important; }
-    
+
     html[data-bs-theme="dark"] .sec-nav-list a.active { 
       color: #ffffff !important; 
       background-color: transparent !important; 
@@ -176,17 +176,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 html[data-bs-theme="dark"] .pop-icon.fa-discord { background: #5865F2 !important; color: #ffffff !important; box-shadow: 0 4px 10px rgba(88, 101, 242, 0.35) !important; }
-    
+
     /* Make Medium stand out in dark mode (White background, black icon) */
     html[data-bs-theme="dark"] .pop-icon.fa-medium { background: #f8f9fa !important; color: #202124 !important; box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15) !important; }
     html[data-bs-theme="dark"] .dropdown-item.active-version { color: #8ab4f8 !important; background-color: rgba(138, 180, 248, 0.15) !important; border-left-color: #8ab4f8 !important; }
-    
+
     /* Responsive Scaling & Dark Mode Specificity Fix */
     @media (max-width: 991.98px) {
       .sec-nav-icons { margin-left: 0; padding-left: 1rem; }
       .sec-nav-list { gap: 1rem; }
       .sec-nav-item-left, .sec-nav-item-right { font-size: 0.9rem; }
-      
+
       html[data-bs-theme="dark"] #secondary-nav .sec-nav-list a.active,
       body.dark #secondary-nav .sec-nav-list a.active {
          color: #4484f4 !important; 
