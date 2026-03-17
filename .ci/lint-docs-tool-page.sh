@@ -53,12 +53,12 @@ if not integration_dir.exists():
     sys.exit(0)
 
 has_errors = False
+tools_pages_found = 0
 
-# Find all .md files, excluding _index.md (which are Source pages)
-for filepath in integration_dir.rglob("*.md"):
-    if filepath.name == "_index.md":
-        continue
-
+# Specifically target the tools directories
+for filepath in integration_dir.rglob("tools/*.md"):
+    tools_pages_found += 1
+    
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -68,23 +68,34 @@ for filepath in integration_dir.rglob("*.md"):
         frontmatter = match.group(1)
         body = match.group(2)
     else:
-        frontmatter = ""
-        body = content
-
-    if not body.strip():
+        print(f"[{filepath}] Error: Missing or invalid YAML frontmatter.")
+        has_errors = True
         continue
 
     file_errors = False
 
-    # 1. Check Frontmatter Title
-    title_source = frontmatter if frontmatter else content
-    title_match = re.search(r"^title:\s*[\"']?(.*?)[\"']?\s*$", title_source, re.MULTILINE)
-    if not title_match or not title_match.group(1).strip().endswith("Tool"):
-        found_title = title_match.group(1) if title_match else "None"
-        print(f"[{filepath}] Error: Frontmatter title must end with 'Tool'. Found: '{found_title}'")
-        file_errors = True
+    # --- SPECIAL VALIDATION FOR tools/_index.md ---
+    if filepath.name == "_index.md":
+        title_match = re.search(r"^title:\s*[\"']?(.*?)[\"']?\s*$", frontmatter, re.MULTILINE)
+        if not title_match or title_match.group(1).strip() != "Tools":
+            print(f"[{filepath}] Error: tools/_index.md must have exactly title: \"Tools\"")
+            file_errors = True
 
-    # 2. Check Shortcode Placement
+        weight_match = re.search(r"^weight:\s*(\d+)\s*$", frontmatter, re.MULTILINE)
+        if not weight_match or weight_match.group(1).strip() != "2":
+            print(f"[{filepath}] Error: tools/_index.md must have exactly weight: 2")
+            file_errors = True
+
+        if file_errors:
+            has_errors = True
+        continue # Skip the rest of the body linting for this structural file
+
+    # --- VALIDATION FOR REGULAR TOOL PAGES ---
+    # If the file has no markdown content (metadata placeholder only), skip it entirely
+    if not body.strip():
+        continue
+
+    # 1. Check Shortcode Placement
     sources_section_match = re.search(r"^##\s+Compatible Sources\s*(.*?)(?=^##\s|\Z)", body, re.MULTILINE | re.DOTALL)
     if sources_section_match:
         if not re.search(SHORTCODE_PATTERN, sources_section_match.group(1)):
@@ -94,16 +105,17 @@ for filepath in integration_dir.rglob("*.md"):
         print(f"[{filepath}] Error: Shortcode found, but '## Compatible Sources' heading is missing.")
         file_errors = True
 
-    # 3. Strip code blocks
-    clean_body = re.sub(r"^(?:```|~~~).*?^(?:```|~~~)", "", body, flags=re.DOTALL | re.MULTILINE)
+    # 2. Strip code blocks from body to avoid linting example markdown headings
+    clean_body = re.sub(r"```.*?```", "", body, flags=re.DOTALL)
 
-    # 4. Check H1 Headings
+    # 3. Check H1 Headings
     if re.search(r"^#\s+\w+", clean_body, re.MULTILINE):
         print(f"[{filepath}] Error: H1 headings (#) are forbidden in the body.")
         file_errors = True
 
-    # 5. Check H2 Headings
-    h2s = [h.strip() for h in re.findall(r"^##\s+(.*)", clean_body, re.MULTILINE)]
+    # 4. Check H2 Headings
+    h2s = re.findall(r"^##\s+(.*)", clean_body, re.MULTILINE)
+    h2s = [h2.strip() for h2 in h2s]
 
     # Missing Required
     if missing := (REQUIRED - set(h2s)):
@@ -127,9 +139,12 @@ for filepath in integration_dir.rglob("*.md"):
     if file_errors:
         has_errors = True
 
-if has_errors:
+if tools_pages_found == 0:
+    print("Info: No tool directories found. Passing gracefully.")
+    sys.exit(0)
+elif has_errors:
     print("Linting failed for Tool pages. Please fix the structure errors above.")
     sys.exit(1)
 else:
-    print("Success: All Tool pages passed structure validation.")
+    print(f"Success: All {tools_pages_found} Tool page(s) passed structure validation.")
 EOF

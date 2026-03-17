@@ -52,7 +52,29 @@ document.addEventListener("DOMContentLoaded", function() {
     logoLink.href = "{{ site.Params.global_logo_url | default `/` }}";
   }
 
-  // Build Navigation HTML
+  const sidebar = document.querySelector('#td-section-nav') || document.querySelector('.td-sidebar-nav') || document.querySelector('.td-sidebar');
+  
+  if (sidebar) {
+    // 2. Find the currently active link
+    const activeLink = sidebar.querySelector('.active');
+    
+    if (activeLink) {
+      // 3. Get exact pixel coordinates on the screen
+      const sidebarRect = sidebar.getBoundingClientRect();
+      const activeRect = activeLink.getBoundingClientRect();
+      
+      // 4. Calculate exactly where the link is relative to the sidebar's current scroll
+      const linkTop = activeRect.top - sidebarRect.top + sidebar.scrollTop;
+      
+      // 5. Center it mathematically
+      const centerPos = linkTop - (sidebar.clientHeight / 2) + (activeRect.height / 2);
+      
+      // 6. Apply strictly to the sidebar container
+      sidebar.scrollTop = centerPos;
+    }
+  }
+
+  // 3. Build Navigation HTML (With 404 Safety Net & Double-Prefix Protection)
   let leftNavItems = '';
   let rightNavItems = '';
 

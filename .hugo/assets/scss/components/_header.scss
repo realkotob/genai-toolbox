@@ -39,7 +39,7 @@ header, .td-navbar {
     max-width: 500px !important; 
     margin: 0 !important;
     z-index: 1060 !important;
-    transition: all 0.15s ease-out !important;
+    transition: opacity 0.15s ease-out, transform 0.15s ease-out, box-shadow 0.15s ease-out !important;
   }
   .td-navbar .pagefind-ui__drawer {
     left: 0 !important; right: 0 !important; width: 100% !important; max-width: 100% !important;

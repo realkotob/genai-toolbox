@@ -43,7 +43,11 @@ ALLOWED_ORDER = [
     "Troubleshooting",
     "Additional Resources"
 ]
-REQUIRED = {"About", "Example", "Reference"}
+
+# "Available Tools" is explicitly required
+REQUIRED = {"About", "Available Tools", "Example", "Reference"}
+
+# Regex to catch any variation of the list-tools shortcode
 SHORTCODE_PATTERN = r"\{\{<\s*list-tools.*?>\}\}"
 # ---------------------
 
@@ -53,10 +57,12 @@ if not integration_dir.exists():
     sys.exit(0)
 
 has_errors = False
+source_pages_found = 0
 
-for filepath in integration_dir.rglob("_index.md"):
-    if filepath.parent == integration_dir:
-        continue
+# ONLY scan files specifically named "source.md"
+for filepath in integration_dir.rglob("source.md"):
+    source_pages_found += 1
+    file_errors = False
 
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
@@ -65,30 +71,33 @@ for filepath in integration_dir.rglob("_index.md"):
     if match:
         frontmatter, body = match.group(1), match.group(2)
     else:
-        frontmatter, body = "", content
-
-    if not body.strip():
+        print(f"[{filepath}] Error: Missing or invalid YAML frontmatter.")
+        has_errors = True
         continue
 
-    file_errors = False
-
-    # 1. Frontmatter Title Check
-    title_match = re.search(r"^title:\s*[\"']?(.*?)[\"']?\s*$", frontmatter if frontmatter else content, re.MULTILINE)
-    if not title_match or not title_match.group(1).strip().endswith("Source"):
-        print(f"[{filepath}] Error: Title must end with 'Source'.")
+    # 1. Check for linkTitle: "Source" in frontmatter
+    link_title_match = re.search(r"^linkTitle:\s*[\"']?(.*?)[\"']?\s*$", frontmatter, re.MULTILINE)
+    if not link_title_match or link_title_match.group(1).strip() != "Source":
+        print(f"[{filepath}] Error: Frontmatter must contain exactly linkTitle: \"Source\".")
         file_errors = True
 
-    # 2. Shortcode Placement Check
-    tools_section = re.search(r"^##\s+Available Tools\s*(.*?)(?=^##\s|\Z)", body, re.MULTILINE | re.DOTALL)
-    if tools_section:
-        if not re.search(SHORTCODE_PATTERN, tools_section.group(1)):
-            print(f"[{filepath}] Error: {{< list-tools >}} must be under '## Available Tools'.")
+    # 2. Check for weight: 1 in frontmatter
+    weight_match = re.search(r"^weight:\s*[\"']?(\d+)[\"']?\s*$", frontmatter, re.MULTILINE)
+    if not weight_match or weight_match.group(1).strip() != "1":
+        print(f"[{filepath}] Error: Frontmatter must contain exactly weight: 1.")
+        file_errors = True
+
+    # 3. Check Shortcode Placement & Available Tools Section
+    tools_section_match = re.search(r"^##\s+Available Tools\s*(.*?)(?=^##\s|\Z)", body, re.MULTILINE | re.DOTALL)
+    if tools_section_match:
+        if not re.search(SHORTCODE_PATTERN, tools_section_match.group(1)):
+            print(f"[{filepath}] Error: The list-tools shortcode must be placed under the '## Available Tools' heading.")
             file_errors = True
-    elif re.search(SHORTCODE_PATTERN, body):
-        print(f"[{filepath}] Error: {{< list-tools >}} found, but '## Available Tools' heading is missing.")
+    else:
+        print(f"[{filepath}] Error: The '## Available Tools' heading is missing or incorrectly formatted.")
         file_errors = True
 
-    # 3. Heading Linting (Stripping code blocks first)
+    # Strip code blocks from body to avoid linting example markdown headings
     clean_body = re.sub(r"```.*?```", "", body, flags=re.DOTALL)
 
     if re.search(r"^#\s+\w+", clean_body, re.MULTILINE):
@@ -97,9 +106,10 @@ for filepath in integration_dir.rglob("_index.md"):
 
     h2s = [h.strip() for h in re.findall(r"^##\s+(.*)", clean_body, re.MULTILINE)]
 
-    # 4. Required & Unauthorized Check
-    if missing := (REQUIRED - set(h2s)):
-        print(f"[{filepath}] Error: Missing required H2s: {missing}")
+    # Missing Required Headings
+    missing = REQUIRED - set(h2s)
+    if missing:
+        print(f"[{filepath}] Error: Missing required H2 headings: {missing}")
         file_errors = True
 
     if unauthorized := (set(h2s) - set(ALLOWED_ORDER)):
@@ -113,9 +123,13 @@ for filepath in integration_dir.rglob("_index.md"):
 
     if file_errors: has_errors = True
 
-if has_errors:
-    print("Linting failed. Fix structure errors above.")
+# Handle final output based on what was found
+if source_pages_found == 0:
+    print("Info: No 'source.md' files found in integrations. Passing gracefully.")
+    sys.exit(0)
+elif has_errors:
+    print(f"\nLinting failed. Please fix the structure errors in the {source_pages_found} 'source.md' file(s) above.")
     sys.exit(1)
-print("Success: Source pages validated.")
-sys.exit(0)
+else:
+    print(f"Success: {source_pages_found} 'source.md' file(s) passed structure validation.")
 EOF

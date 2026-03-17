@@ -142,3 +142,48 @@ html[data-bs-theme="dark"] .td-page-meta,
 body.dark .td-page-meta { 
   border-bottom-color: rgba(255,255,255,0.1); 
 }
+
+/* ================================================================= */
+/* INTEGRATIONS SIDEBAR LOCKS (DB Root, Tools, & Samples)            */
+/* ================================================================= */
+
+/*  LOCK ALL sections in Integrations
+a.td-sidebar-link__section[href*="/integrations/"] {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* UNLOCK the top-level "/integrations/" root folder itself so it can be toggled */
+a.td-sidebar-link__section[href$="/integrations/"] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* UNLOCK everything nested inside samples or tools (e.g., /samples/my-quickstart/) */
+a.td-sidebar-link__section[href*="/samples/"],
+a.td-sidebar-link__section[href*="/tools/"] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* RE-LOCK exactly the structural "tools" and "samples" parent folders */
+a.td-sidebar-link__section[href$="/tools/"],
+a.td-sidebar-link__section[href$="/samples/"] {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* ================================================================= */
+/* REMOVE TAGS FROM RIGHT SIDEBAR & PAGE META                          */
+/* ================================================================= */
+
+.td-toc .taxonomy,
+.td-toc .td-tags,
+.td-toc [class*="taxonomy"],
+.td-page-meta .taxonomy,
+.td-page-meta .td-tags,
+.td-page-meta [class*="taxonomy"],
+.td-page-meta h5.taxonomy-tree-header,
+.td-page-meta ul.taxonomy-terms {
+  display: none !important;
+}

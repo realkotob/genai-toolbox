@@ -20,7 +20,6 @@
 
       window.addEventListener('DOMContentLoaded', (event) => {
         
-        // 1. Initialize Pagefind Search instances
         document.querySelectorAll('.pagefind-search-container').forEach(el => {
           new PagefindUI({
             element: el,
@@ -45,10 +44,9 @@
           });
         });
 
-        // 2. Setup Global Search Modal Behavior
         setTimeout(() => {
           let backdrop = document.getElementById('global-search-backdrop');
-          
+
           if (!backdrop) {
             backdrop = document.createElement('div');
             backdrop.id = 'global-search-backdrop';
@@ -84,19 +82,17 @@
           function closeModal(keepFocus = false) {
             if (!activeWrapper) return;
             isClosing = true;
-
+            
             backdrop.classList.remove('active');
             document.body.classList.remove('global-search-active');
             activeWrapper.classList.remove('active-modal');
-
-            // Return to original location
+            
             if (placeholder.parentNode) {
               placeholder.parentNode.insertBefore(activeWrapper, placeholder);
             }
-
+            
             const input = activeWrapper.querySelector('.pagefind-ui__search-input');
-
-            // Handle focus state upon closure
+            
             if (!keepFocus) {
               const clearBtn = activeWrapper.querySelector('.pagefind-ui__search-clear');
               if (clearBtn) clearBtn.click();
@@ -108,10 +104,9 @@
             }
 
             activeWrapper = null;
-            setTimeout(() => { isClosing = false; }, 50); // Reset lock
+            setTimeout(() => { isClosing = false; }, 50);
           }
 
-          //  Bind Event Listeners
           document.addEventListener('input', (e) => {
             if (e.target.classList.contains('pagefind-ui__search-input')) {
               if (e.target.value.trim() !== '') {
@@ -131,7 +126,9 @@
             const clickedResult = e.target.closest('.pagefind-ui__result-link');
             const isClickInside = activeWrapper.contains(e.target);
 
-            if (clickedX || clickedResult || (!isClickInside && e.target !== backdrop)) {
+            if (clickedResult) return;
+
+            if (clickedX || (!isClickInside && e.target !== backdrop)) {
               closeModal(false);
             }
           });
@@ -180,7 +177,7 @@
     body.td-dark #global-search-backdrop {
       background-color: rgba(0, 0, 0, 0.8);
     }
-
+    
     .custom-pagefind-wrapper.active-modal {
       position: fixed !important;
       top: 12vh !important;
@@ -296,7 +293,7 @@
     .pagefind-ui__hidden { display: none !important; }
 
     /* =======================================================
-       DESKTOP SEARCH BAR (Top Navbar)
+       1. DESKTOP SEARCH BAR (Top Navbar)
        ======================================================= */
     @media (min-width: 992px) {
       .td-navbar .custom-pagefind-wrapper:not(.active-modal) {
@@ -318,16 +315,14 @@
     }
 
     /* =======================================================
-       MOBILE (< 992px): Native Docsy Stacked Layout
+       2. MOBILE (< 992px): Native Docsy Stacked Layout
        ======================================================= */
     @media (max-width: 991.98px) {
-      /* Hide the main navbar search completely */
       .td-navbar .custom-pagefind-wrapper,
       .td-navbar .container-fluid > div.d-none.d-lg-block {
         display: none !important;
       }
 
-      /* Unhide and show the sidebar search natively */
       .td-sidebar .td-search,
       .td-sidebar .custom-pagefind-wrapper:not(.active-modal) {
         display: block !important;
@@ -339,7 +334,7 @@
     }
 
     /* =======================================================
-       LEFT SIDEBAR TOGGLE ALIGNMENT
+       3. LEFT SIDEBAR TOGGLE ALIGNMENT
        ======================================================= */
     @media (max-width: 767.98px) {
       .td-sidebar__search {
@@ -393,7 +388,7 @@
     }
 
     /* =======================================================
-       DARK MODE STYLING
+       4. DARK MODE STYLING
        ======================================================= */
     html[data-bs-theme="dark"] .pagefind-ui__search-input, body.td-dark .pagefind-ui__search-input {
       background-color: rgba(0, 0, 0, 0.2) !important; 
