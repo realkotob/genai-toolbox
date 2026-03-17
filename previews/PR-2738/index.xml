@@ -1306,7 +1306,7 @@ names, or other parts of the query.&lt;/p></description></item><item><title>CLI<
  &lt;tr>
  &lt;td>&lt;/td>
  &lt;td>&lt;code>--disable-reload&lt;/code>&lt;/td>
- &lt;td>Disables dynamic reloading of tools file.&lt;/td>
+ &lt;td>Disables dynamic reloading of config.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
