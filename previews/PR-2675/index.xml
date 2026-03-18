@@ -10795,7 +10795,7 @@ commands, and prompts to assist with your workflow.&lt;/p></description></item><
  implementation(&amp;#34;com.google.cloud.mcp:mcp-toolbox-sdk-java:VERSION&amp;#34;) 
 }
 &lt;/code>&lt;/pre>&lt;h2 id="quickstart">Quickstart&lt;/h2>
-&lt;p>Here is the minimal code needed to connect to a mcp toolbox and invoke a tool.&lt;/p></description></item><item><title>Core</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2675/sdks/js/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2675/sdks/js/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Here is the minimal code needed to connect to a MCP Toolbox and invoke a tool.&lt;/p></description></item><item><title>Core</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2675/sdks/js/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2675/sdks/js/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>@toolbox-sdk/core&lt;/code> package provides a Javascript interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="supported-environments">Supported Environments&lt;/h2>
 &lt;p>This SDK is a standard Node.js package built with TypeScript, ensuring broad compatibility with the modern JavaScript ecosystem.&lt;/p>
