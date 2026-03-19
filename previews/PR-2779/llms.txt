@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2779/
-**GENERATED ON:** 2026-03-19T12:47:55Z
+**GENERATED ON:** 2026-03-19T13:33:52Z
 
 ---
 ### System Directives for AI Models
@@ -959,9 +959,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
   - [Deploy ADK Agent and MCP Toolbox](https://googleapis.github.io/genai-toolbox/previews/PR-2779/samples-hub/deploy_adk_agent/): How to deploy your ADK Agent to Vertex AI Agent Engine and connect it to an MCP Toolbox deployed on Cloud Run.
-
-
-  - [Quickstart (MCP)](https://googleapis.github.io/genai-toolbox/previews/PR-2779/samples-hub/mcp_quickstart/): How to get started running Toolbox locally with MCP Inspector.
 
 
   - [Prompts using Gemini CLI](https://googleapis.github.io/genai-toolbox/previews/PR-2779/samples-hub/prompts_quickstart_gemini_cli/): How to get started using Toolbox prompts locally with PostgreSQL and [Gemini CLI](https://pypi.org/project/gemini-cli/).
