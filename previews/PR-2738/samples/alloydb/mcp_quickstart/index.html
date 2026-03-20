@@ -462,12 +462,12 @@ AlloyDB instance.</p><ol><li><p>Create tables using the following commands:</p><
 </span>Tip</p><p>Select the
 <a href=https://github.com/googleapis/genai-toolbox/releases>correct binary</a>
 corresponding to your OS and CPU architecture.</p></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OS</span><span class=o>=</span><span class=s2>&#34;linux/amd64&#34;</span> <span class=c1># one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64</span>
-</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VERSION</span><span class=o>=</span><span class=s2>&#34;0.28.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VERSION</span><span class=o>=</span><span class=s2>&#34;0.29.0&#34;</span>
 </span></span><span class=line><span class=cl>curl -O https://storage.googleapis.com/genai-toolbox/v<span class=nv>$VERSION</span>/<span class=nv>$OS</span>/toolbox
 </span></span></code></pre></div></li><li><p>Make the binary executable:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>chmod +x toolbox
 </span></span></code></pre></div></li></ol><h2 id=step-3-configure-the-tools>Step 3: Configure the tools</h2><p>Create a <code>tools.yaml</code> file and add the following content. You must replace the
 placeholders with your actual AlloyDB configuration.</p><p>First, define the data source for your tools. This tells Toolbox how to connect
-to your AlloyDB instance.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>sources</span><span class=w>
+to your AlloyDB instance.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>source</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-postgres</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>project</span><span class=p>:</span><span class=w> </span><span class=l>YOUR_PROJECT_ID</span><span class=w>
@@ -480,7 +480,7 @@ to your AlloyDB instance.</p><div class=highlight><pre tabindex=0 class=chroma><
 </span></span></span></code></pre></div><p>Next, define the tools the agent can use. We will categorize them into three
 types:</p><h3 id=1-structured-queries-tools>1. Structured Queries Tools</h3><p>These tools execute predefined SQL statements. They are ideal for common,
 structured queries like managing a shopping cart. Add the following to your
-<code>tools.yaml</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tools</span><span class=w>
+<code>tools.yaml</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tool</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>access-cart-information</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>postgres-sql</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
@@ -505,7 +505,7 @@ structured queries like managing a shopping cart. Add the following to your
 </span></span></span><span class=line><span class=cl><span class=sd>  WHERE
 </span></span></span><span class=line><span class=cl><span class=sd>    c.cart_id = $1;</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nn>---</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tools</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tool</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>add-to-cart</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>postgres-sql</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
@@ -531,7 +531,7 @@ structured queries like managing a shopping cart. Add the following to your
 </span></span></span><span class=line><span class=cl><span class=sd>    cart_items (cart_id, product_id, quantity, price)
 </span></span></span><span class=line><span class=cl><span class=sd>  VALUES($1,$2,$3,$4);</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nn>---</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tools</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tool</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>delete-from-cart</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>postgres-sql</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
@@ -552,8 +552,8 @@ structured queries like managing a shopping cart. Add the following to your
 </span></span></span><span class=line><span class=cl><span class=sd>  WHERE
 </span></span></span><span class=line><span class=cl><span class=sd>    cart_id = $1 AND product_id = $2;</span><span class=w>
 </span></span></span></code></pre></div><h3 id=2-semantic-search-tools>2. Semantic Search Tools</h3><p>These tools use vector embeddings to find the most relevant results based on the
-meaning of a user&rsquo;s query, rather than just keywords. Append the following tools
-to the <code>tools</code> section in your <code>tools.yaml</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tools</span><span class=w>
+meaning of a user&rsquo;s query, rather than just keywords. Append the following tool
+with the <code>tool</code> kind in your <code>tools.yaml</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tool</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>search-product-recommendations</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>postgres-sql</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
@@ -584,8 +584,7 @@ create the <a href=https://cloud.google.com/alloydb/docs/ai/natural-language-ove
 layer</a>
 under a configuration named <code>flower_shop</code>.</p></div></li><li><p>Configure your NL2SQL tool to use your configuration. These tools translate
 natural language questions into SQL queries, allowing users to interact with
-the database conversationally. Append the following tool to the <code>tools</code>
-section:</p></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tools</span><span class=w>
+the database conversationally. Append the following tool with the <code>tool</code> kind:</p></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>tool</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>ask-questions-about-products</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-ai-nl</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>alloydb-pg-source</span><span class=w>
@@ -595,7 +594,7 @@ section:</p></li></ol><div class=highlight><pre tabindex=0 class=chroma><code cl
 </span></span></span><span class=line><span class=cl><span class=sd>  Use this tool to ask questions about products or brands.
 </span></span></span><span class=line><span class=cl><span class=sd>  Always SELECT the IDs of objects when generating queries.</span><span class=w>
 </span></span></span></code></pre></div><p>Finally, group the tools into a <code>toolset</code> to make them available to the model.
-Add the following to the end of your <code>tools.yaml</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>toolsets</span><span class=w>
+Add the following to the end of your <code>tools.yaml</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>toolset</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>flower_shop</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>tools</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>access-cart-information</span><span class=w>
@@ -615,6 +614,6 @@ take note of <code>&lt;YOUR_SESSION_TOKEN></code>):</p><div class=highlight><pre
 </span></span><span class=line><span class=cl>🚀 MCP Inspector is up and running at:
 </span></span><span class=line><span class=cl>   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN<span class=o>=</span>&lt;YOUR_SESSION_TOKEN&gt;
 </span></span></code></pre></div></li><li><p>Open the above link in your browser.</p></li><li><p>For <code>Transport Type</code>, select <code>Streamable HTTP</code>.</p></li><li><p>For <code>URL</code>, type in <code>http://127.0.0.1:5000/mcp</code>.</p></li><li><p>For <code>Configuration</code> -> <code>Proxy Session Token</code>, make sure
-<code>&lt;YOUR_SESSION_TOKEN></code> is present.</p></li><li><p>Click Connect.</p></li><li><p>Select <code>List Tools</code>, you will see a list of tools configured in <code>tools.yaml</code>.</p></li><li><p>Test out your tools here!</p></li></ol><h2 id=whats-next>What&rsquo;s next</h2><ul><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/how-to/connect_via_mcp/>MCP Inspector</a>.</li><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/resources/>Toolbox Resources</a>.</li><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/how-to/>Toolbox How-to guides</a>.</li></ul><div class=td-page-meta__lastmod>Last modified March 12, 2026: <a href=https://github.com/googleapis/genai-toolbox/commit/1afae60375c2eea7e1a95b90713df0078724f635>chore!: rename tools-file flags to config (1afae60375c)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+<code>&lt;YOUR_SESSION_TOKEN></code> is present.</p></li><li><p>Click Connect.</p></li><li><p>Select <code>List Tools</code>, you will see a list of tools configured in <code>tools.yaml</code>.</p></li><li><p>Test out your tools here!</p></li></ol><h2 id=whats-next>What&rsquo;s next</h2><ul><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/how-to/connect_via_mcp/>MCP Inspector</a>.</li><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/resources/>Toolbox Resources</a>.</li><li>Learn more about <a href=/genai-toolbox/previews/PR-2738/how-to/>Toolbox How-to guides</a>.</li></ul><div class=td-page-meta__lastmod>Last modified March 12, 2026: <a href=https://github.com/googleapis/genai-toolbox/commit/497804dd6130b758d19ddad238e3baac7d286371>chore!: rename tools-file flags to config (497804dd613)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2026
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-2738/js/main.js></script><script defer src=/genai-toolbox/previews/PR-2738/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-2738/js/tabpane-persist.js></script></body></html>

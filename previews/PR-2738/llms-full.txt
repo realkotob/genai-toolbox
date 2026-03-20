@@ -112,7 +112,7 @@ To install Toolbox as a binary on Linux (AMD64):
 
 ```sh
 # see releases page for other versions
-export VERSION=0.28.0
+export VERSION=0.29.0
 curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -123,7 +123,7 @@ To install Toolbox as a binary on macOS (Apple Silicon):
 
 ```sh
 # see releases page for other versions
-export VERSION=0.28.0
+export VERSION=0.29.0
 curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/darwin/arm64/toolbox
 chmod +x toolbox
 ```
@@ -134,7 +134,7 @@ To install Toolbox as a binary on macOS (Intel):
 
 ```sh
 # see releases page for other versions
-export VERSION=0.28.0
+export VERSION=0.29.0
 curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/darwin/amd64/toolbox
 chmod +x toolbox
 ```
@@ -145,7 +145,7 @@ To install Toolbox as a binary on Windows (Command Prompt):
 
 ```cmd
 :: see releases page for other versions
-set VERSION=0.28.0
+set VERSION=0.29.0
 curl -o toolbox.exe "https://storage.googleapis.com/genai-toolbox/v%VERSION%/windows/amd64/toolbox.exe"
 ```
 
@@ -155,7 +155,7 @@ To install Toolbox as a binary on Windows (PowerShell):
 
 ```powershell
 # see releases page for other versions
-$VERSION = "0.28.0"
+$VERSION = "0.29.0"
 curl.exe -o toolbox.exe "https://storage.googleapis.com/genai-toolbox/v$VERSION/windows/amd64/toolbox.exe"
 ```
 
@@ -167,7 +167,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.28.0
+export VERSION=0.29.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -186,7 +186,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.28.0
+go install github.com/googleapis/genai-toolbox@v0.29.0
 ```
 
 {{% /tab %}}
@@ -1350,7 +1350,7 @@ Create a file named `tools.yaml`. This file defines the database connection, the
 SQL tools available, and the prompts the agents will use.
 
 ```yaml
-kind: sources
+kind: source
 name: my-foodiefind-db
 type: postgres
 host: 127.0.0.1
@@ -1359,7 +1359,7 @@ database: toolbox_db
 user: toolbox_user
 password: my-password
 ---
-kind: tools
+kind: tool
 name: find_user_by_email
 type: postgres-sql
 source: my-foodiefind-db
@@ -1370,7 +1370,7 @@ parameters:
     description: The email address of the user to find.
 statement: SELECT id FROM users WHERE email = $1;
 ---
-kind: tools
+kind: tool
 name: find_restaurant_by_name
 type: postgres-sql
 source: my-foodiefind-db
@@ -1381,7 +1381,7 @@ parameters:
     description: The name of the restaurant to find.
 statement: SELECT id FROM restaurants WHERE name = $1;
 ---
-kind: tools
+kind: tool
 name: find_review_by_user_and_restaurant
 type: postgres-sql
 source: my-foodiefind-db
@@ -1395,7 +1395,7 @@ parameters:
     description: The numerical ID of the restaurant.
 statement: SELECT * FROM reviews WHERE user_id = $1 AND restaurant_id = $2;
 ---
-kind: prompts
+kind: prompt
 name: investigate_missing_review
 description: "Investigates a user's missing review by finding the user, restaurant, and the review itself, then analyzing its status."
 arguments:
@@ -1547,7 +1547,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1567,7 +1567,7 @@ In this section, we will download Toolbox, configure our tools in a
     {{< /notice >}}
 
     ```yaml
-    kind: sources
+    kind: source
     name: my-pg-source
     type: postgres
     host: 127.0.0.1
@@ -1576,7 +1576,7 @@ In this section, we will download Toolbox, configure our tools in a
     user: toolbox_user
     password: my-password
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-name
     type: postgres-sql
     source: my-pg-source
@@ -1587,7 +1587,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The name of the hotel.
     statement: SELECT * FROM hotels WHERE name ILIKE '%' || $1 || '%';
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-location
     type: postgres-sql
     source: my-pg-source
@@ -1598,7 +1598,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The location of the hotel.
     statement: SELECT * FROM hotels WHERE location ILIKE '%' || $1 || '%';
     ---
-    kind: tools
+    kind: tool
     name: book-hotel
     type: postgres-sql
     source: my-pg-source
@@ -1610,7 +1610,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The ID of the hotel to book.
     statement: UPDATE hotels SET booked = B'1' WHERE id = $1;
     ---
-    kind: tools
+    kind: tool
     name: update-hotel
     type: postgres-sql
     source: my-pg-source
@@ -1631,7 +1631,7 @@ In this section, we will download Toolbox, configure our tools in a
       UPDATE hotels SET checkin_date = CAST($2 as date), checkout_date = CAST($3
       as date) WHERE id = $1;
     ---
-    kind: tools
+    kind: tool
     name: cancel-hotel
     type: postgres-sql
     source: my-pg-source
@@ -1642,7 +1642,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The ID of the hotel to cancel.
     statement: UPDATE hotels SET booked = B'0' WHERE id = $1;
     ---
-    kind: toolsets
+    kind: toolset
     name: my-toolset
     tools:
       - search-hotels-by-name
@@ -1733,12 +1733,12 @@ A default value can be specified like `${ENV_NAME:default}`.
 
 ### Sources
 
-The `sources` section of your `tools.yaml` defines what data sources your
+`source` kind of your `tools.yaml` defines what data source your
 Toolbox should have access to. Most tools will have at least one source to
 execute against.
 
 ```yaml
-kind: sources
+kind: source
 name: my-pg-source
 type: postgres
 host: 127.0.0.1
@@ -1753,12 +1753,12 @@ For more details on configuring different types of sources, see the
 
 ### Tools
 
-The `tools` section of your `tools.yaml` defines the actions your agent can
+`tool` kind of your `tools.yaml` defines the actions your agent can
 take: what type of tool it is, which source(s) it affects, what parameters it
 uses, etc.
 
 ```yaml
-kind: tools
+kind: tool
 name: search-hotels-by-name
 type: postgres-sql
 source: my-pg-source
@@ -1775,18 +1775,18 @@ For more details on configuring different types of tools, see the
 
 ### Toolsets
 
-The `toolsets` section of your `tools.yaml` allows you to define groups of tools
+`toolset` kind of your `tools.yaml` allows you to define groups of tools
 that you want to be able to load together. This can be useful for defining
 different sets for different agents or different applications.
 
 ```yaml
-kind: toolsets
+kind: toolset
 name: my_first_toolset
 tools:
   - my_first_tool
   - my_second_tool
 ---
-kind: toolsets
+kind: toolset
 name: my_second_toolset
 tools:
   - my_second_tool
@@ -1805,11 +1805,11 @@ my_second_toolset = client.load_toolset("my_second_toolset")
 
 ### Prompts
 
-The `prompts` section of your `tools.yaml` defines the templates containing
+`prompt` kind of your `tools.yaml` defines the templates containing
 structured messages and instructions for interacting with language models.
 
 ```yaml
-kind: prompts
+kind: prompt
 name: code_review
 description: "Asks the LLM to analyze code quality and suggest improvements."
 messages:
@@ -2347,19 +2347,19 @@ After you install Looker in the MCP Store, resources and tools from the server a
 
 {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2699,19 +2699,19 @@ expose your developer assistant tools to a MySQL instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3018,19 +3018,19 @@ expose your developer assistant tools to a Neo4j instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3344,19 +3344,19 @@ Omni](https://cloud.google.com/alloydb/omni/docs/overview).
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3677,19 +3677,19 @@ instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3996,19 +3996,19 @@ to expose your developer assistant tools to a SQLite instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -6666,12 +6666,12 @@ If you are accessing Toolbox with multiple applications, each
 {{< /notice >}}
 
 ```yaml
-kind: authServices
+kind: authService
 name: my_auth_app_1
 type: google
 clientId: ${YOUR_CLIENT_ID_1}
 ---
-kind: authServices
+kind: authService
 name: my_auth_app_2
 type: google
 clientId: ${YOUR_CLIENT_ID_2}
@@ -6692,7 +6692,7 @@ configuration for each tool that should use it:
 
 ## Specifying ID Tokens from Clients
 
-After [configuring](#example) your `authServices` section, use a Toolbox SDK to
+After [configuring](#example) your `authService`, use a Toolbox SDK to
 add your ID tokens to the header of a Tool invocation request. When specifying a
 token you will provide a function (that returns an id). This function is called
 when the tool is invoked. This allows you to cache and refresh the ID token as
@@ -6979,7 +6979,7 @@ id-token][provided-claims] can be used for the parameter.
 ## Example
 
 ```yaml
-kind: authServices
+kind: authService
 name: my-google-auth
 type: google
 clientId: ${YOUR_GOOGLE_CLIENT_ID}
@@ -7003,7 +7003,7 @@ Sources represent your different data sources that a tool can interact with.
 
 
 A Source represents a data sources that a tool can interact with. You can define
-Sources as a map in the `sources` section of your `tools.yaml` file. Typically,
+Sources as a map in the `source` section of your `tools.yaml` file. Typically,
 a source configuration will contain any information needed to connect with and
 interact with the database.
 
@@ -7013,7 +7013,7 @@ instead of hardcoding your secrets into the configuration file.
 {{< /notice >}}
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-sql-source
 type: cloud-sql-postgres
 project: my-project-id
@@ -7201,7 +7201,7 @@ To connect using IAM authentication:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-alloydb-pg-source
 type: alloydb-postgres
 project: my-project-id
@@ -7265,11 +7265,11 @@ Authentication can be handled in two ways:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-alloydb-admin
 type: alloydb-admin
 ---
-kind: sources
+kind: source
 name: my-oauth-alloydb-admin
 type: alloydb-admin
 useClientOAuth: true
@@ -7403,7 +7403,7 @@ identity used has been granted the correct IAM permissions.
 Initialize a BigQuery source that uses ADC:
 
 ```yaml
-kind: sources
+kind: source
 name: my-bigquery-source
 type: "bigquery"
 project: "my-project-id"
@@ -7422,7 +7422,7 @@ project: "my-project-id"
 Initialize a BigQuery source that uses the client's access token:
 
 ```yaml
-kind: sources
+kind: source
 name: my-bigquery-client-auth-source
 type: "bigquery"
 project: "my-project-id"
@@ -7510,7 +7510,7 @@ applying IAM permissions and roles to an identity.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-bigtable-source
 type: "bigtable"
 project: "my-project-id"
@@ -7547,7 +7547,7 @@ distributed architectures, and a flexible approach to schema definition.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cassandra-source
 type: cassandra
 hosts:
@@ -7626,7 +7626,7 @@ ClickHouse supports multiple protocols:
 ### Secure Connection Example
 
 ```yaml
-kind: sources
+kind: source
 name: secure-clickhouse-source
 type: clickhouse
 host: clickhouse.example.com
@@ -7641,7 +7641,7 @@ secure: true
 ### HTTP Protocol Example
 
 ```yaml
-kind: sources
+kind: source
 name: http-clickhouse-source
 type: clickhouse
 host: localhost
@@ -7790,7 +7790,7 @@ identity used has been granted the correct IAM permissions.
 Initialize a Cloud Healthcare API source that uses ADC:
 
 ```yaml
-kind: sources
+kind: source
 name: my-healthcare-source
 type: "cloud-healthcare"
 project: "my-project-id"
@@ -7806,7 +7806,7 @@ dataset: "my-healthcare-dataset-id"
 Initialize a Cloud Healthcare API source that uses the client's access token:
 
 ```yaml
-kind: sources
+kind: source
 name: my-healthcare-client-auth-source
 type: "cloud-healthcare"
 project: "my-project-id"
@@ -7866,7 +7866,7 @@ Authentication can be handled in two ways:
 Initialize a Cloud Logging Admin source that uses ADC:
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-logging
 type: cloud-logging-admin
 project: my-project-id
@@ -7875,7 +7875,7 @@ project: my-project-id
 Initialize a Cloud Logging Admin source that uses client-side OAuth:
 
 ```yaml
-kind: sources
+kind: source
 name: my-oauth-cloud-logging
 type: cloud-logging-admin
 project: my-project-id
@@ -7885,7 +7885,7 @@ useClientOAuth: true
 Initialize a Cloud Logging Admin source that uses service account impersonation:
 
 ```yaml
-kind: sources
+kind: source
 name: my-impersonated-cloud-logging
 type: cloud-logging-admin
 project: my-project-id
@@ -7923,11 +7923,11 @@ Authentication can be handled in two ways:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-monitoring
 type: cloud-monitoring
 ---
-kind: sources
+kind: source
 name: my-oauth-cloud-monitoring
 type: cloud-monitoring
 useClientOAuth: true
@@ -8065,7 +8065,7 @@ To connect using IAM authentication:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-sql-mysql-source
 type: cloud-sql-mysql
 project: my-project-id
@@ -8270,7 +8270,7 @@ To connect using IAM authentication:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-sql-pg-source
 type: cloud-sql-postgres
 project: my-project-id
@@ -8394,7 +8394,7 @@ Currently, this source only uses standard authentication. You will need to
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-sql-mssql-instance
 type: cloud-sql-mssql
 project: my-project
@@ -8447,11 +8447,11 @@ Authentication can be handled in two ways:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-cloud-sql-admin
 type: cloud-sql-admin
 ---
-kind: sources
+kind: source
 name: my-oauth-cloud-sql-admin
 type: cloud-sql-admin
 useClientOAuth: true
@@ -8722,7 +8722,7 @@ allowing tools to execute SQL queries against it.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-couchbase-instance
 type: couchbase
 connectionString: couchbase://localhost
@@ -8778,7 +8778,7 @@ applying artificial intelligence and machine learning.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-dataplex-source
 type: "dataplex"
 project: "my-project-id"
@@ -9156,7 +9156,7 @@ set up your ADC.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-dataproc-source
 type: dataproc
 project: my-project
@@ -9220,7 +9220,7 @@ and user credentials for that namespace.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-dgraph-source
 type: dgraph
 dgraphUrl: https://xxxx.cloud.dgraph.io
@@ -9302,7 +9302,7 @@ applying permissions to an API key.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-elasticsearch-source
 type: "elasticsearch"
 addresses:
@@ -9352,7 +9352,7 @@ user][fb-users] to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my_firebird_db
 type: firebird
 host: "localhost"
@@ -9437,7 +9437,7 @@ database named `(default)` will be used.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-firestore-source
 type: "firestore"
 project: "my-project-id"
@@ -9469,12 +9469,12 @@ Authentication can be handled in two ways:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-gda-source
 type: cloud-gemini-data-analytics
 projectId: my-project-id
 ---
-kind: sources
+kind: source
 name: my-oauth-gda-source
 type: cloud-gemini-data-analytics
 projectId: my-project-id
@@ -9508,7 +9508,7 @@ and other HTTP-accessible resources.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-http-source
 type: http
 baseUrl: https://api.example.com/data
@@ -9595,7 +9595,7 @@ To initialize the application default credential run `gcloud auth login
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-looker-source
 type: looker
 base_url: http://looker.example.com
@@ -9687,7 +9687,7 @@ MariaDB user][mariadb-users] to log in to the database.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my_mariadb_db
 type: mysql
 host: 127.0.0.1
@@ -9843,7 +9843,7 @@ can omit the password field.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-mindsdb-source
 type: mindsdb
 host: 127.0.0.1
@@ -9859,7 +9859,7 @@ queryTimeout: 30s # Optional: query timeout duration
 Here's a working configuration that has been tested:
 
 ```yaml
-kind: sources
+kind: source
 name: my-pg-source
 type: mindsdb
 host: 127.0.0.1
@@ -9922,7 +9922,7 @@ flexible, JSON-like documents, making it easy to develop and scale applications.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-mongodb
 type: mongodb
 uri: "mongodb+srv://username:password@host.mongodb.net"       
@@ -9984,7 +9984,7 @@ MySQL user][mysql-users] to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-mysql-source
 type: mysql
 host: 127.0.0.1
@@ -10047,7 +10047,7 @@ user if available.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-neo4j-source
 type: neo4j
 uri: neo4j+s://xxxx.databases.neo4j.io:7687
@@ -10103,7 +10103,7 @@ with SSL).
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-oceanbase-source
 type: oceanbase
 host: 127.0.0.1
@@ -10243,7 +10243,7 @@ using a TNS (Transparent Network Substrate) alias.
 This example demonstrates the four connection methods you could choose from:
 
 ```yaml
-kind: sources
+kind: source
 name: my-oracle-source
 type: oracle
 
@@ -10275,7 +10275,7 @@ Oracle Wallet allows you to store credentails used for database connection. Depe
 The `go-ora` driver uses the `walletLocation` field to connect to a database secured with an Oracle Wallet without standard username and password.
 
 ```yaml
-kind: sources
+kind: source
 name: pure-go-wallet
 type: oracle
 connectionString: "127.0.0.1:1521/XEPDB1"
@@ -10291,7 +10291,7 @@ walletLocation: "/path/to/my/wallet/directory"
 For the OCI-based driver, wallet authentication is triggered by setting tnsAdmin to the wallet directory and connecting via a tnsAlias. 
 
 ```yaml
-kind: sources
+kind: source
 name: oci-wallet
 type: oracle
 connectionString: "127.0.0.1:1521/XEPDB1"
@@ -10427,7 +10427,7 @@ PostgreSQL user][pg-users] to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-pg-source
 type: postgres
 host: 127.0.0.1
@@ -10486,7 +10486,7 @@ connections must authenticate in order to connect.
 Specify your AUTH string in the password field:
 
 ```yaml
-kind: sources
+kind: source
 name: my-redis-instance
 type: redis
 address:
@@ -10514,7 +10514,7 @@ string.
 Here is an example tools.yaml config with [AUTH][auth] enabled:
 
 ```yaml
-kind: sources
+kind: source
 name: my-redis-cluster-instance
 type: redis
 address:
@@ -10531,7 +10531,7 @@ Here is an example tools.yaml config for Memorystore Redis Cluster instances
 using IAM authentication:
 
 ```yaml
-kind: sources
+kind: source
 name: my-redis-cluster-instance
 type: redis
 address:
@@ -10612,7 +10612,7 @@ set up your ADC.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-serverless-spark-source
 type: serverless-spark
 project: my-project-id
@@ -10665,7 +10665,7 @@ database user][singlestore-user] to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-singlestore-source
 type: singlestore
 host: 127.0.0.1
@@ -10722,7 +10722,7 @@ Snowflake user to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-sf-source
 type: snowflake
 account: ${SNOWFLAKE_ACCOUNT}
@@ -10813,7 +10813,7 @@ applying IAM permissions and roles to an identity.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-spanner-source
 type: "spanner"
 project: "my-project-id"
@@ -10869,7 +10869,7 @@ SQL Server user][mssql-users] to login to the database with.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-mssql-source
 type: mssql
 host: 127.0.0.1
@@ -10942,7 +10942,7 @@ You need a SQLite database file. This can be:
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-sqlite-db
 type: "sqlite"
 database: "/path/to/database.db"
@@ -10951,7 +10951,7 @@ database: "/path/to/database.db"
 For an in-memory database:
 
 ```yaml
-kind: sources
+kind: source
 name: my-sqlite-memory-db
 type: "sqlite"
 database: ":memory:"
@@ -11017,7 +11017,7 @@ console.
 - TiDB Cloud
 
     ```yaml
-    kind: sources
+    kind: source
     name: my-tidb-cloud-source
     type: tidb
     host: gateway01.us-west-2.prod.aws.tidbcloud.com
@@ -11031,7 +11031,7 @@ console.
 - Self-Hosted TiDB
 
     ```yaml
-    kind: sources
+    kind: source
     name: my-tidb-source
     type: tidb
     host: 127.0.0.1
@@ -11090,7 +11090,7 @@ the catalogs and schemas you want to query.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-trino-source
 type: trino
 host: trino.example.com
@@ -11149,7 +11149,7 @@ the [official Valkey website](https://valkey.io/topics/quickstart/).
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-valkey-instance
 type: valkey
 address:
@@ -11173,7 +11173,7 @@ authentication. Grant your account the required [IAM role][iam] and set
 `useGCPIAM` to `true`:
 
 ```yaml
-kind: sources
+kind: source
 name: my-valkey-instance
 type: valkey
 address:
@@ -11211,7 +11211,7 @@ compatibility.
 ## Example
 
 ```yaml
-kind: sources
+kind: source
 name: my-yb-source
 type: yugabytedb
 host: 127.0.0.1
@@ -11288,10 +11288,10 @@ ${ENV_NAME} instead of hardcoding your API keys into the configuration file.
 
 ### Step 1 - Define an Embedding Model
 
-Define an embedding model in the `embeddingModels` section:
+Define an embedding model with the `embeddingModel` kind:
 
 ```yaml
-kind: embeddingModels
+kind: embeddingModel
 name: gemini-model # Name of the embedding model
 type: gemini
 model: gemini-embedding-001
@@ -11306,7 +11306,7 @@ Use the defined embedding model, embed your query parameters using the
 
 ```yaml
 # Vector ingestion tool
-kind: tools
+kind: tool
 name: insert_embedding
 type: postgres-sql
 source: my-pg-instance
@@ -11325,7 +11325,7 @@ parameters:
     embeddedBy: gemini-model
 ---
 # Semantic search tool
-kind: tools
+kind: tool
 name: search_embedding
 type: postgres-sql
 source: my-pg-instance
@@ -11391,7 +11391,7 @@ information.
 ## Example
 
 ```yaml
-kind: embeddingModels
+kind: embeddingModel
 name: gemini-model
 type: gemini
 model: gemini-embedding-001
@@ -11419,11 +11419,11 @@ Tools define actions an agent can take -- such as reading and writing to a sourc
 
 
 A tool represents an action your agent can take, such as running a SQL
-statement. You can define Tools as a map in the `tools` section of your
+statement. You can define Tools as a map with the `tool` kind in your
 `tools.yaml` file. Typically, a tool will require a source to act on:
 
 ```yaml
-kind: tools
+kind: tool
 name: search_flights_by_number
 type: postgres-sql
 source: my-pg-instance
@@ -11615,7 +11615,7 @@ the required [authServices](../authServices/) to specific claims within the
 user's ID token.
 
 ```yaml
-kind: tools
+kind: tool
 name: search_flights_by_user_id
 type: postgres-sql
 source: my-pg-instance
@@ -11626,7 +11626,7 @@ parameters:
     type: string
     description: Auto-populated from Google login
     authServices:
-      # Refer to one of the `authServices` defined
+      # Refer to one of the `authService` defined
       - name: my-google-auth
         # `sub` is the OIDC claim field for user ID
         field: sub
@@ -11666,7 +11666,7 @@ can use `minValue` and `maxValue` to define the allowable range.
 {{< /notice >}}
 
 ```yaml
-kind: tools
+kind: tool
 name: select_columns_from_table
 type: postgres-sql
 source: my-pg-instance
@@ -11711,13 +11711,13 @@ specifying an `authRequired` field. Specify a list of
 [authServices](../authServices/) defined in the previous section.
 
 ```yaml
-kind: tools
+kind: tool
 name: search_all_flight
 type: postgres-sql
 source: my-pg-instance
 statement: |
   SELECT * FROM flights
-# A list of `authServices` defined previously
+# A list of `authService` defined previously
 authRequired:
   - my-google-auth
   - other-auth-service
@@ -11743,16 +11743,16 @@ and provide appropriate user experiences.
 Annotations can be specified in YAML tool configuration:
 
 ```yaml
-tools:
-  my_query_tool:
-    kind: mongodb-find-one
-    source: my-mongodb
-    description: Find a single document
-    database: mydb
-    collection: users
-    annotations:
-      readOnlyHint: true
-      idempotentHint: true
+kind: tool
+name: my_query_tool
+type: mongodb-find-one
+source: my-mongodb
+description: Find a single document
+database: mydb
+collection: users
+annotations:
+  readOnlyHint: true
+  idempotentHint: true
 ```
 
 ### Default Annotations
@@ -13204,7 +13204,7 @@ federated database capabilities.
 Here's a complete working configuration that has been tested:
 
 ```yaml
-kind: sources
+kind: source
 name: my-pg-source
 type: mindsdb
 host: 127.0.0.1
@@ -13212,7 +13212,7 @@ port: 47335
 database: files
 user: mindsdb
 ---
-kind: tools
+kind: tool
 name: mindsdb-execute-sql
 type: mindsdb-execute-sql
 source: my-pg-source
@@ -13336,7 +13336,7 @@ can be sent to a Large Language Model (LLM). The Toolbox server implements the
 specification, allowing clients to discover and retrieve these prompts.
 
 ```yaml
-kind: prompts
+kind: prompt
 name: code_review
 description: "Asks the LLM to analyze code quality and suggest improvements."
 messages:
@@ -13416,7 +13416,7 @@ Here is an example of a simple prompt that takes a single argument, code, and
 asks an LLM to review it.
 
 ```yaml
-kind: prompts
+kind: prompt
 name: code_review
 description: "Asks the LLM to analyze code quality and suggest improvements."
 messages:
@@ -13432,7 +13432,7 @@ You can define prompts with multiple messages to set up more complex
 conversational contexts, like a role-playing scenario.
 
 ```yaml
-kind: prompts
+kind: prompt
 name: roleplay_scenario
 description: "Sets up a roleplaying scenario with initial messages."
 arguments:
@@ -13597,7 +13597,7 @@ In this section, we will download and install the Toolbox binary.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    export VERSION="0.28.0"
+    export VERSION="0.29.0"
     curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
@@ -13617,7 +13617,7 @@ First, define the data source for your tools. This tells Toolbox how to connect
 to your AlloyDB instance.
 
 ```yaml
-kind: sources
+kind: source
 name: alloydb-pg-source
 type: alloydb-postgres
 project: YOUR_PROJECT_ID
@@ -13639,7 +13639,7 @@ structured queries like managing a shopping cart. Add the following to your
 `tools.yaml` file:
 
 ```yaml
-kind: tools
+kind: tool
 name: access-cart-information
 type: postgres-sql
 source: alloydb-pg-source
@@ -13664,7 +13664,7 @@ statement: |
   WHERE
     c.cart_id = $1;
 ---
-kind: tools
+kind: tool
 name: add-to-cart
 type: postgres-sql
 source: alloydb-pg-source
@@ -13690,7 +13690,7 @@ statement: |
     cart_items (cart_id, product_id, quantity, price)
   VALUES($1,$2,$3,$4);
 ---
-kind: tools
+kind: tool
 name: delete-from-cart
 type: postgres-sql
 source: alloydb-pg-source
@@ -13715,11 +13715,11 @@ statement: |
 ### 2. Semantic Search Tools
 
 These tools use vector embeddings to find the most relevant results based on the
-meaning of a user's query, rather than just keywords. Append the following tools
-to the `tools` section in your `tools.yaml`:
+meaning of a user's query, rather than just keywords. Append the following tool
+with the `tool` kind in your `tools.yaml`:
 
 ```yaml
-kind: tools
+kind: tool
 name: search-product-recommendations
 type: postgres-sql
 source: alloydb-pg-source
@@ -13758,11 +13758,10 @@ statement: |
 
 2. Configure your NL2SQL tool to use your configuration. These tools translate
    natural language questions into SQL queries, allowing users to interact with
-   the database conversationally. Append the following tool to the `tools`
-   section:
+   the database conversationally. Append the following tool with the `tool` kind:
 
 ```yaml
-kind: tools
+kind: tool
 name: ask-questions-about-products
 type: alloydb-ai-nl
 source: alloydb-pg-source
@@ -13777,7 +13776,7 @@ Finally, group the tools into a `toolset` to make them available to the model.
 Add the following to the end of your `tools.yaml` file:
 
 ```yaml
-kind: toolsets
+kind: toolset
 name: flower_shop
 tools:
   - access-cart-information
@@ -14031,7 +14030,7 @@ to use BigQuery, and then run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -14053,13 +14052,13 @@ to use BigQuery, and then run the Toolbox server.
     {{< /notice >}}
 
     ```yaml
-    kind: sources
+    kind: source
     name: my-bigquery-source
     type: bigquery
     project: YOUR_PROJECT_ID
     location: us
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-name
     type: bigquery-sql
     source: my-bigquery-source
@@ -14070,7 +14069,7 @@ to use BigQuery, and then run the Toolbox server.
         description: The name of the hotel.
     statement: SELECT * FROM `YOUR_DATASET_NAME.hotels` WHERE LOWER(name) LIKE LOWER(CONCAT('%', @name, '%'));
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-location
     type: bigquery-sql
     source: my-bigquery-source
@@ -14081,7 +14080,7 @@ to use BigQuery, and then run the Toolbox server.
         description: The location of the hotel.
     statement: SELECT * FROM `YOUR_DATASET_NAME.hotels` WHERE LOWER(location) LIKE LOWER(CONCAT('%', @location, '%'));
     ---
-    kind: tools
+    kind: tool
     name: book-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14093,7 +14092,7 @@ to use BigQuery, and then run the Toolbox server.
         description: The ID of the hotel to book.
     statement: UPDATE `YOUR_DATASET_NAME.hotels` SET booked = TRUE WHERE id = @hotel_id;
     ---
-    kind: tools
+    kind: tool
     name: update-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14112,7 +14111,7 @@ to use BigQuery, and then run the Toolbox server.
     statement: >-
         UPDATE `YOUR_DATASET_NAME.hotels` SET checkin_date = PARSE_DATE('%Y-%m-%d', @checkin_date), checkout_date = PARSE_DATE('%Y-%m-%d', @checkout_date) WHERE id = @hotel_id;
     ---
-    kind: tools
+    kind: tool
     name: cancel-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14124,16 +14123,15 @@ to use BigQuery, and then run the Toolbox server.
     statement: UPDATE `YOUR_DATASET_NAME.hotels` SET booked = FALSE WHERE id = @hotel_id;
     ```
 
-    **Important Note on `toolsets`**: The `tools.yaml` content above does not
-    include a `toolsets` section. The Python agent examples in Step 3 (e.g.,
+    **Important Note on `toolset`**: The `tools.yaml` content above does not
+    include a `toolset` kind. The Python agent examples in Step 3 (e.g.,
     `await toolbox_client.load_toolset("my-toolset")`) rely on a toolset named
-    `my-toolset`. To make those examples work, you will need to add a `toolsets`
-    section to your `tools.yaml` file, for example:
+    `my-toolset`. To make those examples work, you will need to add a `toolset`
+    to your `tools.yaml` file, for example:
 
     ```yaml
     # Add this to your tools.yaml if using load_toolset("my-toolset")
-    # Ensure it's at the same indentation level as 'sources:' and 'tools:'
-    kind: toolsets
+    kind: toolset
     name: my-toolset
     tools:
         - search-hotels-by-name
@@ -14678,7 +14676,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -14700,13 +14698,13 @@ In this section, we will download Toolbox, configure our tools in a
     {{< /notice >}}
 
     ```yaml
-    kind: sources
+    kind: source
     name: my-bigquery-source
     type: bigquery
     project: YOUR_PROJECT_ID
     location: us
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-name
     type: bigquery-sql
     source: my-bigquery-source
@@ -14717,7 +14715,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The name of the hotel.
     statement: SELECT * FROM `YOUR_DATASET_NAME.hotels` WHERE LOWER(name) LIKE LOWER(CONCAT('%', @name, '%'));
     ---
-    kind: tools
+    kind: tool
     name: search-hotels-by-location
     type: bigquery-sql
     source: my-bigquery-source
@@ -14728,7 +14726,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The location of the hotel.
     statement: SELECT * FROM `YOUR_DATASET_NAME.hotels` WHERE LOWER(location) LIKE LOWER(CONCAT('%', @location, '%'));
     ---
-    kind: tools
+    kind: tool
     name: book-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14740,7 +14738,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The ID of the hotel to book.
     statement: UPDATE `YOUR_DATASET_NAME.hotels` SET booked = TRUE WHERE id = @hotel_id;
     ---
-    kind: tools
+    kind: tool
     name: update-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14759,7 +14757,7 @@ In this section, we will download Toolbox, configure our tools in a
     statement: >-
       UPDATE `YOUR_DATASET_NAME.hotels` SET checkin_date = PARSE_DATE('%Y-%m-%d', @checkin_date), checkout_date = PARSE_DATE('%Y-%m-%d', @checkout_date) WHERE id = @hotel_id;
     ---
-    kind: tools
+    kind: tool
     name: cancel-hotel
     type: bigquery-sql
     source: my-bigquery-source
@@ -14770,7 +14768,7 @@ In this section, we will download Toolbox, configure our tools in a
         description: The ID of the hotel to cancel.
     statement: UPDATE `YOUR_DATASET_NAME.hotels` SET booked = FALSE WHERE id = @hotel_id;
     ---
-    kind: toolsets
+    kind: toolset
     name: my-toolset
     tools:
       - search-hotels-by-name
@@ -14883,7 +14881,7 @@ In this section, we will download Toolbox and run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -15008,7 +15006,7 @@ In this section, we will download Toolbox and run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -15118,7 +15116,7 @@ In this section, we will download Toolbox and run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.28.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.29.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -15251,14 +15249,14 @@ Write the following into a `tools.yaml` file:
 \+
 
 ```yaml
-kind: sources
+kind: source
 name: my-neo4j-source
 type: neo4j
 uri: bolt://localhost:7687
 user: neo4j
 password: my-password # Replace with your actual password
 ---
-kind: tools
+kind: tool
 name: search-movies-by-actor
 type: neo4j-cypher
 source: my-neo4j-source
@@ -15271,7 +15269,7 @@ statement: |
   MATCH (p:Person {name: $actor_name}) -[:ACTED_IN]-> (m:Movie)
   RETURN m.title AS title, m.year AS year, m.genre AS genre
 ---
-kind: tools
+kind: tool
 name: get-actor-for-movie
 type: neo4j-cypher
 source: my-neo4j-source
@@ -15620,7 +15618,7 @@ You have two options:
 Create a `tools.yaml` file and add the following content. You must replace the placeholders with your actual Snowflake configuration.
 
 ```yaml
-kind: sources
+kind: source
 name: snowflake-source
 type: snowflake
 account: ${SNOWFLAKE_ACCOUNT}
@@ -15631,13 +15629,13 @@ schema: ${SNOWFLAKE_SCHEMA}
 warehouse: ${SNOWFLAKE_WAREHOUSE}
 role: ${SNOWFLAKE_ROLE}
 ---
-kind: tools
+kind: tool
 name: execute_sql
 type: snowflake-execute-sql
 source: snowflake-source
 description: Use this tool to execute SQL.
 ---
-kind: tools
+kind: tool
 name: list_tables
 type: snowflake-sql
 source: snowflake-source
@@ -16087,7 +16085,7 @@ creds = CredentialStrategy.from_adk_credentials(auth_credential, scheme)
 ### 8. Tool-Specific Authentication
 *Resolve authentication tokens dynamically for specific tools.*
 
-Some tools may define their own authentication requirements (e.g., Salesforce OAuth, GitHub PAT) via `authSources` in their schema. You can provide a mapping of getters to resolve these tokens at runtime.
+Some tools may define their own authentication requirements (e.g., Salesforce OAuth, GitHub PAT) via `authServices` in their schema. You can provide a mapping of getters to resolve these tokens at runtime.
 
 ```python
 async def get_salesforce_token():
@@ -16537,7 +16535,7 @@ necessary token when called. The implementation depends on your application's
 authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
 
 {{< notice info>}}
-The name used when registering the getter function with the SDK (e.g.,`"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+The name used when registering the getter function with the SDK (e.g.,`"my_api_token"`) must exactly match the `name` of the corresponding `authService` defined in the tool's configuration within the Toolbox service.
 {{</notice>}}
 
 ```py
@@ -17907,7 +17905,7 @@ necessary token when called. The implementation depends on your application's
 authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
 
 {{< notice note>}}
-The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authService` defined in the tool's configuration within the Toolbox service.
 {{< /notice >}}
 
 ```javascript
@@ -18380,7 +18378,7 @@ necessary token when called. The implementation depends on your application's
 authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
 
 {{< notice note>}}
-The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authService` defined in the tool's configuration within the Toolbox service.
 {{< /notice >}}
 
 ```javascript
@@ -19021,7 +19019,7 @@ authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
 {{< notice info >}}
 The name used when registering the getter function with the SDK (e.g.,
 `"my_api_token"`) must exactly match the `name` of the corresponding
-`authServices` defined in the tool's configuration within the Toolbox service.
+`authService` defined in the tool's configuration within the Toolbox service.
 {{< /notice >}}
 
 ```go
@@ -19706,7 +19704,7 @@ necessary token when called. The implementation depends on your application's
 authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
 
 {{< notice info >}}
-The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authService` defined in the tool's configuration within the Toolbox service.
 {{< /notice >}}
 
 ```go
