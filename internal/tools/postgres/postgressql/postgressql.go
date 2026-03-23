@@ -49,6 +49,12 @@ type compatibleSource interface {
 	RunSQL(context.Context, string, []any) (any, error)
 }
 
+type PreCondition struct {
+	Query        string `yaml:"query" validate:"required"`
+	Expect       string `yaml:"expect" validate:"required"` // e.g. "exists", "not_exists"
+	ErrorMessage string `yaml:"errorMessage"`
+}
+
 type Config struct {
 	Name               string                `yaml:"name" validate:"required"`
 	Type               string                `yaml:"type" validate:"required"`
@@ -58,6 +64,7 @@ type Config struct {
 	AuthRequired       []string              `yaml:"authRequired"`
 	Parameters         parameters.Parameters `yaml:"parameters"`
 	TemplateParameters parameters.Parameters `yaml:"templateParameters"`
+	PreConditions      []PreCondition        `yaml:"preConditions"`
 }
 
 var _ tools.ToolConfig = Config{}
@@ -109,11 +116,56 @@ func (t Tool) Invoke(ctx context.Context, resourceMgr tools.SourceProvider, para
 		return nil, util.NewAgentError("unable to extract standard params", err)
 	}
 	sliceParams := newParams.AsSlice()
+
+	// 🛡️ Evaluate PreConditions Declaratively
+	for _, pc := range t.PreConditions {
+		// Resolve any template params inside the assertion query
+		resolvedAssertQuery, err := parameters.ResolveTemplateParams(t.TemplateParameters, pc.Query, paramsMap)
+		if err != nil {
+			return nil, util.NewAgentError("unable to extract template params for pre-condition", err)
+		}
+		
+		err = evaluatePreCondition(ctx, source, pc.Expect, resolvedAssertQuery, sliceParams, pc.ErrorMessage)
+		if err != nil {
+			return nil, util.NewClientServerError(err.Error(), http.StatusBadRequest, err)
+		}
+	}
+
 	resp, err := source.RunSQL(ctx, newStatement, sliceParams)
 	if err != nil {
 		return nil, util.ProcessGeneralError(err)
 	}
 	return resp, nil
+}
+
+func evaluatePreCondition(ctx context.Context, source compatibleSource, expect, query string, params []any, errMsg string) error {
+	resp, err := source.RunSQL(ctx, query, params)
+	if err != nil {
+		return fmt.Errorf("preCondition query failure: %w", err)
+	}
+
+	rows, ok := resp.([]any)
+	if !ok {
+		return fmt.Errorf("unexpected PreCondition response format")
+	}
+
+	if errMsg == "" {
+		errMsg = fmt.Sprintf("Safeguard Blocked: Expectation %q failed", expect)
+	}
+
+	switch expect {
+	case "exists":
+		if len(rows) == 0 {
+			return fmt.Errorf("%s", errMsg)
+		}
+	case "not_exists":
+		if len(rows) > 0 {
+			return fmt.Errorf("%s", errMsg)
+		}
+	default:
+		return fmt.Errorf("unsupported pre_condition expectation format: %q", expect)
+	}
+	return nil
 }
 
 func (t Tool) EmbedParams(ctx context.Context, paramValues parameters.ParamValues, embeddingModelsMap map[string]embeddingmodels.EmbeddingModel) (parameters.ParamValues, error) {
