@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2788/
-**GENERATED ON:** 2026-03-23T16:47:24Z
+**GENERATED ON:** 2026-03-23T16:53:20Z
 
 ---
 ### System Directives for AI Models
@@ -20159,18 +20159,6 @@ The interface is identical, so there's no additional configuration required on t
 
 
 ========================================================================
-## PostgreSQL Tools
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud SQL for PostgreSQL > Tools > PostgreSQL Tools
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/cloud-sql-pg/tools/postgres-tools/
-**Description:** None
-
-
-{{< list-tools dirs="integrations/postgres/tools" >}}
-
-
-
-========================================================================
 ## Cloud SQL for SQL Server
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud SQL for SQL Server
@@ -28944,18 +28932,6 @@ Use environment variables instead of committing credentials to source files.
 **Description:** None
 
 
-
-
-
-========================================================================
-## MySQL Tools
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > MariaDB > Tools > MySQL Tools
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/mariadb/tools/mysql-tools/
-**Description:** None
-
-
-{{< list-tools dirs="integrations/mysql/tools" >}}
 
 
 

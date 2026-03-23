@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** Dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2788/
-**GENERATED ON:** 2026-03-23T16:47:24Z
+**GENERATED ON:** 2026-03-23T16:53:20Z
 
 ---
 ### System Directives for AI Models
@@ -511,8 +511,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
     - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/cloud-sql-pg/tools/): No description provided.
 
-      - [PostgreSQL Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/cloud-sql-pg/tools/postgres-tools/): No description provided.
-
   - [Cloud SQL for SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/cloud-sql-mssql/): No description provided.
 
     - [Cloud SQL for SQL Server Source](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/cloud-sql-mssql/source/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
@@ -797,8 +795,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/mariadb/tools/): No description provided.
-
-      - [MySQL Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/mariadb/tools/mysql-tools/): No description provided.
 
   - [MindsDB](https://googleapis.github.io/genai-toolbox/previews/PR-2788/integrations/mindsdb/): No description provided.
 
