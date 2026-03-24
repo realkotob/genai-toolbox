@@ -16602,7 +16602,7 @@ toolset = ToolboxToolset(
 )
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](../core/#opentelemetry) for a full setup example.
 
 
 # Core
@@ -17658,7 +17658,7 @@ with ToolboxClient("http://127.0.0.1:5000", telemetry_enabled=True) as toolbox:
     result = tool.invoke({"param": "value"})
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](../core/#opentelemetry) for a full setup example.
 
 
 # LlamaIndex
@@ -18107,7 +18107,7 @@ with ToolboxClient("http://127.0.0.1:5000", telemetry_enabled=True) as toolbox:
     result = tool(param="value")
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](../core/#opentelemetry) for a full setup example.
 
 
 # Javascript
