@@ -109,6 +109,7 @@ import (
 	_ "github.com/googleapis/genai-toolbox/internal/tools/http"
 	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookeradddashboardelement"
 	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookeradddashboardfilter"
+	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookeragent"
 	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookerconversationalanalytics"
 	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookercreateprojectdirectory"
 	_ "github.com/googleapis/genai-toolbox/internal/tools/looker/lookercreateprojectfile"
