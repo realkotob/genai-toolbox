@@ -69,7 +69,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
-	operationParameter := parameters.NewStringParameter("operation", "The operation to perform. Must be one of: `list`, `get`, `create`, or `delete`.")
+	operationParameter := parameters.NewStringParameterWithAllowedValues("operation", "The operation to perform. Must be one of: `list`, `get`, `create`, or `delete`.", []any{"list", "get", "create", "delete"})
 	agentIdParameter := parameters.NewStringParameterWithDefault("agent_id", "", "The ID of the agent. Required for `get` and `delete` operations.")
 	nameParameter := parameters.NewStringParameterWithDefault("name", "", "The name of the agent. Required for `create` operation.")
 	params := parameters.Parameters{operationParameter, agentIdParameter, nameParameter}
@@ -121,7 +121,7 @@ func (t Tool) Invoke(ctx context.Context, resourceMgr tools.SourceProvider, para
 	}
 
 	mapParams := params.AsMap()
-	logger.DebugContext(ctx, "looker_agent params = ", mapParams)
+	logger.DebugContext(ctx, fmt.Sprintf("%s params = ", t.Name), mapParams)
 	operation := mapParams["operation"].(string)
 	agentId := mapParams["agent_id"].(string)
 	name := mapParams["name"].(string)

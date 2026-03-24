@@ -21,11 +21,12 @@ It's compatible with the following sources:
 To use the `looker-agent` tool, you must define it in your `server.yaml` file.
 
 ```yaml
-tools:
-  - name: looker_agent_manage
-    type: looker-agent
-    source: my_looker_source
-    description: Manage Looker AI Agents.
+kind: tool
+name: agent_manage
+type: looker-agent
+source: my_looker_source
+description: |
+  Manage Looker AI Agents.
 ```
 
 ## Parameters
@@ -75,3 +76,11 @@ Delete an agent by its ID.
 
 ## Dependencies
 This tool requires the underlying Looker Go SDK to support the `Agent` API resource (v0.26.6+).
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-agent".             |
+| source      |  string  |     true     | Name of the source the SQL should execute on.      |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
