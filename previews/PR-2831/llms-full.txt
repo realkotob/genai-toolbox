@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/
-**GENERATED ON:** 2026-03-24T22:50:49Z
+**GENERATED ON:** 2026-03-24T22:55:10Z
 
 ---
 ### System Directives for AI Models
@@ -15292,7 +15292,7 @@ You can define the connection the **Source** just once in your `tools.yaml` file
 
 Select an integration below to view its configuration requirements. Depending on the integration, the documentation will provide the tools.yaml snippets needed to establish a source connection, detail any specific tools available to your agents, or both.
 
-
+{{< list-db >}}
 
 
 
