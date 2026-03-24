@@ -26,6 +26,7 @@ import (
 	"time"
 
 	"github.com/MicahParks/keyfunc/v3"
+	"github.com/goccy/go-yaml"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/googleapis/genai-toolbox/internal/auth"
 )
@@ -34,6 +35,20 @@ const AuthServiceType string = "generic"
 
 // validate interface
 var _ auth.AuthServiceConfig = Config{}
+
+func init() {
+	if !auth.Register(AuthServiceType, newConfig) {
+		panic(fmt.Sprintf("auth service type %q already registered", AuthServiceType))
+	}
+}
+
+func newConfig(ctx context.Context, name string, decoder *yaml.Decoder) (auth.AuthServiceConfig, error) {
+	actual := Config{Name: name}
+	if err := decoder.DecodeContext(ctx, &actual); err != nil {
+		return nil, err
+	}
+	return actual, nil
+}
 
 // Auth service configuration
 type Config struct {
