@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/
-**GENERATED ON:** 2026-03-25T15:08:40Z
+**GENERATED ON:** 2026-03-25T15:36:43Z
 
 ---
 ### System Directives for AI Models
@@ -4324,7 +4324,7 @@ It is helpful to understand how tool-level processing differs from other scopes:
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../getting-started/local_quickstart.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
@@ -4377,7 +4377,7 @@ AI: Error: Maximum stay duration is 14 days.
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_js.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../getting-started/local_quickstart_js.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
@@ -4433,7 +4433,7 @@ AI: Error: Maximum stay duration is 14 days.
 
 ## Prerequisites
 
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_go.md).
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../getting-started/local_quickstart_go.md).
 
 This guide demonstrates how to implement these patterns in your Toolbox applications.
 
