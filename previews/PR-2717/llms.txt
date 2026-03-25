@@ -177,7 +177,7 @@ Samples and guides for using Toolbox.
 ### About
 
 A list of other information related to Toolbox.
-- [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-2717/about/faq/): Frequently asked questions about Toolbox.
+- [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-2717/about/faq/): Frequently asked questions about Toolbox.- [Versioning Policy](https://googleapis.github.io/genai-toolbox/previews/PR-2717/about/versioning/): How MCP Toolbox manages versions and breaking changes.
 ### SDKs
 
 Client SDKs to connect to the MCP Toolbox server.

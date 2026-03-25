@@ -12,8 +12,8 @@ ID.&lt;/p></description></item><item><title>Generic OIDC Auth</title><link>https
 &lt;p>The Generic Auth Service allows you to integrate with any OpenID Connect (OIDC)
 compliant identity provider (IDP). It discovers the JWKS (JSON Web Key Set) URL
 either through the provider&amp;rsquo;s &lt;code>/.well-known/openid-configuration&lt;/code> endpoint or
-directly via the provided &lt;code>authUrl&lt;/code>.&lt;/p>
+directly via the provided &lt;code>authorizationServer&lt;/code>.&lt;/p>
 &lt;p>To configure this auth service, you need to provide the &lt;code>audience&lt;/code> (typically
-your client ID or the intended audience for the token), the &lt;code>authUrl&lt;/code> of your
-identity provider, and optionally a list of &lt;code>scopesRequired&lt;/code> that must be
-present in the token&amp;rsquo;s claims.&lt;/p></description></item></channel></rss>
+your client ID or the intended audience for the token), the
+&lt;code>authorizationServer&lt;/code> of your identity provider, and optionally a list of
+&lt;code>scopesRequired&lt;/code> that must be present in the token&amp;rsquo;s claims.&lt;/p></description></item></channel></rss>
