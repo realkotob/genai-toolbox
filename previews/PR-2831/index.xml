@@ -1018,7 +1018,7 @@ names, or other parts of the query.&lt;/p></description></item><item><title>CLI<
  &lt;tr>
  &lt;td>&lt;/td>
  &lt;td>&lt;code>--prebuilt&lt;/code>&lt;/td>
- &lt;td>Use one or more prebuilt tool configuration by source type. See &lt;a href="prebuilt-tools.md">Prebuilt Tools Reference&lt;/a> for allowed values.&lt;/td>
+ &lt;td>Use one or more prebuilt tool configuration by source type. See &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/prebuilt-configs/">Prebuilt Tools Reference&lt;/a> for allowed values.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
@@ -4193,16 +4193,19 @@ parameters, and the request body for an HTTP Tool.&lt;/p>
 &lt;p>An HTTP request URL identifies the target the client wants to access.
 Toolbox composes the request URL from 3 places:&lt;/p></description></item><item><title>list_tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/oracle/tools/oracle-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/oracle/tools/oracle-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>An &lt;code>oracle-sql&lt;/code> tool executes a pre-defined SQL statement against an
-Oracle database. It&amp;rsquo;s compatible with the following source:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../../sources/oracle.md">oracle&lt;/a>&lt;/li>
-&lt;/ul>
+Oracle database.&lt;/p>
 &lt;p>The specified SQL statement is executed using &lt;a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html">prepared statements&lt;/a>
 for security and performance. It expects parameter placeholders in the SQL query
 to be in the native Oracle format (e.g., &lt;code>:1&lt;/code>, &lt;code>:2&lt;/code>).&lt;/p>
 &lt;p>By default, tools are configured as &lt;strong>read-only&lt;/strong> (SAFE mode). To execute data modification
 statements (INSERT, UPDATE, DELETE), you must explicitly set the &lt;code>readOnly&lt;/code>
-field to &lt;code>false&lt;/code>.&lt;/p></description></item><item><title>looker-add-dashboard-element</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-add-dashboard-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-add-dashboard-element/</guid><description>&lt;h2 id="about">About&lt;/h2>
+field to &lt;code>false&lt;/code>.&lt;/p>
+&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
+
+&lt;div class="compatibility-section">
+ &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>looker-add-dashboard-element</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-add-dashboard-element/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-add-dashboard-element/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>looker-add-dashboard-element&lt;/code> tool creates a new tile (element) within an existing Looker dashboard.
 Tiles are added in the order this tool is called for a given &lt;code>dashboard_id&lt;/code>.&lt;/p>
 &lt;p>CRITICAL ORDER OF OPERATIONS:&lt;/p>
@@ -6162,10 +6165,6 @@ in a given model in the source.&lt;/p>
 &lt;/table></description></item><item><title>looker-git-branch</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-git-branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/looker/tools/looker-git-branch/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>looker-git-branch&lt;/code> tool is used to retrieve and manipulate the git branch
 of a LookML project.&lt;/p>
-&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../../sources/looker.md">looker&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;p>&lt;code>looker-git-branch&lt;/code> requires two parameters, the LookML &lt;code>project_id&lt;/code> and the
 &lt;code>operation&lt;/code>. The operation must be one of &lt;code>list&lt;/code>, &lt;code>get&lt;/code>, &lt;code>create&lt;/code>, &lt;code>switch&lt;/code>,
 or &lt;code>delete&lt;/code>.&lt;/p>
@@ -7412,7 +7411,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p>
 &lt;p>The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
-&lt;h2 id="hahahugoshortcode302s0hbhb">
+&lt;h2 id="hahahugoshortcode300s0hbhb">
 
 
 &lt;div class="compatibility-section">
@@ -10495,6 +10494,57 @@ browser) for each request.&lt;/li>
 
 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+ &lt;h3>Cloud Logging Admin Source Tools&lt;/h3>
+ 
+ &lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Tool Name&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/">&lt;strong>cloud-logging-admin-list-log-names&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;cloud-logging-admin-list-log-names&amp;#34; tool lists the log names in the project.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-resource-types/">&lt;strong>cloud-logging-admin-list-resource-types&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;cloud-logging-admin-list-resource-types&amp;#34; tool lists the monitored resource types.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-query-logs/">&lt;strong>cloud-logging-admin-query-logs&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;cloud-logging-admin-query-logs&amp;#34; tool queries log entries.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;/tbody>
+ &lt;/table>
 
 
 
@@ -10504,12 +10554,8 @@ browser) for each request.&lt;/li>
 
 
 
-
-
-
-
-
- &lt;p>&lt;em>No tools found to display.&lt;/em>&lt;/p></description></item><item><title>Cloud Monitoring Source</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudmonitoring/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudmonitoring/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;p>Initialize a Cloud Logging Admin source that uses ADC:&lt;/p></description></item><item><title>Cloud Monitoring Source</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudmonitoring/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudmonitoring/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cloud-monitoring&lt;/code> source provides a client to interact with the &lt;a href="https://cloud.google.com/monitoring/api">Google
 Cloud Monitoring API&lt;/a>. This allows
 tools to access cloud monitoring metrics explorer and run promql queries.&lt;/p>
@@ -15801,16 +15847,7 @@ data governance policies&lt;/li>
 
 
 &lt;div class="compatibility-section">
- &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>Style Guide</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/style-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/style-guide/</guid><description>&lt;p>This document provides style guidelines and best practices for developers building MCP tools using &lt;strong>MCP Toolbox&lt;/strong>. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.&lt;/p>
-&lt;h2 id="combatting-context-rot-and-tool-limits">Combatting &amp;ldquo;Context Rot&amp;rdquo; and Tool Limits&lt;/h2>
-&lt;p>Excessive or irrelevant tool definitions lead to &lt;strong>&amp;ldquo;Context Rot&amp;rdquo;&lt;/strong>, where the model&amp;rsquo;s attention is diluted by &amp;ldquo;distractor&amp;rdquo; tokens, causing reasoning accuracy to collapse.&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Toolsets:&lt;/strong> Use the MCP Toolbox &lt;strong>toolsets&lt;/strong> feature to group tools by capability or persona (e.g., &lt;code>cloud-sql-admin&lt;/code> vs. &lt;code>cloud-sql-data&lt;/code>). This ensures the agent only sees tools relevant to its immediate intent.&lt;/li>
-&lt;li>&lt;strong>Target Limits:&lt;/strong> Aim for &lt;strong>5–8 tools per toolset&lt;/strong> (organized by Critical User Journey). While the platform supports more, performance and accuracy are highest when the agent is exposed to a cognitively manageable list of actions. The current rule of thumb is to try to keep it to 40 tools per server as an upper limit, though even this amount may cause performance issues. Performance degrades as more tools are added, so teams should heavily weigh adding new tools against the negative impact on tool accuracy until other mechanisms are in place to deal with this.&lt;/li>
-&lt;/ul>
-&lt;h2 id="naming-conventions">Naming Conventions&lt;/h2>
-&lt;h3 id="tool-names">Tool Names&lt;/h3>
-&lt;p>Use &lt;code>snake_case&lt;/code> with the pattern &lt;code>&amp;lt;action&amp;gt;_&amp;lt;resource&amp;gt;&lt;/code>. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.&lt;/p></description></item><item><title>clickhouse-list-tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/clickhouse/tools/clickhouse-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/clickhouse/tools/clickhouse-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
+ &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>clickhouse-list-tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/clickhouse/tools/clickhouse-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/clickhouse/tools/clickhouse-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>clickhouse-list-tables&lt;/code> tool lists all available tables in a specified
 ClickHouse database.&lt;/p>
 &lt;p>This tool executes the &lt;code>SHOW TABLES FROM &amp;lt;database&amp;gt;&lt;/code> command and returns a list
@@ -16277,7 +16314,7 @@ on how to &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-283
 &lt;li>Connect to the instance using &lt;a href="https://docs.snowflake.com/en/user-guide/snowsql">SnowSQL&lt;/a>, or any other Snowflake client.&lt;/li>
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-environment">Step 1: Set up your environment&lt;/h2>
-&lt;p>Copy the environment template and update it with your Snowflake credentials:&lt;/p></description></item><item><title>Style Guide</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/style-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/style-guide/</guid><description>&lt;p>This document provides style guidelines and best practices for developers building MCP tools using &lt;strong>MCP Toolbox&lt;/strong>. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.&lt;/p>
+&lt;p>Copy the environment template and update it with your Snowflake credentials:&lt;/p></description></item><item><title>Style Guide</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/style-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/style-guide/</guid><description>&lt;p>This document provides style guidelines and best practices for developers building MCP tools using &lt;strong>MCP Toolbox&lt;/strong>. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.&lt;/p>
 &lt;h2 id="combatting-context-rot-and-tool-limits">Combatting &amp;ldquo;Context Rot&amp;rdquo; and Tool Limits&lt;/h2>
 &lt;p>Excessive or irrelevant tool definitions lead to &lt;strong>&amp;ldquo;Context Rot&amp;rdquo;&lt;/strong>, where the model&amp;rsquo;s attention is diluted by &amp;ldquo;distractor&amp;rdquo; tokens, causing reasoning accuracy to collapse.&lt;/p>
 &lt;ul>
@@ -17270,14 +17307,7 @@ exponential backoff.&lt;/p>
  &lt;td>The maximum number of polling attempts before giving up. Defaults to 10.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Generate Agent Skills</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolsets/generate_skill/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolsets/generate_skill/</guid><description>&lt;p>The &lt;code>skills-generate&lt;/code> command allows you to convert a &lt;strong>toolset&lt;/strong> into an &lt;strong>Agent Skill&lt;/strong>. A toolset is a collection of tools, and the generated skill will contain metadata and execution scripts for all tools within that toolset, complying with the &lt;a href="https://agentskills.io/specification">Agent Skill specification&lt;/a>.&lt;/p>
-&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
-&lt;ol>
-&lt;li>Make sure you have the &lt;code>toolbox&lt;/code> executable in your PATH.&lt;/li>
-&lt;li>Make sure you have &lt;a href="https://nodejs.org/">Node.js&lt;/a> installed on your system.&lt;/li>
-&lt;/ol>
-&lt;h2 id="generating-a-skill-from-a-toolset">Generating a Skill from a Toolset&lt;/h2>
-&lt;p>A skill package consists of a &lt;code>SKILL.md&lt;/code> file (with required YAML frontmatter) and a set of Node.js scripts. Each tool defined in your toolset maps to a corresponding script in the generated Node.js scripts (&lt;code>.js&lt;/code>) that work across different platforms (Linux, macOS, Windows).&lt;/p></description></item><item><title>Invoke Tools via CLI</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/tools/invoke_tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/tools/invoke_tool/</guid><description>&lt;p>The &lt;code>invoke&lt;/code> command allows you to invoke tools defined in your configuration directly from the CLI. This is useful for:&lt;/p>
+&lt;/table></description></item><item><title>Invoke Tools via CLI</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/tools/invoke_tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/tools/invoke_tool/</guid><description>&lt;p>The &lt;code>invoke&lt;/code> command allows you to invoke tools defined in your configuration directly from the CLI. This is useful for:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Ephemeral Invocation:&lt;/strong> Executing a tool without spinning up a full MCP server/client.&lt;/li>
 &lt;li>&lt;strong>Debugging:&lt;/strong> Isolating tool execution logic and testing with various parameter combinations.&lt;/li>
@@ -17403,7 +17433,7 @@ exponential backoff.&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Versioning Policy</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/versioning/</guid><description>&lt;p>MCP Toolbox for Databases follows &lt;a href="https://semver.org/">Semantic Versioning&lt;/a>.&lt;/p>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Versioning Policy</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/versioning/</guid><description>&lt;p>MCP Toolbox for Databases follows &lt;a href="https://semver.org/">Semantic Versioning&lt;/a>.&lt;/p>
 &lt;h2 id="definition-of-the-public-api">Definition of the Public API&lt;/h2>
 &lt;p>For the purposes of this policy, the &amp;ldquo;Public API&amp;rdquo; includes:&lt;/p>
 &lt;ul>
@@ -17549,7 +17579,7 @@ Natural Language Overview&lt;/a>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/">Integrations&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -17633,7 +17663,7 @@ Natural Language Overview&lt;/a>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/">Integrations&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
  &lt;/tr>
  
 
@@ -17698,7 +17728,7 @@ Natural Language Overview&lt;/a>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/">Integrations&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
  &lt;/tr>
  
 

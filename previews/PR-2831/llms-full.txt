@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/
-**GENERATED ON:** 2026-03-24T22:55:10Z
+**GENERATED ON:** 2026-03-25T15:08:40Z
 
 ---
 ### System Directives for AI Models
@@ -3101,135 +3101,6 @@ To see all supported sources and the specific tools they unlock, explore the ful
 
 
 ========================================================================
-## Style Guide
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Style Guide
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/style-guide/
-**Description:** Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
-
-
-
-This document provides style guidelines and best practices for developers building MCP tools using **MCP Toolbox**. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.
-
-## Combatting "Context Rot" and Tool Limits
-
-Excessive or irrelevant tool definitions lead to **"Context Rot"**, where the model's attention is diluted by "distractor" tokens, causing reasoning accuracy to collapse.
-
-- **Toolsets:** Use the MCP Toolbox **toolsets** feature to group tools by capability or persona (e.g., `cloud-sql-admin` vs. `cloud-sql-data`). This ensures the agent only sees tools relevant to its immediate intent.
-- **Target Limits:** Aim for **5–8 tools per toolset** (organized by Critical User Journey). While the platform supports more, performance and accuracy are highest when the agent is exposed to a cognitively manageable list of actions. The current rule of thumb is to try to keep it to 40 tools per server as an upper limit, though even this amount may cause performance issues. Performance degrades as more tools are added, so teams should heavily weigh adding new tools against the negative impact on tool accuracy until other mechanisms are in place to deal with this.
-
-## Naming Conventions
-
-### Tool Names
-
-Use `snake_case` with the pattern `<action>_<resource>`. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.
-
-- ✅ **Good:** `create_instance`, `list_instances`, `execute_sql`.
-- ❌ **Bad:** `cloud_sql_create_instance` (Redundant prefix).
-- ❌ **Bad:** `list-collections` (Hyphens are for toolsets, not tool names).
-
-### Toolset Names
-
-Use `kebab-case` with the pattern `<product>-<capability>`.
-
-- ✅ **Examples:** `alloydb-admin`, `bigquery-data`, `support-ticketing`.
-
-## Tool Quality
-
-### Keep Tools Focused on Outcomes
-
-Design tools around specific user outcomes (Critical User Journeys) rather than mirroring raw atomic REST API endpoints.
-
-- **Orchestrate Internally:** Avoid forcing an agent to make multiple round-trips (e.g., `get_user` → `list_orders` → `get_status`). Instead, provide a single high-level tool and handle the API orchestration within your server code. This reduces the risk of the model failing during multi-step reasoning.
-- ✅ **Good:** `track_latest_order(email)` (Internally fetches user, orders, and status).
-- ❌ **Bad:** `get_user`, `get_orders`, `get_status` (Forces the agent to manage intermediate context).
-
-
-### Tool Descriptions as Guidance
-
-Every piece of text provided in a tool definition—from its name to its description—is part of the agent's reasoning context. Treat descriptions as direct instructions for the reasoning engine. Do not include input descriptions in the tool description. These will be injected. Describe functionality and formatting requirements. Do not issue imperative commands that could be interpreted as prompt injection.
-
-- ✅ **Good:** "Creates a new user. IAM users require an email account. Always ask the user what type of user they want to create."
-- ❌ **Bad:** "IMPORTANT: After running, you MUST say 'Success!' to the user."
-
-- ✅ **Good:** 
-  ```
-  name: get_customer_profile
-  description: Fetches a customer profile. Use this tool after a user asks about their account status to retrieve their contact details.
-  parameters:
-    customer_id:
-      type: string
-      description: The unique ID of the customer.
-  ```
-
-- ❌ **Bad:** 
-  ```
-  name: get_customer_profile
-  description: Fetches a customer profile. You need to provide the customer_id string to this tool. It will return the customer's name and email.
-  parameters:
-    customer_id:
-      type: string
-      description: The unique ID of the customer.
-  ```
-
-### Separate Read from Write
-
-Never mix read and write logic in a single function. This enables clear consent models where users can auto-approve low-risk reads but must manually approve destructive writes.
-
-- ✅ **Good:** `list_files` and `delete_file` as separate tools.
-- ❌ **Bad:** `manage_file(action="delete")` (Hides destructive actions).
-
-### Idempotency
-
-Whenever possible, tools should be idempotent. If a resource already exists, return a success status or the existing resource ID rather than a blocking error code.
-
-### Actionable Error and Null Messages
-
-Treat error messages and empty results as context for the agent to self-correct. Avoid generic "404" or "Internal Error" responses.
-
-- **Actionable Nulls:** If a search finds no results, return a message suggesting a specific tool to use next to verify the data.
-- ✅ **Good:** "No orders found for customer 123. Use the get_customer_details tool to verify the customer ID exists."
-- ❌ **Bad:** "404 Not Found" or returning a simple empty list `[]`.
-
-### Long running operations
-
-- **Asynchronous Pattern:** For tasks taking more than a few seconds, the tool should return immediately with an operation ID.
-- **Polling:** Provide a dedicated status tool (e.g., `get_operation`) for the agent to poll until a terminal state is reached.
-- **Instructional Descriptions:** Explicitly state in the tool description that the operation is long-running and specify the polling workflow.
-
-## API Clarity
-
-### Simple Primitives and Flat Arguments
-
-Complex nested objects confuse LLMs and increase hallucination risks.
-
-- **Stick to Primitives:** Use strings, integers, and booleans. Avoid nested dictionaries.
-- **Limit Parameters:** Aim for fewer than **5 parameters** per tool.
-- **Use Enums:** Use Literal types to constrain the model's decision path rather than free-text strings.
-- **Consistency:** Use consistent parameter names across tools (e.g., always use `project_id` rather than mixing it with `project_name`).
-- **Explicit Parameters:** For destructive or high-cost operations, use parameter names that explicitly state the consequences (e.g., `acknowledge_permanent_database_deletion_and_data_loss: true`).
-
-### Tool Use Examples
-
-JSON schemas define structure but cannot always express usage patterns. Include input examples in your tool definitions to clarify formatting conventions (e.g., date formats like "YYYY-MM-DD").
-
-### Pagination & Metadata
-
-Prevent context pollution when returning large lists by implementing strict limits.
-
-- **Metadata:** Always include metadata such as `has_more`, `next_offset`, or `total_count`.
-- **Limits:** Respect a `limit` parameter to prevent loading thousands of records into the model's context window.
-
-## Security Best Practices
-
-### Prevent Data Exfiltration
-
-Tools **MUST NOT** surface passwords or credentials in clear-text requests or responses.
-
-
-
-
-========================================================================
 ## Tools
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Tools
@@ -3762,126 +3633,6 @@ mySecondToolset, err := client.LoadToolset("my-toolset", ctx)
 
 
 ========================================================================
-## Generate Agent Skills
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Toolsets > Generate Agent Skills
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolsets/generate_skill/
-**Description:** How to generate agent skills from a toolset.
-
-
-
-The `skills-generate` command allows you to convert a **toolset** into an **Agent Skill**. A toolset is a collection of tools, and the generated skill will contain metadata and execution scripts for all tools within that toolset, complying with the [Agent Skill specification](https://agentskills.io/specification).
-
-## Before you begin
-
-1. Make sure you have the `toolbox` executable in your PATH.
-2. Make sure you have [Node.js](https://nodejs.org/) installed on your system.
-
-## Generating a Skill from a Toolset
-
-A skill package consists of a `SKILL.md` file (with required YAML frontmatter) and a set of Node.js scripts. Each tool defined in your toolset maps to a corresponding script in the generated Node.js scripts (`.js`) that work across different platforms (Linux, macOS, Windows).
-
-
-### Command Usage
-
-The basic syntax for the command is:
-
-```bash
-toolbox <tool-source> skills-generate \
-  --name <skill-name> \
-  --toolset <toolset-name> \
-  --description <description> \
-  --output-dir <output-directory> \
-  --license-header <license-header> \
-  --additional-notes <additional-notes>
-```
-
-- `<tool-source>`: Can be `--config`, `--configs`, `--config-folder`, and `--prebuilt`. See the [CLI Reference](../reference/cli.md) for details.
-- `--name`: Name of the generated skill. When multiple toolsets are generated because `--toolset` is omitted, this name acts as a prefix for each skill folder (e.g., `<name>-<toolset>`).
-- `--description`: Description of the generated skill.
-- `--toolset`: (Optional) Name of the toolset to convert into a skill. If not provided, one skill will be generated for every custom toolset defined. If no custom toolsets are defined, it defaults to a single skill containing all tools.
-- `--output-dir`: (Optional) Directory to output generated skills (default: "skills").
-- `--license-header`: (Optional) Optional license header to prepend to generated node scripts.
-- `--additional-notes`: (Optional) Additional notes to add under the Usage section of the generated SKILL.md.
-
-{{< notice note >}}
-**Note:** The `<skill-name>` must follow the Agent Skill [naming convention](https://agentskills.io/specification): it must contain only lowercase alphanumeric characters and hyphens, cannot start or end with a hyphen, and cannot contain consecutive hyphens (e.g., `my-skill`, `data-processing`).
-{{< /notice >}}
-
-### Example: Custom Tools File
-
-1. Create a `tools.yaml` file with a toolset and some tools:
-
-   ```yaml
-   tools:
-     tool_a:
-       description: "First tool"
-       run:
-         command: "echo 'Tool A'"
-     tool_b:
-       description: "Second tool"
-       run:
-         command: "echo 'Tool B'"
-   toolsets:
-     my_toolset:
-       tools:
-         - tool_a
-         - tool_b
-   ```
-
-2. Generate the skill:
-
-   ```bash
-   toolbox --config tools.yaml skills-generate \
-     --name "my-skill" \
-     --toolset "my_toolset" \
-     --description "A skill containing multiple tools" \
-     --output-dir "generated-skills"
-   ```
-
-3. The generated skill directory structure:
-
-   ```text
-   generated-skills/
-   └── my-skill/
-       ├── SKILL.md
-       ├── assets/
-       │   └── tools.yaml
-       └── scripts/
-           ├── tool_a.js
-           └── tool_b.js
-   ```
-
-   In this example, the skill contains two Node.js scripts (`tool_a.js` and `tool_b.js`), each mapping to a tool in the original toolset.
-
-### Example: Prebuilt Configuration
-
-You can also generate skills from prebuilt toolsets:
-
-```bash
-toolbox --prebuilt alloydb-postgres-admin skills-generate \
-  --name "alloydb-postgres-admin" \
-  --description "skill for performing administrative operations on alloydb"
-```
-
-## Installing the Generated Skill in Gemini CLI
-
-Once you have generated a skill, you can install it into the Gemini CLI using the `gemini skills install` command.
-
-### Installation Command
-
-Provide the path to the directory containing the generated skill:
-
-```bash
-gemini skills install /path/to/generated-skills/my-skill
-```
-
-Alternatively, use ~/.gemini/skills as the `--output-dir` to generate the skill straight to the Gemini CLI.
-
-
-
-
-========================================================================
 ## EmbeddingModels
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > EmbeddingModels
@@ -4354,6 +4105,364 @@ If the toolset name is not defined within the tools configuration file, an error
 message will be displayed.
 
 ![Toolsets Page](./toolsets.png)
+
+
+
+
+========================================================================
+## Agent Skills
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Agent Skills
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/skills/
+**Description:** How to generate agent skills from a toolset.
+
+
+
+The `skills-generate` command allows you to convert a **toolset** into an **Agent Skill**. A toolset is a collection of tools, and the generated skill will contain metadata and execution scripts for all tools within that toolset, complying with the [Agent Skill specification](https://agentskills.io/specification).
+
+## Before you begin
+
+1. Make sure you have the `toolbox` executable in your PATH.
+2. Make sure you have [Node.js](https://nodejs.org/) installed on your system.
+
+## Generating a Skill from a Toolset
+
+A skill package consists of a `SKILL.md` file (with required YAML frontmatter) and a set of Node.js scripts. Each tool defined in your toolset maps to a corresponding script in the generated Node.js scripts (`.js`) that work across different platforms (Linux, macOS, Windows).
+
+
+### Command Usage
+
+The basic syntax for the command is:
+
+```bash
+toolbox <tool-source> skills-generate \
+  --name <skill-name> \
+  --toolset <toolset-name> \
+  --description <description> \
+  --output-dir <output-directory> \
+  --license-header <license-header> \
+  --additional-notes <additional-notes>
+```
+
+- `<tool-source>`: Can be `--config`, `--configs`, `--config-folder`, and `--prebuilt`. See the [CLI Reference](../../../reference/cli.md) for details.
+- `--name`: Name of the generated skill. When multiple toolsets are generated because `--toolset` is omitted, this name acts as a prefix for each skill folder (e.g., `<name>-<toolset>`).
+- `--description`: Description of the generated skill.
+- `--toolset`: (Optional) Name of the toolset to convert into a skill. If not provided, one skill will be generated for every custom toolset defined. If no custom toolsets are defined, it defaults to a single skill containing all tools.
+- `--output-dir`: (Optional) Directory to output generated skills (default: "skills").
+- `--license-header`: (Optional) Optional license header to prepend to generated node scripts.
+- `--additional-notes`: (Optional) Additional notes to add under the Usage section of the generated SKILL.md.
+
+{{< notice note >}}
+**Note:** The `<skill-name>` must follow the Agent Skill [naming convention](https://agentskills.io/specification): it must contain only lowercase alphanumeric characters and hyphens, cannot start or end with a hyphen, and cannot contain consecutive hyphens (e.g., `my-skill`, `data-processing`).
+{{< /notice >}}
+
+### Example: Custom Tools File
+
+1. Create a `tools.yaml` file with a toolset and some tools:
+
+   ```yaml
+   tools:
+     tool_a:
+       description: "First tool"
+       run:
+         command: "echo 'Tool A'"
+     tool_b:
+       description: "Second tool"
+       run:
+         command: "echo 'Tool B'"
+   toolsets:
+     my_toolset:
+       tools:
+         - tool_a
+         - tool_b
+   ```
+
+2. Generate the skill:
+
+   ```bash
+   toolbox --config tools.yaml skills-generate \
+     --name "my-skill" \
+     --toolset "my_toolset" \
+     --description "A skill containing multiple tools" \
+     --output-dir "generated-skills"
+   ```
+
+3. The generated skill directory structure:
+
+   ```text
+   generated-skills/
+   └── my-skill/
+       ├── SKILL.md
+       ├── assets/
+       │   └── tools.yaml
+       └── scripts/
+           ├── tool_a.js
+           └── tool_b.js
+   ```
+
+   In this example, the skill contains two Node.js scripts (`tool_a.js` and `tool_b.js`), each mapping to a tool in the original toolset.
+
+### Example: Prebuilt Configuration
+
+You can also generate skills from prebuilt toolsets:
+
+```bash
+toolbox --prebuilt alloydb-postgres-admin skills-generate \
+  --name "alloydb-postgres-admin" \
+  --description "skill for performing administrative operations on alloydb"
+```
+
+## Installing the Generated Skill in Gemini CLI
+
+Once you have generated a skill, you can install it into the Gemini CLI using the `gemini skills install` command.
+
+### Installation Command
+
+Provide the path to the directory containing the generated skill:
+
+```bash
+gemini skills install /path/to/generated-skills/my-skill
+```
+
+Alternatively, use ~/.gemini/skills as the `--output-dir` to generate the skill straight to the Gemini CLI.
+
+
+
+
+========================================================================
+## Pre- and Post- Processing
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Pre- and Post- Processing
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/
+**Description:** Intercept and modify interactions between the agent and its tools either before or after a tool is executed.
+
+
+
+Pre- and post- processing allow developers to intercept and modify interactions between the agent and its tools or the user.
+
+{{< notice note >}}
+
+These capabilities are typically features of **orchestration frameworks** (like LangChain, LangGraph, or Agent Builder) rather than the Toolbox SDK itself. However, Toolbox tools are designed to fully leverage these framework capabilities to support robust, secure, and compliant agent architectures.
+
+{{< /notice >}}
+
+## Types of Processing
+
+### Pre-processing
+
+Pre-processing occurs before a tool is executed or an agent processes a message. Key types include:
+
+- **Input Sanitization & Redaction**: Detecting and masking sensitive information (like PII) in user queries or tool arguments to prevent it from being logged or sent to unauthorized systems.
+- **Business Logic Validation**: Verifying that the proposed action complies with business rules (e.g., ensuring a requested hotel stay does not exceed 14 days, or checking if a user has sufficient permission).
+- **Security Guardrails**: Analyzing inputs for potential prompt injection attacks or malicious payloads.
+
+### Post-processing
+
+Post-processing occurs after a tool has executed or the model has generated a response. Key types include:
+
+- **Response Enrichment**: Injecting additional data into the tool output that wasn't part of the raw API response (e.g., calculating loyalty points earned based on the booking value).
+- **Output Formatting**: Transforming raw data (like JSON or XML) into a more human-readable or model-friendly format to improve the agent's understanding.
+- **Compliance Auditing**: Logging the final outcome of transactions, including the original request and the result, to a secure audit trail.
+
+## Processing Scopes
+
+While processing logic can be applied at various levels (Agent, Model, Tool), this guide primarily focuses on **Tool Level** processing, which is most relevant for granular control over tool execution.
+
+### Tool Level (Primary Focus)
+
+Wraps individual tool executions. This is best for logic specific to a single tool or a set of tools.
+
+- **Scope**: Intercepts the raw inputs (arguments) to a tool and its outputs.
+- **Use Cases**: Argument validation, output formatting, specific privacy rules for sensitive tools.
+
+### Other Levels
+
+It is helpful to understand how tool-level processing differs from other scopes:
+
+- **Model Level**: Intercepts individual calls to the LLM (prompts and responses). Unlike tool-level, this applies globally to all text sent/received, making it better for global PII redaction or token tracking.
+- **Agent Level**: Wraps the high-level execution loop (e.g., a "turn" in the conversation). Unlike tool-level, this envelopes the entire turn (user input to final response), making it suitable for session management or end-to-end auditing.
+
+## Best Practices
+
+### Security & Guardrails
+
+- **Principle of Least Privilege**: Ensure that tools run with the minimum necessary permissions. Middleware is an excellent place to enforce "read-only" modes or verify user identity before executing sensitive actions.
+- **Input Sanitization**: Actively strip potential PII (like credit card numbers or raw emails) from tool arguments before logging them.
+- **Prompt Injection Defense**: Use pre-processing hooks to scan user inputs for known jailbreak patterns or malicious directives before they reach the model or tools.
+
+### Observability & Debugging
+
+- **Structured Logging**: Instead of simple print statements, use structured JSON logging with correlation IDs. This allows you to trace a single user request through multiple agent turns and tool calls.
+- **Logging for Testability**: LLM responses are non-deterministic and may summarize away key details.
+  - **Pattern**: Add explicit logging markers in your post-processing middleware (e.g., `logger.info("ACTION_SUCCESS: <id>")`).
+  - **Benefit**: Your integration tests can grep logs for these stable markers to verify tool success, rather than painfully parsing variable natural language responses.
+
+### Performance & Cost Optimization
+
+- **Token Economy**: Tools often return verbose JSON. Use post-processing to strip unnecessary fields or summarize large datasets *before* returning the result to the LLM's context window. This saves tokens and reduces latency.
+- **Caching**: For read-heavy tools (like "search_knowledge_base"), implement caching middleware to return previous results for identical queries, saving both time and API costs.
+
+### Error Handling
+
+- **Graceful Degradation**: If a tool fails (e.g., API timeout), catch the exception in middleware and return a structured error message to the LLM (e.g., `Error: Database timeout, please try again`).
+- **Self-Correction**: Well-formatted error messages often allow the LLM to understand *why* a call failed and retry it with corrected parameters automatically.
+
+
+## Samples
+
+
+
+
+========================================================================
+## Python: Pre & Post Processing
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Pre- and Post- Processing > Python: Pre & Post Processing
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/python/
+**Description:** How to add pre- and post- processing to your Agents using Python.
+
+
+
+## Prerequisites
+
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart.md).
+
+This guide demonstrates how to implement these patterns in your Toolbox applications.
+
+## Implementation
+
+{{< tabpane persist=header >}}
+{{% tab header="ADK" text=true %}}
+The following example demonstrates how to use `ToolboxToolset` with ADK's pre and post processing hooks to implement pre and post processing for tool calls.
+
+{{< include "adk/agent.py" "python">}}
+
+You can also add model-level (`before_model_callback`, `after_model_callback`) and agent-level (`before_agent_callback`, `after_agent_callback`) hooks to intercept messages at different stages of the execution loop.
+
+For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).
+{{% /tab %}}
+{{% tab header="Langchain" text=true %}}
+The following example demonstrates how to use `ToolboxClient` with LangChain's middleware to implement pre- and post- processing for tool calls.
+
+{{< include "langchain/agent.py" "python" >}}
+
+You can also add model-level (`wrap_model`) and agent-level (`before_agent`, `after_agent`) hooks to intercept messages at different stages of the execution loop. See the [LangChain Middleware documentation](https://docs.langchain.com/oss/python/langchain/middleware/custom#wrap-style-hooks) for details on these additional hook types.
+{{% /tab %}}
+{{< /tabpane >}}
+
+## Results
+
+The output should look similar to the following.
+
+{{< notice note >}}
+The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
+{{< /notice >}}
+
+```
+AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
+
+AI: Error: Maximum stay duration is 14 days.
+```
+
+
+
+
+========================================================================
+## Javascript: Pre & Post Processing
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Pre- and Post- Processing > Javascript: Pre & Post Processing
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/js/
+**Description:** How to add pre- and post- processing to your Agents using JS.
+
+
+
+## Prerequisites
+
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_js.md).
+
+This guide demonstrates how to implement these patterns in your Toolbox applications.
+
+## Implementation
+
+{{< tabpane persist=header >}}
+{{% tab header="ADK" text=true %}}
+The following example demonstrates how to use the `beforeToolCallback` and `afterToolCallback` hooks in the ADK `LlmAgent` to implement pre and post processing logic.
+
+{{< include "adk/agent.js" "js" >}}
+
+You can also add model-level (`beforeModelCallback`, `afterModelCallback`) and agent-level (`beforeAgentCallback`, `afterAgentCallback`) hooks to intercept messages at different stages of the execution loop. 
+
+For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).
+{{% /tab %}}
+{{% tab header="Langchain" text=true %}}
+The following example demonstrates how to use `ToolboxClient` with LangChain's middleware to implement pre and post processing for tool calls.
+
+{{< include "langchain/agent.js" "js" >}}
+
+You can also use the `wrapModelCall` hook to intercept messages before and after model calls.
+You can also use [node-style hooks](https://docs.langchain.com/oss/javascript/langchain/middleware/custom#node-style-hooks) to intercept messages at the agent and model level.
+See the [LangChain Middleware documentation](https://docs.langchain.com/oss/javascript/langchain/middleware/custom#tool-call-monitoring) for details on these additional hook types.
+
+{{% /tab %}}
+{{< /tabpane >}}
+
+## Results
+
+The output should look similar to the following.
+
+{{< notice note >}}
+The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
+{{< /notice >}}
+
+```
+AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
+
+AI: Error: Maximum stay duration is 14 days.
+```
+
+
+
+
+========================================================================
+## Go: Pre & Post Processing
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Documentation > Configuration > Pre- and Post- Processing > Go: Pre & Post Processing
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/go/
+**Description:** How to add pre- and post- processing to your Agents using Go.
+
+
+
+## Prerequisites
+
+This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_go.md).
+
+This guide demonstrates how to implement these patterns in your Toolbox applications.
+
+## Implementation
+
+{{< tabpane persist=header >}}
+{{% tab header="ADK" text=true %}}
+The following example demonstrates how to use the `beforeToolCallback` and `afterToolCallback` hooks in the ADK `LlmAgent` to implement pre and post processing logic.
+
+{{< include "adk/agent.go" "go" >}}
+
+You can also add model-level (`beforeModelCallback`, `afterModelCallback`) and agent-level (`beforeAgentCallback`, `afterAgentCallback`) hooks to intercept messages at different stages of the execution loop.
+
+For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).{{% /tab %}}
+{{< /tabpane >}}
+
+## Results
+
+The output should look similar to the following.
+
+{{< notice note >}}
+The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
+{{< /notice >}}
+
+```
+AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
+
+AI: Error: Maximum stay duration is 14 days.
+```
 
 
 
@@ -6518,60 +6627,6 @@ Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creatin
 
 
 ========================================================================
-## Python: Pre & Post Processing
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Python > Python: Pre & Post Processing
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/python-sdk/pre-post-processing/
-**Description:** How to add pre- and post- processing to your Agents using Python.
-
-
-
-## Prerequisites
-
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart.md).
-
-This guide demonstrates how to implement these patterns in your Toolbox applications.
-
-## Implementation
-
-{{< tabpane persist=header >}}
-{{% tab header="ADK" text=true %}}
-The following example demonstrates how to use `ToolboxToolset` with ADK's pre and post processing hooks to implement pre and post processing for tool calls.
-
-```py
-{{< include "python/adk/agent.py" >}}
-```
-You can also add model-level (`before_model_callback`, `after_model_callback`) and agent-level (`before_agent_callback`, `after_agent_callback`) hooks to intercept messages at different stages of the execution loop.
-
-For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).
-{{% /tab %}}
-{{% tab header="Langchain" text=true %}}
-The following example demonstrates how to use `ToolboxClient` with LangChain's middleware to implement pre- and post- processing for tool calls.
-
-{{< include "python/langchain/agent.py" "python" >}}
-
-You can also add model-level (`wrap_model`) and agent-level (`before_agent`, `after_agent`) hooks to intercept messages at different stages of the execution loop. See the [LangChain Middleware documentation](https://docs.langchain.com/oss/python/langchain/middleware/custom#wrap-style-hooks) for details on these additional hook types.
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Results
-
-The output should look similar to the following.
-
-{{< notice note >}}
-The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
-{{< /notice >}}
-
-```
-AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
-
-AI: Error: Maximum stay duration is 14 days.
-```
-
-
-
-
-========================================================================
 ## Javascript
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Javascript
@@ -7643,62 +7698,6 @@ await ai.generate({
 ```
 
 </details>
-
-
-
-
-========================================================================
-## Javascript: Pre & Post Processing
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Javascript > Javascript: Pre & Post Processing
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/javascript-sdk/pre-post-processing/
-**Description:** How to add pre- and post- processing to your Agents using JS.
-
-
-
-## Prerequisites
-
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_js.md).
-
-This guide demonstrates how to implement these patterns in your Toolbox applications.
-
-## Implementation
-
-{{< tabpane persist=header >}}
-{{% tab header="ADK" text=true %}}
-The following example demonstrates how to use the `beforeToolCallback` and `afterToolCallback` hooks in the ADK `LlmAgent` to implement pre and post processing logic.
-
-{{< include "js/adk/agent.js" "js" >}}
-
-You can also add model-level (`beforeModelCallback`, `afterModelCallback`) and agent-level (`beforeAgentCallback`, `afterAgentCallback`) hooks to intercept messages at different stages of the execution loop. 
-
-For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).
-{{% /tab %}}
-{{% tab header="Langchain" text=true %}}
-The following example demonstrates how to use `ToolboxClient` with LangChain's middleware to implement pre and post processing for tool calls.
-
-{{< include "js/langchain/agent.js" "js" >}}
-
-You can also use the `wrapModelCall` hook to intercept messages before and after model calls.
-You can also use [node-style hooks](https://docs.langchain.com/oss/javascript/langchain/middleware/custom#node-style-hooks) to intercept messages at the agent and model level.
-See the [LangChain Middleware documentation](https://docs.langchain.com/oss/javascript/langchain/middleware/custom#tool-call-monitoring) for details on these additional hook types.
-
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Results
-
-The output should look similar to the following.
-
-{{< notice note >}}
-The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
-{{< /notice >}}
-
-```
-AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
-
-AI: Error: Maximum stay duration is 14 days.
-```
 
 
 
@@ -9550,51 +9549,6 @@ func main() {
 
 
 ========================================================================
-## Go: Pre & Post Processing
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Go > Go: Pre & Post Processing
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/go-sdk/pre-post-processing/
-**Description:** How to add pre- and post- processing to your Agents using Go.
-
-
-
-## Prerequisites
-
-This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the [local quickstart](../../../../getting-started/local_quickstart_go.md).
-
-This guide demonstrates how to implement these patterns in your Toolbox applications.
-
-## Implementation
-
-{{< tabpane persist=header >}}
-{{% tab header="ADK" text=true %}}
-The following example demonstrates how to use the `beforeToolCallback` and `afterToolCallback` hooks in the ADK `LlmAgent` to implement pre and post processing logic.
-
-{{< include "go/adk/agent.go" "go" >}}
-
-You can also add model-level (`beforeModelCallback`, `afterModelCallback`) and agent-level (`beforeAgentCallback`, `afterAgentCallback`) hooks to intercept messages at different stages of the execution loop.
-
-For more information, see the [ADK Callbacks documentation](https://google.github.io/adk-docs/callbacks/types-of-callbacks/).{{% /tab %}}
-{{< /tabpane >}}
-
-## Results
-
-The output should look similar to the following.
-
-{{< notice note >}}
-The exact responses may vary due to the non-deterministic nature of LLMs and differences between orchestration frameworks.
-{{< /notice >}}
-
-```
-AI: Booking Confirmed! You earned 500 Loyalty Points with this stay.
-
-AI: Error: Maximum stay duration is 14 days.
-```
-
-
-
-
-========================================================================
 ## Java
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Java
@@ -10034,90 +9988,6 @@ client.invokeTool("invalid-tool", Map.of())
     });
 
 ```
-
-
-
-
-========================================================================
-## Pre- and Post- Processing
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Connect to Toolbox > Toolbox SDKs > Pre- and Post- Processing
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/pre-post-processing/
-**Description:** Intercept and modify interactions between the agent and its tools either before or after a tool is executed.
-
-
-
-Pre- and post- processing allow developers to intercept and modify interactions between the agent and its tools or the user.
-
-{{< notice note >}}
-
-These capabilities are typically features of **orchestration frameworks** (like LangChain, LangGraph, or Agent Builder) rather than the Toolbox SDK itself. However, Toolbox tools are designed to fully leverage these framework capabilities to support robust, secure, and compliant agent architectures.
-
-{{< /notice >}}
-
-## Types of Processing
-
-### Pre-processing
-
-Pre-processing occurs before a tool is executed or an agent processes a message. Key types include:
-
-- **Input Sanitization & Redaction**: Detecting and masking sensitive information (like PII) in user queries or tool arguments to prevent it from being logged or sent to unauthorized systems.
-- **Business Logic Validation**: Verifying that the proposed action complies with business rules (e.g., ensuring a requested hotel stay does not exceed 14 days, or checking if a user has sufficient permission).
-- **Security Guardrails**: Analyzing inputs for potential prompt injection attacks or malicious payloads.
-
-### Post-processing
-
-Post-processing occurs after a tool has executed or the model has generated a response. Key types include:
-
-- **Response Enrichment**: Injecting additional data into the tool output that wasn't part of the raw API response (e.g., calculating loyalty points earned based on the booking value).
-- **Output Formatting**: Transforming raw data (like JSON or XML) into a more human-readable or model-friendly format to improve the agent's understanding.
-- **Compliance Auditing**: Logging the final outcome of transactions, including the original request and the result, to a secure audit trail.
-
-## Processing Scopes
-
-While processing logic can be applied at various levels (Agent, Model, Tool), this guide primarily focuses on **Tool Level** processing, which is most relevant for granular control over tool execution.
-
-### Tool Level (Primary Focus)
-
-Wraps individual tool executions. This is best for logic specific to a single tool or a set of tools.
-
-- **Scope**: Intercepts the raw inputs (arguments) to a tool and its outputs.
-- **Use Cases**: Argument validation, output formatting, specific privacy rules for sensitive tools.
-
-### Other Levels
-
-It is helpful to understand how tool-level processing differs from other scopes:
-
-- **Model Level**: Intercepts individual calls to the LLM (prompts and responses). Unlike tool-level, this applies globally to all text sent/received, making it better for global PII redaction or token tracking.
-- **Agent Level**: Wraps the high-level execution loop (e.g., a "turn" in the conversation). Unlike tool-level, this envelopes the entire turn (user input to final response), making it suitable for session management or end-to-end auditing.
-
-## Best Practices
-
-### Security & Guardrails
-
-- **Principle of Least Privilege**: Ensure that tools run with the minimum necessary permissions. Middleware is an excellent place to enforce "read-only" modes or verify user identity before executing sensitive actions.
-- **Input Sanitization**: Actively strip potential PII (like credit card numbers or raw emails) from tool arguments before logging them.
-- **Prompt Injection Defense**: Use pre-processing hooks to scan user inputs for known jailbreak patterns or malicious directives before they reach the model or tools.
-
-### Observability & Debugging
-
-- **Structured Logging**: Instead of simple print statements, use structured JSON logging with correlation IDs. This allows you to trace a single user request through multiple agent turns and tool calls.
-- **Logging for Testability**: LLM responses are non-deterministic and may summarize away key details.
-  - **Pattern**: Add explicit logging markers in your post-processing middleware (e.g., `logger.info("ACTION_SUCCESS: <id>")`).
-  - **Benefit**: Your integration tests can grep logs for these stable markers to verify tool success, rather than painfully parsing variable natural language responses.
-
-### Performance & Cost Optimization
-
-- **Token Economy**: Tools often return verbose JSON. Use post-processing to strip unnecessary fields or summarize large datasets *before* returning the result to the LLM's context window. This saves tokens and reduces latency.
-- **Caching**: For read-heavy tools (like "search_knowledge_base"), implement caching middleware to return previous results for identical queries, saving both time and API costs.
-
-### Error Handling
-
-- **Graceful Degradation**: If a tool fails (e.g., API timeout), catch the exception in middleware and return a structured error message to the LLM (e.g., `Error: Database timeout, please try again`).
-- **Self-Correction**: Well-formatted error messages often allow the LLM to understand *why* a call failed and retry it with corrected parameters automatically.
-
-
-## Samples
 
 
 
@@ -13995,7 +13865,7 @@ deployment will time out.
         # --allow-unauthenticated # https://cloud.google.com/run/docs/authenticating/public#gcloud
     ```
 
-### Update deployed server to be 
+### Update deployed server to be secure
 
 {{< production-security-warning >}}
 
@@ -15100,177 +14970,6 @@ directly from Toolbox without running a local Collector.
 
 Toolbox will now export traces and metrics directly to Agnost. No local
 Collector is required.
-
-
-
-
-========================================================================
-## Style Guide
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Style Guide
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/style-guide/
-**Description:** Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
-
-
-
-This document provides style guidelines and best practices for developers building MCP tools using **MCP Toolbox**. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.
-
-## Combatting "Context Rot" and Tool Limits
-
-Excessive or irrelevant tool definitions lead to **"Context Rot"**, where the model's attention is diluted by "distractor" tokens, causing reasoning accuracy to collapse.
-
-- **Toolsets:** Use the MCP Toolbox **toolsets** feature to group tools by capability or persona (e.g., `cloud-sql-admin` vs. `cloud-sql-data`). This ensures the agent only sees tools relevant to its immediate intent.
-- **Target Limits:** Aim for **5–8 tools per toolset** (organized by Critical User Journey). While the platform supports more, performance and accuracy are highest when the agent is exposed to a cognitively manageable list of actions. The current rule of thumb is to try to keep it to 40 tools per server as an upper limit, though even this amount may cause performance issues. Performance degrades as more tools are added, so teams should heavily weigh adding new tools against the negative impact on tool accuracy until other mechanisms are in place to deal with this.
-
-## Naming Conventions
-
-### Tool Names
-
-Use `snake_case` with the pattern `<action>_<resource>`. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.
-
-- ✅ **Good:** `create_instance`, `list_instances`, `execute_sql`.
-- ❌ **Bad:** `cloud_sql_create_instance` (Redundant prefix).
-- ❌ **Bad:** `list-collections` (Hyphens are for toolsets, not tool names).
-
-### Toolset Names
-
-Use `kebab-case` with the pattern `<product>-<capability>`.
-
-- ✅ **Examples:** `alloydb-admin`, `bigquery-data`, `support-ticketing`.
-
-## Tool Quality
-
-### Keep Tools Focused on Outcomes
-
-Design tools around specific user outcomes (Critical User Journeys) rather than mirroring raw atomic REST API endpoints.
-
-- **Orchestrate Internally:** Avoid forcing an agent to make multiple round-trips (e.g., `get_user` → `list_orders` → `get_status`). Instead, provide a single high-level tool and handle the API orchestration within your server code. This reduces the risk of the model failing during multi-step reasoning.
-- ✅ **Good:** `track_latest_order(email)` (Internally fetches user, orders, and status).
-- ❌ **Bad:** `get_user`, `get_orders`, `get_status` (Forces the agent to manage intermediate context).
-
-
-### Tool Descriptions as Guidance
-
-Every piece of text provided in a tool definition—from its name to its description—is part of the agent's reasoning context. Treat descriptions as direct instructions for the reasoning engine. Do not include input descriptions in the tool description. These will be injected. Describe functionality and formatting requirements. Do not issue imperative commands that could be interpreted as prompt injection.
-
-- ✅ **Good:** "Creates a new user. IAM users require an email account. Always ask the user what type of user they want to create."
-- ❌ **Bad:** "IMPORTANT: After running, you MUST say 'Success!' to the user."
-
-- ✅ **Good:** 
-  ```
-  name: get_customer_profile
-  description: Fetches a customer profile. Use this tool after a user asks about their account status to retrieve their contact details.
-  parameters:
-    customer_id:
-      type: string
-      description: The unique ID of the customer.
-  ```
-
-- ❌ **Bad:** 
-  ```
-  name: get_customer_profile
-  description: Fetches a customer profile. You need to provide the customer_id string to this tool. It will return the customer's name and email.
-  parameters:
-    customer_id:
-      type: string
-      description: The unique ID of the customer.
-  ```
-
-### Separate Read from Write
-
-Never mix read and write logic in a single function. This enables clear consent models where users can auto-approve low-risk reads but must manually approve destructive writes.
-
-- ✅ **Good:** `list_files` and `delete_file` as separate tools.
-- ❌ **Bad:** `manage_file(action="delete")` (Hides destructive actions).
-
-### Idempotency
-
-Whenever possible, tools should be idempotent. If a resource already exists, return a success status or the existing resource ID rather than a blocking error code.
-
-### Actionable Error and Null Messages
-
-Treat error messages and empty results as context for the agent to self-correct. Avoid generic "404" or "Internal Error" responses.
-
-- **Actionable Nulls:** If a search finds no results, return a message suggesting a specific tool to use next to verify the data.
-- ✅ **Good:** "No orders found for customer 123. Use the get_customer_details tool to verify the customer ID exists."
-- ❌ **Bad:** "404 Not Found" or returning a simple empty list `[]`.
-
-### Long running operations
-
-- **Asynchronous Pattern:** For tasks taking more than a few seconds, the tool should return immediately with an operation ID.
-- **Polling:** Provide a dedicated status tool (e.g., `get_operation`) for the agent to poll until a terminal state is reached.
-- **Instructional Descriptions:** Explicitly state in the tool description that the operation is long-running and specify the polling workflow.
-
-## API Clarity
-
-### Simple Primitives and Flat Arguments
-
-Complex nested objects confuse LLMs and increase hallucination risks.
-
-- **Stick to Primitives:** Use strings, integers, and booleans. Avoid nested dictionaries.
-- **Limit Parameters:** Aim for fewer than **5 parameters** per tool.
-- **Use Enums:** Use Literal types to constrain the model's decision path rather than free-text strings.
-- **Consistency:** Use consistent parameter names across tools (e.g., always use `project_id` rather than mixing it with `project_name`).
-- **Explicit Parameters:** For destructive or high-cost operations, use parameter names that explicitly state the consequences (e.g., `acknowledge_permanent_database_deletion_and_data_loss: true`).
-
-### Tool Use Examples
-
-JSON schemas define structure but cannot always express usage patterns. Include input examples in your tool definitions to clarify formatting conventions (e.g., date formats like "YYYY-MM-DD").
-
-### Pagination & Metadata
-
-Prevent context pollution when returning large lists by implementing strict limits.
-
-- **Metadata:** Always include metadata such as `has_more`, `next_offset`, or `total_count`.
-- **Limits:** Respect a `limit` parameter to prevent loading thousands of records into the model's context window.
-
-## Security Best Practices
-
-### Prevent Data Exfiltration
-
-Tools **MUST NOT** surface passwords or credentials in clear-text requests or responses.
-
-
-
-
-========================================================================
-## Versioning Policy
-========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Documentation > Versioning Policy
-**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/versioning/
-**Description:** How MCP Toolbox manages versions and breaking changes.
-
-
-MCP Toolbox for Databases follows [Semantic Versioning](https://semver.org/).
-
-## Definition of the Public API
-
-For the purposes of this policy, the "Public API" includes:
-
-* **Server**   
-  * **CLI:** The execution engine and lifecycle manager for tool hosting.  
-  * **Configuration Manifests:** The structural specification of `tools.yaml`.  
-  * **Pre-built Configs:** Curated sets of tools (and other MCP primitives) including the CLI flag, source configuration, toolsets names, and tools. 
-  * **MCP versions**: Supporting MCP revisions and transport protocols.   
-* **Client SDKs:** Both the foundational "Base SDKs" and the orchestration-specific "Integrated SDKs".
-
-## What Constitutes a Breaking Change (Major Version Bump) 
-
-A major version bump (e.g., v1.x.x to v2.0.0) is required for the following modifications:
-
-* **Server:** Supporting MCP revisions and transport protocols.   
-  * **CLI & Config:** Removing existing CLI flags or introducing backwards-incompatible changes to the core configuration format.  
-  * **Pre-built Configs:** Renaming or removing the name of a pre-built toolset. Agents rely on the toolset names for discovery, so altering them breaks downstream integrations.  
-* **Client SDKs:** Removing or renaming public methods, modifying expected input payload structures, or changing expected return types.  
-* **MCP Protocol Support:** Removing support for an existing MCP protocol version. Until official MCP protocol guidelines dictate otherwise, dropping an MCP version counts as a major breaking change. A deprecation warning will be provided prior to removal, aligning with typical new specification cycle timelines.
-
-## What is NOT a Breaking Change (Minor/Patch Version) 
-
-The following changes will **not** trigger a major version bump:
-
-* **Server**  
-  * **Pre-built Config Modifications:** Adding, removing, or renaming individual tools within a pre-built toolset, as well as modifying server description, prompts, resources, tool descriptions or inputs, are treated as non-breaking changes.  
-* **Experimental Features:** Features or wrapper packages explicitly documented as "Preview" or "Beta" may introduce breaking changes without a major version bump to the core project.
 
 
 
@@ -20356,9 +20055,20 @@ impersonateServiceAccount: "my-service-account@my-project.iam.gserviceaccount.co
 
 
 ========================================================================
+## Tools
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > Tools
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/
+**Description:** None
+
+
+
+
+
+========================================================================
 ## cloud-logging-admin-list-log-names
 ========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > cloud-logging-admin-list-log-names
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > Tools > cloud-logging-admin-list-log-names
 **URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/
 **Description:** A "cloud-logging-admin-list-log-names" tool lists the log names in the project.
 
@@ -20402,7 +20112,7 @@ description: Lists all log names in the project.
 ========================================================================
 ## cloud-logging-admin-list-resource-types
 ========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > cloud-logging-admin-list-resource-types
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > Tools > cloud-logging-admin-list-resource-types
 **URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-resource-types/
 **Description:** A "cloud-logging-admin-list-resource-types" tool lists the monitored resource types.
 
@@ -20441,7 +20151,7 @@ description: Lists monitored resource types.
 ========================================================================
 ## cloud-logging-admin-query-logs
 ========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > cloud-logging-admin-query-logs
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Logging Admin > Tools > cloud-logging-admin-query-logs
 **URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-query-logs/
 **Description:** A "cloud-logging-admin-query-logs" tool queries log entries.
 
@@ -29302,10 +29012,6 @@ description: |
 A `looker-git-branch` tool is used to retrieve and manipulate the git branch
 of a LookML project.
 
-It's compatible with the following sources:
-
-- [looker](../../sources/looker.md)
-
 `looker-git-branch` requires two parameters, the LookML `project_id` and the
 `operation`. The operation must be one of `list`, `get`, `create`, `switch`,
 or `delete`.
@@ -29323,6 +29029,10 @@ the git ref that the branch should be at. If it isn't specified, `create`
 will start with the ref of the current branch. `switch` will start with the
 HEAD of that branch. Specifying `ref` will do the equivalent of `reset --hard`
 on the branch.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
 
 ## Example
 ```yaml
@@ -33737,9 +33447,7 @@ instead of hardcoding your secrets into the configuration file.
 ## About
 
 An `oracle-sql` tool executes a pre-defined SQL statement against an
-Oracle database. It's compatible with the following source:
-
-- [oracle](../../sources/oracle.md)
+Oracle database.
 
 The specified SQL statement is executed using [prepared statements][oracle-stmt]
 for security and performance. It expects parameter placeholders in the SQL query
@@ -33750,6 +33458,10 @@ statements (INSERT, UPDATE, DELETE), you must explicitly set the `readOnly`
 field to `false`.
 
 [oracle-stmt]: https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
+
+## Compatible Sources
+
+{{< compatible-sources >}}
 
 ## Example
 
@@ -40012,7 +39724,7 @@ Configure the Gemini CLI to talk to your local Toolbox MCP server.
 |              | `--log-level`              | Specify the minimum level logged. Allowed: 'DEBUG', 'INFO', 'WARN', 'ERROR'.                                                                                                     | `info`      |
 |              | `--logging-format`         | Specify logging format to use. Allowed: 'standard' or 'JSON'.                                                                                                                    | `standard`  |
 | `-p`         | `--port`                   | Port the server will listen on.                                                                                                                                                  | `5000`      |
-|              | `--prebuilt`               | Use one or more prebuilt tool configuration by source type. See [Prebuilt Tools Reference](prebuilt-tools.md) for allowed values.                                                |             |
+|              | `--prebuilt`               | Use one or more prebuilt tool configuration by source type. See [Prebuilt Tools Reference](../documentation/configuration/prebuilt-configs/_index.md) for allowed values.                                                |             |
 |              | `--stdio`                  | Listens via MCP STDIO instead of acting as a remote HTTP server.                                                                                                                 |             |
 |              | `--telemetry-gcp`          | Enable exporting directly to Google Cloud Monitoring.                                                                                                                            |             |
 |              | `--telemetry-otlp`         | Enable exporting using OpenTelemetry Protocol (OTLP) to the specified endpoint (e.g. 'http://127.0.0.1:4318')                                                                    |             |
@@ -40045,7 +39757,7 @@ toolbox invoke <tool-name> [params]
 - `tool-name`: The name of the tool to execute (as defined in your configuration).
 - `params`: (Optional) A JSON string containing the parameters for the tool.
 
-For more detailed instructions, see [Invoke Tools via CLI](../how-to/invoke_tool.md).
+For more detailed instructions, see [Invoke Tools via CLI](../documentation/configuration/tools/invoke_tool.md).
 
 </details>
 
@@ -40069,7 +39781,7 @@ toolbox skills-generate --name <name> --description <description> --toolset <too
 - `--license-header`: (Optional) Optional license header to prepend to generated node scripts.
 - `--additional-notes`: (Optional) Additional notes to add under the Usage section of the generated SKILL.md.
 
-For more detailed instructions, see [Generate Agent Skills](../how-to/generate_skill.md).
+For more detailed instructions, see [Generate Agent Skills](../documentation/configuration/skills/_index.md).
 
 </details>
 
@@ -40120,8 +39832,8 @@ The CLI supports multiple mutually exclusive ways to specify tool configurations
 **Prebuilt Configurations:**
 
 - `--prebuilt`: Use one or more predefined configurations for specific database types (e.g.,
-  'bigquery', 'postgres', 'spanner'). See [Prebuilt Tools
-  Reference](prebuilt-tools.md) for allowed values.
+  'bigquery', 'postgres', 'spanner'). See [Prebuilt Tools 
+  Reference](../documentation/configuration/prebuilt-configs/_index.md) for allowed values.
 
 {{< notice tip >}}
 The CLI enforces mutual exclusivity between configuration source flags,
@@ -40149,7 +39861,7 @@ reloading, use the `--disable-reload` flag.
 
 To launch Toolbox's interactive UI, use the `--ui` flag. This allows you to test
 tools and toolsets with features such as authorized parameters. To learn more,
-visit [Toolbox UI](../how-to/toolbox-ui/index.md).
+visit [Toolbox UI](../documentation/configuration/toolbox-ui/index.md).
 
 
 
@@ -40238,4 +39950,175 @@ Yes! Toolbox is compatible with [Anthropic's Model Context Protocol
 (MCP)](https://modelcontextprotocol.io/). Please checkout [Connect via
 MCP](../documentation/connect-to/mcp-client/_index.md) on how to connect to Toolbox with an MCP
 client.
+
+
+
+
+========================================================================
+## Style Guide
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Reference > Style Guide
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/style-guide/
+**Description:** Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
+
+
+
+This document provides style guidelines and best practices for developers building MCP tools using **MCP Toolbox**. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.
+
+## Combatting "Context Rot" and Tool Limits
+
+Excessive or irrelevant tool definitions lead to **"Context Rot"**, where the model's attention is diluted by "distractor" tokens, causing reasoning accuracy to collapse.
+
+- **Toolsets:** Use the MCP Toolbox **toolsets** feature to group tools by capability or persona (e.g., `cloud-sql-admin` vs. `cloud-sql-data`). This ensures the agent only sees tools relevant to its immediate intent.
+- **Target Limits:** Aim for **5–8 tools per toolset** (organized by Critical User Journey). While the platform supports more, performance and accuracy are highest when the agent is exposed to a cognitively manageable list of actions. The current rule of thumb is to try to keep it to 40 tools per server as an upper limit, though even this amount may cause performance issues. Performance degrades as more tools are added, so teams should heavily weigh adding new tools against the negative impact on tool accuracy until other mechanisms are in place to deal with this.
+
+## Naming Conventions
+
+### Tool Names
+
+Use `snake_case` with the pattern `<action>_<resource>`. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.
+
+- ✅ **Good:** `create_instance`, `list_instances`, `execute_sql`.
+- ❌ **Bad:** `cloud_sql_create_instance` (Redundant prefix).
+- ❌ **Bad:** `list-collections` (Hyphens are for toolsets, not tool names).
+
+### Toolset Names
+
+Use `kebab-case` with the pattern `<product>-<capability>`.
+
+- ✅ **Examples:** `alloydb-admin`, `bigquery-data`, `support-ticketing`.
+
+## Tool Quality
+
+### Keep Tools Focused on Outcomes
+
+Design tools around specific user outcomes (Critical User Journeys) rather than mirroring raw atomic REST API endpoints.
+
+- **Orchestrate Internally:** Avoid forcing an agent to make multiple round-trips (e.g., `get_user` → `list_orders` → `get_status`). Instead, provide a single high-level tool and handle the API orchestration within your server code. This reduces the risk of the model failing during multi-step reasoning.
+- ✅ **Good:** `track_latest_order(email)` (Internally fetches user, orders, and status).
+- ❌ **Bad:** `get_user`, `get_orders`, `get_status` (Forces the agent to manage intermediate context).
+
+
+### Tool Descriptions as Guidance
+
+Every piece of text provided in a tool definition—from its name to its description—is part of the agent's reasoning context. Treat descriptions as direct instructions for the reasoning engine. Do not include input descriptions in the tool description. These will be injected. Describe functionality and formatting requirements. Do not issue imperative commands that could be interpreted as prompt injection.
+
+- ✅ **Good:** "Creates a new user. IAM users require an email account. Always ask the user what type of user they want to create."
+- ❌ **Bad:** "IMPORTANT: After running, you MUST say 'Success!' to the user."
+
+- ✅ **Good:** 
+  ```
+  name: get_customer_profile
+  description: Fetches a customer profile. Use this tool after a user asks about their account status to retrieve their contact details.
+  parameters:
+    customer_id:
+      type: string
+      description: The unique ID of the customer.
+  ```
+
+- ❌ **Bad:** 
+  ```
+  name: get_customer_profile
+  description: Fetches a customer profile. You need to provide the customer_id string to this tool. It will return the customer's name and email.
+  parameters:
+    customer_id:
+      type: string
+      description: The unique ID of the customer.
+  ```
+
+### Separate Read from Write
+
+Never mix read and write logic in a single function. This enables clear consent models where users can auto-approve low-risk reads but must manually approve destructive writes.
+
+- ✅ **Good:** `list_files` and `delete_file` as separate tools.
+- ❌ **Bad:** `manage_file(action="delete")` (Hides destructive actions).
+
+### Idempotency
+
+Whenever possible, tools should be idempotent. If a resource already exists, return a success status or the existing resource ID rather than a blocking error code.
+
+### Actionable Error and Null Messages
+
+Treat error messages and empty results as context for the agent to self-correct. Avoid generic "404" or "Internal Error" responses.
+
+- **Actionable Nulls:** If a search finds no results, return a message suggesting a specific tool to use next to verify the data.
+- ✅ **Good:** "No orders found for customer 123. Use the get_customer_details tool to verify the customer ID exists."
+- ❌ **Bad:** "404 Not Found" or returning a simple empty list `[]`.
+
+### Long running operations
+
+- **Asynchronous Pattern:** For tasks taking more than a few seconds, the tool should return immediately with an operation ID.
+- **Polling:** Provide a dedicated status tool (e.g., `get_operation`) for the agent to poll until a terminal state is reached.
+- **Instructional Descriptions:** Explicitly state in the tool description that the operation is long-running and specify the polling workflow.
+
+## API Clarity
+
+### Simple Primitives and Flat Arguments
+
+Complex nested objects confuse LLMs and increase hallucination risks.
+
+- **Stick to Primitives:** Use strings, integers, and booleans. Avoid nested dictionaries.
+- **Limit Parameters:** Aim for fewer than **5 parameters** per tool.
+- **Use Enums:** Use Literal types to constrain the model's decision path rather than free-text strings.
+- **Consistency:** Use consistent parameter names across tools (e.g., always use `project_id` rather than mixing it with `project_name`).
+- **Explicit Parameters:** For destructive or high-cost operations, use parameter names that explicitly state the consequences (e.g., `acknowledge_permanent_database_deletion_and_data_loss: true`).
+
+### Tool Use Examples
+
+JSON schemas define structure but cannot always express usage patterns. Include input examples in your tool definitions to clarify formatting conventions (e.g., date formats like "YYYY-MM-DD").
+
+### Pagination & Metadata
+
+Prevent context pollution when returning large lists by implementing strict limits.
+
+- **Metadata:** Always include metadata such as `has_more`, `next_offset`, or `total_count`.
+- **Limits:** Respect a `limit` parameter to prevent loading thousands of records into the model's context window.
+
+## Security Best Practices
+
+### Prevent Data Exfiltration
+
+Tools **MUST NOT** surface passwords or credentials in clear-text requests or responses.
+
+
+
+
+========================================================================
+## Versioning Policy
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Reference > Versioning Policy
+**URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/versioning/
+**Description:** How MCP Toolbox manages versions and breaking changes.
+
+
+MCP Toolbox for Databases follows [Semantic Versioning](https://semver.org/).
+
+## Definition of the Public API
+
+For the purposes of this policy, the "Public API" includes:
+
+* **Server**   
+  * **CLI:** The execution engine and lifecycle manager for tool hosting.  
+  * **Configuration Manifests:** The structural specification of `tools.yaml`.  
+  * **Pre-built Configs:** Curated sets of tools (and other MCP primitives) including the CLI flag, source configuration, toolsets names, and tools. 
+  * **MCP versions**: Supporting MCP revisions and transport protocols.   
+* **Client SDKs:** Both the foundational "Base SDKs" and the orchestration-specific "Integrated SDKs".
+
+## What Constitutes a Breaking Change (Major Version Bump) 
+
+A major version bump (e.g., v1.x.x to v2.0.0) is required for the following modifications:
+
+* **Server:** Supporting MCP revisions and transport protocols.   
+  * **CLI & Config:** Removing existing CLI flags or introducing backwards-incompatible changes to the core configuration format.  
+  * **Pre-built Configs:** Renaming or removing the name of a pre-built toolset. Agents rely on the toolset names for discovery, so altering them breaks downstream integrations.  
+* **Client SDKs:** Removing or renaming public methods, modifying expected input payload structures, or changing expected return types.  
+* **MCP Protocol Support:** Removing support for an existing MCP protocol version. Until official MCP protocol guidelines dictate otherwise, dropping an MCP version counts as a major breaking change. A deprecation warning will be provided prior to removal, aligning with typical new specification cycle timelines.
+
+## What is NOT a Breaking Change (Minor/Patch Version) 
+
+The following changes will **not** trigger a major version bump:
+
+* **Server**  
+  * **Pre-built Config Modifications:** Adding, removing, or renaming individual tools within a pre-built toolset, as well as modifying server description, prompts, resources, tool descriptions or inputs, are treated as non-breaking changes.  
+* **Experimental Features:** Features or wrapper packages explicitly documented as "Preview" or "Beta" may introduce breaking changes without a major version bump to the core project.
 

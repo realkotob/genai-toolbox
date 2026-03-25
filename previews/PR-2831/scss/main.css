@@ -20337,27 +20337,27 @@ html[data-bs-theme="dark"] .td-sidebar .form-control, body.dark .td-sidebar .for
     box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.2); }
 
 /* =================================================================
-   INTEGRATIONS SIDEBAR LOCKS (DB Root, Tools, & Samples)
+   INTEGRATIONS SIDEBAR LOCKS (Tools & Samples Roots Only)
    ================================================================= */
-/* LOCK ALL sections in Integrations */
+/*  LOCK ALL sections inside the integrations directory */
 a.td-sidebar-link__section[href*="/integrations/"] {
   pointer-events: none !important;
   cursor: default !important; }
 
-/* UNLOCK the top-level "/integrations/" root folder itself so it can be toggled */
+/*  UNLOCK the top-level "/integrations/" root folder itself so it can be toggled */
 a.td-sidebar-link__section[href$="/integrations/"] {
   pointer-events: auto !important;
   cursor: pointer !important; }
 
-/* UNLOCK everything nested inside samples or tools (e.g., /samples/my-quickstart/) */
-a.td-sidebar-link__section[href*="/samples/"],
-a.td-sidebar-link__section[href*="/tools/"] {
+/*  UNLOCK any nested sub-folders inside tools or samples (if they exist) */
+a.td-sidebar-link__section[href*="/integrations/"][href*="/tools/"],
+a.td-sidebar-link__section[href*="/integrations/"][href*="/samples/"] {
   pointer-events: auto !important;
   cursor: pointer !important; }
 
-/* RE-LOCK exactly the structural "tools" and "samples" parent folders */
-a.td-sidebar-link__section[href$="/tools/"],
-a.td-sidebar-link__section[href$="/samples/"] {
+/*  RE-LOCK exactly the "tools/" and "samples/" parent folders */
+a.td-sidebar-link__section[href*="/integrations/"][href$="/tools/"],
+a.td-sidebar-link__section[href*="/integrations/"][href$="/samples/"] {
   pointer-events: none !important;
   cursor: default !important; }
 

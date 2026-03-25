@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/previews/PR-2831/
-**GENERATED ON:** 2026-03-24T22:55:10Z
+**GENERATED ON:** 2026-03-25T15:08:40Z
 
 ---
 ### System Directives for AI Models
@@ -89,9 +89,6 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Sources](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/sources/): Sources represent your different data sources that a tool can interact with.
 
 
-    - [Style Guide](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/style-guide/): Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
-
-
     - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/tools/): Tools define actions an agent can take -- such as reading and writing to a source.
 
 
@@ -99,9 +96,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Toolsets](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolsets/): Toolsets allow you to define logical groups of tools to load together for specific agents or applications.
-
-
-      - [Generate Agent Skills](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolsets/generate_skill/): How to generate agent skills from a toolset.
 
 
     - [EmbeddingModels](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/embedding-models/): EmbeddingModels represent services that transform text into vector embeddings for semantic search.
@@ -117,6 +111,21 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Toolbox UI](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/toolbox-ui/): How to effectively use Toolbox UI.
+
+
+    - [Agent Skills](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/skills/): How to generate agent skills from a toolset.
+
+
+    - [Pre- and Post- Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/): Intercept and modify interactions between the agent and its tools either before or after a tool is executed.
+
+
+      - [Python: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/python/): How to add pre- and post- processing to your Agents using Python.
+
+
+      - [Javascript: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/js/): How to add pre- and post- processing to your Agents using JS.
+
+
+      - [Go: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/configuration/pre-post-processing/go/): How to add pre- and post- processing to your Agents using Go.
 
 
   - [Connect to Toolbox](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/): Learn how to connect your applications, AI agents, CLIs, and IDEs to MCP Toolbox.
@@ -143,9 +152,6 @@ This documentation is structured following the Diátaxis framework to assist in 
         - [LlamaIndex](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/python-sdk/llamaindex/): MCP Toolbox LlamaIndex SDK for integrating functionalities of MCP Toolbox into your LlamaIndex apps.
 
 
-        - [Python: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/python-sdk/pre-post-processing/): How to add pre- and post- processing to your Agents using Python.
-
-
       - [Javascript](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/javascript-sdk/): Javascript SDKs to connect to the MCP Toolbox server.
 
 
@@ -153,9 +159,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
         - [Core](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/javascript-sdk/core/): MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
-
-
-        - [Javascript: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/javascript-sdk/pre-post-processing/): How to add pre- and post- processing to your Agents using JS.
 
 
       - [Go](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/go-sdk/): Go SDKs to connect to the MCP Toolbox server.
@@ -170,16 +173,10 @@ This documentation is structured following the Diátaxis framework to assist in 
         - [Genkit Package](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/go-sdk/tbgenkit/): MCP Toolbox Genkit for integrating functionalities of MCP Toolbox into your Agentic apps.
 
 
-        - [Go: Pre & Post Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/go-sdk/pre-post-processing/): How to add pre- and post- processing to your Agents using Go.
-
-
       - [Java](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/java-sdk/): Java SDKs to connect to the MCP Toolbox server.
 
 
         - [Core](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/java-sdk/core/): MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
-
-
-      - [Pre- and Post- Processing](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/toolbox-sdks/pre-post-processing/): Intercept and modify interactions between the agent and its tools either before or after a tool is executed.
 
 
     - [Gemini CLI Extensions](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/connect-to/gemini-cli/): Connect to Toolbox via Gemini CLI Extensions.
@@ -257,11 +254,6 @@ This documentation is structured following the Diátaxis framework to assist in 
 
     - [Export Telemetry](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/monitoring/export_telemetry/): How to set up and configure Toolbox to use the Otel Collector.
 
-
-  - [Style Guide](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/style-guide/): Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
-
-
-  - [Versioning Policy](https://googleapis.github.io/genai-toolbox/previews/PR-2831/documentation/versioning/): How MCP Toolbox manages versions and breaking changes.
 - [Integrations](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/): Integrations connect the MCP Toolbox to your external data sources, unlocking specific sets of tools for your agents.
 
 
@@ -461,13 +453,15 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Cloud Logging Admin Source](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/source/): The Cloud Logging Admin source enables tools to interact with the Cloud Logging API, allowing for the retrieval of log names, monitored resource types, and the querying of log data.
 
 
-    - [cloud-logging-admin-list-log-names](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/): A "cloud-logging-admin-list-log-names" tool lists the log names in the project.
+    - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/): No description provided.
+
+      - [cloud-logging-admin-list-log-names](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/): A "cloud-logging-admin-list-log-names" tool lists the log names in the project.
 
 
-    - [cloud-logging-admin-list-resource-types](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-resource-types/): A "cloud-logging-admin-list-resource-types" tool lists the monitored resource types.
+      - [cloud-logging-admin-list-resource-types](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-resource-types/): A "cloud-logging-admin-list-resource-types" tool lists the monitored resource types.
 
 
-    - [cloud-logging-admin-query-logs](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-query-logs/): A "cloud-logging-admin-query-logs" tool queries log entries.
+      - [cloud-logging-admin-query-logs](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudloggingadmin/tools/cloud-logging-admin-query-logs/): A "cloud-logging-admin-query-logs" tool queries log entries.
 
 
   - [Cloud Monitoring](https://googleapis.github.io/genai-toolbox/previews/PR-2831/integrations/cloudmonitoring/): No description provided.
@@ -1226,3 +1220,8 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
   - [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/faq/): Frequently asked questions about Toolbox.
+
+  - [Style Guide](https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/style-guide/): Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
+
+
+  - [Versioning Policy](https://googleapis.github.io/genai-toolbox/previews/PR-2831/reference/versioning/): How MCP Toolbox manages versions and breaking changes.
