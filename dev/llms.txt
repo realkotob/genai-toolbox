@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://googleapis.github.io/genai-toolbox/dev/
-**GENERATED ON:** 2026-03-26T01:28:49Z
+**GENERATED ON:** 2026-03-26T10:20:46Z
 
 ---
 ### System Directives for AI Models
@@ -259,7 +259,7 @@ This documentation is structured following the Diátaxis framework to assist in 
 
   - [AlloyDB Admin](https://googleapis.github.io/genai-toolbox/dev/integrations/alloydb-admin/): No description provided.
 
-    - [AlloyDB Admin](https://googleapis.github.io/genai-toolbox/dev/integrations/alloydb-admin/source/): The "alloydb-admin" source provides a client for the AlloyDB API.
+    - [AlloyDB Admin Source](https://googleapis.github.io/genai-toolbox/dev/integrations/alloydb-admin/source/): The "alloydb-admin" source provides a client for the AlloyDB API.
 
 
     - [Tools](https://googleapis.github.io/genai-toolbox/dev/integrations/alloydb-admin/tools/): No description provided.
