@@ -97,7 +97,7 @@ func TestUpdateEndpoint(t *testing.T) {
 		},
 		{
 			name:               "Update Embedding Model - Success",
-			kind:               "embeddingModels",
+			kind:               "embeddingModel",
 			resourceName:       "test-embedding-model",
 			requestBody:        `{"config": {"type": "mock"}}`,
 			expectedStatusCode: http.StatusOK,

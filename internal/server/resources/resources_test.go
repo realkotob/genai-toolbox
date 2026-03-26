@@ -189,7 +189,7 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 	}
 	sc := source.ToConfig()
 	if !reflect.DeepEqual(sc, sourceConfig) {
-		t.Fatalf("update failed: got %s, want %s", sc, sourceConfig)
+		t.Fatalf("update failed: got %+v, want %+v", sc, sourceConfig)
 	}
 
 	asConfig = &testutils.MockAuthServiceConfig{}
@@ -200,7 +200,7 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 		t.Fatalf("missing auth service")
 	}
 	if !reflect.DeepEqual(as, asConfig) {
-		t.Fatalf("update failed: got %s, want %s", as, asConfig)
+		t.Fatalf("update failed: got %+v, want %+v", as, asConfig)
 	}
 
 	emConfig = &testutils.MockEmbeddingModelConfig{}
@@ -211,7 +211,7 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 		t.Fatalf("missing embedding model")
 	}
 	if !reflect.DeepEqual(em, emConfig) {
-		t.Fatalf("update failed: got %s, want %s", em, emConfig)
+		t.Fatalf("update failed: got %+v, want %+v", em, emConfig)
 	}
 
 	toolConfig = &testutils.MockToolConfig{}
@@ -222,7 +222,7 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 		t.Fatalf("missing tool")
 	}
 	if !reflect.DeepEqual(tool, toolConfig) {
-		t.Fatalf("update failed: got %s, want %s", tool, toolConfig)
+		t.Fatalf("update failed: got %+v, want %+v", tool, toolConfig)
 	}
 
 	tsConfig = tools.ToolsetConfig{
@@ -236,7 +236,7 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 		t.Fatalf("missing toolset")
 	}
 	if !reflect.DeepEqual(ts, tsConfig) {
-		t.Fatalf("update failed: got %v, want %v", ts, tsConfig)
+		t.Fatalf("update failed: got %+v, want %+v", ts, tsConfig)
 	}
 
 	pConfig = &testutils.MockPromptConfig{}
@@ -247,6 +247,6 @@ func TestCreateAndUpdatePrimitives(t *testing.T) {
 		t.Fatalf("missing prompt")
 	}
 	if !reflect.DeepEqual(p, pConfig) {
-		t.Fatalf("update failed: got %s, want %s", p, pConfig)
+		t.Fatalf("update failed: got %+v, want %+v", p, pConfig)
 	}
 }

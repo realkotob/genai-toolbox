@@ -95,11 +95,7 @@ func TestFailParseFromYamlGemini(t *testing.T) {
             type: gemini
             `,
 			// Removed the specific model name from the prefix to match your output
-<<<<<<< HEAD
 			err: "error unmarshaling embeddingModel: unable to parse embeddingModel \"bad-model\" as \"gemini\": Key: 'Config.Model' Error:Field validation for 'Model' failed on the 'required' tag",
-=======
-			err: "error unmarshaling embeddingModels: unable to parse embeddingModel \"bad-model\" as \"gemini\": Key: 'Config.Model' Error:Field validation for 'Model' failed on the 'required' tag",
->>>>>>> 12fe22c7cee (chore: update auth and embeddingmodels to use the register model (#2794))
 		},
 		{
 			desc: "unknown field",
@@ -111,11 +107,7 @@ func TestFailParseFromYamlGemini(t *testing.T) {
             invalid_param: true
             `,
 			// Updated to match the specific line-starting format of your error output
-<<<<<<< HEAD
 			err: "error unmarshaling embeddingModel: unable to parse embeddingModel \"bad-field\" as \"gemini\": [1:1] unknown field \"invalid_param\"\n>  1 | invalid_param: true\n       ^\n   2 | model: text-embedding-004\n   3 | name: bad-field\n   4 | type: gemini",
-=======
-			err: "error unmarshaling embeddingModels: unable to parse embeddingModel \"bad-field\" as \"gemini\": [1:1] unknown field \"invalid_param\"\n>  1 | invalid_param: true\n       ^\n   2 | model: text-embedding-004\n   3 | name: bad-field\n   4 | type: gemini",
->>>>>>> 12fe22c7cee (chore: update auth and embeddingmodels to use the register model (#2794))
 		},
 	}
 	for _, tc := range tcs {

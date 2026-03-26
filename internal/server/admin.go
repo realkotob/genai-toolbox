@@ -67,7 +67,7 @@ func createOrUpdatePrimitives(s *Server, w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	// check if primitive exists with the same name and type
+	// Attempt to create or update the primitive based on its kind and name
 	var updateErr error
 	switch strings.ToLower(kind) {
 	case "source":
@@ -84,7 +84,7 @@ func createOrUpdatePrimitives(s *Server, w http.ResponseWriter, r *http.Request)
 			break
 		}
 		updateErr = s.ResourceMgr.UpdateAuthService(ctx, name, c)
-	case "embeddingmodels":
+	case "embeddingmodel":
 		c, err := UnmarshalYAMLEmbeddingModelConfig(ctx, name, req.Config)
 		if err != nil {
 			updateErr = fmt.Errorf("unable to unmarshal embedding model config: %w", err)
