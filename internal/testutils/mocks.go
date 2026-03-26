@@ -17,6 +17,7 @@ package testutils
 import (
 	"context"
 	"fmt"
+	"net/http"
 
 	"github.com/googleapis/genai-toolbox/internal/auth"
 	"github.com/googleapis/genai-toolbox/internal/embeddingmodels"
@@ -28,8 +29,60 @@ import (
 	"go.opentelemetry.io/otel/trace"
 )
 
+type MockSource struct {
+	MockSourceConfig
+	Name string
+}
+
+func (s MockSource) SourceType() string {
+	return "mock"
+}
+
+func (s MockSource) ToConfig() sources.SourceConfig {
+	return &s.MockSourceConfig
+}
+
+type MockAuthService struct {
+	MockAuthServiceConfig
+	Name string
+}
+
+func (a MockAuthService) AuthServiceType() string {
+	return "mock"
+}
+
+func (a MockAuthService) GetName() string {
+	return a.Name
+}
+
+func (a MockAuthService) GetClaimsFromHeader(ctx context.Context, h http.Header) (map[string]any, error) {
+	return nil, nil
+}
+
+func (a MockAuthService) ToConfig() auth.AuthServiceConfig {
+	return &a.MockAuthServiceConfig
+}
+
+type MockEmbeddingModel struct {
+	MockEmbeddingModelConfig
+	Name string
+}
+
+func (e MockEmbeddingModel) EmbeddingModelType() string {
+	return "mock"
+}
+
+func (e MockEmbeddingModel) ToConfig() embeddingmodels.EmbeddingModelConfig {
+	return &e.MockEmbeddingModelConfig
+}
+
+func (e MockEmbeddingModel) EmbedParameters(ctx context.Context, t []string) ([][]float32, error) {
+	return nil, nil
+}
+
 // MockTool is used to mock tools in tests
 type MockTool struct {
+	MockToolConfig
 	Name                         string
 	Description                  string
 	Params                       []parameters.Parameter
@@ -44,7 +97,7 @@ func (t MockTool) Invoke(context.Context, tools.SourceProvider, parameters.Param
 }
 
 func (t MockTool) ToConfig() tools.ToolConfig {
-	return nil
+	return &t.MockToolConfig
 }
 
 // claims is a map of user info decoded from an auth token
@@ -121,6 +174,7 @@ func (t MockTool) GetAuthTokenHeaderName(tools.SourceProvider) (string, error) {
 
 // MockPrompt is used to mock prompts in tests
 type MockPrompt struct {
+	MockPromptConfig
 	Name        string
 	Description string
 	Args        prompts.Arguments
@@ -159,7 +213,7 @@ func (p MockPrompt) McpManifest() prompts.McpManifest {
 }
 
 func (p MockPrompt) ToConfig() prompts.PromptConfig {
-	return nil
+	return &p.MockPromptConfig
 }
 
 type MockSourceConfig struct {
@@ -172,7 +226,7 @@ func (m *MockSourceConfig) SourceConfigType() string {
 }
 
 func (m *MockSourceConfig) Initialize(ctx context.Context, tracer trace.Tracer) (sources.Source, error) {
-	return nil, nil
+	return MockSource{MockSourceConfig: *m}, nil
 }
 
 type MockAuthServiceConfig struct {
@@ -185,7 +239,7 @@ func (m *MockAuthServiceConfig) AuthServiceConfigType() string {
 }
 
 func (m *MockAuthServiceConfig) Initialize() (auth.AuthService, error) {
-	return nil, nil
+	return MockAuthService{MockAuthServiceConfig: *m}, nil
 }
 
 type MockEmbeddingModelConfig struct {
@@ -198,7 +252,7 @@ func (m *MockEmbeddingModelConfig) EmbeddingModelConfigType() string {
 }
 
 func (m *MockEmbeddingModelConfig) Initialize(ctx context.Context) (embeddingmodels.EmbeddingModel, error) {
-	return nil, nil
+	return MockEmbeddingModel{MockEmbeddingModelConfig: *m}, nil
 }
 
 type MockToolConfig struct {
@@ -212,12 +266,15 @@ func (m *MockToolConfig) ToolConfigType() string {
 }
 
 func (m *MockToolConfig) Initialize(map[string]sources.Source) (tools.Tool, error) {
-	return MockTool{}, nil
+	return MockTool{MockToolConfig: *m}, nil
 }
 
 type MockToolsetConfig struct {
-	Name      string   `yaml:"name"`
-	ToolNames []string `yaml:",inline"`
+	tools.ToolsetConfig
+}
+
+func (m *MockToolsetConfig) Initialize(serverVersion string, toolsMap map[string]tools.Tool) (tools.Toolset, error) {
+	return tools.Toolset{ToolsetConfig: m.ToolsetConfig}, nil
 }
 
 type MockPromptConfig struct {
@@ -230,5 +287,5 @@ func (m *MockPromptConfig) PromptConfigType() string {
 }
 
 func (m *MockPromptConfig) Initialize() (prompts.Prompt, error) {
-	return nil, nil
+	return MockPrompt{MockPromptConfig: *m}, nil
 }

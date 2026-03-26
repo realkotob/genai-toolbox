@@ -62,7 +62,7 @@ func (t ToolsetConfig) Initialize(serverVersion string, toolsMap map[string]Tool
 		toolset.Manifest.ToolsManifest[toolName] = tool.Manifest()
 		toolset.McpManifest = append(toolset.McpManifest, tool.McpManifest())
 	}
-
+	toolset.ToolsetConfig = t
 	return toolset, nil
 }
 
