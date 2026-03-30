@@ -735,7 +735,7 @@ func addClientAuthSourceConfig(t *testing.T, config map[string]any) map[string]a
 }
 
 func runGetDatasetToolInvokeTest(t *testing.T, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -834,7 +834,7 @@ func runGetDatasetToolInvokeTest(t *testing.T, want string) {
 }
 
 func runListFHIRStoresToolInvokeTest(t *testing.T, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -933,7 +933,7 @@ func runListFHIRStoresToolInvokeTest(t *testing.T, want string) {
 }
 
 func runListDICOMStoresToolInvokeTest(t *testing.T) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1028,7 +1028,7 @@ func runListDICOMStoresToolInvokeTest(t *testing.T) {
 }
 
 func runGetFHIRStoreToolInvokeTest(t *testing.T, fhirStoreID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1134,7 +1134,7 @@ func runGetFHIRStoreToolInvokeTest(t *testing.T, fhirStoreID, want string) {
 }
 
 func runGetFHIRStoreMetricsToolInvokeTest(t *testing.T, fhirStoreID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1240,7 +1240,7 @@ func runGetFHIRStoreMetricsToolInvokeTest(t *testing.T, fhirStoreID, want string
 }
 
 func runGetFHIRResourceToolInvokeTest(t *testing.T, storeID, resType, resID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1353,7 +1353,7 @@ func runGetFHIRResourceToolInvokeTest(t *testing.T, storeID, resType, resID, wan
 }
 
 func runFHIRPatientSearchToolInvokeTest(t *testing.T, fhirStoreID string, patientIDs ...string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1507,7 +1507,7 @@ func runFHIRPatientSearchToolInvokeTest(t *testing.T, fhirStoreID string, patien
 }
 
 func runFHIRPatientEverythingToolInvokeTest(t *testing.T, fhirStoreID, patientID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1644,7 +1644,7 @@ func runFHIRPatientEverythingToolInvokeTest(t *testing.T, fhirStoreID, patientID
 }
 
 func runFHIRFetchPageToolInvokeTest(t *testing.T, pageURL, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1847,7 +1847,7 @@ func runListDICOMStoresWithRestriction(t *testing.T, allowedDICOMStore, disallow
 }
 
 func runGetDICOMStoreToolInvokeTest(t *testing.T, dicomStoreID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -1953,7 +1953,7 @@ func runGetDICOMStoreToolInvokeTest(t *testing.T, dicomStoreID, want string) {
 }
 
 func runGetDICOMStoreMetricsToolInvokeTest(t *testing.T, dicomStoreID, want string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -2059,7 +2059,7 @@ func runGetDICOMStoreMetricsToolInvokeTest(t *testing.T, dicomStoreID, want stri
 }
 
 func runSearchDICOMStudiesToolInvokeTest(t *testing.T, dicomStoreID string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -2181,7 +2181,7 @@ func runSearchDICOMStudiesToolInvokeTest(t *testing.T, dicomStoreID string) {
 }
 
 func runSearchDICOMSeriesToolInvokeTest(t *testing.T, dicomStoreID string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -2303,7 +2303,7 @@ func runSearchDICOMSeriesToolInvokeTest(t *testing.T, dicomStoreID string) {
 }
 
 func runSearchDICOMInstancesToolInvokeTest(t *testing.T, dicomStoreID string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -2425,7 +2425,7 @@ func runSearchDICOMInstancesToolInvokeTest(t *testing.T, dicomStoreID string) {
 }
 
 func runRetrieveRenderedDICOMInstanceToolInvokeTest(t *testing.T, dicomStoreID string) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
