@@ -12,36 +12,36 @@ aliases:
 
 The `looker-agent` tool allows LLMs to manage Looker Agents. It supports listing, retrieving, creating, updating, and deleting agents using the Looker Go SDK.
 
-It's compatible with the following sources:
+## Compatible Sources
 
-- [looker](../../sources/looker.md)
+{{< compatible-sources >}}
 
 ## Configuration
 
 To use the `looker-agent` tool, you must define it in your `server.yaml` file.
 
 ```yaml
-tools:
-  - name: agent_manage
-    type: looker-agent
-    source: my_looker_source
-    description: |
-      Manage Looker AI Agents. This tool allows you to perform various operations on Looker Agents, 
-      including listing all available agents, retrieving details for a specific agent, 
-      creating a new agent, updating an existing one, and deleting an agent.
+kind: tools
+name: agent_manage
+type: looker-agent
+source: my_looker_source
+description: |
+  Manage Looker AI Agents. This tool allows you to perform various operations on Looker Agents, 
+  including listing all available agents, retrieving details for a specific agent, 
+  creating a new agent, updating an existing one, and deleting an agent.
 
-      Parameters:
-      - operation (required): The action to perform.
-        - 'list': Returns a list of all existing agents.
-        - 'get': Retrieves detailed information about a specific agent. Requires 'agent_id'.
-        - 'create': Creates a new Looker AI Agent. Requires 'name'. Optional 'instructions', 'sources', 'code_interpreter'.
-        - 'update': Updates an existing Looker AI Agent. Requires 'agent_id'. Optional 'name', 'instructions', 'sources', 'code_interpreter'.
-        - 'delete': Removes an existing agent. Requires 'agent_id'.
-      - agent_id (optional): The unique identifier of the agent. Required for 'get', 'update', and 'delete' operations.
-      - name (optional): The display name for the agent. Required for 'create' operation.
-      - instructions (optional): The system prompt or instructions for the agent. Used for 'create' and 'update' operations.
-      - sources (optional): A list of JSON-encoded data sources for the agent. Each source should be a JSON string with 'model' and 'explore' keys.
-      - code_interpreter (optional): A boolean value to enable or disable Code Interpreter for this Agent.
+  Parameters:
+  - operation (required): The action to perform.
+    - 'list': Returns a list of all existing agents.
+    - 'get': Retrieves detailed information about a specific agent. Requires 'agent_id'.
+    - 'create': Creates a new Looker AI Agent. Requires 'name'. Optional 'instructions', 'sources', 'code_interpreter'.
+    - 'update': Updates an existing Looker AI Agent. Requires 'agent_id'. Optional 'name', 'instructions', 'sources', 'code_interpreter'.
+    - 'delete': Removes an existing agent. Requires 'agent_id'.
+  - agent_id (optional): The unique identifier of the agent. Required for 'get', 'update', and 'delete' operations.
+  - name (optional): The display name for the agent. Required for 'create' operation.
+  - instructions (optional): The system prompt or instructions for the agent. Used for 'create' and 'update' operations.
+  - sources (optional): A list of JSON-encoded data sources for the agent. Each source should be a JSON string with 'model' and 'explore' keys.
+  - code_interpreter (optional): A boolean value to enable or disable Code Interpreter for this Agent.
 ```
 
 ## Parameters
