@@ -16,6 +16,7 @@ package embeddingmodels
 
 import (
 	"context"
+	"math"
 	"strconv"
 	"strings"
 )
@@ -57,3 +58,15 @@ func FormatVectorForPgvector(vectorFloats []float32) any {
 }
 
 var _ VectorFormatter = FormatVectorForPgvector
+
+// FormatVectorForRedis converts a slice of floats into a little-endian byte string for RediSearch
+func FormatVectorForRedis(vectorFloats []float32) any {
+	b := make([]byte, 0, len(vectorFloats)*4)
+	for _, f := range vectorFloats {
+		bits := math.Float32bits(f)
+		b = append(b, byte(bits), byte(bits>>8), byte(bits>>16), byte(bits>>24))
+	}
+	return string(b)
+}
+
+var _ VectorFormatter = FormatVectorForRedis

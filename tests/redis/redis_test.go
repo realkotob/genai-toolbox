@@ -83,6 +83,14 @@ func TestRedisToolEndpoints(t *testing.T) {
 	// Write config into a file and pass it to command
 	toolsFile := tests.GetRedisValkeyToolsConfig(sourceConfig, RedisToolType)
 
+	insertCmds := [][]string{
+		{"HSET", "doc:1", "content", "$content", "embedding", "$text_to_embed"},
+	}
+	searchCmds := [][]string{
+		{"FT.SEARCH", "idx:senseai_docs", "*=>[KNN 1 @embedding $query_vec AS dist]", "PARAMS", "2", "query_vec", "$query", "RETURN", "1", "content", "DIALECT", "2"},
+	}
+	toolsFile = tests.AddRedisSemanticSearchConfig(t, toolsFile, RedisToolType, insertCmds, searchCmds)
+
 	cmd, cleanup, err := tests.StartCmd(ctx, toolsFile, args...)
 	if err != nil {
 		t.Fatalf("command initialization returned an error: %s", err)
@@ -111,6 +119,11 @@ func TestRedisToolEndpoints(t *testing.T) {
 	tests.RunMCPToolCallMethod(t, mcpMyFailToolWant, mcpSelect1Want,
 		tests.WithMcpMyToolId3NameAliceWant(mcpInvokeParamWant),
 	)
+
+	// Semantic search tests
+	semanticInsertWant := `["1"]`
+	semanticSearchWant := `[["1","doc:1",["content","The quick brown fox jumps over the lazy dog"]]]`
+	tests.RunSemanticSearchToolInvokeTest(t, semanticInsertWant, semanticInsertWant, semanticSearchWant)
 }
 
 func setupRedisDB(t *testing.T, ctx context.Context, client *redis.Client) func(*testing.T) {
@@ -130,9 +143,17 @@ func setupRedisDB(t *testing.T, ctx context.Context, client *redis.Client) func(
 		}
 	}
 
+	// Create index for semantic search
+	_, err := client.Do(ctx, "FT.CREATE", "idx:senseai_docs", "ON", "HASH", "PREFIX", "1", "doc:",
+		"SCHEMA", "content", "TEXT", "embedding", "VECTOR", "FLAT", "6", "TYPE", "FLOAT32", "DIM", "768", "DISTANCE_METRIC", "COSINE").Result()
+	if err != nil {
+		t.Fatalf("unable to create semantic search index: %s", err)
+	}
+
 	return func(t *testing.T) {
 		// tear down test
-		_, err := client.Del(ctx, keys...).Result()
+		client.Do(ctx, "FT.DROPINDEX", "idx:senseai_docs", "DDL")
+		_, err := client.Del(ctx, append(keys, "doc:1")...).Result()
 		if err != nil {
 			t.Errorf("Teardown failed: %s", err)
 		}

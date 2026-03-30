@@ -92,6 +92,63 @@ func AddSemanticSearchConfig(t *testing.T, config map[string]any, toolKind, inse
 	return config
 }
 
+// AddRedisSemanticSearchConfig adds embedding models and semantic search tools to the config
+// with configurable tool kind and Redis commands.
+func AddRedisSemanticSearchConfig(t *testing.T, config map[string]any, toolKind string, insertCommands, searchCommands [][]string) map[string]any {
+	config["embeddingModels"] = map[string]any{
+		"gemini_model": map[string]any{
+			"kind":      "gemini",
+			"model":     "gemini-embedding-001",
+			"apiKey":    apiKey,
+			"dimension": 768,
+		},
+	}
+
+	tools, ok := config["tools"].(map[string]any)
+	if !ok {
+		t.Fatalf("unable to get tools from config")
+	}
+
+	tools["insert_docs"] = map[string]any{
+		"kind":        toolKind,
+		"source":      "my-instance",
+		"description": "Stores content and its vector embedding into the documents table.",
+		"commands":    insertCommands,
+		"parameters": []any{
+			map[string]any{
+				"name":        "content",
+				"type":        "string",
+				"description": "The text content associated with the vector.",
+			},
+			map[string]any{
+				"name":           "text_to_embed",
+				"type":           "string",
+				"description":    "The text content used to generate the vector.",
+				"embeddedBy":     "gemini_model",
+				"valueFromParam": "content",
+			},
+		},
+	}
+
+	tools["search_docs"] = map[string]any{
+		"kind":        toolKind,
+		"source":      "my-instance",
+		"description": "Finds the most semantically similar document to the query vector.",
+		"commands":    searchCommands,
+		"parameters": []any{
+			map[string]any{
+				"name":        "query",
+				"type":        "string",
+				"description": "The text content to search for.",
+				"embeddedBy":  "gemini_model",
+			},
+		},
+	}
+
+	config["tools"] = tools
+	return config
+}
+
 // RunSemanticSearchToolInvokeTest runs the insert_docs and search_docs tools
 // via both HTTP and MCP endpoints and verifies the output.
 func RunSemanticSearchToolInvokeTest(t *testing.T, insertWant, mcpInsertWant, searchWant string) {

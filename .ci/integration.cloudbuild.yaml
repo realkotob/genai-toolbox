@@ -785,7 +785,7 @@ steps:
     env:
       - "GOPATH=/gopath"
       - "SERVICE_ACCOUNT_EMAIL=$SERVICE_ACCOUNT_EMAIL"
-    secretEnv: ["REDIS_ADDRESS", "REDIS_PASS", "CLIENT_ID"]
+    secretEnv: ["REDIS_ADDRESS", "REDIS_PASS", "CLIENT_ID", "API_KEY"]
     volumes:
       - name: "go"
         path: "/gopath"
@@ -799,7 +799,9 @@ steps:
           .ci/test_with_coverage.sh \
             "Redis" \
             redis \
-            redis
+            redis \
+            "" \
+            "API_KEY"
         else
           echo "No relevant changes for Redis. Skipping shard."
           exit 0
@@ -813,7 +815,7 @@ steps:
       - "GOPATH=/gopath"
       - "VALKEY_DATABASE=$_VALKEY_DATABASE"
       - "SERVICE_ACCOUNT_EMAIL=$SERVICE_ACCOUNT_EMAIL"
-    secretEnv: ["VALKEY_ADDRESS", "CLIENT_ID"]
+    secretEnv: ["VALKEY_ADDRESS", "CLIENT_ID", "API_KEY"]
     volumes:
       - name: "go"
         path: "/gopath"
@@ -827,7 +829,9 @@ steps:
           .ci/test_with_coverage.sh \
             "Valkey" \
             valkey \
-            valkey
+            valkey \
+            "" \
+            "API_KEY"
         else
           echo "No relevant changes for Valkey. Skipping shard."
           exit 0
