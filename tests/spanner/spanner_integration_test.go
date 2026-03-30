@@ -162,6 +162,14 @@ func TestSpannerToolEndpoints(t *testing.T) {
 	toolsFile = addSpannerListTablesConfig(t, toolsFile)
 	toolsFile = addSpannerListGraphsConfig(t, toolsFile)
 
+	// Set up table for semantic search
+	vectorTableName, tearDownVectorTable := setupSpannerVectorTable(t, ctx, adminClient, dbString)
+	defer tearDownVectorTable(t)
+
+	// Add semantic search tool config
+	insertStmt, searchStmt := getSpannerVectorSearchStmts(vectorTableName)
+	toolsFile = tests.AddSemanticSearchConfig(t, toolsFile, SpannerToolType, insertStmt, searchStmt)
+
 	cmd, cleanup, err := tests.StartCmd(ctx, toolsFile, args...)
 	if err != nil {
 		t.Fatalf("command initialization returned an error: %s", err)
@@ -205,6 +213,7 @@ func TestSpannerToolEndpoints(t *testing.T) {
 	runSpannerExecuteSqlToolInvokeTest(t, select1Want, invokeParamWant, tableNameParam)
 	runSpannerListTablesTest(t, tableNameParam, tableNameAuth, tableNameTemplateParam)
 	runSpannerListGraphsTest(t, graphName)
+	tests.RunSemanticSearchToolInvokeTest(t, "null", "", "The quick brown fox")
 }
 
 // getSpannerToolInfo returns statements and param for my-tool for spanner-sql type
@@ -838,6 +847,50 @@ func runSpannerListGraphsTest(t *testing.T, graphName string) {
 			verifyGraphListResult(t, body, tc.expectedGraphs, tc.useSimpleFormat)
 		})
 	}
+}
+
+// setupSpannerVectorTable creates a vector table in Spanner for semantic search testing
+func setupSpannerVectorTable(t *testing.T, ctx context.Context, adminClient *database.DatabaseAdminClient, dbString string) (string, func(*testing.T)) {
+	tableName := "vector_table_" + strings.ReplaceAll(uuid.New().String(), "-", "")
+	createStatement := fmt.Sprintf(`CREATE TABLE %s (
+		id INT64,
+		content STRING(MAX),
+		embedding ARRAY<FLOAT32>
+	) PRIMARY KEY (id)`, tableName)
+
+	op, err := adminClient.UpdateDatabaseDdl(ctx, &databasepb.UpdateDatabaseDdlRequest{
+		Database:   dbString,
+		Statements: []string{createStatement},
+	})
+	if err != nil {
+		t.Fatalf("unable to start create vector table operation %s: %s", tableName, err)
+	}
+	err = op.Wait(ctx)
+	if err != nil {
+		t.Fatalf("unable to create test vector table %s: %s", tableName, err)
+	}
+
+	return tableName, func(t *testing.T) {
+		op, err = adminClient.UpdateDatabaseDdl(ctx, &databasepb.UpdateDatabaseDdlRequest{
+			Database:   dbString,
+			Statements: []string{fmt.Sprintf("DROP TABLE IF EXISTS %s", tableName)},
+		})
+		if err != nil {
+			t.Errorf("unable to start drop %s operation: %s", tableName, err)
+			return
+		}
+		opErr := op.Wait(ctx)
+		if opErr != nil {
+			t.Errorf("Teardown failed: %s", opErr)
+		}
+	}
+}
+
+// getSpannerVectorSearchStmts returns statements for spanner semantic search
+func getSpannerVectorSearchStmts(vectorTableName string) (string, string) {
+	insertStmt := fmt.Sprintf("INSERT INTO %s (id, content, embedding) VALUES (1, @content, @text_to_embed)", vectorTableName)
+	searchStmt := fmt.Sprintf("SELECT id, content, COSINE_DISTANCE(embedding, @query) AS distance FROM %s ORDER BY distance LIMIT 1", vectorTableName)
+	return insertStmt, searchStmt
 }
 
 func runSpannerSchemaToolInvokeTest(t *testing.T, accessSchemaWant string) {
