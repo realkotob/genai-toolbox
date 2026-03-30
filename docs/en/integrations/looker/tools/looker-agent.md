@@ -16,7 +16,22 @@ The `looker-agent` tool allows LLMs to manage Looker Agents. It supports listing
 
 {{< compatible-sources >}}
 
-## Configuration
+## Requirements
+
+This tool requires the underlying Looker Go SDK to support the `Agent` API resource (v0.26.6+).
+
+## Parameters
+
+| **Parameter** | **Type** | **Required** | **Description** |
+|:-------------|:--------:|:------------:|:----------------|
+| `operation` | `string` | Yes | The operation to perform. Must be one of: `list`, `get`, `create`, `update`, or `delete`. |
+| `agent_id` | `string` | No | The ID of the agent. Required for `get`, `update`, and `delete` operations. |
+| `name` | `string` | No | The name of the agent. Required for `create` operation. |
+| `instructions` | `string` | No | The instructions (system prompt) for the agent. Used for `create` and `update` operations. |
+| sources | array | No | Optional. A list of JSON-encoded data sources, where each is a string with 'model' and 'explore' keys. |
+| `code_interpreter` | `boolean` | No | Optional. Enables Code Interpreter for this Agent. |
+
+## Example
 
 To use the `looker-agent` tool, you must define it in your `server.yaml` file.
 
@@ -44,18 +59,7 @@ description: |
   - code_interpreter (optional): A boolean value to enable or disable Code Interpreter for this Agent.
 ```
 
-## Parameters
-
-| **Parameter** | **Type** | **Required** | **Description** |
-|:-------------|:--------:|:------------:|:----------------|
-| `operation` | `string` | Yes | The operation to perform. Must be one of: `list`, `get`, `create`, `update`, or `delete`. |
-| `agent_id` | `string` | No | The ID of the agent. Required for `get`, `update`, and `delete` operations. |
-| `name` | `string` | No | The name of the agent. Required for `create` operation. |
-| `instructions` | `string` | No | The instructions (system prompt) for the agent. Used for `create` and `update` operations. |
-| sources | array | No | Optional. A list of JSON-encoded data sources, where each is a string with 'model' and 'explore' keys. |
-| `code_interpreter` | `boolean` | No | Optional. Enables Code Interpreter for this Agent. |
-
-## Operations
+## Reference
 
 ### List Agents
 Retrieve a list of all agents.
@@ -107,6 +111,3 @@ Delete an agent by its ID.
   "agent_id": "12345"
 }
 ```
-
-## Dependencies
-This tool requires the underlying Looker Go SDK to support the `Agent` API resource (v0.26.6+).
