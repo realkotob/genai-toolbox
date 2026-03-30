@@ -8,7 +8,7 @@ aliases:
 - /resources/tools/looker-agent
 ---
 
-# Looker Agent
+## About
 
 The `looker-agent` tool allows LLMs to manage Looker Agents. It supports listing, retrieving, creating, updating, and deleting agents using the Looker Go SDK.
 
