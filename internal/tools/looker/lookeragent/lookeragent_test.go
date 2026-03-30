@@ -94,7 +94,7 @@ func TestFailParseFromYamlLookerAgent(t *testing.T) {
             method: GOT
             description: some description
                         `,
-			err: "error unmarshaling tool: unable to parse tool \"agent_manage\" as type \"looker-agent\": [3:1] unknown field \"method\"\n   1 | authRequired: []\n   2 | description: some description\n>  3 | method: GOT\n       ^\n   4 | name: agent_manage\n   5 | source: my-instance\n   6 | type: looker-agent",
+			err: "unknown field \"method\"",
 		},
 	}
 	for _, tc := range tcs {
@@ -116,9 +116,18 @@ type MockSource struct {
 	sources.Source
 }
 
-func (m MockSource) UseClientAuthorization() bool { return false }
-func (m MockSource) GetAuthTokenHeaderName() string { return "Authorization" }
-func (m MockSource) LookerApiSettings() *rtl.ApiSettings { return &rtl.ApiSettings{} }
+func (m MockSource) UseClientAuthorization() bool {
+	return false
+}
+
+func (m MockSource) GetAuthTokenHeaderName() string {
+	return "Authorization"
+}
+
+func (m MockSource) LookerApiSettings() *rtl.ApiSettings {
+	return &rtl.ApiSettings{}
+}
+
 func (m MockSource) GetLookerSDK(string) (*v4.LookerSDK, error) {
 	return &v4.LookerSDK{}, nil
 }
@@ -137,14 +146,14 @@ func TestInvokeLookerAgentValidation(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %s", err)
 	}
-	
+
 	cfg := lkr.Config{
 		Name:        "agent_manage",
 		Type:        "looker-agent",
 		Source:      "my-instance",
 		Description: "test description",
 	}
-	
+
 	tool, err := cfg.Initialize(nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
@@ -225,7 +234,7 @@ func TestManifestLookerAgent(t *testing.T) {
 		Source:      "my-instance",
 		Description: "test description",
 	}
-	
+
 	tool, err := cfg.Initialize(nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
@@ -258,7 +267,7 @@ func TestMcpManifestLookerAgent(t *testing.T) {
 		Source:      "my-instance",
 		Description: "test description",
 	}
-	
+
 	tool, err := cfg.Initialize(nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
@@ -290,7 +299,7 @@ func TestMcpManifestLookerAgent(t *testing.T) {
 	if opParam == nil {
 		t.Fatal("operation parameter not found via GetParameters")
 	}
-	
+
 	gotAllowed := opParam.GetAllowedValues()
 	wantAllowed := []any{"list", "get", "create", "update", "delete"}
 	if diff := cmp.Diff(wantAllowed, gotAllowed, cmpopts.SortSlices(func(a, b any) bool { return a.(string) < b.(string) })); diff != "" {

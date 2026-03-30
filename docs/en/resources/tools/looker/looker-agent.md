@@ -52,7 +52,7 @@ tools:
 | `agent_id` | `string` | No | The ID of the agent. Required for `get`, `update`, and `delete` operations. |
 | `name` | `string` | No | The name of the agent. Required for `create` operation. |
 | `instructions` | `string` | No | The instructions (system prompt) for the agent. Used for `create` and `update` operations. |
-| `sources` | `array` | No | Optional. A list of JSON-encoded data sources (e.g., `["{\"model\": \"m\", \"explore\": \"e\"}"]`). |
+| sources | array | No | Optional. A list of JSON-encoded data sources, where each is a string with 'model' and 'explore' keys. |
 | `code_interpreter` | `boolean` | No | Optional. Enables Code Interpreter for this Agent. |
 
 ## Operations
