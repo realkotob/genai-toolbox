@@ -299,30 +299,9 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>To use the &lt;code>looker-agent&lt;/code> tool, you must define it in your &lt;code>server.yaml&lt;/code> file.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tools&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">agent_manage&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-agent&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_looker_source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Manage Looker AI Agents. This tool allows you to perform various operations on Looker Agents, 
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> including listing all available agents, retrieving details for a specific agent, 
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> creating a new agent, updating an existing one, and deleting an agent.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Parameters:
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - operation (required): The action to perform.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - &amp;#39;list&amp;#39;: Returns a list of all existing agents.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - &amp;#39;get&amp;#39;: Retrieves detailed information about a specific agent. Requires &amp;#39;agent_id&amp;#39;.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - &amp;#39;create&amp;#39;: Creates a new Looker AI Agent. Requires &amp;#39;name&amp;#39;. Optional &amp;#39;instructions&amp;#39;, &amp;#39;sources&amp;#39;, &amp;#39;code_interpreter&amp;#39;.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - &amp;#39;update&amp;#39;: Updates an existing Looker AI Agent. Requires &amp;#39;agent_id&amp;#39;. Optional &amp;#39;name&amp;#39;, &amp;#39;instructions&amp;#39;, &amp;#39;sources&amp;#39;, &amp;#39;code_interpreter&amp;#39;.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - &amp;#39;delete&amp;#39;: Removes an existing agent. Requires &amp;#39;agent_id&amp;#39;.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - agent_id (optional): The unique identifier of the agent. Required for &amp;#39;get&amp;#39;, &amp;#39;update&amp;#39;, and &amp;#39;delete&amp;#39; operations.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - name (optional): The display name for the agent. Required for &amp;#39;create&amp;#39; operation.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - instructions (optional): The system prompt or instructions for the agent. Used for &amp;#39;create&amp;#39; and &amp;#39;update&amp;#39; operations.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - sources (optional): A list of JSON-encoded data sources for the agent. Each source should be a JSON string with &amp;#39;model&amp;#39; and &amp;#39;explore&amp;#39; keys.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> - code_interpreter (optional): A boolean value to enable or disable Code Interpreter for this Agent.&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;p>This tool requires the underlying Looker Go SDK to support the &lt;code>Agent&lt;/code> API resource (v0.26.6+).&lt;/p>
+&lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -371,9 +350,8 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="operations">Operations&lt;/h2>
-&lt;h3 id="list-agents">List Agents&lt;/h3>
-&lt;p>Retrieve a list of all agents.&lt;/p></description></item><item><title>looker-conversational-analytics</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-conversational-analytics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-conversational-analytics/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;p>To use the &lt;code>looker-agent&lt;/code> tool, you must define it in your &lt;code>server.yaml&lt;/code> file.&lt;/p></description></item><item><title>looker-conversational-analytics</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-conversational-analytics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-conversational-analytics/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>looker-conversational-analytics&lt;/code> tool allows you to ask questions about your
 Looker data.&lt;/p>
 &lt;p>&lt;code>looker-conversational-analytics&lt;/code> accepts two parameters:&lt;/p>
