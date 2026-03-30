@@ -74,6 +74,11 @@ func TestElasticsearchToolEndpoints(t *testing.T) {
 
 	toolsConfig := getElasticsearchToolsConfig(sourceConfig, ElasticsearchToolType, paramToolStatement, idParamToolStatement, nameParamToolStatement, arrayParamToolStatement, authToolStatement)
 
+	// Add semantic search config
+	searchStmt := fmt.Sprintf("FROM %s | WHERE embedding IS NOT NULL | EVAL score = COSINE_SIMILARITY(embedding, ?query) | SORT score DESC | LIMIT 1 | KEEP id, name", index)
+	insertStmt := fmt.Sprintf("FROM %s | WHERE name == ?content OR name == ?text_to_embed | LIMIT 0", index)
+	toolsConfig = tests.AddSemanticSearchConfig(t, toolsConfig, ElasticsearchToolType, insertStmt, searchStmt)
+
 	cmd, cleanup, err := tests.StartCmd(ctx, toolsConfig, args...)
 	if err != nil {
 		t.Fatalf("failed to start cmd: %v", err)
@@ -126,25 +131,20 @@ func TestElasticsearchToolEndpoints(t *testing.T) {
 			}
 		}
 	}`
-	res, err := esapi.IndicesCreateRequest{
+	_, err = esapi.IndicesCreateRequest{
 		Index: index,
 		Body:  strings.NewReader(mapping),
 	}.Do(ctx, esClient)
 	if err != nil {
 		t.Fatalf("error creating index: %s", err)
 	}
-	if res.IsError() {
-		// Ignore resource_already_exists_exception if it somehow exists
-	}
 
 	vectorSize := 768
 	var sb strings.Builder
 	sb.WriteString("[")
-	for i := 0; i < vectorSize; i++ {
+	if vectorSize > 0 {
 		sb.WriteString("0.1")
-		if i < vectorSize-1 {
-			sb.WriteString(", ")
-		}
+		sb.WriteString(strings.Repeat(", 0.1", vectorSize-1))
 	}
 	sb.WriteString("]")
 	semanticDoc := fmt.Sprintf(`{"id": 5, "name": "Semantic", "embedding": %s}`, sb.String())
@@ -170,10 +170,6 @@ func TestElasticsearchToolEndpoints(t *testing.T) {
 			t.Fatalf("error indexing document: %s", err)
 		}
 	}
-
-	searchStmt := fmt.Sprintf("FROM %s | WHERE embedding IS NOT NULL | EVAL score = COSINE_SIMILARITY(embedding, ?query) | SORT score DESC | LIMIT 1 | KEEP id, name", index)
-	insertStmt := fmt.Sprintf("FROM %s | WHERE name == ?content OR name == ?text_to_embed | LIMIT 0", index)
-	toolsConfig = tests.AddSemanticSearchConfig(t, toolsConfig, ElasticsearchToolType, insertStmt, searchStmt)
 
 	// Get configs for tests
 	wants := getElasticsearchWants()
