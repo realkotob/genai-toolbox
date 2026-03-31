@@ -337,8 +337,8 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  &lt;td style="text-align: left">The instructions (system prompt) for the agent. Used for &lt;code>create&lt;/code> and &lt;code>update&lt;/code> operations.&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">sources&lt;/td>
- &lt;td style="text-align: center">array&lt;/td>
+ &lt;td style="text-align: left">&lt;code>sources&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">&lt;code>array&lt;/code>&lt;/td>
  &lt;td style="text-align: center">No&lt;/td>
  &lt;td style="text-align: left">Optional. A list of JSON-encoded data sources, where each is a string with &amp;lsquo;model&amp;rsquo; and &amp;rsquo;explore&amp;rsquo; keys.&lt;/td>
  &lt;/tr>
