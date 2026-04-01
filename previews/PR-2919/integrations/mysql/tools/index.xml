@@ -36,10 +36,11 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -119,10 +120,11 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -254,10 +256,11 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  

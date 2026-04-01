@@ -7911,10 +7911,11 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mssql/">Cloud SQL for SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mssql/source/">Cloud SQL for SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8017,10 +8018,11 @@ Server and expects parameters in the SQL query to be in the form of either
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mssql/">Cloud SQL for SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mssql/source/">Cloud SQL for SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8072,10 +8074,11 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8155,10 +8158,11 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8290,10 +8294,11 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8543,19 +8548,21 @@ This tool does not take any input parameters.&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8609,19 +8616,21 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8744,19 +8753,21 @@ not support any input parameter.&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8876,19 +8887,21 @@ support any input parameter.&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8981,19 +8994,21 @@ takes the following input parameters:&lt;/p>
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -9151,19 +9166,21 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
  
  
+ 
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2919/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
