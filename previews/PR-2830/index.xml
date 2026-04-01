@@ -231,6 +231,8 @@ specified AlloyDB cluster.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -244,16 +246,18 @@ specified AlloyDB cluster.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/">AlloyDB Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/source/">AlloyDB Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_specific_cluster&lt;/span>&lt;span class="w">
@@ -333,6 +337,8 @@ specified AlloyDB instance.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -346,16 +352,18 @@ specified AlloyDB instance.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/">AlloyDB Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/source/">AlloyDB Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_specific_instance&lt;/span>&lt;span class="w">
@@ -435,6 +443,8 @@ specified AlloyDB user.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>alloydb-list-clusters</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/tools/alloydb-list-clusters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/tools/alloydb-list-clusters/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>alloydb-list-clusters&lt;/code> tool retrieves AlloyDB cluster information for all
@@ -467,6 +477,8 @@ location. The tool takes the following input parameters:&lt;/p>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -512,6 +524,8 @@ parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>alloydb-list-users</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/tools/alloydb-list-users/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/tools/alloydb-list-users/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>alloydb-list-users&lt;/code> tool lists all database users within an AlloyDB
@@ -551,6 +565,8 @@ cluster.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -564,16 +580,18 @@ cluster.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/">AlloyDB Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb-admin/source/">AlloyDB Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_users&lt;/span>&lt;span class="w">
@@ -710,6 +728,8 @@ list, it will be used as the default value for the &lt;code>dataset&lt;/code> pa
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>bigquery-get-table-info</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-get-table-info/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-get-table-info/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>bigquery-get-table-info&lt;/code> tool retrieves metadata for a BigQuery table.&lt;/p>
@@ -741,6 +761,8 @@ parameter is ignored.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>bigquery-list-table-ids</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-list-table-ids/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-list-table-ids/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>bigquery-list-table-ids&lt;/code> tool returns table IDs in a given BigQuery dataset.&lt;/p>
@@ -764,6 +786,8 @@ will be used as the default value for the &lt;code>dataset&lt;/code> parameter.&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>bigquery-search-catalog</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-search-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-search-catalog/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>bigquery-search-catalog&lt;/code> tool returns all entries in Dataplex Catalog (e.g.
@@ -782,6 +806,8 @@ DATASET, MODEL, ROUTINE, TABLE, VIEW.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>bigquery-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/bigquery/tools/bigquery-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>bigquery-sql&lt;/code> tool executes a pre-defined SQL statement.&lt;/p>
@@ -797,6 +823,8 @@ allowing it to interact with temporary resources like &lt;code>TEMP&lt;/code> ta
 within that session.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -940,6 +968,8 @@ the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -953,16 +983,18 @@ the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cassandra/">Cassandra&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cassandra/source/">Cassandra Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent CQL injections.
@@ -1123,6 +1155,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1136,16 +1170,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/">ClickHouse&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/source/">ClickHouse Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -1210,6 +1246,8 @@ Only &lt;code>alloydb&lt;/code>, &lt;code>spannerReference&lt;/code>, and &lt;co
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1223,16 +1261,18 @@ Only &lt;code>alloydb&lt;/code>, &lt;code>spannerReference&lt;/code>, and &lt;co
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudgda/">Gemini Data Analytics&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudgda/source/">Gemini Data Analytics Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-gda-query-tool&lt;/span>&lt;span class="w">
@@ -1268,6 +1308,8 @@ response bundle.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1281,16 +1323,18 @@ response bundle.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_fhir_store&lt;/span>&lt;span class="w">
@@ -1356,6 +1400,8 @@ types, or only resources that have been updated after a given time.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1369,16 +1415,18 @@ types, or only resources that have been updated after a given time.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">fhir_patient_everything&lt;/span>&lt;span class="w">
@@ -1463,6 +1511,8 @@ given criteria.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1476,16 +1526,18 @@ given criteria.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">fhir_patient_search&lt;/span>&lt;span class="w">
@@ -1665,6 +1717,8 @@ configured in the source. It takes no extra parameters.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1678,16 +1732,18 @@ configured in the source. It takes no extra parameters.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_dataset&lt;/span>&lt;span class="w">
@@ -1731,6 +1787,8 @@ configured in the source. It takes no extra parameters.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1744,16 +1802,18 @@ configured in the source. It takes no extra parameters.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_dicom_store&lt;/span>&lt;span class="w">
@@ -1818,6 +1878,8 @@ store.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1831,16 +1893,18 @@ store.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_dicom_store_metrics&lt;/span>&lt;span class="w">
@@ -1907,6 +1971,8 @@ by its type and ID.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -1920,16 +1986,18 @@ by its type and ID.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_fhir_resource&lt;/span>&lt;span class="w">
@@ -2006,6 +2074,8 @@ parameter is not needed.&lt;/p></description></item><item><title>cloud-healthcar
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2019,16 +2089,18 @@ parameter is not needed.&lt;/p></description></item><item><title>cloud-healthcar
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_fhir_store&lt;/span>&lt;span class="w">
@@ -2092,6 +2164,8 @@ parameter is not needed.&lt;/p></description></item><item><title>cloud-healthcar
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2105,16 +2179,18 @@ parameter is not needed.&lt;/p></description></item><item><title>cloud-healthcar
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_fhir_store_metrics&lt;/span>&lt;span class="w">
@@ -2180,6 +2256,8 @@ stores in the dataset of the healthcare source. It takes no extra parameters.&lt
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2193,16 +2271,18 @@ stores in the dataset of the healthcare source. It takes no extra parameters.&lt
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_dicom_stores&lt;/span>&lt;span class="w">
@@ -2248,6 +2328,8 @@ stores in the dataset of the healthcare source. It takes no extra parameters.&lt
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2261,16 +2343,18 @@ stores in the dataset of the healthcare source. It takes no extra parameters.&lt
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_fhir_stores&lt;/span>&lt;span class="w">
@@ -2316,6 +2400,8 @@ string of the image in JPEG format.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2329,16 +2415,18 @@ string of the image in JPEG format.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">retrieve_rendered_dicom_instance&lt;/span>&lt;span class="w">
@@ -2429,6 +2517,8 @@ criteria.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2442,16 +2532,18 @@ criteria.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">search_dicom_instances&lt;/span>&lt;span class="w">
@@ -2583,6 +2675,8 @@ set of criteria.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2596,16 +2690,18 @@ set of criteria.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">search_dicom_series&lt;/span>&lt;span class="w">
@@ -2730,6 +2826,8 @@ set of criteria.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2743,16 +2841,18 @@ set of criteria.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/">Cloud Healthcare&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudhealthcare/source/">Cloud Healthcare API Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">search_dicom_studies&lt;/span>&lt;span class="w">
@@ -2877,6 +2977,8 @@ Google Cloud project and instance.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2890,16 +2992,18 @@ Google Cloud project and instance.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The &lt;code>cloud-sql-list-databases&lt;/code> tool has two required parameters:&lt;/p>
 &lt;table>
@@ -2935,6 +3039,8 @@ Google Cloud project.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -2948,16 +3054,18 @@ Google Cloud project.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The &lt;code>cloud-sql-list-instances&lt;/code> tool has one required parameter:&lt;/p>
 &lt;table>
@@ -3037,6 +3145,8 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3050,16 +3160,18 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h3 id="requirements">Requirements&lt;/h3>
 &lt;p>To list schemas, the user needs:&lt;/p></description></item><item><title>cockroachdb-list-tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/tools/cockroachdb-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/tools/cockroachdb-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cockroachdb-list-tables&lt;/code> tool retrieves a list of tables from a CockroachDB database. It provides detailed information about table structure, including columns, constraints, indexes, and foreign key relationships.&lt;/p>
@@ -3074,6 +3186,8 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3087,16 +3201,18 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The tool accepts optional runtime parameters:&lt;/p></description></item><item><title>cockroachdb-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/tools/cockroachdb-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/tools/cockroachdb-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cockroachdb-sql&lt;/code> tool allows you to execute parameterized SQL queries against a CockroachDB database. This tool supports prepared statements with parameter binding, template parameters for dynamic query construction, and automatic transaction retry for resilience against serialization conflicts.&lt;/p>
@@ -3104,6 +3220,8 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3117,16 +3235,18 @@ your &lt;code>tools.yaml&lt;/code> file:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>Parameters allow you to safely pass values into your SQL queries using prepared statements. CockroachDB uses PostgreSQL-style parameter placeholders: &lt;code>$1&lt;/code>, &lt;code>$2&lt;/code>, etc.&lt;/p></description></item><item><title>couchbase-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/couchbase/tools/couchbase-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/couchbase/tools/couchbase-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>couchbase-sql&lt;/code> tool executes a pre-defined SQL statement against a Couchbase
@@ -3137,6 +3257,8 @@ parameters will be used according to their name: e.g. &lt;code>$id&lt;/code>.&lt
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3150,16 +3272,18 @@ parameters will be used according to their name: e.g. &lt;code>$id&lt;/code>.&lt
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/couchbase/">Couchbase&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/couchbase/source/">Couchbase Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -3191,6 +3315,8 @@ following form: projects/{project}/locations/{location}/entryGroups/{group}/entr
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>dataplex-lookup-entry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataplex/tools/dataplex-lookup-entry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataplex/tools/dataplex-lookup-entry/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>dataplex-lookup-entry&lt;/code> tool returns details of a particular entry in Dataplex
@@ -3216,6 +3342,8 @@ paths within the Entry. It only works for CUSTOM view.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>dataplex-search-aspect-types</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataplex/tools/dataplex-search-aspect-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataplex/tools/dataplex-search-aspect-types/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>dataplex-search-aspect-types&lt;/code> tool allows to fetch the metadata template of
@@ -3229,6 +3357,8 @@ If not provided, it fetches all aspect types available to the user.&lt;/li>
 (default), last_modified_timestamp, last_modified_timestamp asc.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -3251,6 +3381,8 @@ or projects/&amp;lt;project_number&amp;gt;.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>dataproc-get-cluster</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/tools/dataproc-get-cluster/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/tools/dataproc-get-cluster/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>dataproc-get-cluster&lt;/code> tool retrieves a specific Dataproc cluster from a
@@ -3263,6 +3395,8 @@ Google Cloud Dataproc source.&lt;/p>
 &lt;/ul>
 &lt;p>The tool gets the &lt;code>project&lt;/code> and &lt;code>region&lt;/code> from the source configuration.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -3279,16 +3413,18 @@ Google Cloud Dataproc source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/">Dataproc Clusters&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/source/">Dataproc Clusters Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_cluster&lt;/span>&lt;span class="w">
@@ -3356,6 +3492,8 @@ Google Cloud Dataproc source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3369,16 +3507,18 @@ Google Cloud Dataproc source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/">Dataproc Clusters&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/dataproc/source/">Dataproc Clusters Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_job&lt;/span>&lt;span class="w">
@@ -3605,6 +3745,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3618,16 +3760,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firebird/">Firebird&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firebird/source/">Firebird Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -3676,6 +3820,8 @@ prepared statement.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>firestore-add-documents</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/tools/firestore-add-documents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/tools/firestore-add-documents/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>firestore-add-documents&lt;/code> tool allows you to add new documents to a
@@ -3683,6 +3829,8 @@ Firestore collection. It supports all Firestore data types using Firestore&amp;r
 native JSON format. The tool automatically generates a unique document ID for
 each new document.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -3699,16 +3847,18 @@ each new document.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -3752,6 +3902,8 @@ efficient batch deletion and returns the success status for each document.&lt;/p
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3765,16 +3917,18 @@ efficient batch deletion and returns the success status for each document.&lt;/p
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">delete_user_documents&lt;/span>&lt;span class="w">
@@ -3821,6 +3975,8 @@ such as existence status, creation time, update time, and read time.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3834,16 +3990,18 @@ such as existence status, creation time, update time, and read time.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_user_documents&lt;/span>&lt;span class="w">
@@ -3890,6 +4048,8 @@ content along with metadata such as the ruleset name, and timestamps.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3903,16 +4063,18 @@ content along with metadata such as the ruleset name, and timestamps.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_firestore_rules&lt;/span>&lt;span class="w">
@@ -3962,6 +4124,8 @@ not provided, it lists all root-level collections in the database.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -3975,16 +4139,18 @@ not provided, it lists all root-level collections in the database.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_firestore_collections&lt;/span>&lt;span class="w">
@@ -4035,6 +4201,8 @@ with filters, ordering, and limit capabilities.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4048,16 +4216,18 @@ with filters, ordering, and limit capabilities.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/">Firestore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/source/">Firestore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -4119,6 +4289,8 @@ deleted from the document, following Firestore&amp;rsquo;s native behavior.&lt;/
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>firestore-validate-rules</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/tools/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/firestore/tools/firestore-validate-rules/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax
@@ -4132,6 +4304,8 @@ reporting with source positions and code snippets.&lt;/p>
 &lt;li>&lt;strong>Error debugging&lt;/strong>: Get detailed error locations with code snippets&lt;/li>
 &lt;/ol>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -4170,6 +4344,8 @@ parameters, and the request body for an HTTP Tool.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4183,16 +4359,18 @@ parameters, and the request body for an HTTP Tool.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/http/">HTTP&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/http/source/">HTTP Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h3 id="url">URL&lt;/h3>
 &lt;p>An HTTP request URL identifies the target the client wants to access.
 Toolbox composes the request URL from 3 places:&lt;/p></description></item><item><title>list_tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oracle/tools/oracle-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oracle/tools/oracle-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -4205,6 +4383,8 @@ to be in the native Oracle format (e.g., &lt;code>:1&lt;/code>, &lt;code>:2&lt;/
 statements (INSERT, UPDATE, DELETE), you must explicitly set the &lt;code>readOnly&lt;/code>
 field to &lt;code>false&lt;/code>.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -4222,6 +4402,8 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4235,16 +4417,18 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">add_dashboard_element&lt;/span>&lt;span class="w">
@@ -4318,6 +4502,8 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4331,16 +4517,18 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -4487,6 +4675,8 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4500,16 +4690,18 @@ Tiles are added in the order this tool is called for a given &lt;code>dashboard_
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;p>This tool requires the underlying Looker Go SDK to support the &lt;code>Agent&lt;/code> API resource (v0.26.6+).&lt;/p>
 &lt;h2 id="parameters">Parameters&lt;/h2>
@@ -4576,6 +4768,8 @@ answer the question. The form of the entry is &lt;code>[{&amp;quot;model&amp;quo
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4589,16 +4783,18 @@ answer the question. The form of the entry is &lt;code>[{&amp;quot;model&amp;quo
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ask_data_insights&lt;/span>&lt;span class="w">
@@ -4645,6 +4841,8 @@ answer the question. The form of the entry is &lt;code>[{&amp;quot;model&amp;quo
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4658,16 +4856,18 @@ answer the question. The form of the entry is &lt;code>[{&amp;quot;model&amp;quo
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-create-project-directory&lt;/span>&lt;span class="w">
@@ -4721,6 +4921,8 @@ as well as the file content.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4734,16 +4936,18 @@ as well as the file content.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">create_project_file&lt;/span>&lt;span class="w">
@@ -4798,6 +5002,8 @@ as well as the file content.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4811,16 +5017,18 @@ as well as the file content.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-delete-project-directory&lt;/span>&lt;span class="w">
@@ -4873,6 +5081,8 @@ as well as the file content.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4886,16 +5096,18 @@ as well as the file content.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">delete_project_file&lt;/span>&lt;span class="w">
@@ -4951,6 +5163,8 @@ to exit dev mode.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -4964,16 +5178,18 @@ to exit dev mode.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dev_mode&lt;/span>&lt;span class="w">
@@ -5036,6 +5252,8 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5049,16 +5267,18 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_connection_databases&lt;/span>&lt;span class="w">
@@ -5112,6 +5332,8 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5125,16 +5347,18 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_connection_schemas&lt;/span>&lt;span class="w">
@@ -5188,6 +5412,8 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5201,16 +5427,18 @@ supplied to this tool.&lt;/p></description></item><item><title>looker-get-connec
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_connection_table_columns&lt;/span>&lt;span class="w">
@@ -5269,6 +5497,8 @@ and an optional &lt;code>db&lt;/code> parameter.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5282,16 +5512,18 @@ and an optional &lt;code>db&lt;/code> parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_connection_tables&lt;/span>&lt;span class="w">
@@ -5346,6 +5578,8 @@ and an optional &lt;code>db&lt;/code> parameter.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5359,16 +5593,18 @@ and an optional &lt;code>db&lt;/code> parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_connections&lt;/span>&lt;span class="w">
@@ -5429,6 +5665,8 @@ default to 100 and 0.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5442,16 +5680,18 @@ default to 100 and 0.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_dashboards&lt;/span>&lt;span class="w">
@@ -5515,6 +5755,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5528,16 +5770,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_dimensions&lt;/span>&lt;span class="w">
@@ -5574,6 +5818,8 @@ for a given model from the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5587,16 +5833,18 @@ for a given model from the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_explores&lt;/span>&lt;span class="w">
@@ -5648,6 +5896,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5661,16 +5911,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_filters&lt;/span>&lt;span class="w">
@@ -5701,6 +5953,8 @@ default to 100 and 0.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5714,16 +5968,18 @@ default to 100 and 0.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_looks&lt;/span>&lt;span class="w">
@@ -5788,6 +6044,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5801,16 +6059,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_measures&lt;/span>&lt;span class="w">
@@ -5837,6 +6097,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5850,16 +6112,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_models&lt;/span>&lt;span class="w">
@@ -5910,6 +6174,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5923,16 +6189,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_parameters&lt;/span>&lt;span class="w">
@@ -5954,6 +6222,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -5967,16 +6237,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-project-directories&lt;/span>&lt;span class="w">
@@ -6028,6 +6300,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -6041,16 +6315,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_project_file&lt;/span>&lt;span class="w">
@@ -6103,6 +6379,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -6116,16 +6394,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_project_files&lt;/span>&lt;span class="w">
@@ -6178,6 +6458,8 @@ in a given model in the source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -6191,16 +6473,18 @@ in a given model in the source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_projects&lt;/span>&lt;span class="w">
@@ -6276,6 +6560,8 @@ field or filter within the past 90 days in production.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>looker-health-pulse</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-health-pulse/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-health-pulse/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>looker-health-pulse&lt;/code> tool performs health checks on a Looker instance. The
@@ -6298,6 +6584,8 @@ function is not available in Looker Core.&lt;/em>)&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>looker-health-vacuum</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-health-vacuum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-health-vacuum/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>looker-health-vacuum&lt;/code> tool helps you identify unused LookML objects such as
@@ -6308,6 +6596,8 @@ vacuum to perform:&lt;/p>
 &lt;li>&lt;code>explores&lt;/code>: Identifies unused joins and fields within an explore.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -6324,16 +6614,18 @@ vacuum to perform:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -6398,6 +6690,8 @@ Looker personal folder.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -6411,16 +6705,18 @@ Looker personal folder.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">make_dashboard&lt;/span>&lt;span class="w">
@@ -6492,6 +6788,8 @@ Looker personal folder.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>looker-query</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/tools/looker-query/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>looker-query&lt;/code> tool runs a query using the Looker
@@ -6544,6 +6842,8 @@ Looker so the query can be investigated further.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -6557,16 +6857,18 @@ Looker so the query can be investigated further.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">query_url&lt;/span>&lt;span class="w">
@@ -7059,6 +7361,8 @@ dashboard.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7072,16 +7376,18 @@ dashboard.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">run_dashboard&lt;/span>&lt;span class="w">
@@ -7135,6 +7441,8 @@ saved Look.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7148,16 +7456,18 @@ saved Look.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">run_look&lt;/span>&lt;span class="w">
@@ -7211,6 +7521,8 @@ as well as the new file content.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7224,16 +7536,18 @@ as well as the new file content.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">update_project_file&lt;/span>&lt;span class="w">
@@ -7288,6 +7602,8 @@ as well as the new file content.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7301,16 +7617,18 @@ as well as the new file content.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/">Looker&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/looker/source/">Looker Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">validate_project&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -7380,6 +7698,8 @@ GraphQL, and native protocols&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mindsdb-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mindsdb/tools/mindsdb-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mindsdb/tools/mindsdb-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mindsdb-sql&lt;/code> tool executes a pre-defined SQL statement against a MindsDB
@@ -7396,6 +7716,8 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 &lt;li>&lt;strong>API Translation&lt;/strong>: Automatically translate SQL queries into REST APIs, GraphQL, and native protocols&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -7417,6 +7739,8 @@ return an error.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7430,16 +7754,18 @@ return an error.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here is an example that performs a cleanup task by deleting all products from
@@ -7462,6 +7788,8 @@ results (&lt;strong>sorting&lt;/strong>), and restricting the number of document
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7475,16 +7803,18 @@ results (&lt;strong>sorting&lt;/strong>), and restricting the number of document
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example that finds up to 10 users from the &lt;code>customers&lt;/code> collection who
 live in a specific city. The results are sorted by their last name, and only
@@ -7496,7 +7826,9 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p>
 &lt;p>The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
-&lt;h2 id="hahahugoshortcode342s0hbhb">
+&lt;h2 id="hahahugoshortcode343s0hbhb">
+
+
 
 
 &lt;div class="compatibility-section">
@@ -7517,6 +7849,8 @@ tool returns the unique &lt;code>_id&lt;/code> of the newly created document.&lt
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7530,16 +7864,18 @@ tool returns the unique &lt;code>_id&lt;/code> of the newly created document.&lt
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here is an example configuration for a tool that adds a new user to a &lt;code>users&lt;/code>
 collection.&lt;/p></description></item><item><title>mongodb-update-many</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/tools/mongodb-update-many/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/tools/mongodb-update-many/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -7551,6 +7887,8 @@ MongoDB collection that match a given filter. It locates the documents using a
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7564,16 +7902,18 @@ MongoDB collection that match a given filter. It locates the documents using a
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example configuration. This tool applies a discount to all items
@@ -7586,6 +7926,8 @@ multiple documents, only the first one found will be updated.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7599,16 +7941,18 @@ multiple documents, only the first one found will be updated.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example of a &lt;code>mongodb-update-one&lt;/code> tool configuration. This tool
@@ -7626,6 +7970,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7639,8 +7985,10 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/">SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/source/">SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -7652,7 +8000,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mssql/">Cloud SQL for SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mssql/source/">Cloud SQL for SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -7660,6 +8008,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -7714,6 +8063,8 @@ full table information. Default: &lt;code>detailed&lt;/code>.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mssql-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/tools/mssql-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/tools/mssql-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mssql-sql&lt;/code> tool executes a pre-defined SQL statement against a SQL Server
@@ -7723,6 +8074,8 @@ Server and expects parameters in the SQL query to be in the form of either
 &lt;code>@Name&lt;/code> or &lt;code>@p1&lt;/code> to &lt;code>@pN&lt;/code> (ordinal position).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">QueryContext&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">`select * from t where ID = @ID and Name = @p2;`&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">sql&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Named&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;ID&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="s">&amp;#34;Bob&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -7739,8 +8092,10 @@ Server and expects parameters in the SQL query to be in the form of either
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/">SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mssql/source/">SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -7752,7 +8107,7 @@ Server and expects parameters in the SQL query to be in the form of either
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mssql/">Cloud SQL for SQL Server&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mssql/source/">Cloud SQL for SQL Server Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -7760,6 +8115,7 @@ Server and expects parameters in the SQL query to be in the form of either
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -7777,6 +8133,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7790,8 +8148,10 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/">MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/source/">MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -7803,7 +8163,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -7811,6 +8171,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -7856,6 +8217,8 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -7869,8 +8232,10 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/">MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/source/">MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -7882,7 +8247,7 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -7890,6 +8255,7 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_query_plan_tool&lt;/span>&lt;span class="w">
@@ -7941,6 +8307,8 @@ long in seconds, default &lt;code>0&lt;/code>.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mysql-list-table-fragmentation</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/tools/mysql-list-table-fragmentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/tools/mysql-list-table-fragmentation/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mysql-list-table-fragmentation&lt;/code> tool checks table fragmentation of MySQL
@@ -7973,6 +8341,8 @@ Search all visible tables in all visible databases if not specified.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>mysql-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/tools/mysql-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/tools/mysql-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mysql-sql&lt;/code> tool executes a pre-defined SQL statement against a MySQL
@@ -7980,6 +8350,8 @@ database.&lt;/p>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html">prepared statement&lt;/a>,
 and expects parameters in the SQL query to be in the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -7996,8 +8368,10 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/">MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/mysql/source/">MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8009,7 +8383,7 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/">Cloud SQL for MySQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-mysql/source/">Cloud SQL for MySQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8017,6 +8391,7 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -8057,6 +8432,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8070,16 +8447,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oceanbase/">OceanBase&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oceanbase/source/">OceanBase Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -8126,6 +8505,8 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8139,16 +8520,18 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oceanbase/">OceanBase&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oceanbase/source/">OceanBase Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -8166,6 +8549,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8179,16 +8564,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oracle/">Oracle&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/oracle/source/">Oracle Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -8208,6 +8595,8 @@ field to &lt;code>false&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-database-overview</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-database-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-database-overview/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-database-overview&lt;/code> fetches the current state of the PostgreSQL
@@ -8215,6 +8604,8 @@ server.&lt;/p>
 &lt;p>&lt;code>postgres-database-overview&lt;/code> fetches the current state of the PostgreSQL server
 This tool does not take any input parameters.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8231,8 +8622,10 @@ This tool does not take any input parameters.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8244,8 +8637,9 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8253,7 +8647,7 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8261,6 +8655,7 @@ This tool does not take any input parameters.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">database_overview&lt;/span>&lt;span class="w">
@@ -8280,6 +8675,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8293,8 +8690,10 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8306,8 +8705,9 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8315,7 +8715,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8323,6 +8723,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -8376,6 +8777,8 @@ If not provided, cardinality for all columns will be returned. Default: &lt;code
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-active-queries</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-active-queries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-active-queries/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-active-queries&lt;/code> tool retrieves information about currently
@@ -8396,6 +8799,8 @@ handled. If this parameter is omitted, no applications are excluded.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-available-extensions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-available-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-available-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-available-extensions&lt;/code> tool retrieves all PostgreSQL
@@ -8404,6 +8809,8 @@ extensions available for installation on a Postgres database.&lt;/p>
 for installation (extension name, default version description) as JSON. The does
 not support any input parameter.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8420,8 +8827,10 @@ not support any input parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8433,8 +8842,9 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8442,7 +8852,7 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8450,6 +8860,7 @@ not support any input parameter.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_available_extensions&lt;/span>&lt;span class="w">
@@ -8503,6 +8914,8 @@ takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-indexes</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-indexes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-indexes/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-indexes&lt;/code> tool lists available user indexes in the database
@@ -8520,6 +8933,8 @@ takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-installed-extensions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-installed-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-installed-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-installed-extensions&lt;/code> tool retrieves all PostgreSQL
@@ -8528,6 +8943,8 @@ extensions installed on a Postgres database.&lt;/p>
 (extension name, version, schema, owner, description) as JSON. The does not
 support any input parameter.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8544,8 +8961,10 @@ support any input parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8557,8 +8976,9 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8566,7 +8986,7 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8574,6 +8994,7 @@ support any input parameter.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_installed_extensions&lt;/span>&lt;span class="w">
@@ -8617,6 +9038,8 @@ support any input parameter.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-pg-settings</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-pg-settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-pg-settings/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-pg-settings&lt;/code> tool lists the configuration parameters for the postgres server, their current values, and related information.&lt;/p>
@@ -8627,6 +9050,8 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8643,8 +9068,10 @@ takes the following input parameters:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8656,8 +9083,9 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8665,7 +9093,7 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8673,6 +9101,7 @@ takes the following input parameters:&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_indexes&lt;/span>&lt;span class="w">
@@ -8699,6 +9128,8 @@ of tables) as part of the logical replication feature. The tool takes the follow
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-query-stats</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-query-stats/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-query-stats/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-query-stats&lt;/code> tool retrieves query statistics from the
@@ -8715,6 +9146,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code> (all
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-roles</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-roles/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-roles&lt;/code> tool lists all the user-created roles in the instance, excluding system roles (like &lt;code>cloudsql%&lt;/code> or &lt;code>pg_%&lt;/code>). It provides details about each role&amp;rsquo;s attributes and memberships.&lt;/p>
@@ -8725,6 +9158,8 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of roles to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8743,6 +9178,8 @@ tool takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-sequences</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-sequences/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-sequences&lt;/code> tool retrieves information about sequences in a
@@ -8757,6 +9194,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8786,6 +9225,8 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8799,8 +9240,10 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -8812,8 +9255,9 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -8821,7 +9265,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -8829,6 +9273,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_tablespaces&lt;/span>&lt;span class="w">
@@ -8857,6 +9302,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-views</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-views/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-list-views/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-views&lt;/code> tool retrieves a list of top N (default 50) views from
@@ -8874,6 +9321,8 @@ parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-long-running-transactions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-long-running-transactions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/postgres/tools/postgres-long-running-transactions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-long-running-transactions&lt;/code> tool reports transactions that exceed a configured duration threshold by scanning &lt;code>pg_stat_activity&lt;/code> for sessions where &lt;code>xact_start&lt;/code> is set and older than the configured interval.&lt;/p>
@@ -8881,6 +9330,8 @@ parameters:&lt;/p>
 &lt;p>The &lt;code>postgres-replication-stats&lt;/code> tool queries pg_stat_replication to surface the status of connected replicas. It reports application_name, client address, connection and sync state, and human-readable lag sizes (sent, write, flush, replay, and total) computed using WAL LSN differences.&lt;/p>
 &lt;p>This tool takes no parameters. It returns a JSON array; each element represents a replication connection on the primary and includes lag metrics formatted by pg_size_pretty.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8894,6 +9345,8 @@ will be the first parameter specified, &lt;code>$2&lt;/code> will be the second 
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -8948,6 +9401,8 @@ Serverless Spark batch job.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -8961,16 +9416,18 @@ Serverless Spark batch job.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/">Serverless for Apache Spark&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/source/">Serverless for Apache Spark Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_my_batch&lt;/span>&lt;span class="w">
@@ -8993,6 +9450,8 @@ Google Cloud Serverless for Apache Spark source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -9006,16 +9465,18 @@ Google Cloud Serverless for Apache Spark source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/">Serverless for Apache Spark&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/source/">Serverless for Apache Spark Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_spark_session_template&lt;/span>&lt;span class="w">
@@ -9092,6 +9553,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -9105,16 +9568,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/singlestore/">SingleStore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/singlestore/source/">SingleStore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -9160,6 +9625,8 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -9173,16 +9640,18 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/singlestore/">SingleStore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/singlestore/source/">SingleStore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -9200,6 +9669,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -9213,16 +9684,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/snowflake/">Snowflake&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/snowflake/source/">Snowflake Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -9272,6 +9745,8 @@ database.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -9285,16 +9760,18 @@ database.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/snowflake/">Snowflake&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/snowflake/source/">Snowflake Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;p>The specified SQL statement is executed as a prepared statement, and specified
 parameters will be inserted according to their position: e.g. &lt;code>:1&lt;/code> will be the
 first parameter specified, &lt;code>:2&lt;/code> will be the second parameter, and so on.&lt;/p>
@@ -13852,6 +14329,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -13865,16 +14344,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/spanner/">Spanner&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/spanner/source/">Spanner Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -13924,6 +14405,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -13937,16 +14420,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/spanner/">Spanner&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/spanner/source/">Spanner Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h3 id="googlesql">GoogleSQL&lt;/h3>
 &lt;p>For the &lt;code>googlesql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://cloud.google.com/spanner/docs/reference/standard-sql/dml-syntax">data
 manipulation language (DML)&lt;/a> statements, and specified parameters will
@@ -13968,6 +14453,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>sqlite-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/sqlite/tools/sqlite-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/sqlite/tools/sqlite-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>sqlite-sql&lt;/code> tool executes SQL statements against a SQLite database.&lt;/p>
@@ -13977,6 +14464,8 @@ bound in the order they are provided.&lt;/p>
 &lt;code>INSERT&lt;/code>, &lt;code>UPDATE&lt;/code>, &lt;code>DELETE&lt;/code>, &lt;code>CREATE/ALTER/DROP&lt;/code> table statements, and other
 DDL statements.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -13993,16 +14482,18 @@ DDL statements.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/sqlite/">SQLite&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/sqlite/source/">SQLite Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -14020,6 +14511,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14033,16 +14526,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/tidb/">TiDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/tidb/source/">TiDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -14088,6 +14583,8 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14101,16 +14598,18 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/tidb/">TiDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/tidb/source/">TiDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -14128,6 +14627,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14141,16 +14642,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/trino/">Trino&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/trino/source/">Trino Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -14195,6 +14698,8 @@ The specified SQL statement is executed as a &lt;a href="https://trino.io/docs/c
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14208,16 +14713,18 @@ The specified SQL statement is executed as a &lt;a href="https://trino.io/docs/c
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/trino/">Trino&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/trino/source/">Trino Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
@@ -14370,6 +14877,8 @@ of the prepared statement.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>AlloyDB Admin API using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/documentation/connect-to/ides/alloydb_pg_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/documentation/connect-to/ides/alloydb_pg_admin_mcp/</guid><description>&lt;html>
  &lt;head>
@@ -14432,6 +14941,8 @@ query execution capabilities.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14445,16 +14956,18 @@ query execution capabilities.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/">ClickHouse&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/source/">ClickHouse Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_analytics_query&lt;/span>&lt;span class="w">
@@ -14587,6 +15100,8 @@ instance in a specified Google Cloud project.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14600,16 +15115,18 @@ instance in a specified Google Cloud project.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The &lt;code>cloud-sql-mysql-create-instance&lt;/code> tool has the following parameters:&lt;/p>
 &lt;table>
@@ -14825,6 +15342,8 @@ for more information.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -14838,16 +15357,18 @@ for more information.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/elasticsearch/">Elasticsearch&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/elasticsearch/source/">Elasticsearch Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -15331,6 +15852,8 @@ to execute with.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>serverless-spark-create-spark-batch</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/tools/serverless-spark-create-spark-batch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/serverless-spark/tools/serverless-spark-create-spark-batch/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>serverless-spark-create-spark-batch&lt;/code> tool submits a Java Spark batch to a
@@ -15351,6 +15874,8 @@ version&lt;/a>
 to execute with.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -15435,6 +15960,8 @@ discovery and exploration tasks.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -15448,16 +15975,18 @@ discovery and exploration tasks.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/">ClickHouse&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/source/">ClickHouse Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_clickhouse_databases&lt;/span>&lt;span class="w">
@@ -15950,6 +16479,8 @@ data governance policies&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>clickhouse-list-tables</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/tools/clickhouse-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/tools/clickhouse-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>clickhouse-list-tables&lt;/code> tool lists all available tables in a specified
@@ -15958,6 +16489,8 @@ ClickHouse database.&lt;/p>
 of all tables in the specified database that are accessible to the configured
 user, making it useful for schema exploration and table discovery tasks.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -15974,16 +16507,18 @@ user, making it useful for schema exploration and table discovery tasks.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/">ClickHouse&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/clickhouse/source/">ClickHouse Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -16600,6 +17135,8 @@ exponential backoff.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -16613,16 +17150,18 @@ exponential backoff.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Basic clone (current state)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
@@ -16630,109 +17169,11 @@ exponential backoff.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-clone-instance&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin-source&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Creates an exact copy of a Cloud SQL instance. Supports configuring instance zones and high-availability setup through zone preferences.&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Point-in-time recovery (PITR) clone&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">clone-instance-pitr&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-clone-instance&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin-source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Creates an exact copy of a Cloud SQL instance at a specific point in time (PITR). Supports configuring instance zones and high-availability setup through zone preferences&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
-&lt;h3 id="tool-configuration">Tool Configuration&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
- &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>type&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Must be &amp;ldquo;cloud-sql-clone-instance&amp;rdquo;.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>source&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The name of the &lt;code>cloud-sql-admin&lt;/code> source to use.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>description&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>A description of the tool.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="tool-inputs">Tool Inputs&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>&lt;strong>parameter&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
- &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>project&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The project ID.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>sourceInstanceName&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The name of the source instance to clone.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>destinationInstanceName&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The name of the new (cloned) instance.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>pointInTime&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>(Optional) The point in time for a PITR (Point-In-Time Recovery) clone.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>preferredZone&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>(Optional) The preferred zone for the cloned instance. If not specified, defaults to the source instance&amp;rsquo;s zone.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>preferredSecondaryZone&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>(Optional) The preferred secondary zone for the cloned instance (for HA).&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="advanced-usage">Advanced Usage&lt;/h2>
-&lt;ul>
-&lt;li>The tool supports both basic clone and point-in-time recovery (PITR) clone operations.&lt;/li>
-&lt;li>For PITR, specify the &lt;code>pointInTime&lt;/code> parameter in RFC3339 format (e.g., &lt;code>2024-01-01T00:00:00Z&lt;/code>).&lt;/li>
-&lt;li>The source must be a valid Cloud SQL Admin API source.&lt;/li>
-&lt;li>You can optionally specify the &lt;code>zone&lt;/code> parameter to set the zone for the cloned instance. If omitted, the zone of the source instance will be used.&lt;/li>
-&lt;li>You can optionally specify the &lt;code>preferredZone&lt;/code> and &lt;code>preferredSecondaryZone&lt;/code> (only in REGIONAL instances) to set the preferred zones for the cloned instance. These are useful for high availability (HA) configurations. If omitted, defaults will be used based on the source instance.&lt;/li>
-&lt;/ul>
-&lt;h2 id="additional-resources">Additional Resources&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/admin-api">Cloud SQL Admin API documentation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/tools/">Toolbox Cloud SQL tools documentation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/clone-instance">Cloud SQL Clone API documentation&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>cloud-sql-create-backup</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Point-in-time recovery (PITR) clone&lt;/p></description></item><item><title>cloud-sql-create-backup</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cloud-sql-create-backup&lt;/code> tool creates an on-demand backup on a Cloud SQL instance using the Cloud SQL Admin API.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -16749,16 +17190,18 @@ exponential backoff.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -16804,6 +17247,8 @@ SQL instance.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -16817,16 +17262,18 @@ SQL instance.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -16901,6 +17348,8 @@ instance. It can create both built-in and IAM users.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -16914,16 +17363,18 @@ instance. It can create both built-in and IAM users.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">create-cloud-sql-user&lt;/span>&lt;span class="w">
@@ -16967,6 +17418,8 @@ the Cloud SQL Admin API.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -16980,16 +17433,18 @@ the Cloud SQL Admin API.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get-sql-instance&lt;/span>&lt;span class="w">
@@ -17033,6 +17488,8 @@ instance using the Cloud SQL Admin API.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -17046,16 +17503,18 @@ instance using the Cloud SQL Admin API.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">create-sql-instance&lt;/span>&lt;span class="w">
@@ -17143,6 +17602,8 @@ instance using the Cloud SQL Admin API.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -17156,16 +17617,18 @@ instance using the Cloud SQL Admin API.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">create-sql-instance&lt;/span>&lt;span class="w">
@@ -17252,6 +17715,8 @@ instance using the Cloud SQL Admin API.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -17265,16 +17730,18 @@ instance using the Cloud SQL Admin API.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;table>
  &lt;thead>
@@ -17328,6 +17795,8 @@ exponential backoff.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -17341,16 +17810,18 @@ exponential backoff.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloudsql-operations-get&lt;/span>&lt;span class="w">
@@ -17564,6 +18035,8 @@ It helps identify potential incompatibilities or issues before starting the actu
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -17577,16 +18050,18 @@ It helps identify potential incompatibilities or issues before starting the actu
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/">Cloud SQL Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloud-sql-admin/source/">Cloud SQL Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres-upgrade-precheck&lt;/span>&lt;span class="w">
@@ -18226,6 +18701,8 @@ project to view monitoring data.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -18239,16 +18716,18 @@ project to view monitoring data.&lt;/li>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/source/">Cloud Logging Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_log_names&lt;/span>&lt;span class="w">
@@ -18310,6 +18789,8 @@ project to view monitoring data.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -18323,16 +18804,18 @@ project to view monitoring data.&lt;/li>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/source/">Cloud Logging Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_resource_types&lt;/span>&lt;span class="w">
@@ -18375,6 +18858,8 @@ project to view monitoring data.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -18388,16 +18873,18 @@ project to view monitoring data.&lt;/li>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/">Cloud Logging Admin&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-2830/integrations/cloudloggingadmin/source/">Cloud Logging Admin Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">query_logs&lt;/span>&lt;span class="w">
