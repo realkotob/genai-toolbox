@@ -172,7 +172,8 @@ const child = spawn(command, npxArgs, { shell: os.platform() === 'win32', stdio:
 {{else}}
 function getToolboxPath() {
     if (process.env.GEMINI_CLI === '1') {
-        const localPath = path.resolve(__dirname, '../../../toolbox');
+        const ext = process.platform === 'win32' ? '.exe' : '';
+        const localPath = path.resolve(__dirname, '../../../toolbox' + ext);
         if (fs.existsSync(localPath)) {
             return localPath;
         }
