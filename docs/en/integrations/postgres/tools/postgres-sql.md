@@ -74,7 +74,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../source.md#template-parameters).
 
 ```yaml
 kind: tool
