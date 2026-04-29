@@ -20,20 +20,20 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/googleapis/genai-toolbox/internal/auth/generic"
-	"github.com/googleapis/genai-toolbox/internal/auth/google"
-	"github.com/googleapis/genai-toolbox/internal/embeddingmodels/gemini"
-	"github.com/googleapis/genai-toolbox/internal/prebuiltconfigs"
-	"github.com/googleapis/genai-toolbox/internal/prompts"
-	"github.com/googleapis/genai-toolbox/internal/prompts/custom"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	cloudsqlpgsrc "github.com/googleapis/genai-toolbox/internal/sources/cloudsqlpg"
-	httpsrc "github.com/googleapis/genai-toolbox/internal/sources/http"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/internal/tools"
-	"github.com/googleapis/genai-toolbox/internal/tools/http"
-	"github.com/googleapis/genai-toolbox/internal/tools/postgres/postgressql"
-	"github.com/googleapis/genai-toolbox/internal/util/parameters"
+	"github.com/googleapis/mcp-toolbox/internal/auth/generic"
+	"github.com/googleapis/mcp-toolbox/internal/auth/google"
+	"github.com/googleapis/mcp-toolbox/internal/embeddingmodels/gemini"
+	"github.com/googleapis/mcp-toolbox/internal/prebuiltconfigs"
+	"github.com/googleapis/mcp-toolbox/internal/prompts"
+	"github.com/googleapis/mcp-toolbox/internal/prompts/custom"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	cloudsqlpgsrc "github.com/googleapis/mcp-toolbox/internal/sources/cloudsqlpg"
+	httpsrc "github.com/googleapis/mcp-toolbox/internal/sources/http"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/tools/http"
+	"github.com/googleapis/mcp-toolbox/internal/tools/postgres/postgressql"
+	"github.com/googleapis/mcp-toolbox/internal/util/parameters"
 )
 
 func TestParseEnv(t *testing.T) {
@@ -184,7 +184,8 @@ func TestConvertConfig(t *testing.T) {
                     model: gemini-embedding-001
                     apiKey: some-key
                     dimension: 768`,
-			want: `kind: source
+			want: `
+kind: source
 name: my-pg-instance
 type: cloud-sql-postgres
 project: my-project
@@ -261,7 +262,8 @@ dimension: 768
             toolsets:
                 example_toolset:
                     - example_tool`,
-			want: `kind: tool
+			want: `
+kind: tool
 name: example_tool
 type: postgres-sql
 source: my-pg-instance
@@ -382,7 +384,8 @@ tools:
             kind: embeddingModel
             name: gemini-model2
             type: gemini`,
-			want: `kind: source
+			want: `
+kind: source
 name: my-pg-instance
 type: cloud-sql-postgres
 project: my-project
@@ -478,7 +481,8 @@ type: gemini
 		},
 		{
 			desc: "no convertion needed",
-			in: `kind: source
+			in: `
+kind: source
 name: my-pg-instance
 type: cloud-sql-postgres
 project: my-project
@@ -503,7 +507,8 @@ kind: toolset
 name: example_toolset
 tools:
 - example_tool`,
-			want: `kind: source
+			want: `
+kind: source
 name: my-pg-instance
 type: cloud-sql-postgres
 project: my-project
@@ -531,19 +536,30 @@ tools:
 `,
 		},
 		{
-			desc: "invalid source",
-			in:   `sources: invalid`,
-			want: "",
+			desc:   "invalid source",
+			in:     `sources: invalid`,
+			isErr:  true,
+			errStr: `doc 1: invalid config format at key "sources": expected nested format keys and type map`,
 		},
 		{
-			desc: "invalid toolset",
-			in:   `toolsets: invalid`,
-			want: "",
+			desc:   "invalid toolset",
+			in:     `toolsets: invalid`,
+			isErr:  true,
+			errStr: `doc 1: invalid config format at key "toolsets": expected nested format keys and type map`,
 		},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.desc, func(t *testing.T) {
 			output, err := ConvertConfig([]byte(tc.in))
+			if tc.isErr {
+				if err == nil {
+					t.Fatalf("expected error")
+				}
+				if tc.errStr != "" && err.Error() != tc.errStr {
+					t.Fatalf("incorrect error string: got %s, want %s", err, tc.errStr)
+				}
+				return
+			}
 			if err != nil {
 				t.Fatalf("unexpected error: %s", err)
 			}
@@ -1736,6 +1752,10 @@ func TestPrebuiltTools(t *testing.T) {
 					Name:      "replication",
 					ToolNames: []string{"replication_stats", "list_replication_slots", "list_publication_tables", "list_roles", "list_pg_settings", "database_overview"},
 				},
+				"vectorassist": {
+					Name:      "vectorassist",
+					ToolNames: []string{"execute_sql", "define_spec", "modify_spec", "apply_spec", "generate_query"},
+				},
 			},
 		},
 		{
@@ -1752,7 +1772,7 @@ func TestPrebuiltTools(t *testing.T) {
 				},
 				"monitor": tools.ToolsetConfig{
 					Name:      "monitor",
-					ToolNames: []string{"get_query_plan", "list_active_queries", "get_query_metrics", "get_system_metrics", "list_table_fragmentation", "list_tables_missing_unique_indexes"},
+					ToolNames: []string{"get_query_plan", "list_active_queries", "get_query_metrics", "get_system_metrics", "list_table_fragmentation", "list_table_stats", "list_tables_missing_unique_indexes"},
 				},
 				"lifecycle": tools.ToolsetConfig{
 					Name:      "lifecycle",
@@ -1788,7 +1808,7 @@ func TestPrebuiltTools(t *testing.T) {
 			wantToolset: server.ToolsetConfigs{
 				"discovery": tools.ToolsetConfig{
 					Name:      "discovery",
-					ToolNames: []string{"search_entries", "lookup_entry", "search_aspect_types", "lookup_context"},
+					ToolNames: []string{"search_entries", "lookup_entry", "search_aspect_types", "lookup_context", "search_dq_scans"},
 				},
 			},
 		},
@@ -1836,7 +1856,7 @@ func TestPrebuiltTools(t *testing.T) {
 				},
 				"monitor": tools.ToolsetConfig{
 					Name:      "monitor",
-					ToolNames: []string{"get_query_plan", "list_active_queries", "list_table_fragmentation", "list_tables_missing_unique_indexes"},
+					ToolNames: []string{"get_query_plan", "list_active_queries", "list_table_fragmentation", "list_table_stats", "list_tables_missing_unique_indexes"},
 				},
 			},
 		},
@@ -1866,7 +1886,7 @@ func TestPrebuiltTools(t *testing.T) {
 			wantToolset: server.ToolsetConfigs{
 				"looker_dev_tools": tools.ToolsetConfig{
 					Name:      "looker_dev_tools",
-					ToolNames: []string{"health_pulse", "health_analyze", "health_vacuum", "dev_mode", "get_projects", "get_project_files", "get_project_file", "create_project_file", "update_project_file", "delete_project_file", "get_project_directories", "create_project_directory", "delete_project_directory", "validate_project", "get_connections", "get_connection_schemas", "get_connection_databases", "get_connection_tables", "get_connection_table_columns", "get_lookml_tests", "run_lookml_tests", "create_view_from_table", "project_git_branch"},
+					ToolNames: []string{"health_pulse", "health_analyze", "health_vacuum", "dev_mode", "get_projects", "get_project_files", "get_project_file", "create_project_file", "update_project_file", "delete_project_file", "get_project_directories", "create_project_directory", "delete_project_directory", "validate_project", "get_connections", "get_connection_schemas", "get_connection_databases", "get_connection_tables", "get_connection_table_columns", "get_lookml_tests", "run_lookml_tests", "create_view_from_table", "list_git_branches", "get_git_branch", "create_git_branch", "switch_git_branch", "delete_git_branch"},
 				},
 			},
 		},

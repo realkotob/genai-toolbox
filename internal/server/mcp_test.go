@@ -27,10 +27,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/googleapis/genai-toolbox/internal/log"
-	"github.com/googleapis/genai-toolbox/internal/server/mcp/jsonrpc"
-	"github.com/googleapis/genai-toolbox/internal/server/resources"
-	"github.com/googleapis/genai-toolbox/internal/telemetry"
+	"github.com/googleapis/mcp-toolbox/internal/log"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp/jsonrpc"
+	"github.com/googleapis/mcp-toolbox/internal/server/resources"
+	"github.com/googleapis/mcp-toolbox/internal/telemetry"
 )
 
 const jsonrpcVersion = "2.0"
@@ -990,7 +990,6 @@ func TestSseEndpoint(t *testing.T) {
 	contentType := "text/event-stream"
 	cacheControl := "no-cache"
 	connection := "keep-alive"
-	accessControlAllowOrigin := "*"
 
 	testCases := []struct {
 		name   string
@@ -1055,9 +1054,6 @@ func TestSseEndpoint(t *testing.T) {
 			}
 			if gotConnection := resp.Header.Get("Connection"); gotConnection != connection {
 				t.Fatalf("unexpected content-type header: want %s, got %s", connection, gotConnection)
-			}
-			if gotAccessControlAllowOrigin := resp.Header.Get("Access-Control-Allow-Origin"); gotAccessControlAllowOrigin != accessControlAllowOrigin {
-				t.Fatalf("unexpected cache-control header: want %s, got %s", accessControlAllowOrigin, gotAccessControlAllowOrigin)
 			}
 
 			buffer := make([]byte, 1024)

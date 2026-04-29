@@ -30,13 +30,13 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/internal/auth/generic"
-	"github.com/googleapis/genai-toolbox/internal/server/mcp"
-	"github.com/googleapis/genai-toolbox/internal/server/mcp/jsonrpc"
-	mcputil "github.com/googleapis/genai-toolbox/internal/server/mcp/util"
-	v20241105 "github.com/googleapis/genai-toolbox/internal/server/mcp/v20241105"
-	v20250326 "github.com/googleapis/genai-toolbox/internal/server/mcp/v20250326"
-	"github.com/googleapis/genai-toolbox/internal/util"
+	"github.com/googleapis/mcp-toolbox/internal/auth/generic"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp/jsonrpc"
+	mcputil "github.com/googleapis/mcp-toolbox/internal/server/mcp/util"
+	v20241105 "github.com/googleapis/mcp-toolbox/internal/server/mcp/v20241105"
+	v20250326 "github.com/googleapis/mcp-toolbox/internal/server/mcp/v20250326"
+	"github.com/googleapis/mcp-toolbox/internal/util"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
@@ -367,7 +367,6 @@ func sseHandler(s *Server, w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/event-stream")
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	// Define attributes for session metrics
 	networkProtocolVersion := fmt.Sprintf("%d.%d", r.ProtoMajor, r.ProtoMinor)

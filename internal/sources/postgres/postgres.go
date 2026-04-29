@@ -18,12 +18,11 @@ import (
 	"context"
 	"fmt"
 	"net/url"
-	"strings"
 
 	"github.com/goccy/go-yaml"
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/util"
-	"github.com/googleapis/genai-toolbox/internal/util/orderedmap"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/util"
+	"github.com/googleapis/mcp-toolbox/internal/util/orderedmap"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"go.opentelemetry.io/otel/trace"
@@ -172,11 +171,11 @@ func initPostgresConnectionPool(ctx context.Context, tracer trace.Tracer, name, 
 }
 
 func ConvertParamMapToRawQuery(queryParams map[string]string) string {
-	queryArray := []string{}
+	values := make(url.Values, len(queryParams))
 	for k, v := range queryParams {
-		queryArray = append(queryArray, fmt.Sprintf("%s=%s", k, v))
+		values.Set(k, v)
 	}
-	return strings.Join(queryArray, "&")
+	return values.Encode()
 }
 
 func ParseQueryExecMode(queryExecMode string) (pgx.QueryExecMode, error) {
