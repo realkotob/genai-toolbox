@@ -27,8 +27,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (
@@ -233,7 +233,7 @@ func TestSQLiteExecuteSqlTool(t *testing.T) {
 			name:       "select no rows",
 			sql:        fmt.Sprintf("SELECT name FROM %s WHERE id = 999", tableName),
 			wantStatus: 200,
-			wantBody:   "null",
+			wantBody:   "[]",
 		},
 		{
 			name:       "invalid SQL",

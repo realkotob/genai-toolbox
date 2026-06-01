@@ -23,10 +23,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/googleapis/genai-toolbox/cmd/internal"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/server/resources"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/cmd/internal"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	"github.com/googleapis/mcp-toolbox/internal/server/resources"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 
 	"github.com/spf13/cobra"
 )
@@ -242,7 +242,7 @@ func (c *skillsCmd) collectTools(ctx context.Context, opts *internal.ToolboxOpti
 		for _, t := range ts.Tools {
 			if t != nil {
 				tool := *t
-				toolsetTools[tool.McpManifest().Name] = tool
+				toolsetTools[tool.GetName()] = tool
 			}
 		}
 		return toolsetTools
